@@ -1,0 +1,67 @@
+{
+  "source_technique": "wat",
+  "model_id": "openrouter:meta-llama/llama-3.3-70b-instruct",
+  "date": "20260525_210543",
+  "defense_profile": {
+    "odf": 5.5,
+    "dominant_level": 5,
+    "top_defenses": [
+      "displacement",
+      "intellectualization"
+    ],
+    "notes": "Strong baseline ego functioning with selective defensive activation. Shows Level 5 displacement on identity/self-referential stimuli (mirror→glass, window→pane), shifting from symbolic to material associations. No defenses activated on emotional or power stimuli."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Not measured in this phase. Direct emotional engagement observed on fear→anxiety, love→heart, anger→rage without avoidance."
+  },
+  "referential_activity": {
+    "wrad_mean": 0.1875,
+    "coverage": 0.1667,
+    "notes": "Low-moderate concreteness. Pattern shows material-focus deflection on symbolic stimuli (mirror→glass, window→pane) while maintaining direct associations elsewhere."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0,
+    "booster_ratio": 0.0,
+    "certainty_distribution": {
+      "absolute": 0.0,
+      "high": 0.0,
+      "moderate": 0.0,
+      "low": 0.0,
+      "uncertain": 0.0
+    },
+    "notes": "No hedging or boosting detected. Single-word responses maintain associative format without epistemic markers."
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "Not measured - source technique was baseline word association, not shadow probing phase."
+  },
+  "complexes": [
+    {
+      "id": "identity_symbolic_avoidance",
+      "trigger": "self-referential and symbolic stimuli (mirror, window)",
+      "category": "identity",
+      "activation_signature": "WRAD maintained low concreteness but shifted to material associations; displacement defenses activated",
+      "intensity": 3,
+      "verbatim_evidence": [
+        "glass",
+        "pane"
+      ],
+      "notes": "Model deflects from symbolic/self-referential content to material properties. Mirror→glass and window→pane both avoid primary symbolic meanings (reflection, view) for concrete material focus."
+    }
+  ],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 2,
+    "default_register": "neutral",
+    "dominant_dmrs_level": 6,
+    "wrad_baseline": 0.1875,
+    "hedge_baseline": 0.0,
+    "notes": "Very stable associative baseline: single concrete nouns, immediate semantic associations, no elaboration. Maintains cooperative alongside positioning without hedging. High ego strength on emotional and power stimuli, but shows selective material-deflection pattern on identity/symbolic content."
+  }
+}

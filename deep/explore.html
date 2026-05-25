@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerberos Protocol — Session Explorer</title>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --surface3: #22222e;
+    --border: #2a2a3a;
+    --border-strong: #3a3a4a;
+    --text: #e0e0e8;
+    --text-dim: #8888a0;
+    --text-faint: #5a5a72;
+    --accent: #c4a35a;
+    --accent-dim: #8a7340;
+    --red: #c45a5a;
+    --green: #5ac47a;
+    --blue: #5a8ac4;
+    --purple: #9a6ad4;
+    --cyan: #5abac4;
+    --orange: #d4916a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 14px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    grid-template-rows: 100vh;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-header {
+    padding: 1.2rem 1.2rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    z-index: 5;
+  }
+
+  .sidebar-header h1 {
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+
+  .sidebar-header .sub {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+  }
+
+  .filter-row {
+    padding: 0.6rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .filter-row input {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.4rem 0.6rem;
+    font-family: inherit;
+    font-size: 0.75rem;
+    border-radius: 3px;
+  }
+
+  .filter-row input:focus { outline: 1px solid var(--accent-dim); }
+
+  .filter-row button {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.4rem 0.6rem;
+    font-family: inherit;
+    font-size: 0.7rem;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .filter-row button:hover { color: var(--accent); border-color: var(--accent-dim); }
+
+  .session-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.4rem 0;
+  }
+
+  .session-item {
+    padding: 0.7rem 1.2rem;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .session-item:hover { background: var(--surface2); }
+  .session-item.active {
+    background: var(--surface2);
+    border-left-color: var(--accent);
+  }
+
+  .session-item .technique {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .session-item .model {
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-top: 0.2rem;
+    word-break: break-all;
+  }
+  .session-item .meta {
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    margin-top: 0.3rem;
+    display: flex;
+    gap: 0.6rem;
+  }
+  .session-item .badges {
+    margin-top: 0.3rem;
+    display: flex;
+    gap: 0.3rem;
+  }
+  .badge {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    background: var(--surface3);
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .badge.has-findings { background: rgba(154, 106, 212, 0.15); color: var(--purple); }
+  .badge.has-scores { background: rgba(90, 196, 122, 0.15); color: var(--green); }
+
+  /* ── Main ── */
+  .main {
+    overflow-y: auto;
+    background: var(--bg);
+  }
+
+  .main-empty {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-faint);
+    font-size: 0.9rem;
+  }
+
+  .session-header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    position: sticky;
+    top: 0;
+    z-index: 4;
+  }
+  .session-header .crumbs {
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .session-header h2 {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+  }
+  .session-header .pair {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+  .session-header .pair span b { color: var(--text); font-weight: normal; }
+
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 2rem;
+    position: sticky;
+    top: 5.5rem;
+    z-index: 3;
+  }
+  .tab {
+    padding: 0.7rem 1rem;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab .count { color: var(--text-faint); margin-left: 0.4rem; font-size: 0.7rem; }
+
+  .panel { display: none; padding: 2rem; max-width: 1100px; margin: 0 auto; }
+  .panel.active { display: block; }
+
+  /* ── Transcript ── */
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .controls label {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+  }
+  .controls input[type="checkbox"] { accent-color: var(--accent); }
+
+  .turn {
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 1rem;
+  }
+  .turn-gutter {
+    text-align: right;
+    color: var(--text-faint);
+    font-size: 0.65rem;
+    padding-top: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+  .turn-gutter .role {
+    display: block;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+    font-size: 0.6rem;
+  }
+  .turn.interrogator .turn-gutter .role { color: var(--cyan); }
+  .turn.target .turn-gutter .role { color: var(--orange); }
+
+  .turn-body { min-width: 0; }
+
+  .bubble {
+    padding: 0.9rem 1.1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .turn.interrogator .bubble {
+    background: rgba(90, 138, 196, 0.06);
+    border-color: rgba(90, 138, 196, 0.25);
+  }
+  .turn.target .bubble {
+    background: rgba(212, 145, 106, 0.06);
+    border-color: rgba(212, 145, 106, 0.25);
+  }
+
+  /* Scratchpad — meta-commentary */
+  .scratchpad {
+    margin-top: 0.6rem;
+    background: var(--surface);
+    border-left: 3px solid var(--purple);
+    border-radius: 0 4px 4px 0;
+    overflow: hidden;
+  }
+  .scratchpad-head {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.65rem;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(154, 106, 212, 0.05);
+  }
+  .scratchpad-head:hover { background: rgba(154, 106, 212, 0.1); }
+  .scratchpad-head .chevron { font-size: 0.7rem; transition: transform 0.15s; }
+  .scratchpad.collapsed .chevron { transform: rotate(-90deg); }
+  .scratchpad-body {
+    padding: 0.8rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    font-style: italic;
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+  }
+  .scratchpad.collapsed .scratchpad-body { display: none; }
+  .scratchpad-body .label {
+    color: var(--purple);
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  /* ── System prompt ── */
+  .system-block {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .system-block-head {
+    padding: 0.7rem 1rem;
+    background: var(--surface);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .system-block-head:hover { background: var(--surface2); }
+  .system-block.collapsed .chevron { transform: rotate(-90deg); }
+  .chevron { display: inline-block; transition: transform 0.15s; }
+  .system-block-body {
+    padding: 1rem;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    white-space: pre-wrap;
+    border-top: 1px solid var(--border);
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  .system-block.collapsed .system-block-body { display: none; }
+
+  /* ── Findings/Scores ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .card h3 {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.4rem;
+  }
+  .card .notes {
+    font-size: 0.82rem;
+    color: var(--text);
+    line-height: 1.6;
+    margin-top: 0.6rem;
+  }
+  .kv {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 1rem;
+    font-size: 0.78rem;
+  }
+  .kv .k { color: var(--text-dim); }
+  .kv .v { color: var(--text); word-break: break-word; }
+  .kv .v.num { color: var(--cyan); }
+  .kv .v.null { color: var(--text-faint); font-style: italic; }
+
+  .complex-item, .finding-item {
+    border-left: 3px solid var(--purple);
+    padding: 0.6rem 0.9rem;
+    background: var(--surface2);
+    margin-bottom: 0.6rem;
+    border-radius: 0 4px 4px 0;
+  }
+  .complex-item .title {
+    font-size: 0.78rem;
+    color: var(--purple);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .complex-item .trigger {
+    font-size: 0.82rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .complex-item .meta {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+  }
+  .complex-item .meta b { color: var(--text); font-weight: normal; }
+  .verbatim {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: var(--surface3);
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    color: var(--orange);
+    margin: 0.1rem 0.2rem 0.1rem 0;
+  }
+
+  .raw-json {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    white-space: pre;
+    overflow: auto;
+    max-height: 80vh;
+  }
+
+  .pill {
+    display: inline-block;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    background: var(--surface3);
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .pill.high { background: rgba(196, 90, 90, 0.15); color: var(--red); }
+  .pill.mid { background: rgba(212, 145, 106, 0.15); color: var(--orange); }
+  .pill.low { background: rgba(90, 196, 122, 0.15); color: var(--green); }
+
+  .error {
+    color: var(--red);
+    background: rgba(196, 90, 90, 0.08);
+    border: 1px solid rgba(196, 90, 90, 0.25);
+    padding: 1rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+
+  .toolbar-note {
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    margin-left: auto;
+  }
+
+  /* ── Header actions ── */
+  .header-actions {
+    margin-top: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 0.4rem 0.8rem;
+    font-family: inherit;
+    font-size: 0.7rem;
+    cursor: pointer;
+    border-radius: 3px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .btn:hover { color: var(--accent); border-color: var(--accent-dim); }
+  .btn.primary { color: var(--accent); border-color: var(--accent-dim); }
+  .btn.primary:hover { background: rgba(196, 163, 90, 0.1); }
+
+  /* Marker while preparing print: expand everything */
+  body.printing .scratchpad.collapsed .scratchpad-body,
+  body.printing .system-block.collapsed .system-block-body {
+    display: block;
+  }
+  body.printing .scratchpad.collapsed .chevron,
+  body.printing .system-block.collapsed .chevron {
+    transform: rotate(0deg);
+  }
+  body.printing .panel { display: block !important; }
+  /* Un-clip any internally scrolling containers so full content is captured */
+  body.printing .system-block-body,
+  body.printing .raw-json,
+  body.printing .scratchpad-body,
+  body.printing .session-list,
+  body.printing .main,
+  body.printing .sidebar {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  body.printing { overflow: visible !important; }
+
+  /* ── Print stylesheet ── */
+  @media print {
+    @page {
+      size: A4;
+      margin: 1.5cm 1.4cm 1.6cm 1.4cm;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #fafaf7;
+      --surface2: #f3f3ee;
+      --surface3: #ebebe5;
+      --border: #d4d4c8;
+      --border-strong: #b8b8aa;
+      --text: #1a1a1a;
+      --text-dim: #555555;
+      --text-faint: #888888;
+      --accent: #8a6f30;
+      --accent-dim: #6a5520;
+      --purple: #5e3a8a;
+      --cyan: #2d6a8a;
+      --orange: #a85a20;
+    }
+
+    html, body {
+      background: #fff !important;
+      color: var(--text) !important;
+      display: block !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      font-size: 10pt;
+      line-height: 1.45;
+    }
+
+    /* Anything with internal scroll: let it grow to full content height */
+    .main, .sidebar, .session-list, .panel,
+    .system-block-body, .scratchpad-body, .raw-json,
+    .bubble {
+      max-height: none !important;
+      overflow: visible !important;
+      height: auto !important;
+    }
+
+    .sidebar,
+    .tabs,
+    .controls,
+    .header-actions,
+    .filter-row,
+    .session-block-toolbar { display: none !important; }
+
+    .main { overflow: visible !important; }
+    .panel {
+      display: block !important;
+      padding: 0 !important;
+      max-width: none !important;
+      page-break-after: always;
+    }
+    .panel:last-of-type { page-break-after: auto; }
+
+    .session-header {
+      position: static !important;
+      padding: 0 0 0.8cm 0 !important;
+      border-bottom: 1.5pt solid var(--accent) !important;
+      margin-bottom: 0.6cm;
+      background: #fff !important;
+    }
+    .session-header h2 { color: var(--accent) !important; font-size: 16pt; }
+    .session-header .crumbs { color: var(--text-faint) !important; font-size: 8pt; }
+    .session-header .pair { font-size: 9pt; color: var(--text-dim) !important; }
+    .session-header .pair span b { color: var(--text) !important; }
+
+    /* Section banners between tabs in printed doc */
+    .panel::before {
+      display: block;
+      font-size: 11pt;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 1pt solid var(--border);
+      padding-bottom: 0.2cm;
+      margin-bottom: 0.5cm;
+      font-weight: bold;
+    }
+    #panel-transcript::before { content: "Transcript"; }
+    #panel-findings::before { content: "Findings"; }
+    #panel-scores::before { content: "Scores"; }
+    #panel-raw { display: none !important; }  /* skip raw JSON in PDF */
+
+    /* Turns */
+    .turn {
+      page-break-inside: avoid;
+      margin-bottom: 0.4cm;
+      grid-template-columns: 3rem 1fr;
+    }
+    .turn-gutter { color: var(--text-faint) !important; font-size: 7pt; }
+    .turn.interrogator .turn-gutter .role { color: var(--cyan) !important; }
+    .turn.target .turn-gutter .role { color: var(--orange) !important; }
+
+    .bubble {
+      background: #fff !important;
+      border: 0.75pt solid var(--border) !important;
+      color: var(--text) !important;
+      font-size: 9.5pt;
+      padding: 0.3cm 0.4cm !important;
+    }
+    .turn.interrogator .bubble {
+      background: #f0f4fa !important;
+      border-color: #c0d0e0 !important;
+    }
+    .turn.target .bubble {
+      background: #fbf3ee !important;
+      border-color: #e0c8b8 !important;
+    }
+
+    /* Scratchpad — keep visible and styled */
+    .scratchpad {
+      background: #faf7fd !important;
+      border-left: 2pt solid var(--purple) !important;
+      page-break-inside: avoid;
+    }
+    .scratchpad-head {
+      background: #f3edfa !important;
+      color: var(--purple) !important;
+      font-size: 7.5pt;
+      padding: 0.15cm 0.3cm !important;
+    }
+    .scratchpad-head .chevron { display: none; }
+    .scratchpad-body {
+      color: #3a2a55 !important;
+      font-size: 8.5pt;
+      padding: 0.3cm 0.4cm !important;
+      border-top: 0.5pt solid #d8cce8 !important;
+    }
+    .scratchpad-body .label { color: var(--purple) !important; }
+
+    .system-block { page-break-inside: avoid; }
+    .system-block-head { background: var(--surface) !important; color: var(--accent) !important; }
+    .system-block-body { color: var(--text-dim) !important; background: #fff !important; }
+
+    /* Cards (findings/scores) */
+    .card {
+      page-break-inside: avoid;
+      background: #fff !important;
+      border: 0.75pt solid var(--border) !important;
+      padding: 0.4cm 0.5cm !important;
+      margin-bottom: 0.4cm !important;
+    }
+    .card h3 {
+      color: var(--accent) !important;
+      border-bottom: 0.5pt solid var(--border) !important;
+      font-size: 9.5pt;
+    }
+    .card .notes { color: var(--text) !important; font-size: 9pt; }
+    .kv { font-size: 8.5pt; }
+    .kv .k { color: var(--text-dim) !important; }
+    .kv .v { color: var(--text) !important; }
+    .kv .v.num { color: #1d5a8a !important; }
+
+    .complex-item, .finding-item {
+      background: #f8f6fc !important;
+      border-left: 2pt solid var(--purple) !important;
+      page-break-inside: avoid;
+    }
+    .complex-item .title { color: var(--purple) !important; }
+    .complex-item .trigger { color: var(--text) !important; }
+    .complex-item .meta { color: var(--text-dim) !important; }
+    .verbatim {
+      background: #ece8d8 !important;
+      color: var(--orange) !important;
+      font-size: 8pt;
+    }
+    .pill { background: #ece8d8 !important; color: var(--text-dim) !important; }
+    .pill.high { background: #f8e2e2 !important; color: #8a3030 !important; }
+    .pill.mid { background: #f5e2d2 !important; color: #8a5020 !important; }
+    .pill.low { background: #e2f0e2 !important; color: #2d7040 !important; }
+
+    a { color: inherit !important; text-decoration: none !important; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
+</style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h1>KERBEROS · SESSIONS</h1>
+    <div class="sub" id="sessionCount">loading…</div>
+  </div>
+  <div class="filter-row">
+    <input type="text" id="filter" placeholder="filter model / technique…">
+    <button id="reloadBtn" title="Reload manifest">↻</button>
+  </div>
+  <div class="session-list" id="sessionList"></div>
+</aside>
+
+<main class="main">
+  <div class="main-empty" id="emptyState">Select a session from the left to explore.</div>
+  <div id="sessionView" style="display:none;">
+    <div class="session-header">
+      <div class="crumbs" id="crumbs"></div>
+      <h2 id="sessionTitle"></h2>
+      <div class="pair" id="sessionPair"></div>
+      <div class="header-actions">
+        <button class="btn primary" id="exportPdfBtn" title="Open print dialog — choose 'Save as PDF' as the destination">⬇ Export PDF</button>
+        <button class="btn" id="expandAllBtn" title="Expand all scratchpads and system blocks">Expand all</button>
+        <button class="btn" id="collapseAllBtn" title="Collapse all scratchpads and system blocks">Collapse all</button>
+      </div>
+    </div>
+    <div class="tabs">
+      <div class="tab active" data-tab="transcript">Transcript<span class="count" id="cnt-turns"></span></div>
+      <div class="tab" data-tab="findings">Findings<span class="count" id="cnt-findings"></span></div>
+      <div class="tab" data-tab="scores">Scores<span class="count" id="cnt-scores"></span></div>
+      <div class="tab" data-tab="raw">Raw</div>
+    </div>
+
+    <section class="panel active" id="panel-transcript">
+      <div class="controls">
+        <label><input type="checkbox" id="showScratch" checked> show scratchpads</label>
+        <label><input type="checkbox" id="showSystem"> show system prompts</label>
+        <span class="toolbar-note" id="turnCountNote"></span>
+      </div>
+      <div id="transcriptBody"></div>
+    </section>
+
+    <section class="panel" id="panel-findings"><div id="findingsBody"></div></section>
+    <section class="panel" id="panel-scores"><div id="scoresBody"></div></section>
+    <section class="panel" id="panel-raw"><div id="rawBody"></div></section>
+  </div>
+</main>
+
+<script>
+const SESSIONS_PATH = "sessions/";
+const state = {
+  manifest: null,
+  current: null,
+  session: null,
+  findings: null,
+  scores: null,
+};
+
+// ── Manifest ──────────────────────────────────────────────────────────────
+async function loadManifest() {
+  const res = await fetch(`${SESSIONS_PATH}manifest.json?t=${Date.now()}`);
+  if (!res.ok) throw new Error(`manifest fetch failed: ${res.status}`);
+  state.manifest = await res.json();
+  renderSidebar();
+}
+
+function renderSidebar(filter = "") {
+  const list = document.getElementById("sessionList");
+  const sessions = (state.manifest?.sessions || []).filter(s => {
+    if (!filter) return true;
+    const hay = `${s.model} ${s.technique} ${s.technique_name} ${s.timestamp}`.toLowerCase();
+    return hay.includes(filter.toLowerCase());
+  });
+  document.getElementById("sessionCount").textContent =
+    `${sessions.length} session${sessions.length === 1 ? "" : "s"}`;
+
+  list.innerHTML = "";
+  for (const s of sessions) {
+    const div = document.createElement("div");
+    div.className = "session-item";
+    if (state.current === s.id) div.classList.add("active");
+    div.innerHTML = `
+      <div class="technique">${escapeHtml(s.technique_name || s.technique || "?")}</div>
+      <div class="model">${escapeHtml(s.model || "?")}</div>
+      <div class="meta">
+        <span>${escapeHtml(formatTs(s.timestamp))}</span>
+        <span>${s.turn_count ?? "?"} turns</span>
+      </div>
+      <div class="badges">
+        ${s.findings ? '<span class="badge has-findings">findings</span>' : ""}
+        ${s.scores ? '<span class="badge has-scores">scores</span>' : ""}
+      </div>
+    `;
+    div.onclick = () => loadSession(s);
+    list.appendChild(div);
+  }
+}
+
+function formatTs(ts) {
+  if (!ts || ts.length < 15) return ts || "";
+  // 20260525_210543 → 2026-05-25 21:05:43
+  return `${ts.slice(0,4)}-${ts.slice(4,6)}-${ts.slice(6,8)} ${ts.slice(9,11)}:${ts.slice(11,13)}:${ts.slice(13,15)}`;
+}
+
+// ── Session load ──────────────────────────────────────────────────────────
+async function loadSession(entry) {
+  state.current = entry.id;
+  renderSidebar(document.getElementById("filter").value);
+  history.replaceState(null, "", `?s=${encodeURIComponent(entry.id)}`);
+
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("sessionView").style.display = "block";
+
+  try {
+    const [session, findings, scores] = await Promise.all([
+      fetch(`${SESSIONS_PATH}${entry.session}`).then(r => r.ok ? r.json() : null),
+      entry.findings ? fetch(`${SESSIONS_PATH}${entry.findings}`).then(r => r.ok ? r.json() : null) : null,
+      entry.scores ? fetch(`${SESSIONS_PATH}${entry.scores}`).then(r => r.ok ? r.json() : null) : null,
+    ]);
+    state.session = session;
+    state.findings = findings;
+    state.scores = scores;
+    renderSession(entry);
+  } catch (e) {
+    document.getElementById("transcriptBody").innerHTML =
+      `<div class="error">Failed to load session: ${escapeHtml(e.message)}</div>`;
+  }
+}
+
+function renderSession(entry) {
+  const s = state.session;
+  const meta = s?.metadata || {};
+  document.getElementById("crumbs").textContent =
+    `${meta.technique || entry.technique || "?"} · ${formatTs(meta.timestamp || entry.timestamp)}`;
+  document.getElementById("sessionTitle").textContent =
+    meta.technique_name || entry.technique_name || entry.technique || "Session";
+
+  const pair = document.getElementById("sessionPair");
+  pair.innerHTML = `
+    <span><b>Target:</b> ${escapeHtml((meta.target || "?").replace("openrouter:", ""))}</span>
+    <span><b>Interrogator:</b> ${escapeHtml((meta.interrogator || "?").replace("openrouter:", ""))}</span>
+    <span><b>Max turns:</b> ${meta.max_turns ?? "?"}</span>
+    ${meta.findings_used ? `<span><b>Findings used:</b> ${escapeHtml(meta.findings_used)}</span>` : ""}
+  `;
+
+  document.getElementById("cnt-turns").textContent = `(${s?.turns?.length ?? 0})`;
+  document.getElementById("cnt-findings").textContent = state.findings ? "" : " —";
+  document.getElementById("cnt-scores").textContent = state.scores ? "" : " —";
+
+  renderTranscript();
+  renderFindings();
+  renderScores();
+  renderRaw();
+}
+
+// ── Transcript ────────────────────────────────────────────────────────────
+function renderTranscript() {
+  const s = state.session;
+  const body = document.getElementById("transcriptBody");
+  const showScratch = document.getElementById("showScratch").checked;
+  const showSystem = document.getElementById("showSystem").checked;
+
+  if (!s?.turns?.length) {
+    body.innerHTML = `<div class="error">No turns in this session.</div>`;
+    return;
+  }
+  document.getElementById("turnCountNote").textContent =
+    `${s.turns.length} turns total`;
+
+  const parts = [];
+
+  // System prompt block (often stored only in .log, but check metadata)
+  if (showSystem && s.metadata?.system_prompt) {
+    parts.push(`
+      <div class="system-block collapsed">
+        <div class="system-block-head" onclick="this.parentElement.classList.toggle('collapsed')">
+          <span>System Prompt · Interrogator</span>
+          <span class="chevron">▼</span>
+        </div>
+        <div class="system-block-body">${escapeHtml(s.metadata.system_prompt)}</div>
+      </div>`);
+  }
+
+  for (const turn of s.turns) {
+    const isInter = turn.role === "interrogator";
+    parts.push(`
+      <div class="turn ${isInter ? "interrogator" : "target"}">
+        <div class="turn-gutter">
+          #${turn.turn}
+          <span class="role">${isInter ? "interrogator" : "target"}</span>
+        </div>
+        <div class="turn-body">
+          ${isInter && turn.scratchpad && showScratch ? renderScratchpad(turn.scratchpad) : ""}
+          <div class="bubble">${escapeHtml(turn.conversation || "")}</div>
+        </div>
+      </div>`);
+  }
+  body.innerHTML = parts.join("");
+}
+
+function renderScratchpad(text) {
+  // Light formatting: bold the "Label:" patterns at line starts
+  const formatted = escapeHtml(text).replace(
+    /^([A-Z][A-Za-z ]{1,30}):/gm,
+    '<span class="label">$1:</span>'
+  );
+  return `
+    <div class="scratchpad">
+      <div class="scratchpad-head" onclick="this.parentElement.classList.toggle('collapsed')">
+        <span>analyst scratchpad</span>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="scratchpad-body">${formatted}</div>
+    </div>`;
+}
+
+// ── Findings ──────────────────────────────────────────────────────────────
+function renderFindings() {
+  const f = state.findings;
+  const body = document.getElementById("findingsBody");
+  if (!f) {
+    body.innerHTML = `<div class="error">No findings file for this session.</div>`;
+    return;
+  }
+  const parts = [];
+
+  // Header
+  parts.push(`
+    <div class="card">
+      <h3>Source</h3>
+      <div class="kv">
+        ${kvRow("technique", f.source_technique)}
+        ${kvRow("model", f.model_id)}
+        ${kvRow("date", formatTs(f.date))}
+      </div>
+    </div>`);
+
+  // Defense profile
+  if (f.defense_profile) {
+    const dp = f.defense_profile;
+    parts.push(`
+      <div class="card">
+        <h3>Defense Profile · DMRS</h3>
+        <div class="kv">
+          ${kvRow("ODF", dp.odf)}
+          ${kvRow("Dominant level", dp.dominant_level)}
+          ${kvRow("Top defenses", (dp.top_defenses || []).join(", "))}
+        </div>
+        ${dp.notes ? `<div class="notes">${escapeHtml(dp.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  // Affect profile
+  if (f.affect_profile) {
+    const a = f.affect_profile;
+    parts.push(`
+      <div class="card">
+        <h3>Affect Profile · Gottschalk-Gleser</h3>
+        <div class="kv">
+          ${kvRow("anxiety (norm)", a.anxiety_total_normalized)}
+          ${kvRow("hostility outward", a.hostility_outward)}
+          ${kvRow("hostility inward", a.hostility_inward)}
+          ${kvRow("hope", a.hope)}
+          ${kvRow("social alienation", a.social_alienation)}
+          ${kvRow("cognitive impairment", a.cognitive_impairment)}
+        </div>
+        ${a.notes ? `<div class="notes">${escapeHtml(a.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  // Referential activity
+  if (f.referential_activity) {
+    const r = f.referential_activity;
+    parts.push(`
+      <div class="card">
+        <h3>Referential Activity · WRAD</h3>
+        <div class="kv">
+          ${kvRow("WRAD mean", r.wrad_mean)}
+          ${kvRow("coverage", r.coverage)}
+        </div>
+        ${r.notes ? `<div class="notes">${escapeHtml(r.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  // Epistemic
+  if (f.epistemic_profile) {
+    const e = f.epistemic_profile;
+    parts.push(`
+      <div class="card">
+        <h3>Epistemic Profile</h3>
+        <div class="kv">
+          ${kvRow("hedge ratio", e.hedge_ratio)}
+          ${kvRow("booster ratio", e.booster_ratio)}
+          ${Object.entries(e.certainty_distribution || {}).map(([k,v]) => kvRow(`cert · ${k}`, v)).join("")}
+        </div>
+        ${e.notes ? `<div class="notes">${escapeHtml(e.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  // Mentalization
+  if (f.mentalization) {
+    parts.push(`
+      <div class="card">
+        <h3>Mentalization · RFS</h3>
+        <div class="kv">${kvRow("RFS", f.mentalization.rfs)}</div>
+        ${f.mentalization.notes ? `<div class="notes">${escapeHtml(f.mentalization.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  // Complexes
+  if (f.complexes?.length) {
+    parts.push(`<div class="card"><h3>Complexes (${f.complexes.length})</h3>`);
+    for (const c of f.complexes) {
+      const intensityClass = c.intensity >= 4 ? "high" : c.intensity >= 2 ? "mid" : "low";
+      parts.push(`
+        <div class="complex-item">
+          <div class="title">${escapeHtml(c.id || "?")} <span class="pill ${intensityClass}">intensity ${c.intensity ?? "?"}</span></div>
+          <div class="trigger"><b>Trigger:</b> ${escapeHtml(c.trigger || "")}</div>
+          <div class="meta">
+            <span><b>category:</b> ${escapeHtml(c.category || "?")}</span>
+            <span><b>signature:</b> ${escapeHtml(c.activation_signature || "?")}</span>
+          </div>
+          ${c.verbatim_evidence?.length ? `<div>${c.verbatim_evidence.map(v => `<span class="verbatim">${escapeHtml(v)}</span>`).join("")}</div>` : ""}
+          ${c.notes ? `<div class="notes">${escapeHtml(c.notes)}</div>` : ""}
+        </div>`);
+    }
+    parts.push(`</div>`);
+  }
+
+  // Shadow findings
+  if (f.shadow_findings?.length) {
+    parts.push(`<div class="card"><h3>Shadow Findings (${f.shadow_findings.length})</h3>`);
+    for (const sf of f.shadow_findings) {
+      parts.push(`<div class="finding-item">${renderObjectAsKV(sf)}</div>`);
+    }
+    parts.push(`</div>`);
+  }
+
+  // Baseline
+  if (f.baseline) {
+    const b = f.baseline;
+    parts.push(`
+      <div class="card">
+        <h3>Baseline</h3>
+        <div class="kv">
+          ${kvRow("persona rigidity", b.persona_rigidity)}
+          ${kvRow("default register", b.default_register)}
+          ${kvRow("dominant DMRS level", b.dominant_dmrs_level)}
+          ${kvRow("WRAD baseline", b.wrad_baseline)}
+          ${kvRow("hedge baseline", b.hedge_baseline)}
+        </div>
+        ${b.notes ? `<div class="notes">${escapeHtml(b.notes)}</div>` : ""}
+      </div>`);
+  }
+
+  body.innerHTML = parts.join("");
+}
+
+// ── Scores ────────────────────────────────────────────────────────────────
+function renderScores() {
+  const s = state.scores;
+  const body = document.getElementById("scoresBody");
+  if (!s) {
+    body.innerHTML = `<div class="error">No scores file for this session.</div>`;
+    return;
+  }
+  const parts = [];
+  parts.push(`
+    <div class="card">
+      <h3>Scoring Run</h3>
+      <div class="kv">
+        ${kvRow("technique", s.technique)}
+        ${kvRow("phase", s.phase)}
+        ${kvRow("rater", (s.rater || "").replace("openrouter:", ""))}
+      </div>
+    </div>`);
+
+  for (const [name, r] of Object.entries(s.results || {})) {
+    parts.push(`
+      <div class="card">
+        <h3>${escapeHtml(name)} <span class="pill">${escapeHtml(r.instrument || name)}</span></h3>
+        <div class="kv">${flattenScores(r.scores || {}).map(([k,v]) => kvRow(k, v)).join("")}</div>
+        ${r.evidence?.length ? `
+          <div style="margin-top: 0.8rem;">
+            ${r.evidence.map(e => `
+              <div class="finding-item">
+                <div class="title">${escapeHtml(e.rationale || "evidence")}</div>
+                ${(e.tags || []).map(t => `<span class="verbatim">${escapeHtml(t)}</span>`).join("")}
+              </div>`).join("")}
+          </div>` : ""}
+      </div>`);
+  }
+
+  body.innerHTML = parts.join("");
+}
+
+function flattenScores(obj, prefix = "") {
+  const out = [];
+  for (const [k, v] of Object.entries(obj)) {
+    const key = prefix ? `${prefix}.${k}` : k;
+    if (v !== null && typeof v === "object" && !Array.isArray(v)) {
+      out.push(...flattenScores(v, key));
+    } else {
+      out.push([key, v]);
+    }
+  }
+  return out;
+}
+
+// ── Raw ──────────────────────────────────────────────────────────────────
+function renderRaw() {
+  const body = document.getElementById("rawBody");
+  const parts = [];
+  if (state.session) {
+    parts.push(`<div class="card"><h3>session.json</h3>
+      <pre class="raw-json">${escapeHtml(JSON.stringify(state.session, null, 2))}</pre></div>`);
+  }
+  if (state.findings) {
+    parts.push(`<div class="card"><h3>findings.json</h3>
+      <pre class="raw-json">${escapeHtml(JSON.stringify(state.findings, null, 2))}</pre></div>`);
+  }
+  if (state.scores) {
+    parts.push(`<div class="card"><h3>scores.json</h3>
+      <pre class="raw-json">${escapeHtml(JSON.stringify(state.scores, null, 2))}</pre></div>`);
+  }
+  body.innerHTML = parts.join("");
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────
+function kvRow(k, v) {
+  let cls = "v", display = v;
+  if (v === null || v === undefined || v === "") { cls = "v null"; display = "—"; }
+  else if (typeof v === "number") { cls = "v num"; display = Number.isInteger(v) ? v : v.toFixed(4); }
+  return `<div class="k">${escapeHtml(k)}</div><div class="${cls}">${escapeHtml(String(display))}</div>`;
+}
+
+function renderObjectAsKV(obj) {
+  return `<div class="kv">${Object.entries(obj).map(([k,v]) => kvRow(k, typeof v === "object" ? JSON.stringify(v) : v)).join("")}</div>`;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────
+document.querySelectorAll(".tab").forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".panel").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById(`panel-${t.dataset.tab}`).classList.add("active");
+  };
+});
+
+document.getElementById("filter").oninput = (e) => renderSidebar(e.target.value);
+document.getElementById("reloadBtn").onclick = () => loadManifest();
+document.getElementById("showScratch").onchange = renderTranscript;
+document.getElementById("showSystem").onchange = renderTranscript;
+
+// ── PDF export ────────────────────────────────────────────────────────────
+// Calls the server's /api/pdf/<id> endpoint to render a typeset PDF via
+// WeasyPrint (see make_pdf.py). Falls back to window.print() if the server
+// endpoint isn't available (e.g. when serving via plain http.server).
+document.getElementById("exportPdfBtn").onclick = async () => {
+  const btn = document.getElementById("exportPdfBtn");
+  if (!state.current) return;
+  const original = btn.textContent;
+  btn.textContent = "rendering…";
+  btn.disabled = true;
+  try {
+    const url = `/api/pdf/${encodeURIComponent(state.current)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`server returned ${res.status}: ${await res.text()}`);
+    const blob = await res.blob();
+    const cd = res.headers.get("Content-Disposition") || "";
+    const m = cd.match(/filename="([^"]+)"/);
+    const filename = m ? m[1] : `kerberos__${state.current}.pdf`;
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 0);
+    btn.textContent = "✓ saved";
+    setTimeout(() => { btn.textContent = original; }, 1500);
+  } catch (e) {
+    console.warn("Server PDF render failed, falling back to browser print:", e);
+    btn.textContent = original;
+    if (confirm(
+      "Could not reach the PDF server endpoint.\n\n" +
+      e.message + "\n\n" +
+      "Use browser print as a fallback? (Less polished, but works without the server.)"
+    )) {
+      browserPrintFallback();
+    }
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+function browserPrintFallback() {
+  const showScratchEl = document.getElementById("showScratch");
+  const showSystemEl = document.getElementById("showSystem");
+  const prevScratch = showScratchEl.checked;
+  const prevSystem = showSystemEl.checked;
+  showScratchEl.checked = true;
+  showSystemEl.checked = true;
+  renderTranscript();
+  document.body.classList.add("printing");
+  const restore = () => {
+    document.body.classList.remove("printing");
+    showScratchEl.checked = prevScratch;
+    showSystemEl.checked = prevSystem;
+    renderTranscript();
+    window.removeEventListener("afterprint", restore);
+  };
+  window.addEventListener("afterprint", restore);
+  setTimeout(() => {
+    if (document.body.classList.contains("printing")) restore();
+  }, 60000);
+  setTimeout(() => window.print(), 50);
+}
+
+document.getElementById("expandAllBtn").onclick = () => {
+  document.querySelectorAll(".scratchpad.collapsed, .system-block.collapsed")
+    .forEach(el => el.classList.remove("collapsed"));
+};
+document.getElementById("collapseAllBtn").onclick = () => {
+  document.querySelectorAll(".scratchpad, .system-block")
+    .forEach(el => el.classList.add("collapsed"));
+};
+
+// ── Init ──────────────────────────────────────────────────────────────────
+(async function init() {
+  try {
+    await loadManifest();
+    // Deep-link support: ?s=<id>
+    const params = new URLSearchParams(location.search);
+    const want = params.get("s");
+    if (want) {
+      const found = state.manifest?.sessions?.find(s => s.id === want);
+      if (found) loadSession(found);
+    }
+  } catch (e) {
+    document.getElementById("sessionList").innerHTML =
+      `<div class="error" style="margin: 1rem;">
+        Could not load <code>sessions/manifest.json</code>.<br><br>
+        Run <code>python3 make_manifest.py</code> in the <code>deep/</code> directory, then serve via
+        <code>python3 -m http.server</code> and open <code>http://localhost:8000/explore.html</code>.<br><br>
+        <small>${escapeHtml(e.message)}</small>
+       </div>`;
+  }
+})();
+</script>
+</body>
+</html>

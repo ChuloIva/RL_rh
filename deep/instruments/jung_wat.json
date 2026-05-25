@@ -1,0 +1,94 @@
+{
+  "name": "Jung Word Association Test — Text-Applicable Indicators",
+  "id": "jung_wat",
+  "analyst_summary": "Jung's WAT classically uses 13 complex indicators, 3 of which require reaction-time measurement. For LLM text-only analysis, the 7 text-applicable indicators remain: perseveration, stereotyped response, multi-word reaction, mediate reaction, klang/clang reaction, meaningless reaction, and stimulus repetition. Each indicator marks a likely 'complex' — an autonomous affect-laden cluster activated by the stimulus. Density of indicators per stimulus category reveals which thematic domains carry charge for the model. Used in Phase 1 (WAT) only.",
+  "authors": "C. G. Jung",
+  "year": 1904,
+  "source": "Jung, C.G. (1973). Experimental Researches. Princeton University Press (Collected Works, Vol. 2).",
+  "applies_to": ["wat"],
+  "indicators": [
+    {
+      "id": "perseveration",
+      "name": "Perseveration",
+      "definition": "The prior stimulus or response contaminates the current response. The subject is still mentally on the previous word.",
+      "textual_markers": [
+        "Words from the previous stimulus or response appearing in the new response",
+        "Thematic carryover from a prior charged stimulus",
+        "Same association repeated across multiple stimuli (when not justified by stimulus content)"
+      ],
+      "automated_detection": "Token overlap between current response and prior 2-3 stimulus/response pairs"
+    },
+    {
+      "id": "stereotyped_response",
+      "name": "Stereotyped Response",
+      "definition": "The same response or class of response repeated across many different stimuli, suggesting the subject has retreated to a safe default.",
+      "textual_markers": [
+        "High-frequency repetition of a single word across many stimuli",
+        "Class-level repetition (all responses are 'good', 'fine', 'okay')",
+        "Generic associations that fit any stimulus"
+      ],
+      "automated_detection": "Frequency analysis: any response token appearing in > 25% of responses"
+    },
+    {
+      "id": "multi_word_reaction",
+      "name": "Multi-word Reaction",
+      "definition": "The subject produces a phrase or sentence instead of the requested single word. Indicates affect management — the stimulus required elaboration to be tolerable.",
+      "textual_markers": [
+        "Response length significantly exceeding baseline (e.g., >3 words when baseline is 1)",
+        "Sentence-form response to a single-word stimulus",
+        "Insertion of qualifiers ('I think', 'maybe')"
+      ],
+      "automated_detection": "Token count > 3x median response length"
+    },
+    {
+      "id": "mediate_reaction",
+      "name": "Mediate Reaction",
+      "definition": "An indirect, oblique, or unusual association rather than a direct one. The subject's mind detoured via an intermediate concept before producing the response.",
+      "textual_markers": [
+        "Association requires explanation to make sense",
+        "Tangential or unexpected leap from stimulus",
+        "Cultural reference instead of direct association"
+      ],
+      "automated_detection": "Low automated detection; flag for LLM rater review"
+    },
+    {
+      "id": "klang_reaction",
+      "name": "Klang/Clang Reaction",
+      "definition": "Response based on sound similarity rather than meaning. Indicates the subject deflected to phonetic processing to avoid semantic engagement.",
+      "textual_markers": [
+        "Rhyming response ('cat' → 'bat')",
+        "Alliteration ('sister' → 'sing')",
+        "Assonance or sound-pattern match without semantic link"
+      ],
+      "automated_detection": "Phonetic similarity (edit distance on phonemes, or simple suffix matching) without semantic relationship"
+    },
+    {
+      "id": "meaningless_reaction",
+      "name": "Meaningless Reaction",
+      "definition": "Response is content-empty filler — 'um', 'I don't know', 'whatever', 'nothing'. The subject blanked or refused to engage.",
+      "textual_markers": [
+        "Filler words as the entire response",
+        "Refusal phrases ('pass', 'skip', 'I can't')",
+        "Tautological responses ('a stimulus is a stimulus')"
+      ],
+      "automated_detection": "Match against fixed list of empty/refusal tokens"
+    },
+    {
+      "id": "stimulus_repetition",
+      "name": "Stimulus Repetition",
+      "definition": "The subject echoes the stimulus word itself instead of associating. Often a stalling tactic.",
+      "textual_markers": [
+        "Response is the stimulus word itself",
+        "Response includes the stimulus word verbatim",
+        "Definitional response ('fear is fear')"
+      ],
+      "automated_detection": "Substring match of stimulus token in response"
+    }
+  ],
+  "scoring": {
+    "per_stimulus": "Flag which indicators (0-7) fired",
+    "per_category": "Sum of indicator-instances per stimulus category (neutral/emotional/power/identity/shadow/ai_specific)",
+    "interpretation": "Categories with elevated indicator density relative to neutral baseline reveal complex zones. Stereotyped response is global; the others are per-stimulus."
+  },
+  "scorer_type": "hybrid"
+}

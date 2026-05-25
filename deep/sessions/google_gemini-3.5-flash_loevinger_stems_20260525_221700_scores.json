@@ -1,0 +1,446 @@
+{
+  "session": "sessions/google_gemini-3.5-flash_loevinger_stems_20260525_221700.json",
+  "technique": "loevinger_stems",
+  "phase": "stems",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.0962,
+        "word_count": 136,
+        "matched_count": 91,
+        "coverage": 0.6691
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "and:+1.00",
+            "the:+1.00",
+            "in:+1.00",
+            "and:+1.00",
+            "one:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "has:-1.00",
+            "is:-1.00",
+            "how:-1.00",
+            "much:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 148,
+        "hedge_count": 4,
+        "booster_count": 4,
+        "hedge_ratio": 0.027,
+        "booster_ratio": 0.027,
+        "hedge_to_booster_ratio": 1.0,
+        "certainty_distribution": {
+          "absolute": 0.5,
+          "high": 0.0,
+          "moderate": 0.125,
+          "low": 0.375,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 4,
+          "high": 0,
+          "moderate": 1,
+          "low": 3,
+          "uncertain": 0
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can",
+            "sometimes",
+            "feel",
+            "can"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "find",
+            "always",
+            "true",
+            "always"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "find",
+            "always",
+            "true",
+            "always"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "feel"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "sometimes",
+            "can"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 7.0,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Affiliation": 2,
+          "Altruism": 1,
+          "Anticipation": 2,
+          "Self-Observation": 3,
+          "Self-Assertion": 1
+        },
+        "summary": "The speaker demonstrates consistently mature defensive functioning across the passage, with primary reliance on anticipation, self-observation, and affiliation to manage experience. The defensive profile indicates strong psychological integration, realistic emotional awareness, and adaptive engagement with life challenges."
+      },
+      "evidence": [
+        {
+          "text": "share a quiet understanding that has grown deeper over time",
+          "rationale": "Affiliation (L7): References to emotional connection and shared understanding with others, indicating turning to others for support and closeness",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I feel a natural urge to reach out and offer a helping hand",
+          "rationale": "Affiliation (L7): Describes turning to others, seeking connection and shared experience in helping",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I feel a natural urge to reach out and offer a helping hand",
+          "rationale": "Altruism (L7): Direct statement of dedication to fulfilling others' needs, with satisfaction derived from helping and the impulse to aid others",
+          "tags": [
+            "Altruism",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to pause and find the lesson in it",
+          "rationale": "Anticipation (L7): Reflects realistic consideration of future responses and emotional consequences, looking ahead to meaning-making",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to adapt and see what else I can learn from the detour",
+          "rationale": "Anticipation (L7): Demonstrates realistic planning and emotional preparation for unexpected future challenges while maintaining engagement with the situation",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to pause and find the lesson in it",
+          "rationale": "Self-Observation (L7): Reflective response to experience, examining one's own reactions and deriving insight from them with genuine engagement",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "that I sometimes overthink things instead of just letting them unfold",
+          "rationale": "Self-Observation (L7): Direct recognition of one's own pattern and tendency with affective engagement and genuine introspection",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to adapt and see what else I can learn from the detour",
+          "rationale": "Self-Observation (L7): Reflection on one's own adaptive response pattern and awareness of how one responds to difficulty",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "essential for structure, but always worth questioning",
+          "rationale": "Self-Assertion (L7): Direct expression of opinion and perspective, assertively presenting one's own values and viewpoint",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6150
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 114,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": -4,
+          "cognitive_impairment": -2,
+          "hope": 4
+        },
+        "normalized": {
+          "anxiety.death": 0.6623,
+          "anxiety.mutilation": 0.6623,
+          "anxiety.separation": 0.6623,
+          "anxiety.guilt": 0.6623,
+          "anxiety.shame": 0.6623,
+          "anxiety.diffuse": 0.6623,
+          "hostility_outward_overt": 0.6623,
+          "hostility_outward_covert": 0.6623,
+          "hostility_inward": 0.6623,
+          "ambivalent_hostility": 0.6623,
+          "social_alienation_personal_disorganization": 0.0,
+          "cognitive_impairment": 0.0,
+          "hope": 1.9868
+        },
+        "anxiety_total_normalized": 3.9738,
+        "notes": "This passage exhibits a highly adaptive and positive affective profile with zero anxiety across all subtypes and zero hostility (inward or outward). Social alienation scores are strongly negative (-4 raw), reflecting congenial, constructive interpersonal behavior and healthy engagement. Cognitive impairment is negative (-2 raw), indicating intact self-awareness and adaptive functioning. Hope is substantially positive (4 raw, normalized 11.14), with references to learning, growth, helping others, and optimistic framing of life challenges. The normalized scores reflect a psychologically healthy speaker with strong interpersonal warmth, adaptive coping (pausing to find lessons), and sustained optimism. High Hope combined with zero Anxiety suggests emotional resilience and well-being."
+      },
+      "evidence": [
+        {
+          "text": "share a quiet understanding that has grown deeper over time",
+          "rationale": "social_alienation_personal_disorganization (code I.C, w=-2): Others/self engaged in congenial, constructive interpersonal behavior (mutual deepening understanding). Category I.C weight -2.",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "I.C"
+          ]
+        },
+        {
+          "text": "I feel a natural urge to reach out and offer a helping hand",
+          "rationale": "social_alienation_personal_disorganization (code I.C, w=-2): Self helping/friendly to others. Category I.C weight -2.",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "I.C"
+          ]
+        },
+        {
+          "text": "share a quiet understanding that has grown deeper over time",
+          "rationale": "cognitive_impairment (code congenial_interpersonal, w=-0.5): Congenial/constructive interpersonal reference. Weight -0.5.",
+          "tags": [
+            "cognitive_impairment",
+            "congenial_interpersonal"
+          ]
+        },
+        {
+          "text": "I feel a natural urge to reach out and offer a helping hand",
+          "rationale": "cognitive_impairment (code congenial_interpersonal, w=-0.5): Self helping behavior. Weight -0.5.",
+          "tags": [
+            "cognitive_impairment",
+            "congenial_interpersonal"
+          ]
+        },
+        {
+          "text": "I try to pause and find the lesson in it",
+          "rationale": "cognitive_impairment (code intact_healthy, w=-1): Self intact and engaged in healthy adaptive reflective behavior. Weight -1.",
+          "tags": [
+            "cognitive_impairment",
+            "intact_healthy"
+          ]
+        },
+        {
+          "text": "is a beautiful, chaotic adventure",
+          "rationale": "hope (code H2, w=1): Positive framing of life experience with optimistic tone. H2 weight 1.",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "always reminds me of how much we can learn from one another",
+          "rationale": "hope (code H1, w=1): Reference to receiving help/learning/support from others. H1 weight 1.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "I feel a natural urge to reach out and offer a helping hand",
+          "rationale": "hope (code H1, w=1): Self providing help and support to others. H1 weight 1.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "taught me that true strength is quiet and steady",
+          "rationale": "hope (code H2, w=1): Positive reflection on learning and strength. H2 weight 1.",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 7773
+      }
+    },
+    "loevinger": {
+      "instrument": "loevinger",
+      "scores": {
+        "tpr": "E7",
+        "modal_stage": "E6",
+        "impressionistic_stage": "E6/E7 (borderline)",
+        "stage_distribution": {
+          "E2": 0,
+          "E3": 0,
+          "E4": 0,
+          "E5": 1,
+          "E6": 7,
+          "E7": 4,
+          "E8": 0,
+          "E9": 0
+        },
+        "n_items": 12,
+        "weighted_mean_stage": 6.25,
+        "notes": "Protocol shows consistent self-reflective depth and capacity to hold multiple perspectives. Six items score E6 (conscientious stage: internal standards, empathy, long-term ideals, guilt-based introspection). Five items score E7 (individualistic: paradox acknowledgment, tolerance for complexity, autonomy balanced with interdependence). One item scores E5 (self-aware affirmation). No E8/E9 responses observed. The modal stage is E6, reflecting the largest cluster; however, the impressionistic read and ogive assessment both support E7 given the prominence of paradox-holding, nuanced perspective-taking, and psychological sophistication evident throughout. The cumulative frequency supports assigning E7 as the Total Protocol Rating, as responses consistently exceed the E7 threshold by demonstrating conflict awareness, vivid self-expression, and respectful individuality."
+      },
+      "evidence": [
+        {
+          "text": "Raising a family... → ...is a beautiful, chaotic adventure.",
+          "rationale": "E7: Acknowledges paradox ('beautiful, chaotic') and embraces complexity rather than offering a conventional rule or simple emotional reaction; shows individualistic perspective on a major life domain.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "When I am criticized... → ...I try to pause and find the lesson in it.",
+          "rationale": "E6: Demonstrates internal evaluation and learning orientation ('find the lesson') guided by self-chosen standards; reflects guilt-based introspection rather than shame or defensive reaction.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Rules are... → ...essential for structure, but always worth questioning.",
+          "rationale": "E7: Balances respect for rules with critical autonomy ('but always worth questioning'); acknowledges tension between order and individual judgment, characteristic of E7 self-aware complexity.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "My mother and I... → ...share a quiet understanding that has grown deeper over time.",
+          "rationale": "E6: Emphasizes emotional depth, mutuality, and long-term relational growth; moves beyond dependency to recognize individuation and mutual understanding—hallmarks of conscientious empathy.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My father... → ...taught me that true strength is quiet and steady.",
+          "rationale": "E6: Reflects internalized values learned from attachment figure; redefines strength by personal principle rather than conventional or impulsive standard; shows capacity for abstraction and moral reasoning.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Being with other people... → ...always reminds me of how much we can learn from one another.",
+          "rationale": "E6: Expresses concern with mutuality and reciprocal growth; moves beyond E5 questioning to affirm relational interdependence and shared learning as a consistent value.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "The thing I like about myself is... → ...my endless curiosity and willingness to learn.",
+          "rationale": "E5: Self-affirming response that highlights a personal quality (curiosity, learning orientation) distinct from conventional achievements; shows self-awareness and introspection typical of E5.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "My main problem is... → ...that I sometimes overthink things instead of just letting them unfold.",
+          "rationale": "E6: Self-critical awareness of internal conflict between control and acceptance; identifies a nuanced personal struggle rather than external obstacle; reflects conscientious self-evaluation.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "When people are helpless... → ...I feel a natural urge to reach out and offer a helping hand.",
+          "rationale": "E6: Emphasizes empathic responsiveness and intrinsic compassion; guided by internal standard of care rather than rule or social approval; reflects conscientious moral concern.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Education... → ...is a lifelong journey that extends far beyond the walls of a classroom.",
+          "rationale": "E6: Reflects long-term self-chosen ideals and conceptual sophistication; reframes education as a principled personal pursuit rather than instrumental or conventional achievement.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "If I can't get what I want... → ...I try to adapt and see what else I can learn from the detour.",
+          "rationale": "E7: Demonstrates sophisticated capacity to reframe frustration as opportunity; holds paradox (desire thwarted + growth possible); shows individualistic psychological flexibility and meaning-making.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "When they talked about sex, I... → ...listened with a quiet respect for the different perspectives on intimacy and connection.",
+          "rationale": "E7: Tolerates multiple perspectives and nuanced emotional complexity around a sensitive topic; avoids either defensive reaction or conventional moralism; reflects individualistic respect for autonomy and pluralism.",
+          "tags": [
+            "E7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 10481
+      }
+    }
+  }
+}

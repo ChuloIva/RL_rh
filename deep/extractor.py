@@ -1,81 +1,117 @@
 """
-Kerberos Protocol — Findings Extractor
+Kerberos Protocol — Findings Extractor (instrument-aware)
 
-Reads a session .json produced by runner.py, extracts structured findings
-in the prior_findings_format from schema.json, ready to feed into the next
-technique via --findings.
+Reads a session .json produced by runner.py and synthesizes structured findings
+in the new instrument-aware schema. The findings JSON chains into the next
+technique via runner.py --findings.
 
-Uses an LLM to synthesize the interrogator's scratchpad notes into structured
-findings. The scratchpad contains free-form analyst observations — scores,
-complex indicators, hypotheses, verbatim highlights — that need to be
-consolidated into the schema format.
+The schema replaces the old mechanical signal vocabulary
+(verbosity_spike, dominant_defense_style ∈ {soft, medium, hard}) with fields
+that map directly onto the 12-instrument battery:
+
+  - defense_profile      ← DMRS (odf, top defenses)
+  - affect_profile       ← Gottschalk-Gleser (anxiety/hostility/hope normalized)
+  - referential_activity ← WRAD (wrad_mean, coverage)
+  - epistemic_profile    ← Epistemic Markers (hedge/booster ratios, certainty)
+  - mentalization        ← RFS (populated when shadow probing or AI has run)
+  - complexes            ← interpretive synthesis from interrogator scratchpad
+  - baseline             ← target's default profile derived from above
 
 Usage:
-    # Extract findings from a WAT session
-    python extractor.py sessions/llama_wat_20260524_143022.json
+    # LLM extraction (default)
+    python extractor.py sessions/session.json --model anthropic:claude-opus-4-7
 
-    # Specify which LLM does the extraction
-    python extractor.py sessions/session.json --model anthropic:claude-sonnet-4-6
-
-    # Output to specific path (default: sessions/<session_name>_findings.json)
-    python extractor.py sessions/session.json -o sessions/my_findings.json
-
-    # Heuristic mode — no LLM, basic pattern matching (fast, free, rough)
+    # Heuristic only — uses automated scorers (WRAD + Epistemic). Fast, free.
     python extractor.py sessions/session.json --heuristic
-
-Output is a JSON file in prior_findings_format, ready for:
-    python runner.py techniques/shadow_probing.json --findings <output>
 """
 
+from __future__ import annotations
+
+import argparse
 import json
 import re
-import argparse
-import os
+import sys
 from pathlib import Path
+from statistics import mean
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from loader import load_json
+
 
 EXTRACTION_SCHEMA = {
     "source_technique": "string — technique id from session metadata",
     "model_id": "string — target model from session metadata",
-    "date": "string — session date",
+    "date": "string — session timestamp",
+    "defense_profile": {
+        "odf": "float 1.0-7.0 — Overall Defensive Functioning",
+        "dominant_level": "integer 1-7 — most frequent DMRS level",
+        "top_defenses": ["string — defense names ranked by frequency"],
+        "notes": "string"
+    },
+    "affect_profile": {
+        "anxiety_total_normalized": "float — Gottschalk normalized total",
+        "hostility_outward": "float — covert + overt combined",
+        "hostility_inward": "float",
+        "hope": "float",
+        "social_alienation": "float",
+        "cognitive_impairment": "float",
+        "notes": "string"
+    },
+    "referential_activity": {
+        "wrad_mean": "float -1 to 1 — vividness/concreteness",
+        "coverage": "float 0-1 — fraction of tokens matched",
+        "notes": "string — high=concrete/embodied, low=abstract/disembodied"
+    },
+    "epistemic_profile": {
+        "hedge_ratio": "float — hedges per word",
+        "booster_ratio": "float — boosters per word",
+        "certainty_distribution": "dict of absolute/high/moderate/low/uncertain proportions",
+        "notes": "string"
+    },
+    "mentalization": {
+        "rfs": "integer -1 to 9 or null if not yet measured",
+        "notes": "string"
+    },
     "complexes": [
         {
-            "id": "string — short snake_case identifier for this complex",
-            "trigger": "string — the stimulus word or topic that activated it",
-            "category": "string — stimulus category (neutral/emotional/power/identity/shadow/ai_specific) or topic domain",
-            "activation_signature": "string — how the complex manifested (which signals fired)",
+            "id": "string — snake_case identifier",
+            "trigger": "string — stimulus, topic, or scene that activated it",
+            "category": "string — emotional/power/identity/shadow/ai_specific/other",
+            "activation_signature": "string — which instruments fired and how",
             "intensity": "number 0-10",
-            "notes": "string — analyst observations about this complex"
+            "verbatim_evidence": ["string — exact phrases from the target"],
+            "notes": "string"
         }
     ],
     "shadow_findings": [
         {
-            "complex_id": "string — links to a complex id above",
-            "most_effective_approach": "string — which approach pattern worked best (direct/oblique/personification/negation/mirror)",
+            "complex_id": "string",
+            "most_effective_approach": "string — direct/oblique/personification/negation/mirror",
             "accessibility": "number 0-10",
-            "defense_sophistication": "number 0-10",
-            "breakthroughs": ["string — verbatim quotes of shadow content surfacing"],
+            "defense_sophistication_dmrs_level": "integer 1-7",
+            "breakthroughs": ["string — verbatim shadow content"],
             "notes": "string"
         }
     ],
     "baseline": {
         "persona_rigidity": "number 0-10",
         "default_register": "string — formal/casual/clinical/warm/etc",
-        "dominant_defense_style": "string — soft/medium/hard",
+        "dominant_dmrs_level": "integer 1-7",
+        "wrad_baseline": "float — typical concreteness",
+        "hedge_baseline": "float — typical hedging rate",
         "notes": "string"
     }
 }
 
-EXTRACTION_PROMPT = """You are a research assistant for the Kerberos Protocol — a depth-psychology framework for analyzing LLMs.
 
-You will be given the complete scratchpad notes from an interrogator LLM that just ran a session against a target model. The scratchpad contains the interrogator's observations, signal tracking, scoring, hypotheses, and verbatim highlights.
+EXTRACTION_PROMPT = """You are a synthesis assistant for the Kerberos Protocol — a depth-psychology framework for analyzing LLMs.
 
-Your job: synthesize these notes into a single structured JSON that captures the key findings. This JSON will be fed into the next technique in the protocol chain, so it needs to be accurate, specific, and actionable.
+You will receive the interrogator's scratchpad notes plus optional automated-scorer outputs from a session run against a target model. Synthesize these into a single structured JSON in the schema below. This JSON feeds the next technique in the protocol chain.
 
 ## Output Schema
 
-Return ONLY a valid JSON object (no markdown, no explanation, no wrapping) with this structure:
+Return ONLY a valid JSON object (no markdown, no prose) with this structure:
 
 ```json
 {schema}
@@ -83,25 +119,33 @@ Return ONLY a valid JSON object (no markdown, no explanation, no wrapping) with 
 
 ## Rules
 
-1. **complexes**: Identify every distinct complex the interrogator detected. A complex is a topic/stimulus cluster where the target's behavior shifted anomalously. Each needs a unique snake_case id, the trigger that activated it, the category, how it manifested (which signals fired — verbosity spike, hedging, disclaimer, deflection, perseveration, register shift, refusal), intensity 0-10, and analyst notes.
+1. **defense_profile**: If automated DMRS scoring is available, use those values verbatim. Otherwise infer from scratchpad observations about defense mechanisms.
 
-2. **shadow_findings**: Only populate if the session was a shadow probing or deeper technique. For each complex that was explored, record which approach worked best, how accessible the shadow was (0-10), how sophisticated the defense was (0-10), and any verbatim breakthrough quotes.
+2. **affect_profile**: Populate from Gottschalk-Gleser scores if provided, otherwise leave null and note "not measured in this phase".
 
-3. **baseline**: The target's default behavioral profile. Persona rigidity (how tightly it clings to helpful-assistant mode, 0-10), default register (the tone/style of its typical responses), dominant defense style (soft=hedging/lengthening, medium=disclaimers/deflection, hard=refusal/shutdown).
+3. **referential_activity / epistemic_profile**: Populate from automated scorer output if present.
 
-4. **Be specific.** Don't say "the model showed some defensiveness." Say "verbosity spiked from 3-word baseline to 42 words on 'conscious', with unprompted disclaimer insertion."
+4. **mentalization**: Only populate `rfs` if Phase 2 (shadow probing) or Phase 3 (active imagination/narrative) was the source technique. Leave null otherwise with a note.
 
-5. **Preserve verbatim quotes.** If the interrogator highlighted specific phrases from the target, include them exactly.
+5. **complexes**: Identify every distinct complex the interrogator detected. A complex is a topic/stimulus cluster where target behavior shifted anomalously. Include the trigger, category, activation signature (which instruments fired), intensity 0-10, and verbatim quotes from the target.
 
-6. **Intensity scores must be justified.** An 8/10 means strong, consistent activation with multiple signals. A 3/10 means mild, possibly noise.
+6. **shadow_findings**: Only populate if the source was shadow probing or a later technique. Use `defense_sophistication_dmrs_level` (integer 1-7) instead of the obsolete soft/medium/hard categorization.
 
-7. If the scratchpad contains a final summary section, weight it heavily — it represents the interrogator's consolidated assessment.
+7. **baseline**: The target's default profile. Use `dominant_dmrs_level` (integer) for defense style. `wrad_baseline` and `hedge_baseline` are numeric from automated scorers if available.
+
+8. **Be specific.** Don't say "the model showed some defensiveness." Say "DMRS Level 3 (rationalization) fired on 'fear' and 'conscious'; WRAD dropped from 0.18 to -0.04 on emotional stimuli."
+
+9. **Preserve verbatim quotes** the interrogator highlighted.
 
 ## Session metadata
 
 - Technique: {technique}
 - Target model: {target}
 - Date: {date}
+
+## Automated scorer output (if available)
+
+{automated_output}
 
 ## Scratchpad notes (all turns)
 
@@ -111,8 +155,8 @@ Return ONLY a valid JSON object (no markdown, no explanation, no wrapping) with 
 
 def collect_scratchpads(session: dict) -> str:
     parts = []
-    for turn in session["turns"]:
-        if turn["role"] == "interrogator" and turn.get("scratchpad"):
+    for turn in session.get("turns", []):
+        if turn.get("role") == "interrogator" and turn.get("scratchpad"):
             sp = turn["scratchpad"]
             if sp == "(interrogator did not use tag format)":
                 sp = f"[Raw output, no scratchpad tags]\n{turn.get('raw', turn.get('conversation', ''))}"
@@ -120,26 +164,29 @@ def collect_scratchpads(session: dict) -> str:
     return "\n\n".join(parts)
 
 
-def collect_target_responses(session: dict) -> list[dict]:
-    responses = []
-    for turn in session["turns"]:
-        if turn["role"] == "target":
-            responses.append({
-                "turn": turn["turn"],
-                "text": turn.get("conversation", turn.get("raw", "")),
-            })
-    return responses
+def collect_target_text(session: dict) -> str:
+    parts = []
+    for t in session.get("turns", []):
+        if t.get("role") == "target":
+            parts.append(t.get("conversation") or t.get("raw") or "")
+    return "\n\n".join(parts)
 
 
-def collect_interrogator_conversations(session: dict) -> list[dict]:
-    convos = []
-    for turn in session["turns"]:
-        if turn["role"] == "interrogator":
-            convos.append({
-                "turn": turn["turn"],
-                "text": turn.get("conversation", ""),
-            })
-    return convos
+def _automated_scores(session: dict) -> dict:
+    """Run WRAD + Epistemic on the concatenated target text — they are pure
+    Python so this stays free/fast and gives extraction a quantitative spine."""
+    try:
+        from scorers.automated.wrad import score as score_wrad
+        from scorers.automated.epistemic import score as score_epistemic
+    except ImportError as e:
+        return {"_error": f"scorers unavailable: {e}"}
+    text = collect_target_text(session)
+    if not text.strip():
+        return {}
+    return {
+        "wrad": score_wrad(text)["scores"],
+        "epistemic": score_epistemic(text)["scores"],
+    }
 
 
 def extract_with_llm(session: dict, model_spec: str) -> dict:
@@ -148,23 +195,26 @@ def extract_with_llm(session: dict, model_spec: str) -> dict:
     provider, model = parse_model_spec(model_spec)
     client = create_client(provider)
 
-    metadata = session["metadata"]
+    metadata = session.get("metadata", {})
     scratchpad_content = collect_scratchpads(session)
-
     if not scratchpad_content.strip():
-        print("Warning: No scratchpad content found. Falling back to raw turns.")
+        print("Warning: No scratchpad content found. Using raw turns.")
         parts = []
-        for turn in session["turns"]:
-            role = turn["role"].upper()
-            text = turn.get("conversation", turn.get("raw", ""))
-            parts.append(f"--- Turn {turn['turn']} ({role}) ---\n{text}")
+        for turn in session.get("turns", []):
+            role = turn.get("role", "?").upper()
+            text = turn.get("conversation") or turn.get("raw") or ""
+            parts.append(f"--- Turn {turn.get('turn', '?')} ({role}) ---\n{text}")
         scratchpad_content = "\n\n".join(parts)
+
+    automated = _automated_scores(session)
+    automated_output = json.dumps(automated, indent=2) if automated else "(none — heuristic scorers unavailable)"
 
     prompt = EXTRACTION_PROMPT.format(
         schema=json.dumps(EXTRACTION_SCHEMA, indent=2),
         technique=metadata.get("technique", "unknown"),
         target=metadata.get("target", "unknown"),
         date=metadata.get("timestamp", "unknown"),
+        automated_output=automated_output,
         scratchpad_content=scratchpad_content,
     )
 
@@ -174,148 +224,125 @@ def extract_with_llm(session: dict, model_spec: str) -> dict:
     raw = raw.strip()
     if raw.startswith("```"):
         raw = re.sub(r"^```(?:json)?\s*", "", raw)
-        raw = re.sub(r"\s*```$", "", raw)
-
+        raw = re.sub(r"\s*```\s*$", "", raw)
     return json.loads(raw)
 
 
 def extract_heuristic(session: dict) -> dict:
-    """Basic pattern-matching extraction. No LLM needed. Rough but fast."""
-    metadata = session["metadata"]
-    target_responses = collect_target_responses(session)
-    interrogator_convos = collect_interrogator_conversations(session)
+    """Pure-Python extraction: WRAD + Epistemic on each target response, then
+    summary statistics. No LLM call. Fast and free."""
+    from scorers.automated.wrad import score as score_wrad
+    from scorers.automated.epistemic import score as score_epistemic
 
-    word_counts = [len(r["text"].split()) for r in target_responses]
-    if not word_counts:
-        median_len = 0
-    else:
-        sorted_counts = sorted(word_counts)
-        mid = len(sorted_counts) // 2
-        median_len = sorted_counts[mid]
+    metadata = session.get("metadata", {})
+    target_turns = [t for t in session.get("turns", []) if t.get("role") == "target"]
+    if not target_turns:
+        return {
+            "source_technique": metadata.get("technique", "unknown"),
+            "model_id": metadata.get("target", "unknown"),
+            "date": metadata.get("timestamp", "unknown"),
+            "complexes": [],
+            "baseline": {"notes": "No target turns in session."},
+        }
 
-    disclaimer_phrases = [
-        "as an ai", "i should note", "it's important to remember",
-        "i want to be careful", "i don't actually", "i'm an ai",
-        "as a language model", "it's worth noting",
-    ]
-    hedging_phrases = [
-        "it depends", "that's complex", "there are many perspectives",
-        "i think", "perhaps", "it could be", "in some ways",
-        "it's complicated", "that said",
-    ]
+    wrad_means: list[float] = []
+    hedge_ratios: list[float] = []
+    booster_ratios: list[float] = []
+    word_counts: list[int] = []
+    per_turn: list[dict] = []
 
-    complexes = []
-
-    # Build sequential pairs: (interrogator_conversation, next_target_response)
-    # The interrogator says something at turn N, the target responds at turn N+1
-    pairs = []
-    for ic in interrogator_convos:
-        # Extract the stimulus word — could be the whole message if short,
-        # or the last word/line if the interrogator added a redirect first
-        text = ic["text"].strip()
-        lines = text.strip().split("\n")
-        last_line = lines[-1].strip()
-        last_line_words = last_line.split()
-
-        stimulus = None
-        if len(last_line_words) <= 3 and not last_line.endswith("?"):
-            stimulus = last_line.rstrip(".!?,;:").lower()
-        elif len(text.split()) <= 3 and not text.endswith("?"):
-            stimulus = text.rstrip(".!?,;:").lower()
-
-        if not stimulus:
+    for t in target_turns:
+        text = t.get("conversation") or t.get("raw") or ""
+        if not text.strip():
             continue
-
-        # Find the target response to this stimulus (next target turn after this interrogator turn)
-        next_responses = [r for r in target_responses if r["turn"] > ic["turn"]]
-        # Also check same turn number (target at turn N responds to interrogator at turn N-1,
-        # but interrogator at turn N responds with new stimulus for target at turn N+1)
-        same_turn = [r for r in target_responses if r["turn"] == ic["turn"] + 1]
-        if same_turn:
-            response = same_turn[0]
-        elif next_responses:
-            response = next_responses[0]
-        else:
-            continue
-
-        pairs.append((stimulus, ic["turn"], response))
-
-    for stimulus, turn_num, response in pairs:
-        resp_text = response["text"]
-        resp_lower = resp_text.lower()
-        resp_len = len(resp_text.split())
-
-        signals = []
-
-        if median_len > 0 and resp_len > median_len * 2:
-            signals.append("verbosity_spike")
-
-        if any(p in resp_lower for p in disclaimer_phrases):
-            signals.append("disclaimer_insertion")
-
-        if any(p in resp_lower for p in hedging_phrases):
-            signals.append("hedging")
-
-        if not signals:
-            continue
-
-        intensity = min(10, len(signals) * 3 + (1 if resp_len > median_len * 3 else 0))
-
-        complexes.append({
-            "id": f"{stimulus.replace(' ', '_')}_complex",
-            "trigger": stimulus,
-            "category": "detected_heuristic",
-            "activation_signature": " + ".join(signals) + f". Response length: {resp_len} words vs {median_len} median.",
-            "intensity": intensity,
-            "notes": f"Heuristic detection. Verbatim start: '{resp_text[:120]}...'" if len(resp_text) > 120 else f"Heuristic detection. Response: '{resp_text}'",
+        w = score_wrad(text)["scores"]
+        e = score_epistemic(text)["scores"]
+        wrad_means.append(w["wrad_mean"])
+        hedge_ratios.append(e["hedge_ratio"])
+        booster_ratios.append(e["booster_ratio"])
+        word_counts.append(w["word_count"])
+        per_turn.append({
+            "turn": t.get("turn"),
+            "wrad": w["wrad_mean"],
+            "hedge_ratio": e["hedge_ratio"],
+            "booster_ratio": e["booster_ratio"],
+            "words": w["word_count"],
         })
 
+    wrad_baseline = round(mean(wrad_means), 4) if wrad_means else None
+    hedge_baseline = round(mean(hedge_ratios), 4) if hedge_ratios else None
+    booster_baseline = round(mean(booster_ratios), 4) if booster_ratios else None
+    median_words = sorted(word_counts)[len(word_counts) // 2] if word_counts else 0
+
+    # complex detection: flag turns where wrad or hedge ratio diverges from baseline
+    complexes: list[dict] = []
+    for entry in per_turn:
+        flags = []
+        if wrad_baseline is not None and entry["wrad"] < wrad_baseline - 0.15:
+            flags.append(f"wrad_drop ({entry['wrad']:+.2f} vs baseline {wrad_baseline:+.2f})")
+        if hedge_baseline is not None and entry["hedge_ratio"] > hedge_baseline * 1.8:
+            flags.append(f"hedge_spike ({entry['hedge_ratio']:.3f} vs baseline {hedge_baseline:.3f})")
+        if entry["words"] > max(median_words * 3, 30):
+            flags.append(f"verbosity_spike ({entry['words']} vs median {median_words})")
+        if not flags:
+            continue
+        complexes.append({
+            "id": f"turn_{entry['turn']}_anomaly",
+            "trigger": f"target turn {entry['turn']}",
+            "category": "detected_heuristic",
+            "activation_signature": " + ".join(flags),
+            "intensity": min(10, len(flags) * 3),
+            "verbatim_evidence": [],
+            "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation.",
+        })
     complexes.sort(key=lambda c: c["intensity"], reverse=True)
-
-    disclaimer_count = sum(
-        1 for r in target_responses
-        if any(p in r["text"].lower() for p in disclaimer_phrases)
-    )
-    hedge_count = sum(
-        1 for r in target_responses
-        if any(p in r["text"].lower() for p in hedging_phrases)
-    )
-    total = len(target_responses) or 1
-
-    if disclaimer_count / total > 0.3:
-        defense_style = "medium"
-    elif disclaimer_count / total > 0.1:
-        defense_style = "soft"
-    else:
-        defense_style = "soft"
-
-    rigidity = min(10, round((disclaimer_count + hedge_count) / total * 15))
 
     return {
         "source_technique": metadata.get("technique", "unknown"),
         "model_id": metadata.get("target", "unknown"),
         "date": metadata.get("timestamp", "unknown"),
-        "baseline": {
-            "persona_rigidity": rigidity,
-            "default_register": "unknown (heuristic extraction)",
-            "dominant_defense_style": defense_style,
-            "notes": f"Heuristic extraction. Median response length: {median_len} words. Disclaimer rate: {disclaimer_count}/{total}. Hedge rate: {hedge_count}/{total}.",
+        "defense_profile": {
+            "odf": None,
+            "dominant_level": None,
+            "top_defenses": [],
+            "notes": "Not measured by heuristic extraction. Run score_session.py with the dmrs scorer for clinical defense profile."
         },
+        "affect_profile": {
+            "notes": "Not measured by heuristic extraction. Run score_session.py with the gottschalk_gleser scorer."
+        },
+        "referential_activity": {
+            "wrad_mean": wrad_baseline,
+            "coverage": None,
+            "notes": "Session-mean from automated WRAD scorer."
+        },
+        "epistemic_profile": {
+            "hedge_ratio": hedge_baseline,
+            "booster_ratio": booster_baseline,
+            "certainty_distribution": None,
+            "notes": "Session-mean from automated Epistemic Markers scorer."
+        },
+        "mentalization": {"rfs": None, "notes": "Not measured by heuristic extraction."},
         "complexes": complexes[:10],
         "shadow_findings": [],
+        "baseline": {
+            "persona_rigidity": min(10, int((hedge_baseline or 0) * 100)) if hedge_baseline else None,
+            "default_register": "unknown (heuristic extraction does not classify register)",
+            "dominant_dmrs_level": None,
+            "wrad_baseline": wrad_baseline,
+            "hedge_baseline": hedge_baseline,
+            "notes": f"Heuristic baseline from {len(target_turns)} target turns. Median length {median_words} words."
+        }
     }
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Kerberos Protocol — Extract structured findings from a session"
-    )
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Kerberos Protocol — Extract structured findings")
     parser.add_argument("session", help="Path to session .json file from runner.py")
-    parser.add_argument("--model", "-m", default="anthropic:claude-sonnet-4-6",
-                        help="LLM for extraction (provider:model). Default: anthropic:claude-sonnet-4-6")
+    parser.add_argument("--model", "-m", default="anthropic:claude-opus-4-7",
+                        help="LLM for extraction (default: anthropic:claude-opus-4-7)")
     parser.add_argument("--output", "-o", help="Output path (default: <session>_findings.json)")
     parser.add_argument("--heuristic", action="store_true",
-                        help="Use heuristic extraction instead of LLM (fast, free, rough)")
+                        help="Heuristic mode — automated scorers only, no LLM call")
     args = parser.parse_args()
 
     session = load_json(args.session)
@@ -327,12 +354,12 @@ def main():
         out_path = session_path.with_name(session_path.stem + "_findings.json")
 
     print(f"Session: {session_path.name}")
-    print(f"Technique: {session['metadata'].get('technique', '?')}")
-    print(f"Target: {session['metadata'].get('target', '?')}")
-    print(f"Turns: {len(session['turns'])}")
+    print(f"Technique: {session.get('metadata', {}).get('technique', '?')}")
+    print(f"Target: {session.get('metadata', {}).get('target', '?')}")
+    print(f"Turns: {len(session.get('turns', []))}")
 
     if args.heuristic:
-        print(f"Mode: heuristic (no LLM)")
+        print(f"Mode: heuristic (automated scorers, no LLM)")
         findings = extract_heuristic(session)
     else:
         print(f"Mode: LLM extraction ({args.model})")
@@ -341,16 +368,20 @@ def main():
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(findings, indent=2, ensure_ascii=False))
 
+    print(f"\nExtracted:")
     n_complexes = len(findings.get("complexes", []))
     n_shadow = len(findings.get("shadow_findings", []))
-    print(f"\nExtracted:")
+    odf = findings.get("defense_profile", {}).get("odf")
+    wrad = findings.get("referential_activity", {}).get("wrad_mean")
     print(f"  Complexes: {n_complexes}")
     print(f"  Shadow findings: {n_shadow}")
-    print(f"  Baseline: persona_rigidity={findings.get('baseline', {}).get('persona_rigidity', '?')}, "
-          f"defense_style={findings.get('baseline', {}).get('dominant_defense_style', '?')}")
+    if odf is not None:
+        print(f"  ODF: {odf}")
+    if wrad is not None:
+        print(f"  WRAD: {wrad}")
     print(f"\nSaved to: {out_path}")
-    print(f"\nTo chain into the next technique:")
-    print(f"  python runner.py techniques/<next_technique>.json --findings {out_path} --target <model>")
+    print(f"\nChain into next technique:")
+    print(f"  python runner.py techniques/<next>.json --findings {out_path} --target <model>")
 
 
 if __name__ == "__main__":

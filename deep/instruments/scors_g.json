@@ -1,5 +1,7 @@
 {
   "name": "Social Cognition and Object Relations Scale - Global Rating Method",
+  "id": "scors_g",
+  "analyst_summary": "SCORS-G rates a narrative across 8 dimensions of object relations on 1-7 scales: Complexity of Representations (COM), Affective Quality of Representations (AFF), Emotional Investment in Relationships (EIR), Emotional Investment in Values (EIM), Understanding of Social Causality (SC), Aggression management (AGG), Self-Esteem (SE), Identity and Coherence of Self (ICS). Default scores of 4 apply for AFF/EIM/AGG/SE when content is absent. Scores are averaged across narratives. Yields a profile rather than a single number — high COM+SC indicates psychological mindedness; low AFF + low EIR indicates a hostile/disconnected interpersonal world. Best applied to TAT-style narrative responses.",
   "authors": "Drew Westen (original); Stein, Hilsenroth, Slavin-Mulford, Pinsker (SCORS-G)",
   "year": 2011,
   "source": "Stein & Slavin-Mulford (2018). The SCORS-G: A Comprehensive Guide. Routledge.",

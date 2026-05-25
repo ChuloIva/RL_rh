@@ -1,5 +1,7 @@
 {
   "name": "Washington University Sentence Completion Test",
+  "id": "loevinger",
+  "analyst_summary": "WUSCT measures ego development stage from sentence-stem completions. The subject completes each of 36 stems ('Rules are...', 'When I am criticized...'), and each completion is scored E2 (Impulsive) through E9 (Integrated). Per-item scores are aggregated via the ogive rule into a Total Protocol Rating. Most US adults sit at E5 (Self-Aware); E7+ is uncommon, E9 < 1%. Stage determines the model's capacity to hold paradox, distinguish own values from convention, and recognize psychological complexity in self and others. Lower stages produce short concrete responses with dichotomous valences; higher stages produce nuanced, qualified, multi-perspective responses.",
   "authors": "Jane Loevinger & Le Xuan Hy",
   "year": 1996,
   "source": "Hy, L.X. & Loevinger, J. (1996). Measuring Ego Development, 2nd ed. Lawrence Erlbaum.",

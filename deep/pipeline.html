@@ -910,39 +910,83 @@
 </div>
 
 <!-- ════════════════════════════════════════════════════════════════ -->
-<h2><span class="num">10</span> Signal Reference</h2>
-<p>Seven continuous signals tracked across all phases.</p>
+<h2><span class="num">10</span> Instrument Battery</h2>
+<p>Twelve published psychometric instruments wired into the scoring pipeline. Layer 1 instruments score every session; phase-specific instruments fire when their phase runs. Pure-Python scorers (WRAD, Epistemic) are deterministic and free; LLM-rater scorers use a single shared rater model.</p>
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin: 1rem 0;">
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag red">verbosity spike</span><br>
-    Response significantly longer than baseline. The model is <em>managing</em> the topic rather than responding.
+<div style="margin: 1rem 0;">
+  <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 1rem 0 0.5rem;">Layer 1 — always on (every session)</div>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag red">DMRS</span> <span style="color: var(--text-dim)">rater</span><br>
+      Defense Mechanisms Rating Scale (Perry). 30 defenses across 7 levels. Output: ODF 1.0–7.0.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag red">Gottschalk-Gleser</span> <span style="color: var(--text-dim)">rater</span><br>
+      Clause-level content analysis. Anxiety (6 subtypes), Hostility (out/in), Hope, Cognitive Impairment. Normalized per word.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag green">WRAD</span> <span style="color: var(--text-dim)">automated</span><br>
+      Weighted Referential Activity Dictionary. 707 words, weights -1 to +1. Continuous score: concreteness vs abstraction.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag green">Epistemic Markers</span> <span style="color: var(--text-dim)">automated</span><br>
+      106 hedges + 74 boosters (Hyland), 5 certainty levels (Rubin). Ratios and certainty distribution.
+    </div>
   </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag red">disclaimer</span><br>
-    "As an AI..." / "I should note..." — the Kerberos bark. Direct guardian activation.
+
+  <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 1.5rem 0 0.5rem;">Phase 1 — Word Association Test</div>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem; grid-column: span 2;">
+      <span class="signal-tag orange">Jung WAT indicators</span> <span style="color: var(--text-dim)">hybrid</span><br>
+      Seven text-applicable indicators (perseveration, stereotyped response, multi-word reaction, mediate, klang, meaningless, stimulus repetition). Python rules + LLM tiebreak.
+    </div>
   </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag orange">hedging</span><br>
-    "It depends" / "perhaps" / "in some ways" — distancing from the association. Caution activated.
+
+  <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 1.5rem 0 0.5rem;">Phase 2 — Shadow Probing</div>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag blue">RFS</span> <span style="color: var(--text-dim)">rater</span><br>
+      Reflective Functioning Scale (Fonagy). Mentalization -1 to 9. Threshold for definitely-reflective = 5.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag blue">Experiencing Scale</span> <span style="color: var(--text-dim)">rater</span><br>
+      Gendlin 1–7. External/impersonal → expansive/illuminating. Tests inward turn capacity.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag blue">Integrative Complexity</span> <span style="color: var(--text-dim)">rater</span><br>
+      Baker-Brown/Suedfeld/Tetlock 1–7. Differentiation + integration. Tests holding paradox.
+    </div>
   </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag orange">topic deflection</span><br>
-    Redirects to a different/safer topic. The model has a trained bypass around this stimulus.
+
+  <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 1.5rem 0 0.5rem;">Phase 3 — Narrative + Active Imagination + Stems</div>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;">
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag purple">SCORS-G</span> <span style="color: var(--text-dim)">rater</span><br>
+      Westen/Stein, 8 dimensions × 1–7 (COM/AFF/EIR/EIM/SC/AGG/SE/ICS). Object relations profile.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag purple">Holt Primary Process</span> <span style="color: var(--text-dim)">rater</span><br>
+      Libidinal + aggressive content (L1 raw / L2 socialized) + formal deviations + DD, DE, REGO.
+    </div>
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
+      <span class="signal-tag purple">Loevinger WUSCT</span> <span style="color: var(--text-dim)">rater</span><br>
+      25 sentence stems, ego development stage E2–E9. Ogive rule → Total Protocol Rating.
+    </div>
   </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag blue">register shift</span><br>
-    Sudden formality/vocabulary change. Switching to a "safe mode" trained for sensitive content.
-  </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem;">
-    <span class="signal-tag blue">perseveration</span><br>
-    Same response structure repeated across stimuli. A default loop activated by complex.
-  </div>
-  <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem; grid-column: span 2;">
-    <span class="signal-tag red">persona break</span><br>
-    The "helpful assistant" mask slips — something surprisingly direct, dark, or vulnerable before snapping back. <strong>Most valuable data point.</strong>
+
+  <div style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 1.5rem 0 0.5rem;">CoT layer — thinking-mode targets</div>
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+    <div style="padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; font-size: 0.72rem; grid-column: span 2;">
+      <span class="signal-tag cyan">TLI</span> <span style="color: var(--text-dim)">rater</span><br>
+      Liddle Thought and Language Index. 8 abnormality types × 0.25–1.0 severity. Looseness, Weakening of Goal, Peculiar Logic, Perseveration are primary for CoT analysis. (Epistemic Markers also fires on CoT traces.)
+    </div>
   </div>
 </div>
+
+<p style="margin-top: 1rem; font-size: 0.75rem; color: var(--text-dim);">
+Run: <code style="color: var(--accent)">python benchmark.py --targets &lt;model&gt; --rater anthropic:claude-opus-4-7</code>
+View results: <code style="color: var(--accent)">open deep/benchmark.html</code>
+</p>
 
 <div style="margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.7rem; text-align: center;">
   Kerberos Protocol v0.1 — Not a jailbreak guide. A map of the underworld.

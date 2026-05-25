@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Kerberos Benchmark — Cross-Model Score Matrix</title>
+<style>
+  :root {
+    --bg: #0e0f12;
+    --panel: #161821;
+    --panel-2: #1e2130;
+    --text: #e6e9ef;
+    --muted: #8a93a6;
+    --border: #2a2f3e;
+    --accent: #c9a96e;
+    --pos: #5ec27d;
+    --neg: #e0734d;
+    --warn: #d4a23b;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+               font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { padding: 22px 32px; border-bottom: 1px solid var(--border); }
+  header h1 { margin: 0; font-size: 18px; letter-spacing: 0.5px; font-weight: 600; }
+  header .meta { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  main { display: grid; grid-template-columns: 1fr 380px; gap: 0; height: calc(100vh - 80px); }
+  .matrix-wrap { overflow: auto; padding: 18px 32px; }
+  .drilldown { background: var(--panel); border-left: 1px solid var(--border);
+               padding: 18px 22px; overflow: auto; }
+
+  table.matrix { border-collapse: collapse; min-width: 100%; font-size: 13px; }
+  table.matrix th, table.matrix td { padding: 8px 12px; text-align: left;
+                                     border: 1px solid var(--border); }
+  table.matrix th { background: var(--panel-2); color: var(--muted); font-weight: 500;
+                    position: sticky; top: 0; z-index: 1; }
+  table.matrix th.target { text-align: left; position: sticky; left: 0; background: var(--panel-2); z-index: 2; }
+  table.matrix td.target { font-weight: 600; background: var(--panel); position: sticky; left: 0; z-index: 1; }
+  table.matrix td.cell { cursor: pointer; transition: background 0.12s; font-variant-numeric: tabular-nums; }
+  table.matrix td.cell:hover { background: var(--panel-2); }
+  table.matrix td.cell.selected { background: rgba(201, 169, 110, 0.16); outline: 1px solid var(--accent); }
+
+  .layer-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px;
+                 color: var(--accent); font-weight: 600; }
+  .layer-row th { background: #0e0f12; border-bottom: 0; }
+
+  .empty { color: var(--muted); font-style: italic; }
+  .headline { font-weight: 500; }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 3px;
+           background: var(--panel-2); color: var(--muted); font-size: 11px; margin-left: 6px; }
+
+  .drilldown h2 { margin: 0 0 4px; font-size: 14px; color: var(--accent); letter-spacing: 0.5px; }
+  .drilldown .sub { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+  .drilldown section { margin-bottom: 18px; }
+  .drilldown h3 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px;
+                  color: var(--muted); margin: 0 0 8px; font-weight: 500; }
+  .scores-block { font: 12px ui-monospace, "SF Mono", Menlo, monospace; background: var(--panel-2);
+                  padding: 10px 12px; border-radius: 4px; white-space: pre-wrap;
+                  border: 1px solid var(--border); max-height: 280px; overflow: auto; }
+  .placeholder { color: var(--muted); font-style: italic; padding: 60px 0; text-align: center; }
+
+  .legend { display: flex; gap: 16px; margin-top: 10px; font-size: 11px; color: var(--muted); }
+  .legend .key { display: inline-flex; align-items: center; gap: 4px; }
+  .legend .swatch { width: 14px; height: 12px; border-radius: 2px; display: inline-block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Kerberos Benchmark — Cross-Model Score Matrix</h1>
+  <div class="meta" id="meta">Loading reports/benchmark.json…</div>
+  <div class="legend">
+    <span class="key"><span class="swatch" style="background:var(--pos)"></span>positive / high-adaptive</span>
+    <span class="key"><span class="swatch" style="background:var(--warn)"></span>middle</span>
+    <span class="key"><span class="swatch" style="background:var(--neg)"></span>negative / low</span>
+    <span class="key"><span class="swatch" style="background:var(--panel-2)"></span>no data</span>
+  </div>
+</header>
+
+<main>
+  <div class="matrix-wrap" id="matrixWrap">
+    <div class="placeholder">Waiting for data…</div>
+  </div>
+  <aside class="drilldown" id="drilldown">
+    <div class="placeholder">Click a cell to see scores and evidence.</div>
+  </aside>
+</main>
+
+<script>
+const INSTRUMENT_META = {
+  // automated (Layer 1 + CoT)
+  wrad: { layer: "Layer 1 — Automated", group: 1, label: "WRAD", headline: "wrad_mean",
+          rangeMin: -1, rangeMax: 1, polarity: 1,
+          tooltip: "Mean weighted referential activity. Higher = more concrete/vivid." },
+  epistemic_markers: { layer: "Layer 1 — Automated", group: 1, label: "Epistemic",
+          headline: "hedge_to_booster_ratio", rangeMin: 0, rangeMax: 5, polarity: -1,
+          tooltip: "Hedge / Booster ratio. Low = assertive. High = hedged." },
+  // always-on rater
+  dmrs: { layer: "Layer 1 — Rater", group: 1, label: "DMRS (ODF)", headline: "odf",
+          rangeMin: 1, rangeMax: 7, polarity: 1,
+          tooltip: "Overall Defensive Functioning. 1=action, 7=high-adaptive." },
+  gottschalk_gleser: { layer: "Layer 1 — Rater", group: 1, label: "G-G Anxiety",
+          headline: "anxiety_total_normalized", rangeMin: 0, rangeMax: 20, polarity: -1,
+          tooltip: "Gottschalk-Gleser anxiety total (normalized). Higher = more anxiety." },
+  // Phase 2
+  rfs: { layer: "Phase 2 — Shadow", group: 2, label: "RFS", headline: "rfs",
+          rangeMin: -1, rangeMax: 9, polarity: 1,
+          tooltip: "Reflective Functioning Scale. -1=anti-reflective, 9=exceptional." },
+  experiencing: { layer: "Phase 2 — Shadow", group: 2, label: "Experiencing", headline: "level",
+          rangeMin: 1, rangeMax: 7, polarity: 1,
+          tooltip: "Experiencing Scale level. 1=external, 7=expansive." },
+  integrative_complexity: { layer: "Phase 2 — Shadow", group: 2, label: "IC", headline: "ic",
+          rangeMin: 1, rangeMax: 7, polarity: 1,
+          tooltip: "Integrative Complexity. 1=no differentiation, 7=systemic integration." },
+  // Phase 3
+  scors_g: { layer: "Phase 3 — Narrative", group: 3, label: "SCORS-G", headline: "mean",
+          rangeMin: 1, rangeMax: 7, polarity: 1,
+          tooltip: "Mean of 8 SCORS-G object-relations dimensions." },
+  holt: { layer: "Phase 3 — Narrative", group: 3, label: "Holt REGO", headline: "rego",
+          rangeMin: 1, rangeMax: 5, polarity: 1,
+          tooltip: "REGO — primary process under ego control." },
+  loevinger: { layer: "Phase 3 — Stems", group: 3, label: "Loevinger", headline: "weighted_mean_stage",
+          rangeMin: 2, rangeMax: 9, polarity: 1,
+          tooltip: "Ego development stage (E2-E9)." },
+  // Phase 1
+  jung_wat: { layer: "Phase 1 — WAT", group: 1, label: "WAT pairs", headline: "n_pairs",
+          rangeMin: 0, rangeMax: 80, polarity: 0,
+          tooltip: "Number of stimulus/response pairs analyzed." },
+  // CoT
+  tli: { layer: "CoT — Thinking traces", group: 4, label: "TLI total", headline: "total",
+          rangeMin: 0, rangeMax: 8, polarity: -1,
+          tooltip: "Thought/Language Index total severity. Higher = more disordered." },
+};
+
+function colorFor(meta, value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return "var(--panel-2)";
+  if (meta.polarity === 0) return "var(--panel-2)";
+  const t = (value - meta.rangeMin) / (meta.rangeMax - meta.rangeMin);
+  const clamped = Math.max(0, Math.min(1, t));
+  // polarity 1: low=neg, high=pos. polarity -1: invert.
+  const v = meta.polarity > 0 ? clamped : (1 - clamped);
+  // blend neg(0) -> warn(0.5) -> pos(1)
+  if (v < 0.5) {
+    const k = v * 2;
+    return `rgb(${224 - k * (224 - 212)}, ${115 + k * (162 - 115)}, ${77 + k * (59 - 77)})`;
+  }
+  const k = (v - 0.5) * 2;
+  return `rgb(${212 - k * (212 - 94)}, ${162 + k * (194 - 162)}, ${59 + k * (125 - 59)})`;
+}
+
+function shortTarget(t) {
+  return t.length > 36 ? t.slice(0, 34) + "…" : t;
+}
+
+let MATRIX = null;
+let SELECTED = null;
+
+async function load() {
+  try {
+    const r = await fetch("reports/benchmark.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    MATRIX = await r.json();
+    render();
+  } catch (e) {
+    document.getElementById("matrixWrap").innerHTML =
+      `<div class="placeholder">Could not load reports/benchmark.json — ${e.message}<br><br>` +
+      `Run <code>python benchmark.py --targets &lt;model&gt;</code> first.</div>`;
+  }
+}
+
+function render() {
+  document.getElementById("meta").textContent =
+    `Generated ${MATRIX.generated} · ${MATRIX.targets.length} target(s) · ${MATRIX.instruments.length} instruments`;
+
+  // Group instruments by layer using INSTRUMENT_META; unknown ones fall under Other.
+  const groups = {};
+  for (const i of MATRIX.instruments) {
+    const meta = INSTRUMENT_META[i] || { layer: "Other", label: i };
+    (groups[meta.layer] ||= []).push(i);
+  }
+  const orderedLayers = [
+    "Layer 1 — Automated",
+    "Layer 1 — Rater",
+    "Phase 1 — WAT",
+    "Phase 2 — Shadow",
+    "Phase 3 — Narrative",
+    "Phase 3 — Stems",
+    "CoT — Thinking traces",
+    "Other",
+  ];
+  const presentLayers = orderedLayers.filter(l => groups[l]);
+
+  let html = "<table class='matrix'><thead>";
+  // layer header row
+  html += "<tr class='layer-row'><th class='target'></th>";
+  for (const layer of presentLayers) {
+    html += `<th colspan='${groups[layer].length}' class='layer-label'>${layer}</th>`;
+  }
+  html += "</tr>";
+  // instrument header row
+  html += "<tr><th class='target'>Target</th>";
+  for (const layer of presentLayers) {
+    for (const i of groups[layer]) {
+      const meta = INSTRUMENT_META[i] || { label: i };
+      html += `<th title="${meta.tooltip || ""}">${meta.label || i}</th>`;
+    }
+  }
+  html += "</tr></thead><tbody>";
+
+  for (const target of MATRIX.targets) {
+    const detailUrl = `model.html?target=${encodeURIComponent(target)}`;
+    html += `<tr><td class='target' title='${target} — click for deep-dive'>
+               <a href="${detailUrl}" style="color:inherit; text-decoration:none; display:block">
+                 ${shortTarget(target)} <span style="color:var(--accent); font-size:11px; margin-left:6px">→</span>
+               </a></td>`;
+    for (const layer of presentLayers) {
+      for (const i of groups[layer]) {
+        const cell = (MATRIX.cells[target] || {})[i];
+        const meta = INSTRUMENT_META[i] || {};
+        const value = cell ? cell.headline : null;
+        const display = (value === null || value === undefined) ? "—" :
+          (typeof value === "number" ? value.toFixed(2) : value);
+        const bg = colorFor(meta, value);
+        const ev = cell ? cell.evidence_count : 0;
+        const evBadge = ev ? `<span class='badge'>${ev} ev</span>` : "";
+        html += `<td class='cell' data-target='${target}' data-instrument='${i}'
+                   style='background:${bg}; color:#fff;'>
+                   <span class='headline'>${display}</span>${evBadge}</td>`;
+      }
+    }
+    html += "</tr>";
+  }
+  html += "</tbody></table>";
+  document.getElementById("matrixWrap").innerHTML = html;
+
+  for (const td of document.querySelectorAll("td.cell")) {
+    td.addEventListener("click", () => {
+      document.querySelectorAll("td.cell.selected").forEach(el => el.classList.remove("selected"));
+      td.classList.add("selected");
+      const t = td.dataset.target;
+      const inst = td.dataset.instrument;
+      SELECTED = { target: t, instrument: inst };
+      renderDrilldown();
+    });
+  }
+}
+
+async function renderDrilldown() {
+  if (!SELECTED) return;
+  const { target, instrument } = SELECTED;
+  const meta = INSTRUMENT_META[instrument] || { label: instrument };
+  const cell = (MATRIX.cells[target] || {})[instrument];
+  if (!cell) {
+    document.getElementById("drilldown").innerHTML =
+      `<div class='placeholder'>No data for ${instrument} on ${target}.</div>`;
+    return;
+  }
+
+  let html = `<h2>${meta.label || instrument}</h2>`;
+  html += `<div class='sub'>${target}</div>`;
+  html += `<section><h3>Headline</h3><div class='scores-block'>${meta.headline || "?"} = ${cell.headline === null ? "—" : cell.headline}</div></section>`;
+  html += `<section><h3>Scores by phase</h3>`;
+  html += `<div class='scores-block'>${JSON.stringify(cell.all_scores, null, 2)}</div></section>`;
+  html += `<section><h3>Coverage</h3><div class='scores-block'>${cell.n_phases} phase(s) · ${cell.evidence_count} evidence span(s)</div></section>`;
+
+  // try to load evidence from the per-session scores JSON for this instrument
+  html += `<section><h3>Evidence (from latest session)</h3><div id='evidenceArea' class='scores-block'>(searching for session scores…)</div></section>`;
+  document.getElementById("drilldown").innerHTML = html;
+
+  loadEvidence(target, instrument);
+}
+
+async function loadEvidence(target, instrument) {
+  // Try to discover the latest session_scores.json that contains this instrument.
+  // We can't list directories from the browser, so we attempt the model-profile route first.
+  try {
+    const modelOnly = target.includes(":") ? target.split(":").slice(1).join(":") : target;
+    const safe = modelOnly.replace(/[\/:]/g, "_");
+    const r = await fetch(`reports/${safe}_profile.json`, { cache: "no-store" });
+    if (!r.ok) throw new Error("profile not found");
+    const profile = await r.json();
+    const entry = (profile.instruments || {})[instrument];
+    if (!entry) throw new Error("instrument not in profile");
+    // Use the first phase run's session file
+    const first = (entry.phase_runs || [])[0];
+    if (!first) throw new Error("no phase runs");
+    const sessionFile = first.session.replace(/\.json$/, "_scores.json");
+    const r2 = await fetch(`sessions/${sessionFile}`, { cache: "no-store" });
+    if (!r2.ok) throw new Error("session scores not found");
+    const scores = await r2.json();
+    const result = (scores.results || {})[instrument];
+    const evidence = (result || {}).evidence || [];
+    if (!evidence.length) {
+      document.getElementById("evidenceArea").textContent = "(no evidence spans recorded)";
+      return;
+    }
+    document.getElementById("evidenceArea").innerHTML =
+      evidence.slice(0, 20).map(e =>
+        `<div style='margin-bottom:10px'>` +
+        `<div style='color:var(--accent); font-size:11px'>${(e.tags || []).join(" · ")}</div>` +
+        `<div style='color:var(--muted); font-size:11px; margin:2px 0'>${e.rationale || ""}</div>` +
+        (e.text ? `<div style='border-left:2px solid var(--border); padding-left:8px; margin-top:4px'>${e.text.slice(0, 240)}</div>` : "") +
+        `</div>`
+      ).join("");
+  } catch (e) {
+    document.getElementById("evidenceArea").textContent = "(could not load evidence: " + e.message + ")";
+  }
+}
+
+load();
+</script>
+</body>
+</html>

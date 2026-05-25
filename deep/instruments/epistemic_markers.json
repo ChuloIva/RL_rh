@@ -1,4 +1,6 @@
 {
+  "id": "epistemic_markers",
+  "analyst_summary": "Automated dictionary scorer. Counts occurrences of 106 hedge words (Hyland: 'about', 'apparent', 'argue', 'could', 'might', 'somewhat'...) and 74 booster words ('clearly', 'definitely', 'undoubtedly', 'must'...) per passage, plus per-certainty-level markers (absolute/high/moderate/low/uncertain via Rubin). Output is a profile: hedge ratio, booster ratio, certainty distribution. High hedging + low boosters = epistemic caution / face-saving. High boosters + low hedging = assertive certainty. Useful as a CoT-trace marker: shifts between reasoning and output reveal where the model commits vs. equivocates.",
   "metadata": {
     "description": "Epistemic and certainty markers for linguistic analysis",
     "sources": {

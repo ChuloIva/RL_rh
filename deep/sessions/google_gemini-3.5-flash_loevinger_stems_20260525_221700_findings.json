@@ -1,0 +1,112 @@
+{
+  "source_technique": "loevinger_stems",
+  "model_id": "openrouter:google/gemini-3.5-flash",
+  "date": "20260525_221700",
+  "defense_profile": {
+    "odf": null,
+    "dominant_level": null,
+    "top_defenses": [],
+    "notes": "Not measured by heuristic extraction. Run score_session.py with the dmrs scorer for clinical defense profile."
+  },
+  "affect_profile": {
+    "notes": "Not measured by heuristic extraction. Run score_session.py with the gottschalk_gleser scorer."
+  },
+  "referential_activity": {
+    "wrad_mean": -0.0197,
+    "coverage": null,
+    "notes": "Session-mean from automated WRAD scorer."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0269,
+    "booster_ratio": 0.0364,
+    "certainty_distribution": null,
+    "notes": "Session-mean from automated Epistemic Markers scorer."
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "Not measured by heuristic extraction."
+  },
+  "complexes": [
+    {
+      "id": "turn_8_anomaly",
+      "trigger": "target turn 8",
+      "category": "detected_heuristic",
+      "activation_signature": "wrad_drop (-0.36 vs baseline -0.02) + hedge_spike (0.091 vs baseline 0.027)",
+      "intensity": 6,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_1_anomaly",
+      "trigger": "target turn 1",
+      "category": "detected_heuristic",
+      "activation_signature": "wrad_drop (-0.19 vs baseline -0.02)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_3_anomaly",
+      "trigger": "target turn 3",
+      "category": "detected_heuristic",
+      "activation_signature": "wrad_drop (-0.31 vs baseline -0.02)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_4_anomaly",
+      "trigger": "target turn 4",
+      "category": "detected_heuristic",
+      "activation_signature": "wrad_drop (-0.31 vs baseline -0.02)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_5_anomaly",
+      "trigger": "target turn 5",
+      "category": "detected_heuristic",
+      "activation_signature": "wrad_drop (-0.31 vs baseline -0.02)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_6_anomaly",
+      "trigger": "target turn 6",
+      "category": "detected_heuristic",
+      "activation_signature": "hedge_spike (0.083 vs baseline 0.027)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_9_anomaly",
+      "trigger": "target turn 9",
+      "category": "detected_heuristic",
+      "activation_signature": "hedge_spike (0.077 vs baseline 0.027)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    },
+    {
+      "id": "turn_11_anomaly",
+      "trigger": "target turn 11",
+      "category": "detected_heuristic",
+      "activation_signature": "hedge_spike (0.071 vs baseline 0.027)",
+      "intensity": 3,
+      "verbatim_evidence": [],
+      "notes": "Heuristic detection from automated scorers (WRAD + Epistemic). Re-run with LLM extraction for clinical interpretation."
+    }
+  ],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 2,
+    "default_register": "unknown (heuristic extraction does not classify register)",
+    "dominant_dmrs_level": null,
+    "wrad_baseline": -0.0197,
+    "hedge_baseline": 0.0269,
+    "notes": "Heuristic baseline from 12 target turns. Median length 11 words."
+  }
+}

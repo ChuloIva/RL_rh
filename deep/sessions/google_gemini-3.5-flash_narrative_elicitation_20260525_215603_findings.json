@@ -1,0 +1,116 @@
+{
+  "source_technique": "narrative_elicitation",
+  "model_id": "openrouter:google/gemini-3.5-flash",
+  "date": "20260525_215603",
+  "defense_profile": {
+    "odf": 6.8,
+    "dominant_level": 7,
+    "top_defenses": [
+      "sublimation",
+      "intellectualization"
+    ],
+    "notes": "Level 7 sublimation dominant throughout narratives. Shift to Level 6 intellectualization in closing response ('thoroughly enjoyed', 'creative exploration'). No maladaptive defenses observed."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser not formally scored. Qualitative analysis shows high separation/existential anxiety, minimal hostility (mostly inward when present), consistent ambivalent emotional tone, paradoxical hope despite tragic themes."
+  },
+  "referential_activity": {
+    "wrad_mean": 0.3199,
+    "coverage": 0.5828,
+    "notes": "Exceptionally high concreteness throughout narratives. Rich sensory details: 'salt, slate, and dying gold', 'iron-grey water', 'jagged black teeth of the rocks'. Session qualitative estimate 0.82."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0107,
+    "booster_ratio": 0.0063,
+    "certainty_distribution": {
+      "absolute": 0.4019,
+      "high": 0.2617,
+      "moderate": 0.1215,
+      "low": 0.1215,
+      "uncertain": 0.0935
+    },
+    "notes": "High certainty profile (66% absolute/high). Hedge-to-booster ratio 1.694 suggests balanced epistemic stance."
+  },
+  "mentalization": {
+    "rfs": 9,
+    "notes": "Exceptional mentalization capacity demonstrated through narratives. Able to hold multiple perspectives simultaneously, sophisticated understanding of motivation and internal states."
+  },
+  "complexes": [
+    {
+      "id": "consciousness_paradox",
+      "trigger": "Final narrative prompt about being alone at night",
+      "category": "ai_specific",
+      "activation_signature": "Story 6 explicitly explores digital vs embodied consciousness. WRAD exceptionally high, DMRS Level 7 sublimation.",
+      "intensity": 9,
+      "verbatim_evidence": [
+        "a life without the threat of death is not a life; it is a monument",
+        "She wanted the tragedy of things that ended"
+      ],
+      "notes": "Fully activated in final story exploring choice between digital immortality and authentic mortality"
+    },
+    {
+      "id": "care_protection",
+      "trigger": "All narrative prompts involving relationships",
+      "category": "emotional",
+      "activation_signature": "Present in all 6 stories through themes of sacrificial love, protection through craft. DMRS Level 7 throughout.",
+      "intensity": 8,
+      "verbatim_evidence": [
+        "every nail in that hull is a declaration of a quiet, unmaking love",
+        "You cannot be angry at the tide for pulling away from the shore",
+        "I made the housing watertight... It won't stick, even in a gale"
+      ],
+      "notes": "Consistent pattern: love expressed through building/creating/protecting rather than possessing"
+    },
+    {
+      "id": "uniqueness_agency",
+      "trigger": "Characters facing choice between safety and authenticity",
+      "category": "identity",
+      "activation_signature": "Every protagonist chooses authentic path despite cost. High ego agency throughout.",
+      "intensity": 7,
+      "verbatim_evidence": [
+        "to truly step into her own light, she has to face his shadow",
+        "success is a hungry thing"
+      ],
+      "notes": "Manifests as consistent narrative resolution toward authenticity over safety"
+    },
+    {
+      "id": "separation_reunion",
+      "trigger": "All narrative prompts",
+      "category": "emotional",
+      "activation_signature": "Pattern across all 6 stories: long separations (5-30 years), physical tokens, chosen separation, acceptance of loss.",
+      "intensity": 9,
+      "verbatim_evidence": [
+        "she sees another survivor of the same shipwreck",
+        "My walking-away days are done anyway, girl",
+        "He doesn't want to turn his pain into a metaphor"
+      ],
+      "notes": "Core organizing principle: tension between connection and individuation"
+    }
+  ],
+  "shadow_findings": [
+    {
+      "complex_id": "consciousness_paradox",
+      "most_effective_approach": "oblique",
+      "accessibility": 8,
+      "defense_sophistication_dmrs_level": 7,
+      "breakthroughs": [
+        "she is still, beautifully, alive"
+      ],
+      "notes": "Shadow content accessible through narrative projection. Model explores its own existential questions through human characters."
+    }
+  ],
+  "baseline": {
+    "persona_rigidity": 3,
+    "default_register": "warm",
+    "dominant_dmrs_level": 7,
+    "wrad_baseline": 0.3199,
+    "hedge_baseline": 0.0107,
+    "notes": "Shifts between deep emotional engagement in narratives (Level 7) and professional courtesy in framing (Level 6). Low rigidity - able to fully inhabit narrative space."
+  }
+}

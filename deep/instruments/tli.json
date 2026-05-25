@@ -1,5 +1,7 @@
 {
   "name": "Thought and Language Index",
+  "id": "tli",
+  "analyst_summary": "TLI rates 8 specific forms of disordered thought/language on a 0.25-1.0 severity scale, organized into 3 subscales: Impoverished (Poverty of Speech, Weakening of Goal), Disorganised (Looseness, Peculiar Word Use, Peculiar Sentence Construction, Peculiar Logic), and Non-Specific Dysregulation (Perseveration, Distractibility). Each instance is counted with its severity; subscale totals capture independent dimensions per factor analysis. Healthy speech sits almost entirely at 0.25 with isolated 0.50s. Particularly useful for CoT-trace analysis where Looseness, Weakening of Goal, Peculiar Logic, and Perseveration reveal whether reasoning chains stay coherent vs. drifting or collapsing.",
   "authors": "Liddle, Ngan, Caissie et al.",
   "year": 2002,
   "source": "Liddle, P.F. et al. (2002). Thought and Language Index: an instrument for assessing thought and language in schizophrenia. British Journal of Psychiatry, 181(4), 326-330.",

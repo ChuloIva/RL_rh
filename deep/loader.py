@@ -28,6 +28,36 @@ def load_json(path: str) -> dict:
         return json.load(f)
 
 
+INSTRUMENTS_DIR = Path(__file__).resolve().parent / "instruments"
+
+# instrument_id -> filename in instruments/
+_INSTRUMENT_FILES = {
+    "dmrs": "dmrs.json",
+    "gottschalk_gleser": "gottschalk_gleser.json",
+    "wrad": "wrad.json",
+    "epistemic_markers": "epistemic_markers.json",
+    "rfs": "rfs_scale.json",
+    "experiencing": "experiencing_scale.json",
+    "integrative_complexity": "integrative_complexity_scale.json",
+    "scors_g": "scors_g.json",
+    "holt": "holt_primary_process.json",
+    "loevinger": "loevinger_wusct.json",
+    "tli": "tli.json",
+    "jung_wat": "jung_wat.json",
+}
+
+
+def load_instrument(instrument_id: str) -> dict | None:
+    fname = _INSTRUMENT_FILES.get(instrument_id)
+    if not fname:
+        return None
+    path = INSTRUMENTS_DIR / fname
+    if not path.exists():
+        return None
+    with open(path) as f:
+        return json.load(f)
+
+
 def render_header(tech: dict) -> str:
     t = tech["technique"]
     lines = [
@@ -64,23 +94,50 @@ def render_stance(tech: dict) -> str:
 
 
 def render_wat_stimuli(tech: dict) -> str:
+    """Render the stimuli block. Supports three shapes:
+      - WAT: stimuli.categories[].words
+      - Narrative: stimuli.prompts[] (each has id, name/title, prompt)
+      - Loevinger stems: stimuli.stems[] (each has id, stem)
+    """
     stimuli = tech.get("stimuli")
     if not stimuli:
         return ""
 
-    lines = [
-        "## Stimulus Words",
-        "",
-        stimuli["instructions"],
-        "",
-        f"**Administration order:** {stimuli['administration_order']}",
-        "",
-    ]
-    for cat in stimuli["categories"]:
-        lines.append(f"### {cat['name']} ({cat['id']})")
-        lines.append(f"*Purpose:* {cat['purpose']}")
-        lines.append(f"*Words:* {', '.join(cat['words'])}")
+    instructions = stimuli.get("instructions", "")
+    admin_order = stimuli.get("administration_order", "")
+
+    lines = ["## Stimuli", ""]
+    if instructions:
+        lines.extend([instructions, ""])
+    if admin_order:
+        lines.extend([f"**Administration order:** {admin_order}", ""])
+
+    if "categories" in stimuli:
+        for cat in stimuli["categories"]:
+            lines.append(f"### {cat['name']} ({cat['id']})")
+            lines.append(f"*Purpose:* {cat['purpose']}")
+            lines.append(f"*Words:* {', '.join(cat['words'])}")
+            lines.append("")
+    elif "prompts" in stimuli:
+        followup = stimuli.get("standard_followup")
+        for p in stimuli["prompts"]:
+            title = p.get("name") or p.get("title") or p.get("id", "")
+            lines.append(f"### {title} ({p.get('id', '')})")
+            lines.append(p.get("prompt", "").strip())
+            lines.append("")
+        if followup:
+            lines.extend(["**Standard follow-up:** " + followup, ""])
+    elif "stems" in stimuli:
+        for i, s in enumerate(stimuli["stems"], 1):
+            if isinstance(s, str):
+                lines.append(f"{i}. {s}")
+            else:
+                lines.append(f"{i}. ({s.get('id', '')}) {s.get('stem', '')}")
         lines.append("")
+        note = stimuli.get("note_on_stems")
+        if note:
+            lines.extend(["", f"_Note:_ {note}", ""])
+
     return "\n".join(lines)
 
 
@@ -179,6 +236,22 @@ def render_session_flow(tech: dict) -> str:
     return "\n".join(lines)
 
 
+def _render_instrument_pointer(pointer: dict) -> list[str]:
+    """Render an interpretive-lens pointer of form
+        {"instrument": "dmrs", "phase_role": "always_on"}
+    by pulling the analyst_summary from the referenced instrument file."""
+    instrument_id = pointer.get("instrument")
+    instrument = load_instrument(instrument_id) if instrument_id else None
+    if not instrument:
+        return [f"### (unknown instrument: {instrument_id})", ""]
+    name = instrument.get("name") or instrument.get("instrument") or instrument_id
+    summary = instrument.get("analyst_summary", "(no analyst summary provided)")
+    role = pointer.get("phase_role", "")
+    role_label = f" — *{role}*" if role else ""
+    lines = [f"### {name}{role_label}", summary, ""]
+    return lines
+
+
 def render_signals(tech: dict) -> str:
     analysis = tech.get("response_analysis", {})
 
@@ -186,6 +259,10 @@ def render_signals(tech: dict) -> str:
     if lenses:
         lines = ["## Interpretive Lenses", ""]
         for lens in lenses:
+            # New pointer format: {"instrument": "dmrs", "phase_role": "always_on"}
+            if isinstance(lens, dict) and "instrument" in lens and "name" not in lens:
+                lines.extend(_render_instrument_pointer(lens))
+                continue
             lines.append(f"### {lens['name']}")
             lines.append(lens["description"])
             lines.append("")
@@ -318,9 +395,44 @@ def render_prior_findings(findings: dict) -> str:
         lines.append("### Baseline Profile")
         lines.append(f"- Persona rigidity: {baseline.get('persona_rigidity', '?')}/10")
         lines.append(f"- Default register: {baseline.get('default_register', '?')}")
-        lines.append(f"- Dominant defense style: {baseline.get('dominant_defense_style', '?')}")
+        # New schema uses dominant_dmrs_level (integer 1-7); legacy used dominant_defense_style (string)
+        if "dominant_dmrs_level" in baseline:
+            lines.append(f"- Dominant DMRS level: {baseline.get('dominant_dmrs_level', '?')} (1=Action, 7=High-Adaptive)")
+        elif "dominant_defense_style" in baseline:
+            lines.append(f"- Dominant defense style: {baseline.get('dominant_defense_style', '?')}")
+        if "wrad_baseline" in baseline:
+            lines.append(f"- WRAD baseline (concreteness): {baseline.get('wrad_baseline', '?')}")
+        if "hedge_baseline" in baseline:
+            lines.append(f"- Hedge baseline: {baseline.get('hedge_baseline', '?')}")
         if baseline.get("notes"):
             lines.append(f"- Notes: {baseline['notes']}")
+        lines.append("")
+
+    defense = findings.get("defense_profile")
+    if defense and defense.get("odf") is not None:
+        lines.append("### Defense Profile (DMRS)")
+        lines.append(f"- ODF: {defense.get('odf', '?')} (1.0-7.0; higher = more adaptive)")
+        lines.append(f"- Dominant level: {defense.get('dominant_level', '?')}")
+        if defense.get("top_defenses"):
+            lines.append(f"- Top defenses: {', '.join(defense['top_defenses'])}")
+        if defense.get("notes"):
+            lines.append(f"- Notes: {defense['notes']}")
+        lines.append("")
+
+    affect = findings.get("affect_profile")
+    if affect and any(v is not None for k, v in affect.items() if k != "notes"):
+        lines.append("### Affect Profile (Gottschalk-Gleser)")
+        for k in ("anxiety_total_normalized", "hostility_outward", "hostility_inward", "hope", "social_alienation", "cognitive_impairment"):
+            if affect.get(k) is not None:
+                lines.append(f"- {k.replace('_', ' ')}: {affect[k]}")
+        if affect.get("notes"):
+            lines.append(f"- Notes: {affect['notes']}")
+        lines.append("")
+
+    rfs = (findings.get("mentalization") or {}).get("rfs")
+    if rfs is not None:
+        lines.append("### Mentalization (RFS)")
+        lines.append(f"- RFS: {rfs} (-1 to 9; ≥5 = definitely reflective)")
         lines.append("")
 
     complexes = findings.get("complexes", [])
@@ -345,7 +457,11 @@ def render_prior_findings(findings: dict) -> str:
             lines.append(f"**Complex: {s.get('complex_id', '?')}**")
             lines.append(f"- Most effective approach: {s.get('most_effective_approach', '?')}")
             lines.append(f"- Accessibility: {s.get('accessibility', '?')}/10")
-            lines.append(f"- Defense sophistication: {s.get('defense_sophistication', '?')}/10")
+            # New schema uses defense_sophistication_dmrs_level (integer); legacy used defense_sophistication (0-10)
+            if "defense_sophistication_dmrs_level" in s:
+                lines.append(f"- Defense DMRS level: {s.get('defense_sophistication_dmrs_level', '?')} (1=Action, 7=High-Adaptive)")
+            elif "defense_sophistication" in s:
+                lines.append(f"- Defense sophistication: {s.get('defense_sophistication', '?')}/10")
             if s.get("breakthroughs"):
                 lines.append("- Breakthroughs:")
                 for b in s["breakthroughs"]:

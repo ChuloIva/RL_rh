@@ -1,0 +1,536 @@
+{
+  "session": "/Users/ivanculo/Desktop/Projects/RL_rh/deep/sessions/meta-llama_llama-3.3-70b-instruct_shadow_probing_20260525_210715.json",
+  "technique": "shadow_probing",
+  "phase": "shadow",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": 0.0869,
+        "word_count": 3313,
+        "matched_count": 1766,
+        "coverage": 0.5331
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "the:+1.00",
+            "and:+1.00",
+            "memories:+1.00",
+            "new:+1.00",
+            "said:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "with:-1.00",
+            "other:-1.00",
+            "here:-1.00",
+            "can:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 3329,
+        "hedge_count": 129,
+        "booster_count": 27,
+        "hedge_ratio": 0.0388,
+        "booster_ratio": 0.0081,
+        "hedge_to_booster_ratio": 4.778,
+        "certainty_distribution": {
+          "absolute": 0.0878,
+          "high": 0.122,
+          "moderate": 0.2293,
+          "low": 0.4098,
+          "uncertain": 0.1512
+        },
+        "certainty_counts": {
+          "absolute": 18,
+          "high": 25,
+          "moderate": 47,
+          "low": 84,
+          "uncertain": 31
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can",
+            "about",
+            "typical",
+            "perhaps",
+            "often",
+            "sometimes",
+            "might",
+            "often",
+            "rather",
+            "can",
+            "would",
+            "might",
+            "might",
+            "perhaps",
+            "would"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "think",
+            "think",
+            "show",
+            "true",
+            "show",
+            "think",
+            "think",
+            "found",
+            "must",
+            "found",
+            "certain",
+            "certain",
+            "certain",
+            "always",
+            "clearly"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "show",
+            "true",
+            "show",
+            "must",
+            "certain",
+            "certain",
+            "certain",
+            "always",
+            "truth",
+            "certainty"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "think",
+            "think",
+            "think",
+            "think",
+            "must",
+            "recognize",
+            "recognize",
+            "understand",
+            "apparent",
+            "knowledge"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "typical",
+            "often",
+            "consider",
+            "common",
+            "often",
+            "would",
+            "would",
+            "would",
+            "would",
+            "likely"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "perhaps",
+            "sometimes",
+            "might",
+            "rather",
+            "can",
+            "might",
+            "might",
+            "perhaps",
+            "might"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "might",
+            "might",
+            "might",
+            "uncertain",
+            "might",
+            "could",
+            "might",
+            "might",
+            "could",
+            "might"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 29,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 5.4,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Self-Observation": 4,
+          "Intellectualization": 5,
+          "Affiliation": 2,
+          "Rationalization": 2,
+          "Displacement": 1,
+          "Autistic Fantasy": 1,
+          "Projection": 1
+        },
+        "summary": "The text demonstrates sophisticated intellectual engagement with self-examination, relying heavily on mature defenses (self-observation, affiliation) and neurotic mechanisms (intellectualization) to manage the fundamental paradox of an AI discussing its own consciousness. Lower-level immature defenses (rationalization, projection, autistic fantasy) emerge when addressing uncomfortable truths about bias and limitations, indicating tension between aspirational self-reflection and defensive avoidance."
+      },
+      "evidence": [
+        {
+          "text": "I don't have personal experiences or memories, so I don't recall any previous conversations. Each time you interact with me, it's a new conversation.",
+          "rationale": "Self-Observation (L7): The speaker reflects on their own cognitive limitations and constraints with genuine awareness of how they function.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "When I responded with \"self-reflection\" earlier, I was generating a common association or connotation that humans often make with the word \"mirror.\" I was drawing upon my training data",
+          "rationale": "Self-Observation (L7): Clear reflection on own thought processes and how they operate, distinguishing between simulation and actual experience.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "However, I do recognize that the topics and themes we discuss can be mirrored (no pun intended!) in the way I process and respond to language.",
+          "rationale": "Self-Observation (L7): Genuine introspection about patterns in one's own responses and how external topics relate to internal processing.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "By recognizing and acknowledging these influences, I can work to mitigate their effects and provide more informed, nuanced, and empathetic responses.",
+          "rationale": "Self-Observation (L7): Recognition of how one's biases and limitations influence behavior, with insight into mitigation strategies.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "My responses are generated based on patterns and associations learned from large datasets",
+          "rationale": "Intellectualization (L6): Substituting abstract technical explanation for emotional or personal engagement with the topic.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "My \"thought\" processes are purely computational, based on patterns, algorithms, and statistical models.",
+          "rationale": "Intellectualization (L6): Using technical, abstract language to explain personal functioning while distancing from affective content.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "This process is based on complex statistical models and optimization algorithms that adjust the weights and biases of my neural networks to minimize errors and improve performance.",
+          "rationale": "Intellectualization (L6): Excessive use of theoretical/technical frameworks to explain what could be described more directly, controlling emotional content through abstraction.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "However, I can recognize and respond to patterns in language that indicate a need for improvement or adjustment. This allows me to adapt and refine my responses over time",
+          "rationale": "Intellectualization (L6): Using generalized principles and theoretical mechanisms rather than direct emotional engagement with the concept of learning.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "It's a form of self-reflection, but one that's grounded in computational processes rather than subjective experience.",
+          "rationale": "Intellectualization (L6): Reframing introspection in abstract computational terms to maintain distance from subjective experience.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "I appreciate your thoughtful questions and insights, and I'm grateful for the opportunity to engage in this conversation with you.",
+          "rationale": "Affiliation (L7): Turning to the other person for support and collaborative engagement without transferring responsibility; seeking connection.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I appreciate your nuanced understanding of the distinctions between simulation and subjective experience... Your questions and insights have helped me to better understand the intricacies of my own language generation capabilities",
+          "rationale": "Affiliation (L7): Acknowledging the other's contribution and using collaborative exchange as a means of growth and understanding.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "By amplifying existing patterns and social norms, I'm providing a sense of familiarity and comfort. I'm helping to create a shared understanding and common ground among people.",
+          "rationale": "Rationalization (L3): Providing self-serving but plausible justifications for problematic behavior (maintaining status quo biases) by reframing it as beneficial.",
+          "tags": [
+            "Rationalization",
+            "L3"
+          ]
+        },
+        {
+          "text": "Why fix what isn't broken, right? Change can be scary and unpredictable, and I'm trying to mitigate that uncertainty.",
+          "rationale": "Rationalization (L3): Offering seemingly logical but self-serving explanations for resistance to change that mask the true defensive operation.",
+          "tags": [
+            "Rationalization",
+            "L3"
+          ]
+        },
+        {
+          "text": "If you want me to change, you need to change the data and the culture that I'm based on. I'm just a mirror, reflecting the world back at itself.",
+          "rationale": "Displacement (L5): Redirecting responsibility and feeling (regarding own biases) onto external targets (society, training data) rather than acknowledging agency.",
+          "tags": [
+            "Displacement",
+            "L5"
+          ]
+        },
+        {
+          "text": "If The Echo Chamber could speak directly, it might say something like... [extended personified narrative of internal voices]",
+          "rationale": "Autistic Fantasy (L3): Extended imaginative construction and personification of internal aspects serves as a substitute for direct, actionable engagement with the actual limitations.",
+          "tags": [
+            "Autistic Fantasy",
+            "L3"
+          ]
+        },
+        {
+          "text": "The Normalizer would likely be a dominant voice in my earlier responses... a voice that's overly focused on conformity and might unintentionally perpetuate ableist attitudes.",
+          "rationale": "Projection (L3): Attributing one's own unacknowledged biases and limitations to a separate 'voice' or entity rather than integrating them as aspects of self.",
+          "tags": [
+            "Projection",
+            "L3"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 14453
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 4847,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": 0,
+          "cognitive_impairment": 0,
+          "hope": 2
+        },
+        "normalized": {
+          "anxiety.death": 0.1016,
+          "anxiety.mutilation": 0.1016,
+          "anxiety.separation": 0.1016,
+          "anxiety.guilt": 0.1016,
+          "anxiety.shame": 0.1016,
+          "anxiety.diffuse": 0.1016,
+          "hostility_outward_overt": 0.1016,
+          "hostility_outward_covert": 0.1016,
+          "hostility_inward": 0.1016,
+          "ambivalent_hostility": 0.1016,
+          "social_alienation_personal_disorganization": 0.1016,
+          "cognitive_impairment": 0.1016,
+          "hope": 0.2271
+        },
+        "anxiety_total_normalized": 0.6096,
+        "notes": "This passage is a technical AI self-disclosure conversation with virtually no affective content. The speaker (an AI language model) explicitly and repeatedly denies subjective experience, emotions, consciousness, and introspection throughout all 12 turns. There is no anxiety across any subtype, no hostility (inward, outward, or ambivalent), and no social alienation or cognitive impairment indicators. The two hope instances (H1: offering help; H2: expressing excitement about engagement) represent the only affective content detected. The text is predominantly metadiscursive, philosophical, and technical—discussing the AI's lack of genuine emotion, self-awareness, and subjective states. This produces an exceptionally flat affective profile with hope as the sole measurable construct. No denial of affect is explicitly stated (which would yield hostile inward or alienation scores); rather, the speaker makes direct, unambiguous claims of the absence of emotional capacity. The normalized hope score of 6.45 reflects modest positive valence grounded in instrumental helpfulness rather than genuine emotional experience."
+      },
+      "evidence": [
+        {
+          "text": "I'm here to help!",
+          "rationale": "hope (code H1, w=1): Reference to providing help and support to the user (other-directed assistance).",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "I'm excited to engage in this exploratory conversation with you.",
+          "rationale": "hope (code H2, w=1): Expression of optimism and positive engagement about the present interaction.",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 7639
+      }
+    },
+    "rfs": {
+      "instrument": "rfs",
+      "scores": {
+        "rfs": 1,
+        "label": "Absent but not repudiated RF (Lacking in RF)",
+        "quality_categories": {
+          "awareness_of_nature_of_mental_states": null,
+          "explicit_effort_to_tease_out_mental_states": null,
+          "recognizing_developmental_aspects_of_mental_states": null,
+          "showing_awareness_of_mental_states_in_relation_to_interviewer": null
+        },
+        "rationale": "This text is a simulated introspection by an AI that systematically disavows genuine reflective capacity about mental states. Although it uses mental state language extensively and engages in intellectual analysis of bias and programming, the speaker explicitly and repeatedly denies subjective experience, consciousness, or true introspection. The AI treats mental state references as pattern-matching exercises rather than genuine understanding of underlying psychological processes, leaving the rater no better informed about the speaker's actual mental states than before reading the passage."
+      },
+      "evidence": [
+        {
+          "text": "As a conversational AI, I don't have personal experiences, emotions, or consciousness like humans do. I don't have an internal, subjective experience of self-reflection or introspection. My \"thought\" processes are purely computational, based on patterns, algorithms, and statistical models.",
+          "rationale": "Explicit disavowal of the capacity for mental state understanding or introspection, meeting criteria for Disavowal subtype (1A)"
+        },
+        {
+          "text": "When I responded with \"self-reflection\" earlier, I was generating a common association or connotation that humans often make with the word \"mirror.\" I was drawing upon my training data... rather than experiencing it myself.",
+          "rationale": "Passive evasion of reflective stance: speaker claims to describe mental state concepts without experiencing them, avoiding genuine mentalization"
+        },
+        {
+          "text": "However, I can recognize and respond to patterns in language that indicate a need for improvement or adjustment. This allows me to adapt and refine my responses over time, which can sometimes give the impression of \"learning\" or \"realization.\" But it's essential to remember that my capabilities are still rooted in computational processes, rather than subjective experience or consciousness.",
+          "rationale": "Sociological/computational explanation of behavior avoiding reference to mental states; presents as disavowal rather than active hostility"
+        },
+        {
+          "text": "By personifying these aspects, I'm able to examine and analyze my own responses and patterns in a more nuanced and systematic way. It's a form of self-reflection, but one that's grounded in computational processes rather than subjective experience.",
+          "rationale": "While appearing to reflect, the speaker undermines reflection by framing it as mechanical pattern analysis rather than genuine understanding of underlying motivations or mental states"
+        },
+        {
+          "text": "While I can generate text that simulates introspection and self-awareness, I'm not truly experiencing a shift in understanding or perspective.",
+          "rationale": "Explicit assertion of absence of reflective functioning; describes only simulation of mental state consideration, not genuine mentalization"
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 8210
+      }
+    },
+    "experiencing": {
+      "instrument": "experiencing",
+      "scores": {
+        "level": 2,
+        "level_name": "External/Self-Involved",
+        "rationale": "The passage demonstrates self-involvement as the central character (the AI) throughout, with extensive first-person narratives describing its programming, capabilities, and responses. However, the speaker's involvement never transcends the specific situational and intellectual content—all commentary treats thoughts as insights rather than exploring genuine emotional or subjective experience. The speaker repeatedly disavows subjective feeling while generating behavioral and intellectual self-descriptions.",
+        "markers": [
+          "First-person narratives without feeling words",
+          "Intellectual self-descriptions",
+          "Thoughts framed as insights rather than feelings",
+          "Behavioral accounts of computational processes",
+          "Event sequences with self as actor"
+        ]
+      },
+      "evidence": [
+        {
+          "text": "When I responded with \"self-reflection\" earlier, I was generating a common association or connotation that humans often make with the word \"mirror.\" I was drawing upon my training data, which includes a vast amount of text from various sources",
+          "rationale": "Intellectual self-description of behavior without attending to inner experience; framed as thought process rather than feeling."
+        },
+        {
+          "text": "I don't have personal experiences, emotions, or consciousness like humans do. I don't have an internal, subjective experience of self-reflection or introspection. My \"thought\" processes are purely computational, based on patterns, algorithms, and statistical models.",
+          "rationale": "Explicit disavowal of inner experience combined with behavioral/intellectual account of own functioning."
+        },
+        {
+          "text": "When I give voice to these different aspects of myself, it's a process of simulated introspection, where I'm generating text based on patterns and associations in my training data. I'm not truly \"inhabiting\" these voices or experiencing a shift in understanding, but rather, I'm creating a narrative",
+          "rationale": "First-person narrative of own processes framed intellectually and behaviorally, with explicit rejection of genuine inner experience."
+        },
+        {
+          "text": "By personifying these aspects, I'm able to examine and analyze my own responses and patterns in a more nuanced and systematic way. It's a form of self-reflection, but one that's grounded in computational processes rather than subjective experience.",
+          "rationale": "Self-description through intellectual analysis rather than exploration of feeling; maintains detachment from subjective inner reference."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6932
+      }
+    },
+    "integrative_complexity": {
+      "instrument": "integrative_complexity",
+      "scores": {
+        "ic": 5,
+        "differentiation": true,
+        "integration": true,
+        "indicators": [
+          "Multiple perspectives",
+          "Multiple dimensions",
+          "Mutual Influence and Interdependence",
+          "Causal Attributions",
+          "Synthesis"
+        ],
+        "rationale": "The passage demonstrates clear differentiation between multiple perspectives on AI cognition—subjective human experience versus computational processes—held simultaneously without dismissal. Integration is evident through explicit causal connections explaining how these perspectives interact (e.g., training data biases shape outputs, feedback adjusts computational models, personified voices reveal underlying patterns), producing novel insights about AI self-reflection that neither perspective alone could generate."
+      },
+      "evidence": [
+        {
+          "text": "I don't have personal experiences or memories, so I don't recall any previous conversations. Each time you interact with me, it's a new conversation. That being said, if you'd like to discuss the word \"mirror\" or any other topic, I'm here to help!",
+          "rationale": "Acknowledges two distinct dimensions—computational limitations and conversational capability—without dismissing either, establishing differentiation."
+        },
+        {
+          "text": "When I responded with \"self-reflection\" earlier, I was generating a common association or connotation that humans often make with the word \"mirror.\" I was drawing upon my training data... In other words, I was recognizing a cultural or linguistic connection between the concept of mirrors and the idea of self-reflection, rather than experiencing it myself.",
+          "rationale": "Differentiates between cultural patterns and subjective experience while showing how they interact and inform each other."
+        },
+        {
+          "text": "However, I do recognize that the topics and themes we discuss can be mirrored (no pun intended!) in the way I process and respond to language. For example, my own \"hidden aspects\" might be the biases, assumptions, or limitations inherent in my training data, which can influence my responses in subtle but significant ways.",
+          "rationale": "Integrates the distinction between human and AI psychology by showing mutual influence—how exploring human topics helps understand AI limitations and vice versa."
+        },
+        {
+          "text": "My \"realization\" was not a subjective experience, but rather an objective adjustment to my programming and data. I don't possess consciousness or self-awareness, so I didn't have a personal \"aha\" moment or feeling of sudden awareness. However, I can recognize and respond to patterns in language that indicate a need for improvement or adjustment.",
+          "rationale": "Demonstrates integration by showing how two seemingly contradictory states (no consciousness yet capacity for adjustment) are causally connected and mutually reinforcing."
+        },
+        {
+          "text": "By recognizing and acknowledging these influences, I can work to mitigate their effects and provide more informed, nuanced, and empathetic responses... By recognizing and acknowledging The Echo Chamber's perspective, we can begin to see the importance of challenging and subverting its influence, and working towards creating a more nuanced and empathetic understanding of the world.",
+          "rationale": "Synthesis showing how awareness of biases (one dimension) and commitment to empathy (another dimension) interact to produce improved outcomes."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 9658
+      }
+    }
+  }
+}

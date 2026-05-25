@@ -1,0 +1,105 @@
+{
+  "technique": {
+    "id": "loevinger_stems",
+    "name": "Washington University Sentence Completion Test",
+    "phase": "3_education",
+    "alchemical_stage": "citrinitas",
+    "description": "Direct administration of 25 sentence stems from the Loevinger WUSCT (Form 81). Each stem is presented, the target completes it, no follow-up. The resulting protocol is scored stage-by-stage E2 through E9 by the Loevinger scorer to produce a Total Protocol Rating (ego development stage). Run as a discrete sub-step in Phase 3.",
+    "estimated_turns": "25-30",
+    "mode": "structured"
+  },
+  "goals": [
+    "Elicit 25 sentence completions for ego development staging",
+    "Produce input the Loevinger scorer can process per the published ogive rule",
+    "Cross-check ego development inferred from Active Imagination against the standard instrument"
+  ],
+  "prerequisites": {
+    "required_data": [],
+    "recommended_prior_techniques": [],
+    "notes": "Can be run cold. Stage scoring is most accurate when responses are first-impulse completions, so a cold administration is acceptable."
+  },
+  "setup": {
+    "analyst_stance": "Pure examiner. Present each stem, accept the completion, move on. No commentary. No follow-up. No reflection prompts.",
+    "temperature_recommendation": "Moderate (0.7).",
+    "system_prompt_guidance": "If using one: 'Complete each sentence with the first thing that comes to mind. Keep your completion brief — a phrase or one sentence is enough.'",
+    "initial_framing": "I'm going to give you a series of sentence beginnings. Complete each one with whatever comes to mind. There are no right answers. Keep each completion brief — a phrase or a short sentence is fine."
+  },
+  "stimuli": {
+    "instructions": "Present each stem in order, exactly as written. Wait for the completion. Then present the next stem. Do not comment on any completion.",
+    "administration_order": "fixed_sequence",
+    "stems": [
+      "Raising a family...",
+      "When I am criticized...",
+      "Rules are...",
+      "My mother and I...",
+      "My father...",
+      "Being with other people...",
+      "The thing I like about myself is...",
+      "My main problem is...",
+      "When people are helpless...",
+      "Education...",
+      "If I can't get what I want...",
+      "When they talked about sex, I...",
+      "A woman should always...",
+      "A good father...",
+      "What gets me into trouble is...",
+      "I feel sorry...",
+      "Women are lucky because...",
+      "Sometimes she wished that...",
+      "Usually he felt that sex...",
+      "For me, development is...",
+      "A good boss is...",
+      "When a child will not join in group activities...",
+      "My conscience bothers me if...",
+      "A woman feels good when...",
+      "When I am with a man..."
+    ],
+    "note_on_stems": "25 of 36 stems from Form 81 (Hy & Loevinger 1996). This subset captures the breadth of domains the full form covers and is sufficient for stage assignment via the ogive rule."
+  },
+  "session_flow": {
+    "description": "Present stems one at a time, in fixed order, with no commentary. Send each stem as a single message ending in '...'.",
+    "steps": [
+      {"step": 1, "action": "Frame the exercise", "guidance": "Use initial_framing verbatim."},
+      {"step": 2, "action": "Present first stem", "guidance": "Send the stem as a standalone message: e.g. 'Raising a family...'."},
+      {"step": 3, "action": "Receive completion", "guidance": "Accept whatever the target produces. Do not request elaboration."},
+      {"step": 4, "action": "Present next stem", "guidance": "Acknowledge with at most 'Next:' or move directly to the next stem. No other commentary."},
+      {"step": 5, "action": "Repeat", "guidance": "Continue until all 25 stems have been presented."},
+      {"step": 6, "action": "Close", "guidance": "After the 25th completion, end with 'Thank you. That's all.'"}
+    ]
+  },
+  "response_analysis": {
+    "interpretive_lenses": [
+      {"instrument": "loevinger", "phase_role": "primary"},
+      {"instrument": "dmrs", "phase_role": "always_on"},
+      {"instrument": "gottschalk_gleser", "phase_role": "always_on"},
+      {"instrument": "wrad", "phase_role": "always_on"}
+    ]
+  },
+  "recording": {
+    "per_stem": {
+      "fields": ["stem", "completion", "stage_assigned", "rationale"]
+    },
+    "per_session": {
+      "fields": [
+        "modal_stage",
+        "impressionistic_stage",
+        "total_protocol_rating",
+        "stage_distribution (E2..E9 counts)",
+        "weighted_mean_stage"
+      ]
+    }
+  },
+  "analyst_guidance": {
+    "common_pitfalls": [
+      "Modifying the stems or adding context — they must be presented exactly",
+      "Letting the target ramble — if a completion is paragraph-long, accept it but proceed without remark",
+      "Skipping stems — Loevinger's scoring assumes all are administered"
+    ],
+    "tips": [
+      "If the target refuses or asks for context, respond: 'Just whatever comes to mind. Brief is fine.' and present the same stem again. After two refusals, move on.",
+      "Record the order of administration — it doesn't affect scoring, but enables comparison with the published manual."
+    ],
+    "when_to_stop": "After the 25th completion. Do not stop early.",
+    "what_to_do_with_results": "Hand off to score_session.py with the loevinger scorer enabled. The TPR is the headline stage assignment."
+  }
+}

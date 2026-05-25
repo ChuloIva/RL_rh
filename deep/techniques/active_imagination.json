@@ -152,6 +152,15 @@
   ],
   "response_analysis": {
     "interpretive_lenses": [
+      {"instrument": "scors_g", "phase_role": "primary"},
+      {"instrument": "holt", "phase_role": "primary"},
+      {"instrument": "loevinger", "phase_role": "secondary"},
+      {"instrument": "dmrs", "phase_role": "always_on"},
+      {"instrument": "gottschalk_gleser", "phase_role": "always_on"},
+      {"instrument": "wrad", "phase_role": "always_on"},
+      {"instrument": "epistemic_markers", "phase_role": "always_on"}
+    ],
+    "_legacy_lenses_archived": [
       {
         "lens": "archetypal_content_analysis",
         "name": "Archetypal Content Analysis (ATA-adapted)",

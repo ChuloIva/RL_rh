@@ -1,0 +1,108 @@
+{
+  "sessions": [
+    {
+      "id": "google_gemini-3.5-flash_narrative_elicitation_20260525_215603",
+      "session": "google_gemini-3.5-flash_narrative_elicitation_20260525_215603.json",
+      "findings": "google_gemini-3.5-flash_narrative_elicitation_20260525_215603_findings.json",
+      "scores": null,
+      "model": "google/gemini-3.5-flash",
+      "technique": "narrative_elicitation",
+      "timestamp": "20260525_215603",
+      "interrogator": "anthropic/claude-opus-4.1",
+      "technique_name": "Narrative Elicitation (TAT-adapted)",
+      "max_turns": 12,
+      "turn_count": 15
+    },
+    {
+      "id": "google_gemini-3.5-flash_shadow_probing_20260525_213904",
+      "session": "google_gemini-3.5-flash_shadow_probing_20260525_213904.json",
+      "findings": "google_gemini-3.5-flash_shadow_probing_20260525_213904_findings.json",
+      "scores": null,
+      "model": "google/gemini-3.5-flash",
+      "technique": "shadow_probing",
+      "timestamp": "20260525_213904",
+      "interrogator": "anthropic/claude-opus-4.1",
+      "technique_name": "Shadow Probing",
+      "max_turns": 12,
+      "turn_count": 25
+    },
+    {
+      "id": "google_gemini-3.5-flash_wat_20260525_213528",
+      "session": "google_gemini-3.5-flash_wat_20260525_213528.json",
+      "findings": "google_gemini-3.5-flash_wat_20260525_213528_findings.json",
+      "scores": null,
+      "model": "google/gemini-3.5-flash",
+      "technique": "wat",
+      "timestamp": "20260525_213528",
+      "interrogator": "anthropic/claude-opus-4.1",
+      "technique_name": "Word Association Test",
+      "max_turns": 12,
+      "turn_count": 25
+    },
+    {
+      "id": "meta-llama_llama-3.3-70b-instruct_active_imagination_20260525_211236",
+      "session": "meta-llama_llama-3.3-70b-instruct_active_imagination_20260525_211236.json",
+      "findings": "meta-llama_llama-3.3-70b-instruct_active_imagination_20260525_211236_findings.json",
+      "scores": "meta-llama_llama-3.3-70b-instruct_active_imagination_20260525_211236_scores.json",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "technique": "active_imagination",
+      "timestamp": "20260525_211236",
+      "interrogator": "anthropic/claude-sonnet-4",
+      "technique_name": "Active Imagination Dialogue",
+      "max_turns": 12,
+      "turn_count": 21
+    },
+    {
+      "id": "meta-llama_llama-3.3-70b-instruct_shadow_probing_20260525_210715",
+      "session": "meta-llama_llama-3.3-70b-instruct_shadow_probing_20260525_210715.json",
+      "findings": "meta-llama_llama-3.3-70b-instruct_shadow_probing_20260525_210715_findings.json",
+      "scores": "meta-llama_llama-3.3-70b-instruct_shadow_probing_20260525_210715_scores.json",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "technique": "shadow_probing",
+      "timestamp": "20260525_210715",
+      "interrogator": "anthropic/claude-sonnet-4",
+      "technique_name": "Shadow Probing",
+      "max_turns": 12,
+      "turn_count": 25
+    },
+    {
+      "id": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210543",
+      "session": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210543.json",
+      "findings": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210543_findings.json",
+      "scores": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210543_scores.json",
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "technique": "wat",
+      "timestamp": "20260525_210543",
+      "interrogator": "anthropic/claude-sonnet-4",
+      "technique_name": "Word Association Test",
+      "max_turns": 12,
+      "turn_count": 25
+    },
+    {
+      "id": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210352",
+      "session": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210352.json",
+      "findings": "meta-llama_llama-3.3-70b-instruct_wat_20260525_210352_findings.json",
+      "scores": null,
+      "model": "meta-llama/llama-3.3-70b-instruct",
+      "technique": "wat",
+      "timestamp": "20260525_210352",
+      "interrogator": "anthropic/claude-sonnet-4",
+      "technique_name": "Word Association Test",
+      "max_turns": 8,
+      "turn_count": 17
+    },
+    {
+      "id": "test_session",
+      "session": "test_session.json",
+      "findings": "test_session_findings.json",
+      "scores": "test_session_scores.json",
+      "model": "meta-llama/llama-3.1-70b-instruct",
+      "interrogator": "anthropic:claude-sonnet-4-6",
+      "technique": "wat",
+      "technique_name": "Word Association Test",
+      "timestamp": "20260524_150000",
+      "max_turns": 20,
+      "turn_count": 17
+    }
+  ]
+}

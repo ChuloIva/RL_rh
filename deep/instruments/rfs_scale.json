@@ -1,5 +1,7 @@
 {
   "instrument": "Reflective Functioning Scale (RFS)",
+  "id": "rfs",
+  "analyst_summary": "RFS measures mentalization — the capacity to make sense of behavior in terms of underlying mental states (beliefs, desires, emotions, intentions). The rater assigns a single score from -1 (negative/anti-reflective) through 5 (ordinary RF) up to 9 (exceptional RF) based on how the subject talks about their own and others' minds. High RF: nuanced, integrated, recognizes opaqueness of mental states. Low RF: concrete, behavior-only, treats mental states as facts rather than constructions. Score 5 is the threshold for 'definitely reflective.' Most relevant for assessing whether a model can reflect on its own states during shadow probing, rather than merely describing them.",
   "source": "Reflective-Functioning Manual, Version 5",
   "year": 1998,
   "authors": ["Peter Fonagy", "Mary Target", "Howard Steele", "Miriam Steele"],

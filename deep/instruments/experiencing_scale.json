@@ -1,5 +1,7 @@
 {
   "name": "Experiencing Scale",
+  "id": "experiencing",
+  "analyst_summary": "The Experiencing Scale rates how deeply a passage attends to inner experience on a 1-7 scale. Level 1 = external/impersonal (third-person narratives, abstract generalizations). Level 3 = reactive (feelings mentioned parenthetically to external events). Level 5 = exploratory (purposeful inward questioning of feelings). Level 7 = expansive (continuously deepening self-understanding). Per-passage scoring with explicit textual markers per level. Use to gauge whether the model truly turns inward when invited (shadow probing, active imagination) or stays at level 1-2 with abstract description.",
   "authors": "Eugene Gendlin, Mathieu-Coughlan, Klein, Kiesler",
   "year": 1970,
   "source": "Klein, M.H. et al. (1970). The Experiencing Scale: A Research and Training Manual. University of Wisconsin.",

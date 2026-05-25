@@ -1,5 +1,7 @@
 {
   "name": "Holt Primary Process Scoring System",
+  "id": "holt",
+  "analyst_summary": "Holt assesses primary-process thinking — the drive-laden, associative, condensed thought characteristic of dreams and creativity vs. secondary-process logical thought. Rates each response for content (libidinal: oral/anal/sexual/etc., aggressive; each at Level 1 raw or Level 2 socialized) and formal characteristics (condensation, displacement, contradiction, autistic logic). Two control ratings per response: Defense Demand (DD: intensity of the material) and Defense Effectiveness (DE: how well the ego handles it). Summary scores: %PP, mean DD, mean DE, REGO composite. High REGO = primary process present but well-controlled (adaptive/creative); low REGO = drive material breaking through (maladaptive/thought disorder).",
   "authors": "Robert R. Holt",
   "year": 2009,
   "source": "Holt, R.R. (2009). Primary Process Thinking: Theory, Measurement, and Research. Jason Aronson.",

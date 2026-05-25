@@ -1,4 +1,6 @@
 {
+  "id": "integrative_complexity",
+  "analyst_summary": "Integrative Complexity rates how a passage handles multiple perspectives on a single 1-7 scale. Level 1 = no differentiation (one dimension, often dichotomous). Level 3 = differentiation present (multiple dimensions acknowledged but not connected). Level 5 = integration (connections drawn between dimensions). Level 7 = systemic integration (second-order connections, recognition of overarching frames). Per-paragraph scoring. Useful for assessing whether a model can hold opposing positions in tension during shadow probing, vs. collapsing to one side or producing pseudo-balance.",
   "instrument": {
     "name": "Integrative Complexity (IC) Coding Scale",
     "full_title": "Coding Manual for Conceptual/Integrative Complexity",

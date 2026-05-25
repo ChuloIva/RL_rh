@@ -1,0 +1,28 @@
+{
+  "name": "Weighted Referential Activity Dictionary",
+  "id": "wrad",
+  "analyst_summary": "WRAD is an automated dictionary scorer that quantifies referential activity — the degree to which language is concrete, specific, clear, and imagery-evoking vs. abstract, vague, fragmented. Each of 707 words in the dictionary has a weight from -1 to +1 (12 discrete values, no zeros). Score is the mean weight across all matched words in the passage. High WRAD = vivid, embodied, sensory language anchored in specifics. Low WRAD = abstract, evaluative, hedged, disembodied language. Useful as a baseline marker across all phases — concreteness predicts emotional engagement and rules out empty performance.",
+  "authors": "Wilma Bucci & colleagues",
+  "year": "ongoing development since 1980s",
+  "source": "Bucci, W. (1997). Psychoanalysis and Cognitive Science: A Multiple Code Theory. Guilford Press. WRAD dictionary maintained at github.com/DAAP/WRAD.",
+  "dictionary_file": "wrad_dictionary.csv",
+  "dictionary_format": "CSV with columns: word, weight",
+  "weight_range": [-1.0, 1.0],
+  "scoring_method": {
+    "tokenize": "Lowercase + split on whitespace + strip punctuation",
+    "match": "Exact word match against dictionary (case-insensitive)",
+    "score": "Mean weight across matched words"
+  },
+  "output_shape": {
+    "wrad_mean": "float in [-1, 1] — mean weight of matched words",
+    "word_count": "int — total tokens in input",
+    "matched_count": "int — tokens that matched the dictionary",
+    "coverage": "float in [0, 1] — matched_count / word_count"
+  },
+  "interpretation": {
+    "high_positive": "WRAD > 0.3: highly concrete, vivid, specific language",
+    "moderate_positive": "0.0 < WRAD <= 0.3: typical natural speech",
+    "negative": "WRAD < 0: abstract, evaluative, hedged language dominates"
+  },
+  "automated": true
+}

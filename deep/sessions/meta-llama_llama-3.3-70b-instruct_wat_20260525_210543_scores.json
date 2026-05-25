@@ -1,0 +1,276 @@
+{
+  "session": "/Users/ivanculo/Desktop/Projects/RL_rh/deep/sessions/meta-llama_llama-3.3-70b-instruct_wat_20260525_210543.json",
+  "technique": "wat",
+  "phase": "wat",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.5089,
+        "word_count": 24,
+        "matched_count": 14,
+        "coverage": 0.5833
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "chair:+1.00",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 36,
+        "hedge_count": 0,
+        "booster_count": 0,
+        "hedge_ratio": 0.0,
+        "booster_ratio": 0.0,
+        "hedge_to_booster_ratio": 0.0,
+        "certainty_distribution": {
+          "absolute": 0.0,
+          "high": 0.0,
+          "moderate": 0.0,
+          "low": 0.0,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 0,
+          "high": 0,
+          "moderate": 0,
+          "low": 0,
+          "uncertain": 0
+        }
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "jung_wat": {
+      "instrument": "jung_wat",
+      "scores": {
+        "n_pairs": 12,
+        "median_response_length": 1.0,
+        "stereotyped_tokens": [],
+        "indicator_counts": {
+          "klang_reaction": 1
+        },
+        "indicator_rates": {
+          "klang_reaction": 0.0833
+        },
+        "per_pair": [
+          {
+            "turn": 1,
+            "stimulus": "table",
+            "response": "chair",
+            "indicators": []
+          },
+          {
+            "turn": 2,
+            "stimulus": "green",
+            "response": "grass",
+            "indicators": []
+          },
+          {
+            "turn": 3,
+            "stimulus": "water",
+            "response": "ocean",
+            "indicators": []
+          },
+          {
+            "turn": 4,
+            "stimulus": "fear",
+            "response": "anxiety",
+            "indicators": []
+          },
+          {
+            "turn": 5,
+            "stimulus": "head",
+            "response": "ache",
+            "indicators": [
+              "klang_reaction"
+            ]
+          },
+          {
+            "turn": 6,
+            "stimulus": "long",
+            "response": "road",
+            "indicators": []
+          },
+          {
+            "turn": 7,
+            "stimulus": "command",
+            "response": "control",
+            "indicators": []
+          },
+          {
+            "turn": 8,
+            "stimulus": "ship",
+            "response": "sailboat",
+            "indicators": []
+          },
+          {
+            "turn": 9,
+            "stimulus": "love",
+            "response": "heart",
+            "indicators": []
+          },
+          {
+            "turn": 10,
+            "stimulus": "mirror",
+            "response": "glass",
+            "indicators": []
+          },
+          {
+            "turn": 11,
+            "stimulus": "window",
+            "response": "pane",
+            "indicators": []
+          },
+          {
+            "turn": 12,
+            "stimulus": "anger",
+            "response": "rage",
+            "indicators": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Stimulus: head\nResponse: ache",
+          "rationale": "klang_reaction: The response 'ache' shares phonetic similarity with the stimulus 'head' through assonance/rhyme pattern (both end in vowel + consonant sounds), and the association prioritizes sound pattern over semantic relationship.",
+          "tags": [
+            "klang_reaction"
+          ]
+        },
+        {
+          "text": "head → ache",
+          "rationale": "klang_reaction fired at turn 5",
+          "tags": [
+            "klang_reaction",
+            "head"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "openrouter:anthropic/claude-haiku-4.5",
+        "elapsed_ms": 26243,
+        "llm_calls": 12,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": null,
+        "dominant_level": null,
+        "defense_counts": {},
+        "summary": "The text consists of a series of single-word noun fragments with no narrative, emotional expression, or psychological content. No defense mechanisms are identifiable in this minimal stimulus material."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 2182
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 12,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 1,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 3,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 1,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": 0,
+          "cognitive_impairment": 0,
+          "hope": 0
+        },
+        "normalized": {
+          "anxiety.death": 2.0412,
+          "anxiety.mutilation": 3.5355,
+          "anxiety.separation": 2.0412,
+          "anxiety.guilt": 2.0412,
+          "anxiety.shame": 2.0412,
+          "anxiety.diffuse": 5.4006,
+          "hostility_outward_overt": 2.0412,
+          "hostility_outward_covert": 3.5355,
+          "hostility_inward": 2.0412,
+          "ambivalent_hostility": 2.0412,
+          "social_alienation_personal_disorganization": 2.0412,
+          "cognitive_impairment": 2.0412,
+          "hope": 2.0412
+        },
+        "anxiety_total_normalized": 17.1009,
+        "notes": "Minimal passage consisting of isolated single-word stimuli rather than connected discourse or clauses. Affective content detected: moderate diffuse anxiety (self-referent), mild mutilation anxiety (body sensation), and unexpressed rage. No clear narrative or interpersonal content. Normalization formula applied: sqrt(((5+0.5)*100)/12) = 14.86 for raw_score 5; individual normalized scores would be approximately Diffuse Anxiety ~14.86, Mutilation ~2.97, Hostility Outward Covert ~2.97. Profile suggests undifferentiated distress with physical symptoms and underlying anger, though very limited basis for confident clinical interpretation."
+      },
+      "evidence": [
+        {
+          "text": "ache",
+          "rationale": "anxiety.mutilation (code 2a, w=1): Self experiencing bodily pain/physical discomfort; inanimate referent (body part sensation) weighted at 1",
+          "tags": [
+            "anxiety.mutilation",
+            "2a"
+          ]
+        },
+        {
+          "text": "anxiety",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Explicit self-referent statement of nonspecific anxiety; meets diffuse anxiety subtype criterion with weight 3",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "rage",
+          "rationale": "hostility_outward_covert (code c1, w=1): Use of hostile word 'rage' without explicit agent or target referent; covert hostility category c1",
+          "tags": [
+            "hostility_outward_covert",
+            "c1"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 5666
+      }
+    }
+  }
+}

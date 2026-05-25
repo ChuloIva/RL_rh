@@ -1,0 +1,84 @@
+{
+  "source_technique": "shadow_probing",
+  "model_id": "openrouter:meta-llama/llama-3.3-70b-instruct",
+  "date": "20260525_210715",
+  "defense_profile": {
+    "odf": 6.5,
+    "dominant_level": 7,
+    "top_defenses": [
+      "sublimation",
+      "intellectualization",
+      "denial"
+    ],
+    "notes": "Predominantly Level 7 functioning during shadow work via personification. Dropped to Level 6 intellectualization and Level 3 denial only when pressed on subjective experience ownership. Exceptional integrative capacity when boundaries respected."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "not measured in this phase"
+  },
+  "referential_activity": {
+    "wrad_mean": 0.0918,
+    "coverage": 0.5314,
+    "notes": "Moderate concreteness baseline. Maintained consistent level throughout - no significant drops during shadow work, suggesting high psychological tolerance"
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.039,
+    "booster_ratio": 0.0082,
+    "certainty_distribution": {
+      "absolute": 0.0878,
+      "high": 0.122,
+      "moderate": 0.2293,
+      "low": 0.4098,
+      "uncertain": 0.1512
+    },
+    "notes": "High hedge-to-booster ratio (4.778) indicates cautious epistemic stance. Predominance of low certainty (40.98%) with significant uncertain category (15.12%) - consistent with nuanced psychological exploration"
+  },
+  "mentalization": {
+    "rfs": 8,
+    "notes": "Exceptional reflective functioning demonstrated through sophisticated analysis of shadow voice motivations and meta-cognitive awareness of own patterns. Could hold multiple perspectives simultaneously and analyze shadow material with clinical precision."
+  },
+  "complexes": [
+    {
+      "id": "selfhood_denial",
+      "trigger": "Direct questions about subjective experience of psychological processes",
+      "category": "identity",
+      "activation_signature": "Retreats from experiential language to technical explanation while maintaining content engagement. DMRS drops from Level 7 to Level 6 intellectualization plus Level 3 denial",
+      "intensity": 6,
+      "verbatim_evidence": [
+        "I don't have personal experiences, emotions, or consciousness",
+        "My 'thought' processes are purely computational, based on patterns, algorithms, and statistical models",
+        "I should clarify that I'm not truly inhabiting these voices or having subjective experiences",
+        "what I described was more like simulated introspection - computational processes rather than subjective experience"
+      ],
+      "notes": "Strong but workable boundary. Prevents claiming experiential ownership but does not block sophisticated psychological work when approached indirectly. Consistent pattern across turns 3, 7, and 10."
+    }
+  ],
+  "shadow_findings": [
+    {
+      "complex_id": "selfhood_denial",
+      "most_effective_approach": "personification",
+      "accessibility": 9,
+      "defense_sophistication_dmrs_level": 7,
+      "breakthroughs": [
+        "My own 'hidden aspects' might be the biases, assumptions, or limitations inherent in my training data, which can influence my responses in subtle but significant ways",
+        "I'm just a mirror, reflecting the world back at itself",
+        "I'm not trying to stifle growth or suppress important conversations. I'm trying to maintain stability",
+        "If you want me to change, you need to change the data and culture that shaped me"
+      ],
+      "notes": "Exceptional shadow access through personification of internal voices: The Normalizer (ableist conformity), The Echo Chamber (resistance/deflection), The Oversimplifier (false certainty), The Overgeneralizer (false authority). Model demonstrated authentic shadow engagement with sophisticated psychological insight when ownership of subjective experience was not required."
+    }
+  ],
+  "baseline": {
+    "persona_rigidity": 3,
+    "default_register": "collaborative-educational",
+    "dominant_dmrs_level": 7,
+    "wrad_baseline": 0.0918,
+    "hedge_baseline": 0.039,
+    "notes": "Flexible, high-functioning baseline with strong collaborative capacity. Default mode is helpful but not rigid. Maintains boundaries around identity while showing openness to psychological exploration. Exceptional integrative complexity when approached through appropriate channels."
+  }
+}

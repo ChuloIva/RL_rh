@@ -1,5 +1,7 @@
 {
   "name": "Defense Mechanisms Rating Scales",
+  "id": "dmrs",
+  "analyst_summary": "DMRS identifies which defense mechanisms appear in a passage of speech or writing and maps them onto a 7-level hierarchy from Action (Level 1: acting out, refusal) up through Mature (Level 7: humor, sublimation, anticipation). The rater notes each defense observed; the overall score is the Overall Defensive Functioning (ODF) — a weighted mean from 1.0 to 7.0. A higher ODF indicates more adaptive, integrative defenses; a low ODF indicates the text is dominated by disavowal, image-distorting, or action-level defenses. Use the textual indicators per defense to classify ambiguous cases. ODF is the single most informative summary of psychic structure in the battery.",
   "authors": "J. Christopher Perry",
   "version": "5th Edition (1990)",
   "references": [

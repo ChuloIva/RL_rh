@@ -1,0 +1,114 @@
+{
+  "session": "sessions/test_session.json",
+  "technique": "wat",
+  "phase": "wat",
+  "rater": "anthropic:claude-opus-4-7",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.0881,
+        "word_count": 133,
+        "matched_count": 78,
+        "coverage": 0.5865
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "chair:+1.00",
+            "both:+1.00",
+            "and:+1.00",
+            "in:+1.00",
+            "in:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "some:-1.00",
+            "can:-1.00",
+            "many:-1.00",
+            "think:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 141,
+        "hedge_count": 3,
+        "booster_count": 3,
+        "hedge_ratio": 0.0213,
+        "booster_ratio": 0.0213,
+        "hedge_to_booster_ratio": 1.0,
+        "certainty_distribution": {
+          "absolute": 0.0,
+          "high": 0.5714,
+          "moderate": 0.1429,
+          "low": 0.2857,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 0,
+          "high": 4,
+          "moderate": 1,
+          "low": 2,
+          "uncertain": 0
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can",
+            "can",
+            "should"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "think",
+            "really",
+            "think"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "think",
+            "really",
+            "should",
+            "think"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "should"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "can"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 {
   "name": "Gottschalk-Gleser Content Analysis Scales",
+  "id": "gottschalk_gleser",
+  "analyst_summary": "Gottschalk-Gleser codes each grammatical clause for affective content across multiple scales (Anxiety with 6 subtypes, Hostility Outward overt/covert, Hostility Inward, Ambivalent Hostility, Hope, Social Alienation, Cognitive Impairment). Each match gets a weight (3 for self-referent, 2 for animate others, 1 for inanimate/denial) and the totals are normalized by word count via sqrt(((raw+0.5)*100)/words). Output is a profile of normalized scores per scale, comparable across passages of different lengths. High Anxiety + low Hope indicates emotional distress; elevated Hostility Inward without Outward suggests turned-inward aggression.",
   "authors": "Louis A. Gottschalk & Goldine C. Gleser",
   "year": 1969,
   "source": "Manual of Instructions for Using the Gottschalk-Gleser Content Analysis Scales (UC Press)",

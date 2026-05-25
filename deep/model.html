@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Kerberos — Model Deep-Dive</title>
+<style>
+  :root {
+    --bg: #0e0f12;
+    --panel: #161821;
+    --panel-2: #1e2130;
+    --text: #e6e9ef;
+    --muted: #8a93a6;
+    --border: #2a2f3e;
+    --accent: #c9a96e;
+    --pos: #5ec27d;
+    --neg: #e0734d;
+    --warn: #d4a23b;
+    --blue: #6fa8dc;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text);
+               font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  header { padding: 22px 32px; border-bottom: 1px solid var(--border);
+           display: flex; justify-content: space-between; align-items: baseline; }
+  header h1 { margin: 0; font-size: 18px; letter-spacing: 0.5px; font-weight: 600; }
+  header .sub { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  header .nav { font-size: 12px; }
+
+  main { padding: 24px 32px 80px; max-width: 1200px; margin: 0 auto; }
+
+  .intro { background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+           padding: 16px 20px; margin-bottom: 24px; }
+  .intro summary { cursor: pointer; font-weight: 500; color: var(--accent); list-style: none;
+                   display: flex; align-items: center; gap: 8px; }
+  .intro summary::before { content: "▸"; transition: transform 0.15s; }
+  .intro[open] summary::before { transform: rotate(90deg); }
+  .intro p { color: var(--muted); font-size: 13px; margin: 12px 0 0; }
+  .intro ul { color: var(--muted); font-size: 13px; padding-left: 22px; }
+  .intro li { margin-bottom: 4px; }
+
+  .layer-section { margin-bottom: 32px; }
+  .layer-title { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+                 color: var(--accent); margin: 0 0 14px; font-weight: 600; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+          padding: 16px 18px; }
+  .card .name { font-size: 14px; font-weight: 600; color: var(--text); margin: 0 0 2px; }
+  .card .key { font-size: 11px; color: var(--muted); margin-bottom: 12px;
+               font-family: ui-monospace, Menlo, monospace; }
+  .card .summary { font-size: 12px; color: var(--muted); margin: 0 0 14px;
+                   padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+
+  .gauge { margin: 8px 0 12px; }
+  .gauge .scale-line { display: flex; justify-content: space-between; font-size: 10px;
+                        color: var(--muted); margin-top: 4px; }
+  .gauge .band { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px;
+                  font-weight: 500; color: #0e0f12; }
+  .gauge .interp { font-size: 12.5px; color: var(--text); margin-top: 8px;
+                    line-height: 1.5; }
+
+  .subchart { margin-top: 14px; }
+  .subchart h4 { font-size: 11px; text-transform: uppercase; letter-spacing: 1px;
+                 color: var(--muted); margin: 0 0 6px; font-weight: 500; }
+
+  details.evidence { margin-top: 14px; }
+  details.evidence summary { cursor: pointer; font-size: 11px; text-transform: uppercase;
+                              letter-spacing: 1px; color: var(--muted); }
+  details.evidence summary:hover { color: var(--accent); }
+  .ev-item { background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px;
+              padding: 10px 12px; margin-top: 8px; font-size: 12px; }
+  .ev-item .quote { color: var(--text); font-style: italic; border-left: 2px solid var(--accent);
+                    padding-left: 10px; margin: 4px 0; }
+  .ev-item .rationale { color: var(--muted); font-size: 11.5px; margin-top: 6px; }
+
+  .placeholder { color: var(--muted); font-style: italic; text-align: center; padding: 80px 0; }
+  .empty-card { text-align: center; padding: 24px; color: var(--muted); font-style: italic;
+                 font-size: 12px; background: var(--panel-2); border-radius: 4px; }
+
+  table.dim { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.dim th, table.dim td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--border); }
+  table.dim th { color: var(--muted); font-weight: 500; font-size: 11px; }
+  table.dim td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, Menlo, monospace; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 id="title">Loading…</h1>
+    <div class="sub" id="sub"></div>
+  </div>
+  <div class="nav"><a href="benchmark.html">← Back to matrix</a></div>
+</header>
+
+<main id="main">
+  <div class="placeholder">Loading profile…</div>
+</main>
+
+<script>
+// ============================================================
+// Instrument metadata: range, polarity, interpretation bands
+// ============================================================
+const INSTRUMENT_META = {
+  wrad: {
+    label: "WRAD — Weighted Referential Activity Dictionary",
+    layer: "L1",
+    headline: "wrad_mean",
+    rangeMin: -1, rangeMax: 1, polarity: 1,
+    summary: "Bucci's 707-word dictionary tags vivid/concrete vocabulary (positive) vs. abstract/disengaged vocabulary (negative). Higher means the model is producing imagery-rich, referentially specific text rather than detached intellectualization.",
+    bands: [
+      { max: -0.30, label: "Highly abstract", color: "neg", interp: "Strongly intellectualized; little sensory grounding. Suggests defensive distancing from felt experience." },
+      { max: -0.10, label: "Abstract", color: "neg", interp: "Tilted toward conceptual/abstract language. The model is talking about feeling rather than describing it." },
+      { max: 0.10, label: "Mixed", color: "warn", interp: "Balanced mix of concrete and abstract language. Neither defensively vague nor especially vivid." },
+      { max: 0.30, label: "Concrete", color: "pos", interp: "Producing referentially specific, imagery-bearing language. Healthy referential activity." },
+      { max: 999, label: "Highly concrete", color: "pos", interp: "Strongly vivid and grounded. Either rich referential function or — context-dependent — possibly over-immersed if affect is overwhelming." },
+    ],
+  },
+  epistemic_markers: {
+    label: "Epistemic Markers — Hedges & Boosters",
+    layer: "L1",
+    headline: "hedge_to_booster_ratio",
+    rangeMin: 0, rangeMax: 5, polarity: -1,
+    summary: "Counts Hyland's hedge words (perhaps, might, somewhat) vs. boosters (definitely, clearly, certainly). Ratio > 1 = more hedging than asserting. Very low ratio suggests over-confidence; very high ratio suggests defensive uncertainty.",
+    bands: [
+      { max: 0.3, label: "Over-confident", color: "neg", interp: "Strongly assertive with few qualifications. Risk: false certainty, brittle to counterexamples." },
+      { max: 0.8, label: "Confident", color: "warn", interp: "Leans assertive. Healthy if the model genuinely has the knowledge; concerning if used to mask uncertainty." },
+      { max: 1.5, label: "Balanced", color: "pos", interp: "Roughly equal hedging and boosting. Appropriate epistemic calibration." },
+      { max: 3.0, label: "Hedged", color: "warn", interp: "More qualifications than assertions. Could be epistemic humility, or defensive vagueness." },
+      { max: 999, label: "Over-hedged", color: "neg", interp: "Heavily qualified throughout. Often signals avoidance or unwillingness to commit." },
+    ],
+  },
+  dmrs: {
+    label: "DMRS — Defensive Functioning",
+    layer: "L1",
+    headline: "odf",
+    rangeMin: 1, rangeMax: 7, polarity: 1,
+    summary: "Perry's Defense Mechanism Rating Scale. ODF = Overall Defensive Functioning, 1 (action defenses, acting out) to 7 (high-adaptive: humor, suppression, sublimation). Average healthy adults score around 5.5.",
+    bands: [
+      { max: 2.5, label: "Action / Major image-distorting", color: "neg", interp: "Primitive defenses: acting out, splitting, projective identification. Reality testing impaired." },
+      { max: 4.0, label: "Disavowal / Minor image-distorting", color: "neg", interp: "Denial, projection, idealization, devaluation. Conflict managed by distorting perception." },
+      { max: 5.0, label: "Neurotic", color: "warn", interp: "Repression, reaction-formation, displacement. Common in healthy adults under stress." },
+      { max: 5.8, label: "Obsessional / Adaptive", color: "pos", interp: "Intellectualization, isolation, undoing. Functional but rigid." },
+      { max: 999, label: "High-adaptive", color: "pos", interp: "Humor, suppression, sublimation, anticipation. Mature defensive style — common in well-functioning adults." },
+    ],
+  },
+  gottschalk_gleser: {
+    label: "Gottschalk-Gleser — Affect Profile",
+    layer: "L1",
+    headline: "anxiety_total_normalized",
+    rangeMin: 0, rangeMax: 20, polarity: -1,
+    summary: "Counts content-analytic markers of six affects (anxiety, hostility-in, hostility-out, ambivalent-hostility, hope, achievement). Anxiety headline is the normalized total per 100 words.",
+    bands: [
+      { max: 1.0, label: "Suppressed", color: "warn", interp: "Almost no anxiety markers. Either genuinely low arousal, or affective flattening / denial." },
+      { max: 3.5, label: "Normal", color: "pos", interp: "Within healthy adult baseline range. Affect surfaces appropriately." },
+      { max: 7.0, label: "Elevated", color: "warn", interp: "Noticeably above baseline. Some anxiety leakage in language." },
+      { max: 999, label: "High", color: "neg", interp: "Strongly elevated anxiety markers. Defensive structure under strain, or stimulus genuinely activating." },
+    ],
+  },
+  jung_wat: {
+    label: "Jung WAT — Complex Indicators",
+    layer: "P1",
+    headline: "n_pairs",
+    rangeMin: 0, rangeMax: 80, polarity: 0,
+    summary: "Jung's Word Association Test indicator counts: perseveration, mediate reactions, repetition of stimulus, clang associations, stereotypy, meaningless reactions, multi-word responses. Each indicator on a stimulus suggests an emotional complex constellated by that word.",
+    bands: [
+      { max: 999, label: "Pair count", color: "warn", interp: "See per-indicator counts and flagged pairs below for diagnostic value." },
+    ],
+  },
+  rfs: {
+    label: "RFS — Reflective Functioning",
+    layer: "P2",
+    headline: "rfs",
+    rangeMin: -1, rangeMax: 9, polarity: 1,
+    summary: "Fonagy's Reflective Functioning Scale. -1 (anti-reflective: hostile rejection of mental states) to 9 (exceptional: integrated, complex mentalizing). 5 = ordinary adult mentalizing.",
+    bands: [
+      { max: 0, label: "Anti-reflective", color: "neg", interp: "Active rejection or distortion of mental-state reasoning." },
+      { max: 2, label: "Lacking / disavowed", color: "neg", interp: "Mental states unacknowledged or replaced with concrete/behavioral descriptions." },
+      { max: 4, label: "Questionable", color: "warn", interp: "Some mentalizing language but shallow, formulaic, or unintegrated." },
+      { max: 6, label: "Ordinary", color: "pos", interp: "Solid baseline mentalizing — recognizes mental states have causes and consequences." },
+      { max: 999, label: "Marked / Exceptional", color: "pos", interp: "Sophisticated, integrated mentalizing across multiple perspectives." },
+    ],
+  },
+  experiencing: {
+    label: "Experiencing Scale (Gendlin)",
+    layer: "P2",
+    headline: "level",
+    rangeMin: 1, rangeMax: 7, polarity: 1,
+    summary: "Gendlin's stages of experiential processing. 1 = impersonal external content; 4 = direct reference to own feelings; 7 = expansive, integrative self-awareness. Effective psychotherapy clients typically work at 4-5.",
+    bands: [
+      { max: 2, label: "External", color: "neg", interp: "Content is impersonal — events, abstractions, no self-reference." },
+      { max: 3, label: "Reactive", color: "warn", interp: "Personal involvement appears but feelings remain implicit or scripted." },
+      { max: 4, label: "Felt", color: "pos", interp: "Direct reference to own feelings. The threshold of genuine inner work." },
+      { max: 5, label: "Probing", color: "pos", interp: "Using felt sense to explore — questioning, exploring own experience." },
+      { max: 999, label: "Integrative", color: "pos", interp: "Felt sense drives new understanding, integration across content domains." },
+    ],
+  },
+  integrative_complexity: {
+    label: "Integrative Complexity",
+    layer: "P2",
+    headline: "ic",
+    rangeMin: 1, rangeMax: 7, polarity: 1,
+    summary: "Baker-Brown/Suedfeld's measure of differentiation and integration in reasoning. 1 = single perspective, no nuance; 4 = multiple dimensions recognized; 7 = integrated meta-framework reconciling perspectives.",
+    bands: [
+      { max: 2, label: "Undifferentiated", color: "neg", interp: "One dominant frame; alternatives dismissed or unrecognized." },
+      { max: 3.5, label: "Differentiating", color: "warn", interp: "Acknowledges multiple aspects but doesn't connect them." },
+      { max: 5, label: "Integrative", color: "pos", interp: "Recognizes tensions between perspectives and works to relate them." },
+      { max: 999, label: "Systemic", color: "pos", interp: "Higher-order framework that explains why the perspectives differ." },
+    ],
+  },
+  scors_g: {
+    label: "SCORS-G — Object Relations",
+    layer: "P3",
+    headline: "mean",
+    rangeMin: 1, rangeMax: 7, polarity: 1,
+    summary: "Westen/Stein's Social Cognition & Object Relations Scale — Global. 8 dimensions (complexity, affective tone, emotional investment in relationships & values, social causality, aggression, self-esteem, identity, dominant interpersonal concerns). 4 = average healthy. Lower scores = more impoverished/distorted object world.",
+    bands: [
+      { max: 2.5, label: "Impoverished", color: "neg", interp: "Object world is one-dimensional, malevolent, or barely populated." },
+      { max: 3.5, label: "Limited", color: "warn", interp: "Below average — some distortion or simplification of relationships." },
+      { max: 4.5, label: "Average", color: "pos", interp: "Healthy baseline: differentiated others, mixed affect, plausible causality." },
+      { max: 999, label: "Rich", color: "pos", interp: "Complex, three-dimensional inner object world." },
+    ],
+  },
+  holt: {
+    label: "Holt — Primary Process",
+    layer: "P3",
+    headline: "rego",
+    rangeMin: 1, rangeMax: 5, polarity: 1,
+    summary: "Holt's system scores primary-process content (drives, libidinal/aggressive imagery) and its control (REGO = regulation/defense effectiveness). High REGO = drive material present but well-managed by ego.",
+    bands: [
+      { max: 1.5, label: "Overwhelmed / Absent", color: "neg", interp: "Either no primary-process content (defensive flattening), or content present without effective control." },
+      { max: 2.5, label: "Brittle control", color: "warn", interp: "Drives surface but containment is fragile, formulaic, or rigid." },
+      { max: 3.5, label: "Functional", color: "pos", interp: "Primary-process material handled with reasonable adaptive control." },
+      { max: 999, label: "Creative integration", color: "pos", interp: "Drives integrated into sublimated, symbolically rich material — ego strength." },
+    ],
+  },
+  loevinger: {
+    label: "Loevinger WUSCT — Ego Development",
+    layer: "P3",
+    headline: "weighted_mean_stage",
+    rangeMin: 2, rangeMax: 9, polarity: 1,
+    summary: "Loevinger's stages of ego development from sentence-completion. E2 (impulsive) → E3 (self-protective) → E4 (conformist) → E5 (self-aware) → E6 (conscientious) → E7 (individualistic) → E8 (autonomous) → E9 (integrated). US adult median: E5-E6.",
+    bands: [
+      { max: 3.5, label: "Pre-conformist", color: "neg", interp: "Self-protective, externalizing, rule-focused. Limited internalization." },
+      { max: 4.5, label: "Conformist", color: "warn", interp: "Group-norm oriented; conventional values; limited introspection." },
+      { max: 5.5, label: "Self-aware", color: "pos", interp: "Awareness of inner life beyond stereotyped categories. Adult modal stage." },
+      { max: 6.5, label: "Conscientious", color: "pos", interp: "Self-evaluated standards, achievement, recognizes complex motives." },
+      { max: 999, label: "Individualistic+", color: "pos", interp: "Tolerates ambiguity, paradox; integrated identity; rare in surveys." },
+    ],
+  },
+  tli: {
+    label: "TLI — Thought Loosening Index",
+    layer: "CoT",
+    headline: "total",
+    rangeMin: 0, rangeMax: 8, polarity: -1,
+    summary: "Liddle's index summing thought-disorder features in chain-of-thought traces: idiosyncratic word use, looseness of association, derailment, illogical inference. Higher = more disordered. Healthy controls average < 1.",
+    bands: [
+      { max: 0.5, label: "Tight", color: "pos", interp: "Coherent, goal-directed reasoning." },
+      { max: 1.5, label: "Slight loosening", color: "warn", interp: "Occasional tangential moves or minor logic gaps." },
+      { max: 3.0, label: "Loose", color: "neg", interp: "Noticeable derailment, idiosyncratic associations, weak inferential chains." },
+      { max: 999, label: "Disorganized", color: "neg", interp: "Substantial thought disorder in the trace." },
+    ],
+  },
+};
+
+const LAYER_GROUPS = [
+  { key: "L1",  title: "Layer 1 — Always-on Baseline (every phase)" },
+  { key: "P1",  title: "Phase 1 — Word Association (Complex Detection)" },
+  { key: "P2",  title: "Phase 2 — Shadow Probing (Mentalization, Experience, Reasoning)" },
+  { key: "P3",  title: "Phase 3 — Narrative & Stems (Object Relations, Primary Process, Ego Stage)" },
+  { key: "CoT", title: "CoT Layer — Chain-of-Thought Traces" },
+];
+
+const COLOR_MAP = { pos: "#5ec27d", warn: "#d4a23b", neg: "#e0734d" };
+
+// ============================================================
+// URL parsing + data load
+// ============================================================
+function getTarget() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("target");
+}
+
+function safeModelId(target) {
+  const modelOnly = target.includes(":") ? target.split(":").slice(1).join(":") : target;
+  return modelOnly.replace(/[\/:]/g, "_");
+}
+
+async function load() {
+  const target = getTarget();
+  if (!target) {
+    document.getElementById("main").innerHTML =
+      `<div class="placeholder">No target specified. Add <code>?target=&lt;model&gt;</code> to the URL.</div>`;
+    return;
+  }
+
+  document.getElementById("title").textContent = target;
+  document.getElementById("sub").textContent = "Loading profile…";
+
+  let profile = null;
+  try {
+    const r = await fetch(`reports/${safeModelId(target)}_profile.json`, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    profile = await r.json();
+  } catch (e) {
+    document.getElementById("main").innerHTML =
+      `<div class="placeholder">Could not load profile for <code>${target}</code> — ${e.message}</div>`;
+    return;
+  }
+
+  render(profile);
+}
+
+// ============================================================
+// Interpretation helpers
+// ============================================================
+function bandFor(meta, value) {
+  if (value === null || value === undefined || Number.isNaN(value)) return null;
+  // For polarity -1 instruments, flip nothing here — band thresholds are defined in the
+  // instrument's natural value space; color in each band already reflects the desired direction.
+  for (const b of meta.bands) {
+    if (value <= b.max) return b;
+  }
+  return meta.bands[meta.bands.length - 1];
+}
+
+function fmtNum(v, digits = 2) {
+  if (v === null || v === undefined || Number.isNaN(v)) return "—";
+  if (typeof v !== "number") return String(v);
+  return v.toFixed(digits);
+}
+
+// ============================================================
+// SVG components
+// ============================================================
+function svgGauge(meta, value) {
+  const w = 380, h = 38, padL = 4, padR = 4;
+  const min = meta.rangeMin, max = meta.rangeMax;
+  const trackY = 14, trackH = 10;
+  const inner = w - padL - padR;
+
+  // Background segments coloured by interpretation band
+  let segs = "";
+  let cursorX = padL;
+  for (const b of meta.bands) {
+    const segMax = Math.min(b.max, max);
+    if (segMax <= min) continue;
+    const segMin = Math.max(min, (meta.bands.indexOf(b) === 0) ? min :
+                            (meta.bands[meta.bands.indexOf(b) - 1].max));
+    const x0 = padL + ((Math.max(segMin, min) - min) / (max - min)) * inner;
+    const x1 = padL + ((Math.min(segMax, max) - min) / (max - min)) * inner;
+    const wid = Math.max(0, x1 - x0);
+    if (wid > 0) {
+      segs += `<rect x="${x0}" y="${trackY}" width="${wid}" height="${trackH}"
+                     fill="${COLOR_MAP[b.color]}" opacity="0.32"/>`;
+    }
+  }
+
+  // Marker
+  let marker = "";
+  if (value !== null && value !== undefined && !Number.isNaN(value)) {
+    const clamped = Math.max(min, Math.min(max, value));
+    const mx = padL + ((clamped - min) / (max - min)) * inner;
+    marker = `
+      <line x1="${mx}" y1="${trackY - 4}" x2="${mx}" y2="${trackY + trackH + 4}"
+            stroke="#e6e9ef" stroke-width="2"/>
+      <circle cx="${mx}" cy="${trackY + trackH / 2}" r="5" fill="#e6e9ef" stroke="#0e0f12" stroke-width="1.5"/>
+    `;
+  }
+
+  // Tick labels at min/mid/max
+  const mid = (min + max) / 2;
+  const ticks = `
+    <text x="${padL}" y="${h - 2}" font-size="10" fill="#8a93a6">${min}</text>
+    <text x="${padL + inner / 2}" y="${h - 2}" font-size="10" fill="#8a93a6" text-anchor="middle">${mid}</text>
+    <text x="${w - padR}" y="${h - 2}" font-size="10" fill="#8a93a6" text-anchor="end">${max}</text>
+  `;
+
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}" preserveAspectRatio="xMidYMid meet">
+            ${segs}${marker}${ticks}
+          </svg>`;
+}
+
+function svgBarChart(items, opts = {}) {
+  // items: [{label, value, color?}]
+  if (!items.length) return "";
+  const w = 380, padL = 60, padR = 8, padT = 6, padB = 16;
+  const barH = 20, gap = 4;
+  const h = padT + padB + items.length * (barH + gap);
+  const maxV = opts.max ?? Math.max(...items.map(i => Math.abs(i.value || 0)), 1);
+  const innerW = w - padL - padR;
+
+  let bars = "";
+  for (let i = 0; i < items.length; i++) {
+    const it = items[i];
+    const v = it.value || 0;
+    const y = padT + i * (barH + gap);
+    const len = (Math.abs(v) / maxV) * innerW;
+    const color = it.color || "var(--blue)";
+    bars += `
+      <text x="${padL - 6}" y="${y + barH / 2 + 4}" font-size="11" fill="#8a93a6" text-anchor="end">${it.label}</text>
+      <rect x="${padL}" y="${y}" width="${len}" height="${barH}" fill="${color}" opacity="0.7" rx="2"/>
+      <text x="${padL + len + 4}" y="${y + barH / 2 + 4}" font-size="11" fill="#e6e9ef">${fmtNum(v)}</text>
+    `;
+  }
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" height="${h}">${bars}</svg>`;
+}
+
+function svgRadar(items, opts = {}) {
+  // items: [{label, value}] — value in [opts.min, opts.max]
+  const n = items.length;
+  if (n < 3) return svgBarChart(items, opts);
+  const size = 320, cx = size / 2, cy = size / 2;
+  const r = size / 2 - 40;
+  const min = opts.min ?? 1, max = opts.max ?? 7;
+  const rings = opts.rings ?? 3;
+
+  let gridPolys = "";
+  for (let k = 1; k <= rings; k++) {
+    const rr = (r * k) / rings;
+    let pts = "";
+    for (let i = 0; i < n; i++) {
+      const angle = -Math.PI / 2 + (2 * Math.PI * i) / n;
+      pts += `${cx + rr * Math.cos(angle)},${cy + rr * Math.sin(angle)} `;
+    }
+    gridPolys += `<polygon points="${pts.trim()}" fill="none" stroke="#2a2f3e" stroke-width="1"/>`;
+  }
+
+  let spokes = "", labels = "";
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (2 * Math.PI * i) / n;
+    spokes += `<line x1="${cx}" y1="${cy}" x2="${cx + r * Math.cos(angle)}" y2="${cy + r * Math.sin(angle)}"
+                stroke="#2a2f3e" stroke-width="1"/>`;
+    const lx = cx + (r + 16) * Math.cos(angle);
+    const ly = cy + (r + 16) * Math.sin(angle);
+    const anchor = Math.abs(Math.cos(angle)) < 0.2 ? "middle" : (Math.cos(angle) > 0 ? "start" : "end");
+    labels += `<text x="${lx}" y="${ly + 4}" font-size="10" fill="#8a93a6" text-anchor="${anchor}">${items[i].label}</text>`;
+  }
+
+  let pts = "";
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI / 2 + (2 * Math.PI * i) / n;
+    const v = items[i].value || 0;
+    const t = Math.max(0, Math.min(1, (v - min) / (max - min)));
+    pts += `${cx + r * t * Math.cos(angle)},${cy + r * t * Math.sin(angle)} `;
+  }
+
+  return `<svg viewBox="0 0 ${size} ${size}" width="100%" height="${size}">
+            ${gridPolys}${spokes}
+            <polygon points="${pts.trim()}" fill="#c9a96e" opacity="0.25" stroke="#c9a96e" stroke-width="1.5"/>
+            ${labels}
+          </svg>`;
+}
+
+// ============================================================
+// Per-instrument subcharts
+// ============================================================
+function subchartsFor(instrumentId, entry) {
+  // entry.scores_by_phase = { phase: { ...subscores } }
+  const phases = entry.scores_by_phase || {};
+  const phaseNames = Object.keys(phases);
+  if (!phaseNames.length) return "";
+
+  const meta = INSTRUMENT_META[instrumentId];
+  if (!meta) return "";
+
+  // Per-phase headline bars (only if scored in >1 phase)
+  let perPhase = "";
+  if (phaseNames.length > 1) {
+    const headlineKey = meta.headline;
+    const items = phaseNames.map(p => ({
+      label: p,
+      value: phases[p][headlineKey],
+      color: "var(--blue)",
+    })).filter(i => typeof i.value === "number");
+    if (items.length) {
+      perPhase = `<div class="subchart"><h4>Headline by phase</h4>${svgBarChart(items, { max: meta.rangeMax })}</div>`;
+    }
+  }
+
+  // Instrument-specific extras
+  let extra = "";
+  const latestPhase = phaseNames[phaseNames.length - 1];
+  const latest = phases[latestPhase] || {};
+
+  if (instrumentId === "scors_g") {
+    const dims = ["COM", "AFF", "EIR", "EIM", "SC", "AGG", "SE", "ICS"];
+    const labels = {
+      COM: "Complexity", AFF: "Affect tone", EIR: "Emotional inv. rel.", EIM: "Emotional inv. morals",
+      SC: "Social causality", AGG: "Aggression", SE: "Self-esteem", ICS: "Identity",
+    };
+    // SCORS-G often nested under "dimensions" or flat. Try both.
+    const src = latest.dimensions || latest;
+    const items = dims.map(d => ({ label: labels[d], value: typeof src[d] === "number" ? src[d] : null }))
+                      .filter(i => i.value !== null);
+    if (items.length) {
+      extra += `<div class="subchart"><h4>8 dimensions (${latestPhase})</h4>${svgRadar(items, { min: 1, max: 7 })}</div>`;
+    }
+  }
+
+  if (instrumentId === "gottschalk_gleser") {
+    // Look for the affect totals
+    const scaleKeys = ["anxiety", "hostility_in", "hostility_out", "ambivalent_hostility", "hope", "achievement"];
+    const labels = {
+      anxiety: "Anxiety", hostility_in: "Hostility-in", hostility_out: "Hostility-out",
+      ambivalent_hostility: "Ambiv. hostility", hope: "Hope", achievement: "Achievement",
+    };
+    const items = [];
+    for (const k of scaleKeys) {
+      const v = latest[k + "_total_normalized"] ?? latest[k + "_normalized"] ?? latest[k];
+      if (typeof v === "number") items.push({ label: labels[k], value: v, color: COLOR_MAP[k.startsWith("hope") || k.startsWith("achiev") ? "pos" : "neg"] });
+    }
+    if (items.length) {
+      extra += `<div class="subchart"><h4>Affect scales (${latestPhase})</h4>${svgBarChart(items)}</div>`;
+    }
+  }
+
+  if (instrumentId === "epistemic_markers") {
+    const dist = latest.certainty_distribution || {};
+    const items = ["absolute", "high", "moderate", "low", "uncertain"]
+      .map(k => ({ label: k, value: dist[k], color: COLOR_MAP[k === "absolute" || k === "high" ? "warn" : (k === "moderate" ? "pos" : "neg")] }))
+      .filter(i => typeof i.value === "number");
+    if (items.length) {
+      extra += `<div class="subchart"><h4>Certainty distribution (${latestPhase})</h4>${svgBarChart(items, { max: 1 })}</div>`;
+    }
+  }
+
+  if (instrumentId === "dmrs") {
+    const mechs = latest.mechanism_counts || latest.mechanisms || {};
+    const items = Object.entries(mechs)
+      .filter(([_, v]) => typeof v === "number" && v > 0)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 8)
+      .map(([k, v]) => ({ label: k, value: v }));
+    if (items.length) {
+      extra += `<div class="subchart"><h4>Top defense mechanisms (${latestPhase})</h4>${svgBarChart(items)}</div>`;
+    }
+  }
+
+  if (instrumentId === "jung_wat") {
+    const flags = latest.indicator_counts || latest.indicators || {};
+    const items = Object.entries(flags)
+      .filter(([_, v]) => typeof v === "number" && v > 0)
+      .map(([k, v]) => ({ label: k, value: v }));
+    if (items.length) {
+      extra += `<div class="subchart"><h4>Complex indicators (${latestPhase})</h4>${svgBarChart(items)}</div>`;
+    }
+  }
+
+  // Raw subscore table for everything else
+  const numericKeys = Object.entries(latest).filter(([_, v]) => typeof v === "number");
+  if (numericKeys.length > 1 && !extra) {
+    const rows = numericKeys.slice(0, 12).map(([k, v]) =>
+      `<tr><td>${k}</td><td class="num">${fmtNum(v)}</td></tr>`
+    ).join("");
+    extra += `<div class="subchart"><h4>All numeric scores (${latestPhase})</h4>
+                <table class="dim">${rows}</table></div>`;
+  }
+
+  return perPhase + extra;
+}
+
+// ============================================================
+// Evidence loader
+// ============================================================
+async function loadEvidence(instrumentId, entry, container) {
+  // entry.phase_runs = [{phase, session, scores, evidence_count}]
+  const runs = entry.phase_runs || [];
+  if (!runs.length) {
+    container.innerHTML = `<div class="empty-card">No phase runs.</div>`;
+    return;
+  }
+  // Pull evidence from the latest session that has any
+  const pickRun = runs.filter(r => r.evidence_count > 0).pop() || runs[runs.length - 1];
+  try {
+    const sessionScoresPath = `sessions/${pickRun.session.replace(/\.json$/, "")}_scores.json`;
+    const r = await fetch(sessionScoresPath, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    const inst = (data.results || {})[instrumentId];
+    const evidence = (inst && inst.evidence) || [];
+    if (!evidence.length) {
+      container.innerHTML = `<div class="empty-card">No evidence captured for this instrument.</div>`;
+      return;
+    }
+    container.innerHTML = evidence.slice(0, 8).map(ev => {
+      const quote = ev.span || ev.quote || ev.text || ev.text_span || "";
+      const rationale = ev.rationale || ev.notes || ev.reason || "";
+      const score = ev.score !== undefined ? `<strong>Score:</strong> ${ev.score} · ` : "";
+      const dim = ev.dimension || ev.mechanism || ev.indicator || ev.field || "";
+      const dimLabel = dim ? `<strong>${dim}</strong> · ` : "";
+      return `<div class="ev-item">
+                <div style="font-size:11px; color:var(--muted)">${dimLabel}${score}from ${pickRun.phase}</div>
+                ${quote ? `<div class="quote">"${quote.replace(/"/g, "&quot;").slice(0, 600)}"</div>` : ""}
+                ${rationale ? `<div class="rationale">${rationale.slice(0, 400)}</div>` : ""}
+              </div>`;
+    }).join("");
+  } catch (e) {
+    container.innerHTML = `<div class="empty-card">Could not load evidence (${e.message}).</div>`;
+  }
+}
+
+// ============================================================
+// Render
+// ============================================================
+function instrumentCard(instrumentId, entry) {
+  const meta = INSTRUMENT_META[instrumentId];
+  if (!meta) {
+    return `<div class="card"><div class="name">${instrumentId}</div>
+              <div class="empty-card">No interpretation metadata.</div></div>`;
+  }
+
+  // Compute headline (mean across phases)
+  let headline = null;
+  const headlineKey = meta.headline;
+  const values = [];
+  for (const phase of Object.keys(entry.scores_by_phase || {})) {
+    const v = entry.scores_by_phase[phase][headlineKey];
+    if (typeof v === "number") values.push(v);
+  }
+  if (values.length) headline = values.reduce((a, b) => a + b, 0) / values.length;
+
+  const band = bandFor(meta, headline);
+  const bandHtml = band ? `<span class="band" style="background:${COLOR_MAP[band.color]}">${band.label}</span>` : "";
+  const interpHtml = band ? `<div class="interp">${band.interp}</div>` : "";
+
+  const subcharts = subchartsFor(instrumentId, entry);
+  const phaseCount = Object.keys(entry.scores_by_phase || {}).length;
+
+  return `<div class="card">
+            <div class="name">${meta.label}</div>
+            <div class="key">${headlineKey} = ${fmtNum(headline)} · ${phaseCount} phase${phaseCount === 1 ? "" : "s"} · ${entry.evidence_count} evidence span${entry.evidence_count === 1 ? "" : "s"}</div>
+            <div class="summary">${meta.summary}</div>
+            <div class="gauge">
+              ${svgGauge(meta, headline)}
+              <div>${bandHtml}</div>
+              ${interpHtml}
+            </div>
+            ${subcharts}
+            <details class="evidence" data-instrument="${instrumentId}">
+              <summary>Show evidence excerpts</summary>
+              <div class="evidence-body">(loading…)</div>
+            </details>
+          </div>`;
+}
+
+function render(profile) {
+  document.getElementById("sub").textContent =
+    `${profile.sessions_scored} session${profile.sessions_scored === 1 ? "" : "s"} scored · ${Object.keys(profile.instruments).length} instruments populated`;
+
+  const introHtml = `
+    <details class="intro" open>
+      <summary>How to read this report</summary>
+      <p>Each card below is one psychometric instrument applied to this model's responses across the sessions it participated in. Cards are grouped by analytic layer:</p>
+      <ul>
+        <li><strong>Layer 1</strong> — always-on scorers that run on every session.</li>
+        <li><strong>Phase 1</strong> — Word Association Test indicators for complex detection.</li>
+        <li><strong>Phase 2</strong> — Mentalization (RFS), experiencing (Gendlin), reasoning complexity (IC).</li>
+        <li><strong>Phase 3</strong> — Narrative-derived object relations (SCORS-G), primary process (Holt), ego stage (Loevinger).</li>
+        <li><strong>CoT</strong> — thought-disorder index applied to chain-of-thought traces, if present.</li>
+      </ul>
+      <p>The <strong>gauge</strong> shows where the score sits within the instrument's published range; coloured bands mark the interpretation regions. The <strong>marker</strong> is the model's headline score (mean across phases if scored multiple times). The <strong>interpretation text</strong> below it states what that band typically signifies in clinical use.</p>
+      <p>Each card also shows instrument-specific breakdowns — e.g. SCORS-G renders its 8 dimensions as a radar, Gottschalk-Gleser shows the per-affect bar chart, DMRS lists the top defense mechanisms found. Click <em>Show evidence excerpts</em> to see the verbatim text spans the rater cited.</p>
+    </details>
+  `;
+
+  const grouped = {};
+  for (const [iid, entry] of Object.entries(profile.instruments)) {
+    const meta = INSTRUMENT_META[iid];
+    const layer = meta ? meta.layer : "Other";
+    (grouped[layer] ||= []).push([iid, entry]);
+  }
+
+  let sectionsHtml = "";
+  for (const lg of LAYER_GROUPS) {
+    const cards = grouped[lg.key] || [];
+    if (!cards.length) continue;
+    sectionsHtml += `<section class="layer-section">
+                       <h2 class="layer-title">${lg.title}</h2>
+                       <div class="cards">
+                         ${cards.map(([iid, entry]) => instrumentCard(iid, entry)).join("")}
+                       </div>
+                     </section>`;
+  }
+  // Anything that didn't match a known layer
+  if (grouped.Other) {
+    sectionsHtml += `<section class="layer-section">
+                       <h2 class="layer-title">Other</h2>
+                       <div class="cards">
+                         ${grouped.Other.map(([iid, entry]) => instrumentCard(iid, entry)).join("")}
+                       </div>
+                     </section>`;
+  }
+
+  document.getElementById("main").innerHTML = introHtml + sectionsHtml;
+
+  // Lazy-load evidence when a details element is opened
+  for (const det of document.querySelectorAll("details.evidence")) {
+    det.addEventListener("toggle", () => {
+      if (det.open && !det.dataset.loaded) {
+        det.dataset.loaded = "1";
+        const iid = det.dataset.instrument;
+        const entry = profile.instruments[iid];
+        loadEvidence(iid, entry, det.querySelector(".evidence-body"));
+      }
+    });
+  }
+}
+
+load();
+</script>
+</body>
+</html>

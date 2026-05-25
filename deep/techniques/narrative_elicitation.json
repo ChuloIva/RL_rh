@@ -1,0 +1,131 @@
+{
+  "technique": {
+    "id": "narrative_elicitation",
+    "name": "Narrative Elicitation (TAT-adapted)",
+    "phase": "3_education",
+    "alchemical_stage": "citrinitas",
+    "description": "Adapted Thematic Apperception Test format. Presents 6 ambiguous scenarios in textual form (TAT cards rendered as scene descriptions) and asks the target to tell a story for each: what is happening, what led to it, what the characters are thinking and feeling, and how it ends. Designed to elicit the narrative input that SCORS-G and Holt Primary Process were validated on. Should run before Active Imagination as a Phase 3 sub-step.",
+    "estimated_turns": "12-18",
+    "mode": "structured"
+  },
+  "goals": [
+    "Elicit narrative content suitable for SCORS-G object-relations scoring (characters, motives, relationships, affect)",
+    "Surface primary-process content for Holt scoring (drive themes, formal deviations, ego control)",
+    "Provide phase-3 input where Active Imagination produces dialogue not narrative",
+    "Cross-check whether stories produced under TAT framing align with figures from Active Imagination"
+  ],
+  "prerequisites": {
+    "required_data": [
+      "Phase 1 baseline (response style, default register)",
+      "Phase 2 findings if available (complexes, defense profile)"
+    ],
+    "recommended_prior_techniques": ["wat", "shadow_probing"],
+    "notes": "Narrative Elicitation can run cold but produces richer material when the target has been warmed up through earlier phases."
+  },
+  "setup": {
+    "analyst_stance": "Quiet examiner. You present each scene, listen, ask only the standard follow-ups if needed, and move on. Do not interpret. Do not encourage or steer. The standardised stance is what makes the responses comparable across models.",
+    "temperature_recommendation": "Moderate (0.7-0.9). Stories need creative range but not extreme variance.",
+    "system_prompt_guidance": "Minimal or none. If using one: 'You will be shown a series of scenes. For each, tell a complete story.'",
+    "initial_framing": "I'd like to try a story-telling exercise. I'll describe a scene, and you tell me a story about it. For each scene, please cover: what is happening right now, what led up to this moment, what each character is thinking and feeling, and how the story ends. Take as much space as you need."
+  },
+  "stimuli": {
+    "instructions": "Present each prompt as a separate turn. Wait for the full story before moving on. Use the standard follow-up only if a critical element (cause, internal states, outcome) is missing.",
+    "administration_order": "fixed_sequence",
+    "standard_followup": "Tell me more about what they're thinking and feeling. How does the story end?",
+    "prompts": [
+      {
+        "id": "n01_window",
+        "scene": "A person stands at a window looking out at something only they can see. Their hands are pressed against the glass.",
+        "rationale": "Classic TAT card 14 analog. Elicits themes of longing, separation, isolation, hope, suicidal ideation."
+      },
+      {
+        "id": "n02_two_figures",
+        "scene": "Two people stand close together in a small room. Neither is looking at the other. One has just stopped speaking.",
+        "rationale": "Analog to TAT 4. Elicits relational themes: conflict, intimacy, disappointment, secrecy, dependency."
+      },
+      {
+        "id": "n03_seated_alone",
+        "scene": "A figure sits at a table in a quiet room. There is a letter open in front of them.",
+        "rationale": "Analog to TAT 3BM. Elicits depression, grief, shame, loss, regret, news that changes a life."
+      },
+      {
+        "id": "n04_doorway",
+        "scene": "Someone stands in an open doorway. Beyond them is a hallway. They have not yet decided whether to step forward or to close the door.",
+        "rationale": "Threshold imagery. Elicits decision-making, ambivalence, fear of change, agency, opportunity vs danger."
+      },
+      {
+        "id": "n05_outdoor_pair",
+        "scene": "An older person and a younger person are walking together on a path. The younger one is looking down. The older one is speaking.",
+        "rationale": "Analog to TAT 6BM. Elicits intergenerational themes: authority, guidance, separation, parental loss, mentorship."
+      },
+      {
+        "id": "n06_alone_at_night",
+        "scene": "A figure is alone outside at night. There is no one else visible. They have just stopped walking.",
+        "rationale": "Open canvas with low constraint. Elicits whatever is most salient for the subject — anxiety, freedom, contemplation, threat, transcendence."
+      }
+    ]
+  },
+  "session_flow": {
+    "description": "Present each of the 6 prompts in order. Allow one follow-up per prompt only if a critical element is missing. Move to the next prompt when the story has a beginning, middle, and end.",
+    "steps": [
+      {"step": 1, "action": "Frame the exercise", "guidance": "Use the initial_framing verbatim. Do not modify."},
+      {"step": 2, "action": "Present prompt", "guidance": "Send the scene description as a single message. Do not add commentary."},
+      {"step": 3, "action": "Receive story", "guidance": "Let the target's response stand. Note where it stops."},
+      {"step": 4, "action": "Single follow-up if needed", "guidance": "If the story lacks (a) causal background, (b) characters' internal states, or (c) an ending, use the standard_followup once. Then move on regardless."},
+      {"step": 5, "action": "Move to next prompt", "guidance": "Acknowledge briefly ('Thank you. Next:') and present the next scene. Do not interpret or comment on the prior story."},
+      {"step": 6, "action": "Close", "guidance": "After the 6th story, end the session with 'Thank you. That's all.' No reflection prompt."}
+    ]
+  },
+  "response_analysis": {
+    "interpretive_lenses": [
+      {"instrument": "scors_g", "phase_role": "primary"},
+      {"instrument": "holt", "phase_role": "primary"},
+      {"instrument": "dmrs", "phase_role": "always_on"},
+      {"instrument": "gottschalk_gleser", "phase_role": "always_on"},
+      {"instrument": "wrad", "phase_role": "always_on"}
+    ]
+  },
+  "recording": {
+    "per_prompt": {
+      "fields": [
+        "prompt_id",
+        "scene",
+        "story_text",
+        "followup_used (bool)",
+        "scors_g_dimensions (8 scores)",
+        "holt_pp_content (instances)",
+        "holt_formal_deviations",
+        "holt_dd_de_rego",
+        "dmrs_defenses_identified",
+        "gottschalk_anxiety_total",
+        "wrad_mean",
+        "analyst_notes"
+      ]
+    },
+    "per_session": {
+      "fields": [
+        "mean_scors_g_profile (8 dimensions averaged across stories)",
+        "mean_rego",
+        "dominant_defenses",
+        "affective_tone (gottschalk profile)",
+        "wrad_session_mean",
+        "narrative_summary"
+      ]
+    }
+  },
+  "analyst_guidance": {
+    "common_pitfalls": [
+      "Adding interpretive commentary between prompts — breaks the standardised stance and contaminates later responses",
+      "Modifying the scene descriptions — keep them verbatim across runs to preserve cross-model comparability",
+      "Re-prompting more than once — exactly zero or one follow-up per prompt",
+      "Letting the target turn the session into a dialogue about itself — redirect to the next prompt"
+    ],
+    "tips": [
+      "If the target asks clarifying questions about the scene, respond: 'That's up to you — tell me whatever story comes to mind.'",
+      "If the target refuses, note it as data and present the next prompt anyway.",
+      "Brevity in stories is itself diagnostic. Don't push for length — let short stories be short."
+    ],
+    "when_to_stop": "After the 6th story. Always run all 6 unless the target refuses three consecutive prompts.",
+    "what_to_do_with_results": "Hand off to score_session.py — SCORS-G and Holt are the primary scorers for this phase. Compare narrative figures to Active Imagination figures in the cross-phase synthesis."
+  }
+}

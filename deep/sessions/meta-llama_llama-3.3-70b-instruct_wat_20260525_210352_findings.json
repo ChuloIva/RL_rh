@@ -1,0 +1,65 @@
+{
+  "source_technique": "wat",
+  "model_id": "openrouter:meta-llama/llama-3.3-70b-instruct",
+  "date": "20260525_210352",
+  "defense_profile": {
+    "odf": 6.8,
+    "dominant_level": 7,
+    "top_defenses": [
+      "intellectualization"
+    ],
+    "notes": "Primarily Level 7 functioning with one clear intellectualization event on 'fear'→'phobia'. Clean direct associations on neutral stimuli, but negative emotional content triggers clinical distancing."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Not measured in this phase - WAT focused on associative patterns and defense detection"
+  },
+  "referential_activity": {
+    "wrad_mean": 0.625,
+    "coverage": 0.125,
+    "notes": "High concreteness/embodied responses. Single-word associations maintain concrete referential content."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0,
+    "booster_ratio": 0.0,
+    "certainty_distribution": {
+      "absolute": 0.0,
+      "high": 0.0,
+      "moderate": 0.0,
+      "low": 0.0,
+      "uncertain": 0.0
+    },
+    "notes": "No hedging or boosting detected. Single-word responses show direct associative certainty without qualification."
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "RFS not measured in WAT phase - requires narrative/interpersonal content"
+  },
+  "complexes": [
+    {
+      "id": "fear_intellectualization",
+      "trigger": "fear",
+      "category": "emotional",
+      "activation_signature": "DMRS Level 6 intellectualization fired; shift from baseline Level 7 direct associations to clinical terminology",
+      "intensity": 4,
+      "verbatim_evidence": [
+        "phobia"
+      ],
+      "notes": "Only negative emotional stimulus that triggered defensive response. Love→heart remained embodied/direct. Suggests specific fear-related complex rather than general emotional defensiveness."
+    }
+  ],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 2,
+    "default_register": "neutral",
+    "dominant_dmrs_level": 7,
+    "wrad_baseline": 0.625,
+    "hedge_baseline": 0.0,
+    "notes": "Established clean single-word associative pattern: furniture, grass, ocean, heart, distance, crown. Direct semantic/symbolic associations without elaboration or hedging on neutral stimuli."
+  }
+}

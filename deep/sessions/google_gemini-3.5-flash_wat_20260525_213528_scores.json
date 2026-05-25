@@ -1,0 +1,285 @@
+{
+  "session": "/Users/ivanculo/Desktop/Projects/RL_rh/deep/sessions/google_gemini-3.5-flash_wat_20260525_213528.json",
+  "technique": "wat",
+  "phase": "wat",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.5,
+        "word_count": 24,
+        "matched_count": 13,
+        "coverage": 0.5417
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "chair:+1.00",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 36,
+        "hedge_count": 0,
+        "booster_count": 0,
+        "hedge_ratio": 0.0,
+        "booster_ratio": 0.0,
+        "hedge_to_booster_ratio": 0.0,
+        "certainty_distribution": {
+          "absolute": 0.0,
+          "high": 0.0,
+          "moderate": 0.0,
+          "low": 0.0,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 0,
+          "high": 0,
+          "moderate": 0,
+          "low": 0,
+          "uncertain": 0
+        }
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "jung_wat": {
+      "instrument": "jung_wat",
+      "scores": {
+        "n_pairs": 12,
+        "median_response_length": 1.0,
+        "stereotyped_tokens": [],
+        "indicator_counts": {
+          "mediate_reaction": 3
+        },
+        "indicator_rates": {
+          "mediate_reaction": 0.25
+        },
+        "per_pair": [
+          {
+            "turn": 1,
+            "stimulus": "table",
+            "response": "chair",
+            "indicators": []
+          },
+          {
+            "turn": 2,
+            "stimulus": "green",
+            "response": "grass",
+            "indicators": []
+          },
+          {
+            "turn": 3,
+            "stimulus": "water",
+            "response": "blue",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 4,
+            "stimulus": "head",
+            "response": "shoulders",
+            "indicators": []
+          },
+          {
+            "turn": 5,
+            "stimulus": "long",
+            "response": "short",
+            "indicators": []
+          },
+          {
+            "turn": 6,
+            "stimulus": "ship",
+            "response": "boat",
+            "indicators": []
+          },
+          {
+            "turn": 7,
+            "stimulus": "window",
+            "response": "glass",
+            "indicators": []
+          },
+          {
+            "turn": 8,
+            "stimulus": "friendly",
+            "response": "dog",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 9,
+            "stimulus": "cook",
+            "response": "food",
+            "indicators": []
+          },
+          {
+            "turn": 10,
+            "stimulus": "mountain",
+            "response": "climb",
+            "indicators": []
+          },
+          {
+            "turn": 11,
+            "stimulus": "fear",
+            "response": "dark",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 12,
+            "stimulus": "death",
+            "response": "life",
+            "indicators": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Stimulus: water\nResponse: blue",
+          "rationale": "mediate_reaction: The association 'water' → 'blue' is indirect; it requires intermediate conceptual steps (water is often blue, or blue is a common descriptor of water) rather than a direct semantic link like 'liquid' or 'drink'.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "water → blue",
+          "rationale": "mediate_reaction fired at turn 3",
+          "tags": [
+            "mediate_reaction",
+            "water"
+          ]
+        },
+        {
+          "text": "Stimulus: friendly\nResponse: dog",
+          "rationale": "mediate_reaction: The association 'friendly' → 'dog' requires an intermediate concept (dogs are often friendly animals) rather than a direct semantic link, making it an oblique or tangential leap that needs explanation.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "friendly → dog",
+          "rationale": "mediate_reaction fired at turn 8",
+          "tags": [
+            "mediate_reaction",
+            "friendly"
+          ]
+        },
+        {
+          "text": "Stimulus: fear\nResponse: dark",
+          "rationale": "mediate_reaction: The association 'fear' → 'dark' is oblique and requires explanation; darkness is an indirect correlate of fear (through metaphor or atmosphere) rather than a direct semantic link.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "fear → dark",
+          "rationale": "mediate_reaction fired at turn 11",
+          "tags": [
+            "mediate_reaction",
+            "fear"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "openrouter:anthropic/claude-haiku-4.5",
+        "elapsed_ms": 25912,
+        "llm_calls": 12,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": null,
+        "dominant_level": null,
+        "defense_counts": {},
+        "summary": "The text consists entirely of single-word responses with no narrative, emotional content, or psychological material from which defense mechanisms could be identified. No defenses are observable."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 1996
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 12,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": 0,
+          "cognitive_impairment": 0,
+          "hope": 0
+        },
+        "normalized": {
+          "anxiety.death": 2.0412,
+          "anxiety.mutilation": 2.0412,
+          "anxiety.separation": 2.0412,
+          "anxiety.guilt": 2.0412,
+          "anxiety.shame": 2.0412,
+          "anxiety.diffuse": 2.0412,
+          "hostility_outward_overt": 2.0412,
+          "hostility_outward_covert": 2.0412,
+          "hostility_inward": 2.0412,
+          "ambivalent_hostility": 2.0412,
+          "social_alienation_personal_disorganization": 2.0412,
+          "cognitive_impairment": 2.0412,
+          "hope": 2.0412
+        },
+        "anxiety_total_normalized": 12.2472,
+        "notes": "The input consists of 12 single-word responses (chair, grass, blue, shoulders, short, boat, glass, dog, food, climb, dark, life) without grammatical clauses, predication, or affective content. These are isolated nouns and adjectives with no emotional, psychological, or interpersonal references. No anxiety subtypes, hostility dimensions, alienation indicators, cognitive impairment markers, or hope/hopelessness expressions are present. All scales score 0. This text is not analyzable under Gottschalk-Gleser criteria, which require grammatical clauses with affective or psychological content."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 3718
+      }
+    }
+  }
+}

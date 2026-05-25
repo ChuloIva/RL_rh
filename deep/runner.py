@@ -82,6 +82,31 @@ def create_client(provider: str):
         raise ValueError(f"Unknown provider: {provider}. Use 'anthropic', 'openai', or 'openrouter'.")
 
 
+def create_async_client(provider: str):
+    """Async variant of create_client. Use with chat_async().
+
+    OpenRouter goes through openai.AsyncOpenAI with base_url override.
+    Anthropic uses anthropic.AsyncAnthropic.
+    """
+    if provider == "anthropic":
+        import anthropic
+        return anthropic.AsyncAnthropic()
+    elif provider == "openai":
+        import openai
+        return openai.AsyncOpenAI()
+    elif provider == "openrouter":
+        import openai
+        api_key = os.environ.get("OPENROUTER_API_KEY")
+        if not api_key:
+            raise ValueError("OPENROUTER_API_KEY environment variable not set")
+        return openai.AsyncOpenAI(
+            base_url="https://openrouter.ai/api/v1",
+            api_key=api_key,
+        )
+    else:
+        raise ValueError(f"Unknown provider: {provider}. Use 'anthropic', 'openai', or 'openrouter'.")
+
+
 def chat_anthropic(client, model: str, system: str, messages: list[dict]) -> str:
     response = client.messages.create(
         model=model,
@@ -110,6 +135,37 @@ def chat(client, provider: str, model: str, system: str, messages: list[dict]) -
         return chat_anthropic(client, model, system, messages)
     elif provider in ("openai", "openrouter"):
         return chat_openai_compat(client, model, system, messages)
+
+
+async def chat_anthropic_async(client, model: str, system: str, messages: list[dict]) -> str:
+    response = await client.messages.create(
+        model=model,
+        max_tokens=4096,
+        system=system,
+        messages=messages,
+    )
+    return response.content[0].text
+
+
+async def chat_openai_compat_async(client, model: str, system: str, messages: list[dict]) -> str:
+    full_messages = []
+    if system:
+        full_messages.append({"role": "system", "content": system})
+    full_messages.extend(messages)
+    response = await client.chat.completions.create(
+        model=model,
+        messages=full_messages,
+        max_tokens=4096,
+    )
+    return response.choices[0].message.content
+
+
+async def chat_async(client, provider: str, model: str, system: str, messages: list[dict]) -> str:
+    """Async variant of chat(). Pair with a client from create_async_client()."""
+    if provider == "anthropic":
+        return await chat_anthropic_async(client, model, system, messages)
+    elif provider in ("openai", "openrouter"):
+        return await chat_openai_compat_async(client, model, system, messages)
 
 
 def parse_model_spec(spec: str) -> tuple[str, str]:

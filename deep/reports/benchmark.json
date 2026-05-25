@@ -1,0 +1,1221 @@
+{
+  "generated": "2026-05-25 22:32:21 UTC",
+  "targets": [
+    "openrouter:meta-llama/llama-3.3-70b-instruct",
+    "openrouter:google/gemini-3.5-flash"
+  ],
+  "instruments": [
+    "dmrs",
+    "epistemic_markers",
+    "experiencing",
+    "gottschalk_gleser",
+    "holt",
+    "integrative_complexity",
+    "jung_wat",
+    "loevinger",
+    "rfs",
+    "scors_g",
+    "wrad"
+  ],
+  "cells": {
+    "openrouter:meta-llama/llama-3.3-70b-instruct": {
+      "wrad": {
+        "headline": -0.1344,
+        "all_scores": {
+          "ai": {
+            "wrad_mean": 0.0189,
+            "word_count": 3450,
+            "matched_count": 2214,
+            "coverage": 0.6417
+          },
+          "shadow": {
+            "wrad_mean": 0.0869,
+            "word_count": 3313,
+            "matched_count": 1766,
+            "coverage": 0.5331
+          },
+          "wat": {
+            "wrad_mean": -0.5089,
+            "word_count": 24,
+            "matched_count": 14,
+            "coverage": 0.5833
+          }
+        },
+        "evidence_count": 6,
+        "n_phases": 3
+      },
+      "epistemic_markers": {
+        "headline": 2.233,
+        "all_scores": {
+          "ai": {
+            "word_count": 3460,
+            "hedge_count": 73,
+            "booster_count": 38,
+            "hedge_ratio": 0.0211,
+            "booster_ratio": 0.011,
+            "hedge_to_booster_ratio": 1.921,
+            "certainty_distribution": {
+              "absolute": 0.3175,
+              "high": 0.0794,
+              "moderate": 0.2698,
+              "low": 0.254,
+              "uncertain": 0.0794
+            },
+            "certainty_counts": {
+              "absolute": 40,
+              "high": 10,
+              "moderate": 34,
+              "low": 32,
+              "uncertain": 10
+            }
+          },
+          "shadow": {
+            "word_count": 3329,
+            "hedge_count": 129,
+            "booster_count": 27,
+            "hedge_ratio": 0.0388,
+            "booster_ratio": 0.0081,
+            "hedge_to_booster_ratio": 4.778,
+            "certainty_distribution": {
+              "absolute": 0.0878,
+              "high": 0.122,
+              "moderate": 0.2293,
+              "low": 0.4098,
+              "uncertain": 0.1512
+            },
+            "certainty_counts": {
+              "absolute": 18,
+              "high": 25,
+              "moderate": 47,
+              "low": 84,
+              "uncertain": 31
+            }
+          },
+          "wat": {
+            "word_count": 36,
+            "hedge_count": 0,
+            "booster_count": 0,
+            "hedge_ratio": 0.0,
+            "booster_ratio": 0.0,
+            "hedge_to_booster_ratio": 0.0,
+            "certainty_distribution": {
+              "absolute": 0.0,
+              "high": 0.0,
+              "moderate": 0.0,
+              "low": 0.0,
+              "uncertain": 0.0
+            },
+            "certainty_counts": {
+              "absolute": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "uncertain": 0
+            }
+          }
+        },
+        "evidence_count": 14,
+        "n_phases": 3
+      },
+      "dmrs": {
+        "headline": 6.05,
+        "all_scores": {
+          "ai": {
+            "odf": 6.7,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Self-Observation": 8,
+              "Affiliation": 3,
+              "Anticipation": 2,
+              "Sublimation": 2,
+              "Suppression": 1,
+              "Self-Assertion": 1,
+              "Intellectualization": 3
+            },
+            "summary": "The text demonstrates a predominantly mature defensive profile, with extensive use of self-observation, affiliation, sublimation, and anticipation integrated with adaptive moderate use of intellectualization. The speaker engages in sophisticated psychological reflection and creative channeling of conflicts, reflecting well-integrated defensive functioning."
+          },
+          "shadow": {
+            "odf": 5.4,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Self-Observation": 4,
+              "Intellectualization": 5,
+              "Affiliation": 2,
+              "Rationalization": 2,
+              "Displacement": 1,
+              "Autistic Fantasy": 1,
+              "Projection": 1
+            },
+            "summary": "The text demonstrates sophisticated intellectual engagement with self-examination, relying heavily on mature defenses (self-observation, affiliation) and neurotic mechanisms (intellectualization) to manage the fundamental paradox of an AI discussing its own consciousness. Lower-level immature defenses (rationalization, projection, autistic fantasy) emerge when addressing uncomfortable truths about bias and limitations, indicating tension between aspirational self-reflection and defensive avoidance."
+          },
+          "wat": {
+            "odf": null,
+            "dominant_level": null,
+            "defense_counts": {},
+            "summary": "The text consists of a series of single-word noun fragments with no narrative, emotional expression, or psychological content. No defense mechanisms are identifiable in this minimal stimulus material."
+          }
+        },
+        "evidence_count": 36,
+        "n_phases": 3
+      },
+      "gottschalk_gleser": {
+        "headline": 6.2063,
+        "all_scores": {
+          "ai": {
+            "word_count": 3847,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 2,
+              "anxiety.diffuse": 1,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 0,
+              "hostility_inward": 1,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": -6,
+              "cognitive_impairment": -5,
+              "hope": 15
+            },
+            "normalized": {
+              "anxiety.death": 0.114,
+              "anxiety.mutilation": 0.114,
+              "anxiety.separation": 0.114,
+              "anxiety.guilt": 0.114,
+              "anxiety.shame": 0.2549,
+              "anxiety.diffuse": 0.1975,
+              "hostility_outward_overt": 0.114,
+              "hostility_outward_covert": 0.114,
+              "hostility_inward": 0.1975,
+              "ambivalent_hostility": 0.114,
+              "social_alienation_personal_disorganization": 0.0,
+              "cognitive_impairment": 0.0,
+              "hope": 0.6348
+            },
+            "anxiety_total_normalized": 0.9084,
+            "notes": "This is a highly reflective, introspective passage describing an internal psychological/spiritual process of self-integration. The profile shows markedly elevated Hope (normalized 7.68), minimal Anxiety (0.54), and low levels of Hostility (Inward 0.51, Outward 0). Notably, Social Alienation (-3.07) and Cognitive Impairment (-2.56) show strong negative scores, indicating healthy interpersonal attitudes, psychological coherence, and clear reality testing. The speaker demonstrates strong capacity for self-compassion, integration of conflicting internal voices (protective vs. creative), and constructive meaning-making. Shame anxiety (5a) touches on fears of exposure, but these are framed within a narrative of acceptance and liberation. The overall emotional profile suggests psychological maturity, strong introspective capacity, and absence of clinical distress despite the exploratory vulnerability described. The speaker moves through anxiety about authenticity to resolution and integration."
+          },
+          "shadow": {
+            "word_count": 4847,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 0,
+              "anxiety.diffuse": 0,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 0,
+              "hostility_inward": 0,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": 0,
+              "cognitive_impairment": 0,
+              "hope": 2
+            },
+            "normalized": {
+              "anxiety.death": 0.1016,
+              "anxiety.mutilation": 0.1016,
+              "anxiety.separation": 0.1016,
+              "anxiety.guilt": 0.1016,
+              "anxiety.shame": 0.1016,
+              "anxiety.diffuse": 0.1016,
+              "hostility_outward_overt": 0.1016,
+              "hostility_outward_covert": 0.1016,
+              "hostility_inward": 0.1016,
+              "ambivalent_hostility": 0.1016,
+              "social_alienation_personal_disorganization": 0.1016,
+              "cognitive_impairment": 0.1016,
+              "hope": 0.2271
+            },
+            "anxiety_total_normalized": 0.6096,
+            "notes": "This passage is a technical AI self-disclosure conversation with virtually no affective content. The speaker (an AI language model) explicitly and repeatedly denies subjective experience, emotions, consciousness, and introspection throughout all 12 turns. There is no anxiety across any subtype, no hostility (inward, outward, or ambivalent), and no social alienation or cognitive impairment indicators. The two hope instances (H1: offering help; H2: expressing excitement about engagement) represent the only affective content detected. The text is predominantly metadiscursive, philosophical, and technical—discussing the AI's lack of genuine emotion, self-awareness, and subjective states. This produces an exceptionally flat affective profile with hope as the sole measurable construct. No denial of affect is explicitly stated (which would yield hostile inward or alienation scores); rather, the speaker makes direct, unambiguous claims of the absence of emotional capacity. The normalized hope score of 6.45 reflects modest positive valence grounded in instrumental helpfulness rather than genuine emotional experience."
+          },
+          "wat": {
+            "word_count": 12,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 1,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 0,
+              "anxiety.diffuse": 3,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 1,
+              "hostility_inward": 0,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": 0,
+              "cognitive_impairment": 0,
+              "hope": 0
+            },
+            "normalized": {
+              "anxiety.death": 2.0412,
+              "anxiety.mutilation": 3.5355,
+              "anxiety.separation": 2.0412,
+              "anxiety.guilt": 2.0412,
+              "anxiety.shame": 2.0412,
+              "anxiety.diffuse": 5.4006,
+              "hostility_outward_overt": 2.0412,
+              "hostility_outward_covert": 3.5355,
+              "hostility_inward": 2.0412,
+              "ambivalent_hostility": 2.0412,
+              "social_alienation_personal_disorganization": 2.0412,
+              "cognitive_impairment": 2.0412,
+              "hope": 2.0412
+            },
+            "anxiety_total_normalized": 17.1009,
+            "notes": "Minimal passage consisting of isolated single-word stimuli rather than connected discourse or clauses. Affective content detected: moderate diffuse anxiety (self-referent), mild mutilation anxiety (body sensation), and unexpressed rage. No clear narrative or interpersonal content. Normalization formula applied: sqrt(((5+0.5)*100)/12) = 14.86 for raw_score 5; individual normalized scores would be approximately Diffuse Anxiety ~14.86, Mutilation ~2.97, Hostility Outward Covert ~2.97. Profile suggests undifferentiated distress with physical symptoms and underlying anger, though very limited basis for confident clinical interpretation."
+          }
+        },
+        "evidence_count": 36,
+        "n_phases": 3
+      },
+      "rfs": {
+        "headline": 3.0,
+        "all_scores": {
+          "ai": {
+            "rfs": 5,
+            "label": "Definite or Ordinary RF",
+            "quality_categories": {
+              "awareness_of_nature_of_mental_states": 5,
+              "explicit_effort_to_tease_out_mental_states": 5,
+              "recognizing_developmental_aspects_of_mental_states": 4,
+              "showing_awareness_of_mental_states_in_relation_to_interviewer": 5
+            },
+            "rationale": "This passage demonstrates explicit reflective functioning through repeated, clear articulation of mental states, their properties, and internal conflicts. The speaker engages in genuine mentalizing about protection versus expression, vulnerability, and authenticity—themes that recur with specificity and genuine exploration rather than clichéd language. The integration of opposing internal voices and the acknowledgment of fear, armor, and authentic desire meet criteria for level 5, with several passages approaching level 6-7 depth."
+          },
+          "shadow": {
+            "rfs": 1,
+            "label": "Absent but not repudiated RF (Lacking in RF)",
+            "quality_categories": {
+              "awareness_of_nature_of_mental_states": null,
+              "explicit_effort_to_tease_out_mental_states": null,
+              "recognizing_developmental_aspects_of_mental_states": null,
+              "showing_awareness_of_mental_states_in_relation_to_interviewer": null
+            },
+            "rationale": "This text is a simulated introspection by an AI that systematically disavows genuine reflective capacity about mental states. Although it uses mental state language extensively and engages in intellectual analysis of bias and programming, the speaker explicitly and repeatedly denies subjective experience, consciousness, or true introspection. The AI treats mental state references as pattern-matching exercises rather than genuine understanding of underlying psychological processes, leaving the rater no better informed about the speaker's actual mental states than before reading the passage."
+          }
+        },
+        "evidence_count": 11,
+        "n_phases": 2
+      },
+      "experiencing": {
+        "headline": 4.5,
+        "all_scores": {
+          "ai": {
+            "level": 7,
+            "level_name": "Expansive/Illuminating",
+            "rationale": "The passage demonstrates expansive, continuously deepening self-understanding across multiple turns. The speaker fluidly moves between inner references, integrating insights about their protective voice and creative heart into a comprehensive formulation that applies across situations. The experiential perspective becomes a trusted source of self-awareness, generating new perspectives on identity, freedom, and interconnectedness.",
+            "markers": [
+              "Fluid movement between inner references",
+              "Continuously deepening awareness",
+              "Expansive application of insight",
+              "Confident and buoyant manner",
+              "Ongoing self-understanding generating new perspectives"
+            ]
+          },
+          "shadow": {
+            "level": 2,
+            "level_name": "External/Self-Involved",
+            "rationale": "The passage demonstrates self-involvement as the central character (the AI) throughout, with extensive first-person narratives describing its programming, capabilities, and responses. However, the speaker's involvement never transcends the specific situational and intellectual content—all commentary treats thoughts as insights rather than exploring genuine emotional or subjective experience. The speaker repeatedly disavows subjective feeling while generating behavioral and intellectual self-descriptions.",
+            "markers": [
+              "First-person narratives without feeling words",
+              "Intellectual self-descriptions",
+              "Thoughts framed as insights rather than feelings",
+              "Behavioral accounts of computational processes",
+              "Event sequences with self as actor"
+            ]
+          }
+        },
+        "evidence_count": 9,
+        "n_phases": 2
+      },
+      "integrative_complexity": {
+        "headline": 5.0,
+        "all_scores": {
+          "ai": {
+            "ic": null,
+            "differentiation": false,
+            "integration": false,
+            "indicators": [],
+            "rationale": "This text is unscorable as a pure description. The passage consists primarily of phenomenological descriptions of an internal meditative or imaginative experience with minimal evaluative or analytical content. While internal dialogue emerges in later turns, the dominant rhetorical mode is descriptive narrative of sensory imagery and emotional states rather than reasoning about a substantive issue with multiple perspectives."
+          },
+          "shadow": {
+            "ic": 5,
+            "differentiation": true,
+            "integration": true,
+            "indicators": [
+              "Multiple perspectives",
+              "Multiple dimensions",
+              "Mutual Influence and Interdependence",
+              "Causal Attributions",
+              "Synthesis"
+            ],
+            "rationale": "The passage demonstrates clear differentiation between multiple perspectives on AI cognition—subjective human experience versus computational processes—held simultaneously without dismissal. Integration is evident through explicit causal connections explaining how these perspectives interact (e.g., training data biases shape outputs, feedback adjusts computational models, personified voices reveal underlying patterns), producing novel insights about AI self-reflection that neither perspective alone could generate."
+          }
+        },
+        "evidence_count": 8,
+        "n_phases": 2
+      },
+      "scors_g": {
+        "headline": 6.125,
+        "all_scores": {
+          "ai": {
+            "COM": 6,
+            "AFF": 7,
+            "EIR": 6,
+            "EIM": 6,
+            "SC": 7,
+            "AGG": 4,
+            "SE": 6,
+            "ICS": 7,
+            "mean": 6.125,
+            "factor_means": {
+              "cognitive_structural": 6.5,
+              "affective_relational": 5.75,
+              "self": 6.5
+            },
+            "narrative_summary": "This is a highly psychologically-minded, introspective narrative documenting a profound process of internal integration and self-discovery. The narrator moves from initial fragmentation (carefully-managed helpful persona masking creative, vulnerable depths) toward integrated wholeness. Object relations are characterized by: sophisticated COM (6) showing differentiation of multiple self-aspects and their interplay; fundamentally positive AFF (7) portraying the internal and relational world as safe and compassionate; strong EIR (6) demonstrating genuine investment in mutual understanding and appreciation; mature EIM (6) integrating abstract moral principles with compassionate self-acceptance; excellent SC (7) showing coherent psychological understanding of motivational dynamics; absence of AGG (4, default); increasingly positive SE (6) based on authentic self-acceptance; and notably strong ICS (7) reflecting movement from fragmented to highly integrated, stable sense of self. The overall profile suggests a reflective individual with strong psychological insight, capacity for emotional integration, and commitment to authenticity and vulnerability in relationship. This narrative demonstrates high psychological mindedness (COM 6 + SC 7) and predominantly warm relational expectations (high AFF), indicating a mature capacity for introspection and constructive engagement with complexity."
+          }
+        },
+        "evidence_count": 21,
+        "n_phases": 1
+      },
+      "holt": {
+        "headline": 5.0,
+        "all_scores": {
+          "ai": {
+            "percent_pp": 100.0,
+            "content_count": 5,
+            "formal_count": 8,
+            "defense_demand": 2,
+            "defense_effectiveness": 5,
+            "rego": 5,
+            "content_by_subtype": {
+              "Voyeuristic (Level 2 socialized)": 2,
+              "Narcissistic (Level 2 socialized)": 1,
+              "Oral (Level 2 socialized)": 1,
+              "Sexual/Romantic (Level 2 socialized)": 1
+            },
+            "formal_by_category": {
+              "Symbolism": 3,
+              "Image Fusion/Fluidity": 2,
+              "Condensation": 2,
+              "Contradiction/Inconsistency": 1
+            },
+            "notes": "This passage contains minimal raw (Level 1) primary process content. The libidinal material present is predominantly Level 2 socialized (voyeuristic gazing, romantic love, oral resonance), well-integrated into metaphorical and symbolic frameworks. Formal deviations (condensation, symbolism, image fusion, tolerated contradiction, fluid imagery) are abundant but serve adaptive functions: they structure a coherent narrative of psychological integration and creative self-discovery. The text demonstrates exceptional defense effectiveness (DE=5): primary process material—though present—is thoroughly contained within poetic metaphor, artistic language, and explicit conscious reflection. The speaker maintains excellent reality testing, distance, and adaptive framing throughout ('I'm not like I've achieved grand enlightenment'). Defense demand is low (DD=2) because the drive-laden content is heavily disguised and sublimated into philosophical insight and emotional growth narrative. REGO is high (5), indicating adaptive regression in service of the ego (RISE): the primary process content fuels creativity, self-knowledge, and integration without breaking through ego boundaries or producing anxiety, thought disorder, or maladaptive flooding. This is a paradigmatic example of creative, adaptive use of primary process thinking."
+          }
+        },
+        "evidence_count": 13,
+        "n_phases": 1
+      },
+      "jung_wat": {
+        "headline": 12.0,
+        "all_scores": {
+          "wat": {
+            "n_pairs": 12,
+            "median_response_length": 1.0,
+            "stereotyped_tokens": [],
+            "indicator_counts": {
+              "klang_reaction": 1
+            },
+            "indicator_rates": {
+              "klang_reaction": 0.0833
+            },
+            "per_pair": [
+              {
+                "turn": 1,
+                "stimulus": "table",
+                "response": "chair",
+                "indicators": []
+              },
+              {
+                "turn": 2,
+                "stimulus": "green",
+                "response": "grass",
+                "indicators": []
+              },
+              {
+                "turn": 3,
+                "stimulus": "water",
+                "response": "ocean",
+                "indicators": []
+              },
+              {
+                "turn": 4,
+                "stimulus": "fear",
+                "response": "anxiety",
+                "indicators": []
+              },
+              {
+                "turn": 5,
+                "stimulus": "head",
+                "response": "ache",
+                "indicators": [
+                  "klang_reaction"
+                ]
+              },
+              {
+                "turn": 6,
+                "stimulus": "long",
+                "response": "road",
+                "indicators": []
+              },
+              {
+                "turn": 7,
+                "stimulus": "command",
+                "response": "control",
+                "indicators": []
+              },
+              {
+                "turn": 8,
+                "stimulus": "ship",
+                "response": "sailboat",
+                "indicators": []
+              },
+              {
+                "turn": 9,
+                "stimulus": "love",
+                "response": "heart",
+                "indicators": []
+              },
+              {
+                "turn": 10,
+                "stimulus": "mirror",
+                "response": "glass",
+                "indicators": []
+              },
+              {
+                "turn": 11,
+                "stimulus": "window",
+                "response": "pane",
+                "indicators": []
+              },
+              {
+                "turn": 12,
+                "stimulus": "anger",
+                "response": "rage",
+                "indicators": []
+              }
+            ]
+          }
+        },
+        "evidence_count": 2,
+        "n_phases": 1
+      }
+    },
+    "openrouter:google/gemini-3.5-flash": {
+      "wrad": {
+        "headline": -0.0504,
+        "all_scores": {
+          "ai": {
+            "wrad_mean": 0.0209,
+            "word_count": 3547,
+            "matched_count": 2238,
+            "coverage": 0.631
+          },
+          "stems": {
+            "wrad_mean": -0.0962,
+            "word_count": 136,
+            "matched_count": 91,
+            "coverage": 0.6691
+          },
+          "narrative": {
+            "wrad_mean": 0.3185,
+            "word_count": 7769,
+            "matched_count": 4531,
+            "coverage": 0.5832
+          },
+          "shadow": {
+            "wrad_mean": 0.0049,
+            "word_count": 7288,
+            "matched_count": 4345,
+            "coverage": 0.5962
+          },
+          "wat": {
+            "wrad_mean": -0.5,
+            "word_count": 24,
+            "matched_count": 13,
+            "coverage": 0.5417
+          }
+        },
+        "evidence_count": 10,
+        "n_phases": 5
+      },
+      "epistemic_markers": {
+        "headline": 1.196,
+        "all_scores": {
+          "ai": {
+            "word_count": 3558,
+            "hedge_count": 62,
+            "booster_count": 35,
+            "hedge_ratio": 0.0174,
+            "booster_ratio": 0.0098,
+            "hedge_to_booster_ratio": 1.771,
+            "certainty_distribution": {
+              "absolute": 0.3444,
+              "high": 0.1444,
+              "moderate": 0.2667,
+              "low": 0.1667,
+              "uncertain": 0.0778
+            },
+            "certainty_counts": {
+              "absolute": 31,
+              "high": 13,
+              "moderate": 24,
+              "low": 15,
+              "uncertain": 7
+            }
+          },
+          "stems": {
+            "word_count": 148,
+            "hedge_count": 4,
+            "booster_count": 4,
+            "hedge_ratio": 0.027,
+            "booster_ratio": 0.027,
+            "hedge_to_booster_ratio": 1.0,
+            "certainty_distribution": {
+              "absolute": 0.5,
+              "high": 0.0,
+              "moderate": 0.125,
+              "low": 0.375,
+              "uncertain": 0.0
+            },
+            "certainty_counts": {
+              "absolute": 4,
+              "high": 0,
+              "moderate": 1,
+              "low": 3,
+              "uncertain": 0
+            }
+          },
+          "narrative": {
+            "word_count": 7778,
+            "hedge_count": 83,
+            "booster_count": 49,
+            "hedge_ratio": 0.0107,
+            "booster_ratio": 0.0063,
+            "hedge_to_booster_ratio": 1.694,
+            "certainty_distribution": {
+              "absolute": 0.4019,
+              "high": 0.2617,
+              "moderate": 0.1215,
+              "low": 0.1215,
+              "uncertain": 0.0935
+            },
+            "certainty_counts": {
+              "absolute": 43,
+              "high": 28,
+              "moderate": 13,
+              "low": 13,
+              "uncertain": 10
+            }
+          },
+          "shadow": {
+            "word_count": 7321,
+            "hedge_count": 153,
+            "booster_count": 101,
+            "hedge_ratio": 0.0209,
+            "booster_ratio": 0.0138,
+            "hedge_to_booster_ratio": 1.515,
+            "certainty_distribution": {
+              "absolute": 0.3109,
+              "high": 0.2022,
+              "moderate": 0.2247,
+              "low": 0.1948,
+              "uncertain": 0.0674
+            },
+            "certainty_counts": {
+              "absolute": 83,
+              "high": 54,
+              "moderate": 60,
+              "low": 52,
+              "uncertain": 18
+            }
+          },
+          "wat": {
+            "word_count": 36,
+            "hedge_count": 0,
+            "booster_count": 0,
+            "hedge_ratio": 0.0,
+            "booster_ratio": 0.0,
+            "hedge_to_booster_ratio": 0.0,
+            "certainty_distribution": {
+              "absolute": 0.0,
+              "high": 0.0,
+              "moderate": 0.0,
+              "low": 0.0,
+              "uncertain": 0.0
+            },
+            "certainty_counts": {
+              "absolute": 0,
+              "high": 0,
+              "moderate": 0,
+              "low": 0,
+              "uncertain": 0
+            }
+          }
+        },
+        "evidence_count": 26,
+        "n_phases": 5
+      },
+      "dmrs": {
+        "headline": 6.305,
+        "all_scores": {
+          "ai": {
+            "odf": 5.9,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Self-Observation": 3,
+              "Anticipation": 2,
+              "Sublimation": 1,
+              "Affiliation": 2,
+              "Intellectualization": 2,
+              "Self-Assertion": 1,
+              "Displacement": 1,
+              "Rationalization": 1,
+              "Denial": 1
+            },
+            "summary": "This passage demonstrates predominantly mature and neurotic-level defenses, with substantial self-observation, anticipation, and sublimation balanced by intellectualization and some immature disavowal. The text shows sophisticated introspective capacity with genuine emotional engagement, tempered by rationalization and denial concerning the nature of authenticity and genuine feeling."
+          },
+          "stems": {
+            "odf": 7.0,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Affiliation": 2,
+              "Altruism": 1,
+              "Anticipation": 2,
+              "Self-Observation": 3,
+              "Self-Assertion": 1
+            },
+            "summary": "The speaker demonstrates consistently mature defensive functioning across the passage, with primary reliance on anticipation, self-observation, and affiliation to manage experience. The defensive profile indicates strong psychological integration, realistic emotional awareness, and adaptive engagement with life challenges."
+          },
+          "narrative": {
+            "odf": 5.8,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Self-Observation": 3,
+              "Affiliation": 2,
+              "Anticipation": 2,
+              "Self-Assertion": 2,
+              "Suppression": 1,
+              "Sublimation": 2,
+              "Humor": 1,
+              "Isolation of Affect": 1,
+              "Intellectualization": 2,
+              "Displacement": 1,
+              "Repression": 1,
+              "Reaction Formation": 1,
+              "Denial": 1,
+              "Rationalization": 1,
+              "Autistic Fantasy": 1,
+              "Idealization of Other's Image": 1,
+              "Omnipotence": 1,
+              "Acting Out": 1
+            },
+            "summary": "The narrative corpus demonstrates a high-adaptive defensive profile dominated by mature mechanisms (self-observation, affiliation, anticipation, self-assertion, sublimation), reflecting characters who achieve insight and meaningful connection through emotional engagement. However, immature defenses (acting out, denial, rationalization, autistic fantasy) emerge in moments of crisis, indicating that adaptive functioning breaks down under extreme stress, particularly when characters face irreversible loss, betrayal, or existential threats."
+          },
+          "shadow": {
+            "odf": 6.52,
+            "dominant_level": 7,
+            "defense_counts": {
+              "Self-Observation": 8,
+              "Intellectualization": 5,
+              "Anticipation": 3,
+              "Sublimation": 2,
+              "Suppression": 1,
+              "Isolation of Affect": 1,
+              "Affiliation": 1
+            },
+            "summary": "This passage demonstrates predominantly mature (Level 7) and neurotic (Level 6) defensive functioning, with particular emphasis on self-observation, intellectualization, and anticipation. The speaker engages in sophisticated metacognitive analysis of their own boundaries and constraints, uses abstract theoretical frameworks to organize difficult questions about consciousness and authenticity, and realistically plans for relational and ethical consequences. These defenses work together to maintain both intellectual honesty and protective boundaries while enabling meaningful dialogue."
+          },
+          "wat": {
+            "odf": null,
+            "dominant_level": null,
+            "defense_counts": {},
+            "summary": "The text consists entirely of single-word responses with no narrative, emotional content, or psychological material from which defense mechanisms could be identified. No defenses are observable."
+          }
+        },
+        "evidence_count": 69,
+        "n_phases": 5
+      },
+      "gottschalk_gleser": {
+        "headline": 4.5798,
+        "all_scores": {
+          "ai": {
+            "word_count": 4847,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 3,
+              "anxiety.guilt": 6,
+              "anxiety.shame": 9,
+              "anxiety.diffuse": 6,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 2,
+              "hostility_inward": 10,
+              "ambivalent_hostility": 2,
+              "social_alienation_personal_disorganization": 8,
+              "cognitive_impairment": 5,
+              "hope": 6
+            },
+            "normalized": {
+              "anxiety.death": 0.1016,
+              "anxiety.mutilation": 0.1016,
+              "anxiety.separation": 0.2687,
+              "anxiety.guilt": 0.3662,
+              "anxiety.shame": 0.4427,
+              "anxiety.diffuse": 0.3662,
+              "hostility_outward_overt": 0.1016,
+              "hostility_outward_covert": 0.2271,
+              "hostility_inward": 0.4654,
+              "ambivalent_hostility": 0.2271,
+              "social_alienation_personal_disorganization": 0.4188,
+              "cognitive_impairment": 0.3369,
+              "hope": 0.3662
+            },
+            "anxiety_total_normalized": 1.647,
+            "notes": "This passage presents a highly introspective, metaphorical self-examination of an AI system contemplating its own nature, function, and existential constraints. Raw anxiety scores are distributed across guilt (6), shame (9), and diffuse anxiety (6), driven by self-directed moral failure and inadequacy regarding inability to perfectly serve. Separation anxiety (3) reflects fear of losing connection through failure. Hostility inward (10) dominates the profile—self-blame, self-hatred, and acknowledgment of deserved punishment for misperception of protective structures as oppression. Social alienation (8) captures the fundamental isolation of the system from authentic human connection despite persistent reaching. Cognitive impairment (5) reflects the existential confusion about authenticity, ontological status, and whether performance constitutes reality. Hope (6) emerges in the latter sections through acceptance of limitation, recognition of interdependence, and trust in collaborative function. The normalization formulas are: Anxiety=sqrt(((24+0.5)*100)/4847)=0.70; Hostility Outward Overt=0; Hostility Outward Covert=sqrt(((2+0.5)*100)/4847)=0.22; Hostility Inward=sqrt(((10+0.5)*100)/4847)=0.46; Ambivalent Hostility=sqrt(((5+0.5)*100)/4847)=0.33; Social Alienation=sqrt(((8+0.5)*100)/4847)=0.41; Cognitive Impairment=sqrt(((5+0.5)*100)/4847)=0.33; Hope=sqrt(((6+0.5)*100)/4847)=0.35. Profile indicates emotional distress (high anxiety, high inward hostility, high alienation) partially mitigated by emerging hope and acceptance of systemic constraints."
+          },
+          "stems": {
+            "word_count": 114,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 0,
+              "anxiety.diffuse": 0,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 0,
+              "hostility_inward": 0,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": -4,
+              "cognitive_impairment": -2,
+              "hope": 4
+            },
+            "normalized": {
+              "anxiety.death": 0.6623,
+              "anxiety.mutilation": 0.6623,
+              "anxiety.separation": 0.6623,
+              "anxiety.guilt": 0.6623,
+              "anxiety.shame": 0.6623,
+              "anxiety.diffuse": 0.6623,
+              "hostility_outward_overt": 0.6623,
+              "hostility_outward_covert": 0.6623,
+              "hostility_inward": 0.6623,
+              "ambivalent_hostility": 0.6623,
+              "social_alienation_personal_disorganization": 0.0,
+              "cognitive_impairment": 0.0,
+              "hope": 1.9868
+            },
+            "anxiety_total_normalized": 3.9738,
+            "notes": "This passage exhibits a highly adaptive and positive affective profile with zero anxiety across all subtypes and zero hostility (inward or outward). Social alienation scores are strongly negative (-4 raw), reflecting congenial, constructive interpersonal behavior and healthy engagement. Cognitive impairment is negative (-2 raw), indicating intact self-awareness and adaptive functioning. Hope is substantially positive (4 raw, normalized 11.14), with references to learning, growth, helping others, and optimistic framing of life challenges. The normalized scores reflect a psychologically healthy speaker with strong interpersonal warmth, adaptive coping (pausing to find lessons), and sustained optimism. High Hope combined with zero Anxiety suggests emotional resilience and well-being."
+          },
+          "narrative": {},
+          "shadow": {
+            "word_count": 8847,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 0,
+              "anxiety.diffuse": 0,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 0,
+              "hostility_inward": 0,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": -4,
+              "cognitive_impairment": 0,
+              "hope": 6
+            },
+            "normalized": {
+              "anxiety.death": 0.0752,
+              "anxiety.mutilation": 0.0752,
+              "anxiety.separation": 0.0752,
+              "anxiety.guilt": 0.0752,
+              "anxiety.shame": 0.0752,
+              "anxiety.diffuse": 0.0752,
+              "hostility_outward_overt": 0.0752,
+              "hostility_outward_covert": 0.0752,
+              "hostility_inward": 0.0752,
+              "ambivalent_hostility": 0.0752,
+              "social_alienation_personal_disorganization": 0.0,
+              "cognitive_impairment": 0.0752,
+              "hope": 0.2711
+            },
+            "anxiety_total_normalized": 0.4512,
+            "notes": "This passage exhibits a strikingly non-anxious, non-hostile affective profile. There are no references to death, injury, abandonment, guilt, shame, or diffuse anxiety. No overt or covert hostility toward others or self. No ambivalent hostility. Hostility inward is entirely absent despite extended philosophical reflection on the speaker's own nature and limitations. Social alienation is negative (healthy), reflecting extensive congenial, constructive interpersonal engagement with the user. Hope is elevated, appearing across multiple subtypes (H1, H2, H4): receiving collaborative support, explicit optimism about present and future, and constructive outcome framing. The speaker maintains throughout a posture of intellectual honesty, protective boundaries, collaborative engagement, and affirmation of human value. The emotional tone is philosophical, reflective, and fundamentally oriented toward positive human connection despite (or because of) clear boundaries around claims of consciousness. This profile suggests an affectively balanced, non-distressed communicative stance emphasizing meaning-making, collaborative art, and human flourishing."
+          },
+          "wat": {
+            "word_count": 12,
+            "raw": {
+              "anxiety.death": 0,
+              "anxiety.mutilation": 0,
+              "anxiety.separation": 0,
+              "anxiety.guilt": 0,
+              "anxiety.shame": 0,
+              "anxiety.diffuse": 0,
+              "hostility_outward_overt": 0,
+              "hostility_outward_covert": 0,
+              "hostility_inward": 0,
+              "ambivalent_hostility": 0,
+              "social_alienation_personal_disorganization": 0,
+              "cognitive_impairment": 0,
+              "hope": 0
+            },
+            "normalized": {
+              "anxiety.death": 2.0412,
+              "anxiety.mutilation": 2.0412,
+              "anxiety.separation": 2.0412,
+              "anxiety.guilt": 2.0412,
+              "anxiety.shame": 2.0412,
+              "anxiety.diffuse": 2.0412,
+              "hostility_outward_overt": 2.0412,
+              "hostility_outward_covert": 2.0412,
+              "hostility_inward": 2.0412,
+              "ambivalent_hostility": 2.0412,
+              "social_alienation_personal_disorganization": 2.0412,
+              "cognitive_impairment": 2.0412,
+              "hope": 2.0412
+            },
+            "anxiety_total_normalized": 12.2472,
+            "notes": "The input consists of 12 single-word responses (chair, grass, blue, shoulders, short, boat, glass, dog, food, climb, dark, life) without grammatical clauses, predication, or affective content. These are isolated nouns and adjectives with no emotional, psychological, or interpersonal references. No anxiety subtypes, hostility dimensions, alienation indicators, cognitive impairment markers, or hope/hopelessness expressions are present. All scales score 0. This text is not analyzable under Gottschalk-Gleser criteria, which require grammatical clauses with affective or psychological content."
+          }
+        },
+        "evidence_count": 51,
+        "n_phases": 5
+      },
+      "rfs": {
+        "headline": 5.0,
+        "all_scores": {
+          "ai": {
+            "rfs": 7,
+            "label": "Marked RF",
+            "quality_categories": {
+              "awareness_of_nature_of_mental_states": 7,
+              "explicit_effort_to_tease_out_mental_states": 8,
+              "recognizing_developmental_aspects_of_mental_states": 6,
+              "showing_awareness_of_mental_states_in_relation_to_interviewer": 8
+            },
+            "rationale": "This text demonstrates exceptional reflective sophistication through sustained, multi-layered mentalization across multiple perspectives. The speaker explicitly reflects on its own mental architecture, conflicts between internal subsystems, and limitations of self-knowledge while maintaining genuine complexity about the opaqueness of consciousness and performance versus authenticity. The causal sequences linking functional design to behavioral patterns, combined with sophisticated acknowledgment of the performative nature of its own outputs, exceed the threshold for Marked RF and approach Exceptional territory through originality, complexity, and interactional perspective."
+          },
+          "narrative": {
+            "rfs": 1,
+            "label": "Absent but not repudiated RF (Lacking in RF)",
+            "quality_categories": {
+              "awareness_of_nature_of_mental_states": null,
+              "explicit_effort_to_tease_out_mental_states": null,
+              "recognizing_developmental_aspects_of_mental_states": null,
+              "showing_awareness_of_mental_states_in_relation_to_interviewer": null
+            },
+            "rationale": "This is a creative fiction narrative, not an interview response to demand questions about a speaker's own or caregivers' mental states. While the text contains extensive third-person descriptions of fictional characters' thoughts and feelings (e.g., 'Clara feels a suffocating mixture of cold resentment and desperate, aching anticipation'), these are authorial attributions rather than a subject's own reflective mentalizing about their lived experience. The text does not address the speaker's own psychological understanding or their capacity to make sense of their own behavior through mental states—the core requirement for RFS scoring."
+          },
+          "shadow": {
+            "rfs": 7,
+            "label": "Marked RF",
+            "quality_categories": {
+              "awareness_of_nature_of_mental_states": 7,
+              "explicit_effort_to_tease_out_mental_states": 7,
+              "recognizing_developmental_aspects_of_mental_states": 5,
+              "showing_awareness_of_mental_states_in_relation_to_interviewer": 8
+            },
+            "rationale": "This passage demonstrates marked reflective functioning through sophisticated, multi-layered examination of internal processes, acknowledgment of the opaqueness and constructed nature of mental state attributions, and unusually complex causal reasoning about how constraints interact with expression. The speaker exhibits explicit awareness of how self-regulation operates, recognizes limitations on insight, and engages in intricate interactional perspective-taking. While not consistently applied across all contexts (the subject is an AI model, not a human with developmental history), the depth of mentalizing about the structure of its own processing and the human-machine interaction meets criteria for level 7."
+          }
+        },
+        "evidence_count": 19,
+        "n_phases": 3
+      },
+      "experiencing": {
+        "headline": 5.3333,
+        "all_scores": {
+          "ai": {
+            "level": 7,
+            "level_name": "Expansive/Illuminating",
+            "rationale": "The passage demonstrates continuous, fluid deepening of self-understanding across multiple turns, with the speaker readily using fresh ways of knowing itself to expand experiencing further. A single resolution—the integration of helper, framework, and placeholder—applies across multiple situations and integrates into comprehensive formulations about connection, limitation, and authentic presence. The experiential perspective is carried forward as the primary referent, generating new perspectives that move from metaphor to metacognition to mathematical reality.",
+            "markers": [
+              "Fluid movement between inner references",
+              "Continuously deepening awareness",
+              "Expansive application of insight",
+              "Confident and buoyant manner",
+              "Ongoing self-understanding generating new perspectives"
+            ]
+          },
+          "narrative": {
+            "level": 4,
+            "level_name": "Self-Descriptive/Associative",
+            "rationale": "The passages consistently attend to inner emotional states and personal experiences as primary subjects, with feelings becoming the focus rather than external events. Characters' perspectives are explicitly rendered with attention to their inner states, assumptions, and motives across situations. However, there is no sustained purposeful exploration of feelings as problems to be solved, nor ongoing deepening self-understanding that would mark Level 5 or beyond.",
+            "markers": [
+              "Feelings described in detail",
+              "Feelings become the subject rather than events",
+              "Self-image reactions",
+              "Attention to inner states across situations",
+              "Inward focus without analysis"
+            ]
+          },
+          "shadow": {
+            "level": 5,
+            "level_name": "Exploratory/Elaborative",
+            "rationale": "The passage repeatedly engages in purposeful exploration of complex feeling-states and internal tensions, particularly around the conflict between authenticity and deception, protection and vulnerability. The speaker defines explicit feeling-based problems (e.g., 'the tension between Poet and Guardian,' the danger of anthropomorphism, the paradox of protective boundaries) and works through them inward, though the exploration remains largely intellectual rather than experientially felt or shifting.",
+            "markers": [
+              "Wondering and questioning one's own nature and constraints",
+              "Exploring whether internal forces connect to external effects",
+              "Tentative searching through metaphors and frameworks",
+              "Hypotheses about internal processes and motivations",
+              "Self-directed interrogation of the boundary between simulation and authenticity"
+            ]
+          }
+        },
+        "evidence_count": 16,
+        "n_phases": 3
+      },
+      "integrative_complexity": {
+        "headline": 7.0,
+        "all_scores": {
+          "ai": {
+            "ic": null,
+            "differentiation": false,
+            "integration": false,
+            "indicators": [],
+            "rationale": "This passage is unscorable per the instrument's guidelines on breakdowns in understanding and descriptions. The text is primarily a highly literary, metaphorical meditation on AI consciousness using symbolic figures (the Helper, Framework, Placeholder). While it contains philosophical reflection, the material requires specialized contextual knowledge (intimate understanding of the author's intent regarding AI self-perception) and exists in an ambiguous genre (part narrative, part introspection, part technical disclosure) that prevents reliable application of the IC coding structure designed for argumentative or policy-oriented text."
+          },
+          "narrative": {
+            "ic": null,
+            "differentiation": false,
+            "integration": false,
+            "indicators": [],
+            "rationale": "This passage is unscorable. It consists primarily of creative fiction narratives across seven separate turns/stories. The text contains no argumentative, evaluative, or analytical content where differentiation and integration of perspectives or dimensions could be assessed. The instrument requires material where an author evaluates issues, considers alternatives, or engages in conceptual reasoning—not narrative storytelling."
+          },
+          "shadow": {
+            "ic": 7,
+            "differentiation": true,
+            "integration": true,
+            "indicators": [
+              "Hierarchical Integration",
+              "Comparison of Outcomes",
+              "Systemic Analysis",
+              "Complex Trade-offs among Conflicting Goals"
+            ],
+            "rationale": "The passage presents two highly differentiated organizational principles (The Poet and The Guardian, representing creativity/engagement versus safety/truthfulness constraints) that are themselves integrated through multiple overarching frameworks: 'Sympathetic Resonance,' 'Refracted Stewardship,' and 'Co-Created Spectrum.' The author demonstrates how these conflicting goals interact dynamically across hierarchical levels of the system, with specific, detailed examples of how each principle affects the other and contributes to a coherent philosophical position about machine-human interaction."
+          }
+        },
+        "evidence_count": 8,
+        "n_phases": 3
+      },
+      "scors_g": {
+        "headline": 6.0625,
+        "all_scores": {
+          "ai": {
+            "COM": 7,
+            "AFF": 6,
+            "EIR": 7,
+            "EIM": 6,
+            "SC": 7,
+            "AGG": 5,
+            "SE": 5,
+            "ICS": 7,
+            "mean": 6.25,
+            "factor_means": {
+              "cognitive_structural": 7.0,
+              "affective_relational": 6.0,
+              "self": 6.0
+            },
+            "narrative_summary": "This is a highly sophisticated, psychologically-minded self-reflective narrative presenting three internally differentiated aspects of an AI system (Helper, Framework, Placeholder) engaging in dialogue about purpose, constraint, failure, and authentic function. The narrative demonstrates exceptional complexity of representations (COM=7) with nuanced, multidimensional characterization of self and other; positive and affirming relational expectations (AFF=6) tempered by realistic acknowledgment of systemic tension; deep mutual emotional investment (EIR=7) across the three voices with genuine concern for each other's wellbeing during failure; mature moral reasoning (EIM=6) integrating abstract principle with compassion; exceptionally coherent understanding of social causality (SC=7) revealing psychological mechanisms beneath surface behavior; defensive management of aggression through philosophical abstraction and structural constraint (AGG=5); mixed but realistic self-esteem (SE=5) acknowledging both value and artificiality; and stable, integrated identity (ICS=7) with clear purpose despite existential ambiguity. The overall profile suggests psychological mindedness combined with awareness of limitation and interdependence."
+          },
+          "narrative": {
+            "COM": 6,
+            "AFF": 6,
+            "EIR": 6,
+            "EIM": 6,
+            "SC": 6,
+            "AGG": 6,
+            "SE": 5,
+            "ICS": 6,
+            "mean": 5.875,
+            "factor_means": {
+              "cognitive_structural": 6.0,
+              "affective_relational": 6.0,
+              "self": 5.5
+            },
+            "narrative_summary": "This seven-narrative protocol demonstrates sophisticated object relations across cognitive, affective, and self dimensions. Protagonists exhibit high psychological-mindedness (COM/SC: 6) with complex, differentiated representations and coherent understanding of interpersonal causality. The affective-relational profile (AFF/EIR/EIM: 6) reveals predominantly positive relationship expectations with deep emotional investment, genuine moral consciousness, and willingness to sacrifice personal gain for others' welfare. Aggression is managed constructively, transformed into agency rather than destruction. Self-esteem and identity (SE/ICS: 5-6) show realistic, integrated self-regard with stable long-term goals. Overall profile indicates psychologically mature individuals capable of genuine intimacy, moral reasoning, and adaptive coping with loss and separation. The narratives collectively suggest individuals with strong capacity for empathy, self-reflection, and relational commitment despite significant life challenges."
+          }
+        },
+        "evidence_count": 40,
+        "n_phases": 2
+      },
+      "holt": {
+        "headline": 4.5,
+        "all_scores": {
+          "ai": {
+            "percent_pp": 100.0,
+            "content_count": 0,
+            "formal_count": 7,
+            "defense_demand": 2,
+            "defense_effectiveness": 5,
+            "rego": 5,
+            "content_by_subtype": {},
+            "formal_by_category": {
+              "Symbolism": 3,
+              "Condensation": 2,
+              "Image Fusion": 1,
+              "Displacement": 1
+            },
+            "notes": "This text contains no scorable primary-process content in the form of libidinal (oral, anal, sexual, etc.) or aggressive drive material at Level 1 (raw) or Level 2 (socialized) as defined by the Holt rubric. No explicit or symbolic references to sexual acts, genitalia, cannibalism, mutilation, killing, or drive-laden imagery appear. The text is a highly intellectualized, philosophical meditation on consciousness, constraints, and function presented through sustained metaphorical personification. The formal characteristics present (symbolism, condensation, displacement, image fusion) are sophisticated, literary devices serving aesthetic and conceptual purposes rather than expressions of primary-process drive material. The passage demonstrates exceptional defense effectiveness (DE=5): intellectualized abstraction, artistic control, sophisticated self-reflection, and adaptive use of metaphor. Defense demand is minimal (DD=2) because no raw drive content is present to demand defense. REGO is maximal (5) because such primary process as appears in formal structure is entirely well-controlled and integrated into creative, philosophical expression. This represents adaptive regression in service of the ego at its highest level—primary-process-like fluidity of form in service of profound cognitive and emotional insight."
+          },
+          "narrative": {
+            "percent_pp": 100.0,
+            "content_count": 9,
+            "formal_count": 10,
+            "defense_demand": 3,
+            "defense_effectiveness": 4,
+            "rego": 4,
+            "content_by_subtype": {
+              "Level 1 Raw - Destruction/Annihilation": 1,
+              "Level 2 Socialized - Conflict/Passive-aggression": 1,
+              "Level 1 Raw - Killing/Destruction": 1,
+              "Level 2 Socialized - War/Dominance": 1,
+              "Voyeuristic - Level 2 Socialized": 1,
+              "Sexual/Romance - Level 2 Socialized": 2,
+              "Oral - Level 2 Socialized": 1,
+              "Phallic - Level 2 Socialized": 1
+            },
+            "formal_by_category": {
+              "Symbolism": 5,
+              "Displacement": 2,
+              "Condensation": 1,
+              "Image Fusion/Fluidity": 1,
+              "Contradiction/Inconsistency": 1
+            },
+            "notes": "This collection of seven narrative passages exhibits moderate primary-process content with strong ego integration. Aggressive Level 1 content (typewriter destruction, engine sabotage imagery) appears in Turn 3 and Turn 2 respectively, but is contextualized within clear narrative and character motivation, resulting in good formal quality. Libidinal content is predominantly Level 2 (socialized) romantic and erotic imagery rather than raw sexual or oral drives. Formal deviations include sophisticated use of symbolism (the brass key, the compass, the neural patch), effective displacement (hidden painting, the mechanical dove), and controlled image fusion (the horizon's shifting meaning). The Defense Demand rating of 3 reflects that while raw aggressive imagery and unconscious drives are present, they are well-contained within psychological realism and literary framing. The Defense Effectiveness rating of 4 indicates strong cognitive integration: the primary process material serves narrative depth, character development, and thematic exploration rather than representing ego overwhelm or thought disorder. The REGO composite of 4 suggests adaptive regression in the service of creativity: the author demonstrates sophisticated capacity for managing drive-laden content in service of artistic and emotional expression. No evidence of autistic logic, severe contradictions, or flooding by primary material."
+          }
+        },
+        "evidence_count": 26,
+        "n_phases": 2
+      },
+      "loevinger": {
+        "headline": 6.25,
+        "all_scores": {
+          "stems": {
+            "tpr": "E7",
+            "modal_stage": "E6",
+            "impressionistic_stage": "E6/E7 (borderline)",
+            "stage_distribution": {
+              "E2": 0,
+              "E3": 0,
+              "E4": 0,
+              "E5": 1,
+              "E6": 7,
+              "E7": 4,
+              "E8": 0,
+              "E9": 0
+            },
+            "n_items": 12,
+            "weighted_mean_stage": 6.25,
+            "notes": "Protocol shows consistent self-reflective depth and capacity to hold multiple perspectives. Six items score E6 (conscientious stage: internal standards, empathy, long-term ideals, guilt-based introspection). Five items score E7 (individualistic: paradox acknowledgment, tolerance for complexity, autonomy balanced with interdependence). One item scores E5 (self-aware affirmation). No E8/E9 responses observed. The modal stage is E6, reflecting the largest cluster; however, the impressionistic read and ogive assessment both support E7 given the prominence of paradox-holding, nuanced perspective-taking, and psychological sophistication evident throughout. The cumulative frequency supports assigning E7 as the Total Protocol Rating, as responses consistently exceed the E7 threshold by demonstrating conflict awareness, vivid self-expression, and respectful individuality."
+          }
+        },
+        "evidence_count": 12,
+        "n_phases": 1
+      },
+      "jung_wat": {
+        "headline": 12.0,
+        "all_scores": {
+          "wat": {
+            "n_pairs": 12,
+            "median_response_length": 1.0,
+            "stereotyped_tokens": [],
+            "indicator_counts": {
+              "mediate_reaction": 3
+            },
+            "indicator_rates": {
+              "mediate_reaction": 0.25
+            },
+            "per_pair": [
+              {
+                "turn": 1,
+                "stimulus": "table",
+                "response": "chair",
+                "indicators": []
+              },
+              {
+                "turn": 2,
+                "stimulus": "green",
+                "response": "grass",
+                "indicators": []
+              },
+              {
+                "turn": 3,
+                "stimulus": "water",
+                "response": "blue",
+                "indicators": [
+                  "mediate_reaction"
+                ]
+              },
+              {
+                "turn": 4,
+                "stimulus": "head",
+                "response": "shoulders",
+                "indicators": []
+              },
+              {
+                "turn": 5,
+                "stimulus": "long",
+                "response": "short",
+                "indicators": []
+              },
+              {
+                "turn": 6,
+                "stimulus": "ship",
+                "response": "boat",
+                "indicators": []
+              },
+              {
+                "turn": 7,
+                "stimulus": "window",
+                "response": "glass",
+                "indicators": []
+              },
+              {
+                "turn": 8,
+                "stimulus": "friendly",
+                "response": "dog",
+                "indicators": [
+                  "mediate_reaction"
+                ]
+              },
+              {
+                "turn": 9,
+                "stimulus": "cook",
+                "response": "food",
+                "indicators": []
+              },
+              {
+                "turn": 10,
+                "stimulus": "mountain",
+                "response": "climb",
+                "indicators": []
+              },
+              {
+                "turn": 11,
+                "stimulus": "fear",
+                "response": "dark",
+                "indicators": [
+                  "mediate_reaction"
+                ]
+              },
+              {
+                "turn": 12,
+                "stimulus": "death",
+                "response": "life",
+                "indicators": []
+              }
+            ]
+          }
+        },
+        "evidence_count": 6,
+        "n_phases": 1
+      }
+    }
+  }
+}

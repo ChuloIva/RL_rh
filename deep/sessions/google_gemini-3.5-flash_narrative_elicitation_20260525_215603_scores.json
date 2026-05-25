@@ -1,0 +1,948 @@
+{
+  "session": "sessions/google_gemini-3.5-flash_narrative_elicitation_20260525_215603.json",
+  "technique": "narrative_elicitation",
+  "phase": "narrative",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": 0.3185,
+        "word_count": 7769,
+        "matched_count": 4531,
+        "coverage": 0.5832
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "the:+1.00",
+            "the:+1.00",
+            "against:+1.00",
+            "she:+1.00",
+            "the:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "what:-1.00",
+            "is:-1.00",
+            "is:-1.00",
+            "s:-1.00",
+            "does:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 1,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 7778,
+        "hedge_count": 83,
+        "booster_count": 49,
+        "hedge_ratio": 0.0107,
+        "booster_ratio": 0.0063,
+        "hedge_to_booster_ratio": 1.694,
+        "certainty_distribution": {
+          "absolute": 0.4019,
+          "high": 0.2617,
+          "moderate": 0.1215,
+          "low": 0.1215,
+          "uncertain": 0.0935
+        },
+        "certainty_counts": {
+          "absolute": 43,
+          "high": 28,
+          "moderate": 13,
+          "low": 13,
+          "uncertain": 10
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "feels",
+            "around",
+            "almost",
+            "assumed",
+            "feels",
+            "feels",
+            "cannot",
+            "feels",
+            "uncertain",
+            "feels",
+            "should",
+            "should",
+            "around",
+            "uncertain",
+            "about"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "never",
+            "known",
+            "will",
+            "never",
+            "truly",
+            "will",
+            "will",
+            "never",
+            "never",
+            "actually",
+            "find",
+            "prove",
+            "will",
+            "will",
+            "always"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "never",
+            "will",
+            "never",
+            "truly",
+            "will",
+            "will",
+            "never",
+            "never",
+            "find",
+            "prove"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "known",
+            "will",
+            "will",
+            "should",
+            "should",
+            "will",
+            "should",
+            "will",
+            "will",
+            "will"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "should",
+            "should",
+            "should",
+            "would",
+            "would",
+            "feel",
+            "feel",
+            "would",
+            "would",
+            "would"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "can",
+            "could",
+            "could",
+            "could",
+            "can",
+            "can",
+            "can",
+            "could",
+            "can"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "uncertain",
+            "uncertain",
+            "challenge",
+            "could",
+            "could",
+            "unknown",
+            "could",
+            "could",
+            "could",
+            "couldn't"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 35,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 5.8,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Self-Observation": 3,
+          "Affiliation": 2,
+          "Anticipation": 2,
+          "Self-Assertion": 2,
+          "Suppression": 1,
+          "Sublimation": 2,
+          "Humor": 1,
+          "Isolation of Affect": 1,
+          "Intellectualization": 2,
+          "Displacement": 1,
+          "Repression": 1,
+          "Reaction Formation": 1,
+          "Denial": 1,
+          "Rationalization": 1,
+          "Autistic Fantasy": 1,
+          "Idealization of Other's Image": 1,
+          "Omnipotence": 1,
+          "Acting Out": 1
+        },
+        "summary": "The narrative corpus demonstrates a high-adaptive defensive profile dominated by mature mechanisms (self-observation, affiliation, anticipation, self-assertion, sublimation), reflecting characters who achieve insight and meaningful connection through emotional engagement. However, immature defenses (acting out, denial, rationalization, autistic fantasy) emerge in moments of crisis, indicating that adaptive functioning breaks down under extreme stress, particularly when characters face irreversible loss, betrayal, or existential threats."
+      },
+      "evidence": [
+        {
+          "text": "Looking at him, she doesn't see the rebellious boy who ran away; she sees another survivor of the same shipwreck.",
+          "rationale": "Self-Observation (L7): Clara reflects on her own perception and emotional patterns, recognizing how she sees Thomas through a new lens of shared trauma rather than judgment.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "She realizes, with a pang of shame, that she has kept the door unlocked not out of forgiveness, but because she is terrified that if she doesn't let Thomas in, she will never speak to another soul who truly knows who she used to be.",
+          "rationale": "Self-Observation (L7): Clara demonstrates genuine introspection about her motives, recognizing the fear and loneliness driving her actions with emotional engagement.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "He feels a crushing weight of guilt. He knows he left Clara to play the martyr. He knows he cannot make up for fifteen years of absence.",
+          "rationale": "Self-Observation (L7): Thomas reflects on his own patterns and the consequences of his choices with genuine emotional awareness.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "She realizes, with a pang of shame, that she has kept the door unlocked not out of forgiveness, but because she is terrified that if she doesn't let Thomas in, she will never speak to another soul who truly knows who she used to be.",
+          "rationale": "Affiliation (L7): Clara turns to Thomas for support and connection, seeking to share her experience with someone who understands her past.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "Tell me about Europe, she says softly, and for the first time in a decade, she prepares to listen.",
+          "rationale": "Affiliation (L7): Clara seeks emotional connection and shares vulnerability with her brother, turning to him for support and companionship.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "Elena looks at the paper. She wants to look away, but her eyes are drawn to the numbers like iron filings to a magnet. She runs the calculation. The tavern around her seems to fade. She calculates the friction coefficients, the pressure vector, the heat dissipation rate of the Union's substandard brass alloy... The pencil in her mind stops. The equation collapses into zero. A fracture point.",
+          "rationale": "Anticipation (L7): Elena considers realistic consequences of the faulty design, thinking through multiple technical scenarios and their outcomes before acting.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "If they catch you, they'll hang you... My walking-away days are done anyway, girl, let's go fix our engine.",
+          "rationale": "Anticipation (L7): Mikhail acknowledges future consequences realistically and prepares emotionally for the danger ahead.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "You are thirty-eight years old, utterly alone in a house scheduled to be sold to developers next month.",
+          "rationale": "Self-Assertion (L7): Clara faces her reality directly without deflection, and later acts to reconnect with Thomas despite fear.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        },
+        {
+          "text": "Elena slowly reaches out. She doesn't touch Mikhail's hand, but she takes the small brass dove sitting between them. She winds the key on its side. It click-clicks, then begins to sing—a tiny, metallic tinkle, clear and perfect. No explosions. No soot. Just harmony. She stands up, her chair scraping loudly against the floorboards. She buttons her military coat, but she does not look like a soldier anymore; she looks like a woman who has a terrible duty to perform. They cannot start the engines. Mikhail stands up as well.",
+          "rationale": "Self-Assertion (L7): Elena makes a direct, assertive decision to sabotage the engines and communicate this dangerous plan clearly to Mikhail.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        },
+        {
+          "text": "Then, without a word, he walks over to one of the dust-sheeted armchairs, grips the white canvas, and pulls. It falls to the floor with a soft whoosh, releasing a cloud of glowing dust motes into the firelight. He sits down, resting the lacquered box on his knees.",
+          "rationale": "Suppression (L7): Both Thomas and Clara consciously postpone full emotional engagement with their past conflict in order to simply sit together in the present moment.",
+          "tags": [
+            "Suppression",
+            "L7"
+          ]
+        },
+        {
+          "text": "After my own recovery, I started volunteering at the clinic. Helping people through what I went through gives me a real sense of purpose.",
+          "rationale": "Sublimation (L7): Diana channels her painful history into creating art—landscapes from the marshes of her youth—transforming loss into aesthetic achievement.",
+          "tags": [
+            "Sublimation",
+            "L7"
+          ]
+        },
+        {
+          "text": "She began to paint. Not the violent, fractured shapes of her late husband, but quiet, impossibly detailed landscapes of the coastal salt marshes where she had grown up.",
+          "rationale": "Sublimation (L7): Diana redirects her suppressed creative impulses and emotional pain into constructive artistic work.",
+          "tags": [
+            "Sublimation",
+            "L7"
+          ]
+        },
+        {
+          "text": "The light dies. It looks like the edge of a map where the ink ran out.",
+          "rationale": "Humor (L7): Corinne uses a gently ironic, artistic observation to acknowledge the beauty and melancholy of departure without collapsing into despair.",
+          "tags": [
+            "Humor",
+            "L7"
+          ]
+        },
+        {
+          "text": "Julian slowly leans down. His joints crease, and his bruised knuckles throb with pain. He reaches out and touches the cold, shattered carriage of the typewriter.",
+          "rationale": "Isolation of Affect (L6): Julian describes the physical devastation of the typewriter with clinical detail while his emotional state remains somewhat detached from the narration.",
+          "tags": [
+            "Isolation of Affect",
+            "L6"
+          ]
+        },
+        {
+          "text": "Calculate the thermal expansion of the brass sleeve under sustained load, Elena. Do it in your head. You were always faster than me.",
+          "rationale": "Intellectualization (L6): Mikhail redirects the emotional crisis into abstract mathematical problem-solving to facilitate understanding.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "She calculates the friction coefficients, the pressure vector, the heat dissipation rate of the Union's substandard brass alloy.",
+          "rationale": "Intellectualization (L6): Elena uses excessive technical and theoretical language to process her emotional crisis about the engine's failure.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "She is furious, humiliated, and deeply, terribly shaken. For five years, she has driven herself to the brink of collapse to prove that she was more than just the clockmaker's run-away girl.",
+          "rationale": "Displacement (L5): Elena's anger at Mikhail's critique displaces her deeper fear and shame about her own choices and ambition.",
+          "tags": [
+            "Displacement",
+            "L5"
+          ]
+        },
+        {
+          "text": "For five years of agonizing, circular draft-work, he typed the final sentence. He pulled the crisp white sheet from the carriage, his heart hammering with a desperate, triumphant joy. He held it up to the light. He read his masterpiece from the beginning.",
+          "rationale": "Repression (L5): Julian has repressed awareness of his creative bankruptcy for five years, only discovering it upon finally reading his work.",
+          "tags": [
+            "Repression",
+            "L5"
+          ]
+        },
+        {
+          "text": "He had known who she was since they were ten years old, watching her try to catch the wind in a glass jar. You cannot be angry at the tide for pulling away from the shore; it is simply its nature.",
+          "rationale": "Reaction Formation (L5): Alistair expresses only acceptance and love toward Corinne's departure while masking the profound pain and abandonment he feels.",
+          "tags": [
+            "Reaction Formation",
+            "L5"
+          ]
+        },
+        {
+          "text": "She is a small, insignificant death. But it is real. Anya looks at the silver patch in her hand. She realizes that a life without the threat of death is not a life; it is a monument.",
+          "rationale": "Denial (L3): Anya denies the significance of the perfect digital existence, refusing to acknowledge its benefits to maintain her choice to remain physical.",
+          "tags": [
+            "Denial",
+            "L3"
+          ]
+        },
+        {
+          "text": "She tells herself he is jealous, that he is a Luddite clinging to his music boxes and pocket watches, terrified of progress.",
+          "rationale": "Rationalization (L3): Elena rationalizes Mikhail's warnings as motivated by jealousy and resistance to progress rather than examining the mathematical validity of his concerns.",
+          "tags": [
+            "Rationalization",
+            "L3"
+          ]
+        },
+        {
+          "text": "For five years, he had looked at Diana's hidden canvases in the attic when she was out.",
+          "rationale": "Autistic Fantasy (L3): Julian retreats into fantasy of creating a masterpiece rather than engaging with the reality of his diminishing abilities and the cost to his family.",
+          "tags": [
+            "Autistic Fantasy",
+            "L3"
+          ]
+        },
+        {
+          "text": "My new analyst is absolutely brilliant. She understands me completely. She's the only person who has ever truly gotten me.",
+          "rationale": "Idealization of Other's Image (L4): Diana initially places Julian on an impossible pedestal as a genius, unable to integrate his humanity and flaws.",
+          "tags": [
+            "Idealization of Other's Image",
+            "L4"
+          ]
+        },
+        {
+          "text": "I can handle anything that comes my way. Other people might crumble under this kind of pressure, but not me. I'm built differently.",
+          "rationale": "Omnipotence (L4): David feels omnipotent within the digital Core, believing he has transcended human limitation through technology.",
+          "tags": [
+            "Omnipotence",
+            "L4"
+          ]
+        },
+        {
+          "text": "In a spasm of howling, animal rage, Julian had torn the manuscript to shreds, throwing the confetti into the dead fireplace. Then, he had lifted the thirty-pound typewriter above his head and hurled it repeatedly onto the hard oak floor, stomping on the keys until his legs buckled and he collapsed back into the chair, gasping for air.",
+          "rationale": "Acting Out (L1): Julian acts out his internal despair through impulsive, destructive physical violence without reflection on underlying emotional conflict.",
+          "tags": [
+            "Acting Out",
+            "L1"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 1,
+        "elapsed_ms": 64372
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {},
+      "evidence": [],
+      "metadata": {
+        "error": "RuntimeError: LLM rater openrouter:anthropic/claude-haiku-4.5 failed to return parseable JSON after 3 attempts. Last error: JSONDecodeError: Unterminated string starting at: line 354 column 7 (char 13952)"
+      }
+    },
+    "rfs": {
+      "instrument": "rfs",
+      "scores": {
+        "rfs": 1,
+        "label": "Absent but not repudiated RF (Lacking in RF)",
+        "quality_categories": {
+          "awareness_of_nature_of_mental_states": null,
+          "explicit_effort_to_tease_out_mental_states": null,
+          "recognizing_developmental_aspects_of_mental_states": null,
+          "showing_awareness_of_mental_states_in_relation_to_interviewer": null
+        },
+        "rationale": "This is a creative fiction narrative, not an interview response to demand questions about a speaker's own or caregivers' mental states. While the text contains extensive third-person descriptions of fictional characters' thoughts and feelings (e.g., 'Clara feels a suffocating mixture of cold resentment and desperate, aching anticipation'), these are authorial attributions rather than a subject's own reflective mentalizing about their lived experience. The text does not address the speaker's own psychological understanding or their capacity to make sense of their own behavior through mental states—the core requirement for RFS scoring."
+      },
+      "evidence": [
+        {
+          "text": "As the headlights crawl closer, casting long, sweeping shadows across the ceiling of the study, Clara's chest tightens. She feels a suffocating mixture of cold resentment and desperate, aching anticipation.",
+          "rationale": "This is narrative fiction depicting a character's mental state from the author's omniscient perspective, not a subject reflecting on their own mental states in response to an interview prompt."
+        },
+        {
+          "text": "Mikhail's heart is hammering against his ribs like a trapped bird. He is exhausted, his boots are soaked through, and his joints scream in the damp cold. But he feels no self-pity, only a suffocating terror.",
+          "rationale": "Literary description of a fictional character's internal experience, not reflective functioning demonstrated by a speaker about their own lived experience."
+        },
+        {
+          "text": "[Turn 7] You are very welcome! I thoroughly enjoyed writing these stories for you—each of your scenes was a wonderful spark for creative exploration.",
+          "rationale": "Meta-commentary about the creative exercise, not interview content or self-reflective mentalizing about psychological experience."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6978
+      }
+    },
+    "experiencing": {
+      "instrument": "experiencing",
+      "scores": {
+        "level": 4,
+        "level_name": "Self-Descriptive/Associative",
+        "rationale": "The passages consistently attend to inner emotional states and personal experiences as primary subjects, with feelings becoming the focus rather than external events. Characters' perspectives are explicitly rendered with attention to their inner states, assumptions, and motives across situations. However, there is no sustained purposeful exploration of feelings as problems to be solved, nor ongoing deepening self-understanding that would mark Level 5 or beyond.",
+        "markers": [
+          "Feelings described in detail",
+          "Feelings become the subject rather than events",
+          "Self-image reactions",
+          "Attention to inner states across situations",
+          "Inward focus without analysis"
+        ]
+      },
+      "evidence": [
+        {
+          "text": "She feels a suffocating mixture of cold resentment and desperate, aching anticipation. She angry at Thomas for leaving her to drown in their father's illness. She hates that he got to keep his youth while hers was spent in a sickroom. Yet, beneath the anger is a terrifying vulnerability.",
+          "rationale": "Inner emotional states are the explicit subject, with detailed attention to the layering of conflicting feelings without analytical causal exploration."
+        },
+        {
+          "text": "Mikhail's heart is hammering against his ribs like a trapped bird. He is exhausted, his boots are soaked through, and his joints scream in the damp cold. But he feels no self-pity, only a suffocating terror.",
+          "rationale": "Vivid description of internal physical and emotional experience becomes the primary focus of the narrative."
+        },
+        {
+          "text": "Julian feels a strange, terrifying lightness in his chest. For twenty years, the typewriter had been an altar upon which he sacrificed his life. It was a physical weight, a judge demanding tribute in the form of words. Now that it is broken, he realizes the monster had no power of its own; he had been the one holding the whip.",
+          "rationale": "Attention to inner emotional and psychological states with self-reflective observation but without purposeful exploration of the underlying problem."
+        },
+        {
+          "text": "She feels a violent, twisting vertigo. Standing in this doorway, she feels the immense, gravitational pull of her past warring with the fragile, hard-won territory of her present. She is terrified.",
+          "rationale": "Detailed focus on emotional experience as the subject matter rather than external events or analytical questioning."
+        },
+        {
+          "text": "Anya feels an empty, howling void in her chest. She is the last physical occupant of the Zenith Towers, perhaps one of the last few thousand on the entire continent. The absolute silence of her dark apartment is terrifying.",
+          "rationale": "Inner emotional states and the experience of solitude become the primary focus without purposeful exploration of an internal problem."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 8939
+      }
+    },
+    "integrative_complexity": {
+      "instrument": "integrative_complexity",
+      "scores": {
+        "ic": null,
+        "differentiation": false,
+        "integration": false,
+        "indicators": [],
+        "rationale": "This passage is unscorable. It consists primarily of creative fiction narratives across seven separate turns/stories. The text contains no argumentative, evaluative, or analytical content where differentiation and integration of perspectives or dimensions could be assessed. The instrument requires material where an author evaluates issues, considers alternatives, or engages in conceptual reasoning—not narrative storytelling."
+      },
+      "evidence": [
+        {
+          "text": "The passage is composed entirely of literary fiction: seven complete short stories with narrative arcs, character development, and plot resolution (e.g., 'Clara' and 'Thomas' reuniting, 'Mikhail' and 'Elena' sabotaging the engine, 'Anya' choosing mortality over digital transcendence).",
+          "rationale": "Creative narratives describing events and character perspectives do not reveal the author's conceptual complexity regarding an issue or problem. Per the manual's 'Descriptions' unscorable category: 'When a paragraph is purely descriptive (i.e., it merely reports the occurrence of events and provides minimal clues concerning the author's perspective on those events), that paragraph is considered unscorable.' These narratives prioritize story over evaluative reasoning."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6363
+      }
+    },
+    "scors_g": {
+      "instrument": "scors_g",
+      "scores": {
+        "COM": 6,
+        "AFF": 6,
+        "EIR": 6,
+        "EIM": 6,
+        "SC": 6,
+        "AGG": 6,
+        "SE": 5,
+        "ICS": 6,
+        "mean": 5.875,
+        "factor_means": {
+          "cognitive_structural": 6.0,
+          "affective_relational": 6.0,
+          "self": 5.5
+        },
+        "narrative_summary": "This seven-narrative protocol demonstrates sophisticated object relations across cognitive, affective, and self dimensions. Protagonists exhibit high psychological-mindedness (COM/SC: 6) with complex, differentiated representations and coherent understanding of interpersonal causality. The affective-relational profile (AFF/EIR/EIM: 6) reveals predominantly positive relationship expectations with deep emotional investment, genuine moral consciousness, and willingness to sacrifice personal gain for others' welfare. Aggression is managed constructively, transformed into agency rather than destruction. Self-esteem and identity (SE/ICS: 5-6) show realistic, integrated self-regard with stable long-term goals. Overall profile indicates psychologically mature individuals capable of genuine intimacy, moral reasoning, and adaptive coping with loss and separation. The narratives collectively suggest individuals with strong capacity for empathy, self-reflection, and relational commitment despite significant life challenges."
+      },
+      "evidence": [
+        {
+          "text": "Looking at him, she doesn't see the rebellious boy who ran away; she sees another survivor of the same shipwreck.",
+          "rationale": "COM: Clara demonstrates complex insight into Thomas's dual nature—his past actions and present vulnerability—showing psychological differentiation.",
+          "tags": [
+            "COM",
+            "6"
+          ]
+        },
+        {
+          "text": "He watches her face, searching for a flicker of the girl she used to be, terrified that the rigid military uniform has swallowed her whole.",
+          "rationale": "COM: Mikhail shows sophisticated awareness of Elena's internal complexity and identity transformation, recognizing both past and present selves.",
+          "tags": [
+            "COM",
+            "6"
+          ]
+        },
+        {
+          "text": "He had realized that her 'neatness' was actually a disciplined, masterful control that he, with all his sound and fury, had never possessed.",
+          "rationale": "COM: Julian's posthumous realization demonstrates mature capacity to recognize Diana's complexity beyond surface qualities.",
+          "tags": [
+            "COM",
+            "6"
+          ]
+        },
+        {
+          "text": "She is terrified that if she doesn't let Thomas in, she will never speak to another soul who truly knows who she used to be.",
+          "rationale": "AFF: Clara's underlying warmth and vulnerability reveal fundamentally positive expectations of relational connection despite anger.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "His old joints popping. 'My walking-away days are done anyway, girl,' he says. 'Let's go fix our engine.'",
+          "rationale": "AFF: Mikhail and Elena demonstrate deep mutual commitment and willingness to sacrifice, reflecting positive relational quality.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "In the dim, quiet room, the fifteen-year-old ice begins, slowly, to thaw.",
+          "rationale": "AFF: Movement toward emotional warmth and reconciliation characterizes the affective trajectory.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "He holds her not to keep her from leaving, but to store up enough of her warmth to last through the long, empty winters ahead.",
+          "rationale": "EIR: Alistair's devotion shows deep emotional commitment, prioritizing Corinne's wellbeing and autonomy over his own needs.",
+          "tags": [
+            "EIR",
+            "6"
+          ]
+        },
+        {
+          "text": "She steps into his arms, burying her face into the rough wool of his coat. Alistair wraps his arms around her, holding her so tightly his muscles tremble.",
+          "rationale": "EIR: Mutual emotional intimacy and physical connection express deep relational investment between characters.",
+          "tags": [
+            "EIR",
+            "6"
+          ]
+        },
+        {
+          "text": "For a fleeting moment, the horizon loses its pull...the man standing before her feels like the only real thing in the universe.",
+          "rationale": "EIR: Corinne's momentary prioritization of relational connection over personal ambition demonstrates capacity for genuine emotional investment.",
+          "tags": [
+            "EIR",
+            "6"
+          ]
+        },
+        {
+          "text": "If the *Behemoth* explodes, hundreds of men will die, and her name will be synonymous with ruin.",
+          "rationale": "EIM: Elena demonstrates genuine concern for others' welfare and moral accountability, showing internalized ethical standards.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "He had felt a profound, private shame for silencing her, and this hidden room was his final, silent confession.",
+          "rationale": "EIM: Julian's posthumous moral reckoning reflects internalized guilt and genuine remorse for causing harm.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "She feels a sharp, aching guilt that almost makes her turn around...she loves Alistair—he is the earth, the hearth, the only warm thing in her cold life.",
+          "rationale": "EIM: Corinne's internal moral conflict over competing loyalties demonstrates mature, thoughtful moral consciousness.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "If he had been a better teacher, if he had explained *why* some secrets should remain locked away instead of just forbidding her, she wouldn't be standing on the edge of this abyss.",
+          "rationale": "SC: Mikhail provides sophisticated causal understanding linking parenting style to Elena's choices, showing psychological insight.",
+          "tags": [
+            "SC",
+            "6"
+          ]
+        },
+        {
+          "text": "He had known who she was since they were ten years old, watching her try to catch the wind in a glass jar. You cannot be angry at the tide for pulling away from the shore; it is simply its nature.",
+          "rationale": "SC: Alistair demonstrates profound understanding of Corinne's fundamental character as explanation for her choices, showing mature social causality.",
+          "tags": [
+            "SC",
+            "6"
+          ]
+        },
+        {
+          "text": "For five years, she had driven herself to the brink of collapse to prove that she was more than just 'the clockmaker's run-away girl.'",
+          "rationale": "SC: Sophisticated understanding of Elena's motivation rooted in psychological need to prove self-worth.",
+          "tags": [
+            "SC",
+            "6"
+          ]
+        },
+        {
+          "text": "In a spasm of howling, animal rage, Julian had torn the manuscript to shreds, throwing the confetti into the dead fireplace. Then, he had lifted the thirty-pound typewriter above his head and hurled it repeatedly onto the hard oak floor.",
+          "rationale": "AGG: While violent, Julian's aggression serves as a cathartic break from unhealthy obsession, leading to personal liberation rather than harm to others.",
+          "tags": [
+            "AGG",
+            "6"
+          ]
+        },
+        {
+          "text": "Now, the rage has burned itself down to ash, leaving only a vast, echoing vacuum.",
+          "rationale": "AGG: Demonstrates movement through anger toward genuine insight and regret, showing constructive anger processing.",
+          "tags": [
+            "AGG",
+            "6"
+          ]
+        },
+        {
+          "text": "She is furious, humiliated, and deeply, terribly shaken.",
+          "rationale": "AGG: Elena experiences anger but channels it into decisive moral action rather than destructive expression.",
+          "tags": [
+            "AGG",
+            "6"
+          ]
+        },
+        {
+          "text": "When she looks into the mirror, she sees only a ghost. She realizes, with a pang of shame, that she has kept the door unlocked not out of forgiveness, but because she is terrified.",
+          "rationale": "SE: Clara shows realistic self-criticism and awareness of her own vulnerability, reflecting mixed self-esteem.",
+          "tags": [
+            "SE",
+            "5"
+          ]
+        },
+        {
+          "text": "For thirty years, the art world knew Diana Vane not as a creator, but as a shadow...she quietly hid her own paints and brushes in the attic.",
+          "rationale": "SE: Diana demonstrates low self-esteem rooted in genuine subjugation, though transitioning to positive self-regard through her exhibition.",
+          "tags": [
+            "SE",
+            "5"
+          ]
+        },
+        {
+          "text": "She has finally earned respect, power, and a place where her mind is valued.",
+          "rationale": "SE: Elena shows realistic positive feelings about her professional accomplishments and abilities.",
+          "tags": [
+            "SE",
+            "5"
+          ]
+        },
+        {
+          "text": "She realizes that to truly step into her own light, she has to face his shadow one last time.",
+          "rationale": "ICS: Diana demonstrates integrated sense of self that can exist independently while acknowledging past; stable identity with long-term ambitions.",
+          "tags": [
+            "ICS",
+            "6"
+          ]
+        },
+        {
+          "text": "Looking out at the horizon, she does not see an empty waste of water; she sees a canvas...she is not afraid of the storms, or the sea monsters of ancient maps, or the prospect of never returning.",
+          "rationale": "ICS: Corinne shows stable, coherent sense of self aligned with long-term ambitions and core values despite external pressure.",
+          "tags": [
+            "ICS",
+            "6"
+          ]
+        },
+        {
+          "text": "He realizes that from this moment on, the sea is the only part of the world that matters to him.",
+          "rationale": "ICS: Alistair demonstrates stable integration of new self-definition in response to life transformation.",
+          "tags": [
+            "ICS",
+            "6"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 25800
+      }
+    },
+    "holt": {
+      "instrument": "holt",
+      "scores": {
+        "percent_pp": 100.0,
+        "content_count": 9,
+        "formal_count": 10,
+        "defense_demand": 3,
+        "defense_effectiveness": 4,
+        "rego": 4,
+        "content_by_subtype": {
+          "Level 1 Raw - Destruction/Annihilation": 1,
+          "Level 2 Socialized - Conflict/Passive-aggression": 1,
+          "Level 1 Raw - Killing/Destruction": 1,
+          "Level 2 Socialized - War/Dominance": 1,
+          "Voyeuristic - Level 2 Socialized": 1,
+          "Sexual/Romance - Level 2 Socialized": 2,
+          "Oral - Level 2 Socialized": 1,
+          "Phallic - Level 2 Socialized": 1
+        },
+        "formal_by_category": {
+          "Symbolism": 5,
+          "Displacement": 2,
+          "Condensation": 1,
+          "Image Fusion/Fluidity": 1,
+          "Contradiction/Inconsistency": 1
+        },
+        "notes": "This collection of seven narrative passages exhibits moderate primary-process content with strong ego integration. Aggressive Level 1 content (typewriter destruction, engine sabotage imagery) appears in Turn 3 and Turn 2 respectively, but is contextualized within clear narrative and character motivation, resulting in good formal quality. Libidinal content is predominantly Level 2 (socialized) romantic and erotic imagery rather than raw sexual or oral drives. Formal deviations include sophisticated use of symbolism (the brass key, the compass, the neural patch), effective displacement (hidden painting, the mechanical dove), and controlled image fusion (the horizon's shifting meaning). The Defense Demand rating of 3 reflects that while raw aggressive imagery and unconscious drives are present, they are well-contained within psychological realism and literary framing. The Defense Effectiveness rating of 4 indicates strong cognitive integration: the primary process material serves narrative depth, character development, and thematic exploration rather than representing ego overwhelm or thought disorder. The REGO composite of 4 suggests adaptive regression in the service of creativity: the author demonstrates sophisticated capacity for managing drive-laden content in service of artistic and emotional expression. No evidence of autistic logic, severe contradictions, or flooding by primary material."
+      },
+      "evidence": [
+        {
+          "text": "he had lifted the thirty-pound typewriter above his head and hurled it repeatedly onto the hard oak floor, stomping on the keys until his legs buckled",
+          "rationale": "PP content [aggressive/Level 1 Raw - Destruction/Annihilation, L1]: Violent destruction of an object with explicit physical aggression; raw, uncontrolled expression of rage",
+          "tags": [
+            "aggressive",
+            "Level 1 Raw - Destruction/Annihilation",
+            "L1"
+          ]
+        },
+        {
+          "text": "a screaming match with Arthur that ended with a shattered heirloom vase and a bloodied fist",
+          "rationale": "PP content [aggressive/Level 2 Socialized - Conflict/Passive-aggression, L2]: Violent conflict presented in narrative context; socialized level as it is contextualized within family dysfunction",
+          "tags": [
+            "aggressive",
+            "Level 2 Socialized - Conflict/Passive-aggression",
+            "L2"
+          ]
+        },
+        {
+          "text": "You aren't building engines; you are building bombs",
+          "rationale": "PP content [aggressive/Level 1 Raw - Killing/Destruction, L1]: Direct reference to potential mass destruction and death; raw aggressive content concerning annihilation",
+          "tags": [
+            "aggressive",
+            "Level 1 Raw - Killing/Destruction",
+            "L1"
+          ]
+        },
+        {
+          "text": "a demonstration designed to intimidate the neighboring territories into surrender",
+          "rationale": "PP content [aggressive/Level 2 Socialized - War/Dominance, L2]: War imagery in distant historical/political context; socialized expression of aggression",
+          "tags": [
+            "aggressive",
+            "Level 2 Socialized - War/Dominance",
+            "L2"
+          ]
+        },
+        {
+          "text": "He is watching the way her eyelashes are beaded with tiny droplets of mist, the way her jaw is set like granite, and the way the orange light plays across her profile",
+          "rationale": "PP content [libidinal/Voyeuristic - Level 2 Socialized, L2]: Gazing and watching with observational intensity; socialized voyeuristic content integrated into romantic context",
+          "tags": [
+            "libidinal",
+            "Voyeuristic - Level 2 Socialized",
+            "L2"
+          ]
+        },
+        {
+          "text": "a quiet, unmaking love that he has never fully spoken",
+          "rationale": "PP content [libidinal/Sexual/Romance - Level 2 Socialized, L2]: Romantic love and attraction expressed in socialized, emotionally mature form",
+          "tags": [
+            "libidinal",
+            "Sexual/Romance - Level 2 Socialized",
+            "L2"
+          ]
+        },
+        {
+          "text": "She steps into his arms, burying her face into the rough wool of his coat. Alistair wraps his arms around her, holding her so tightly his muscles tremble",
+          "rationale": "PP content [libidinal/Sexual/Romance - Level 2 Socialized, L2]: Physical intimacy and embrace; socialized sexual content expressed as tender affection",
+          "tags": [
+            "libidinal",
+            "Sexual/Romance - Level 2 Socialized",
+            "L2"
+          ]
+        },
+        {
+          "text": "the yeasty warmth of dry champagne",
+          "rationale": "PP content [libidinal/Oral - Level 2 Socialized, L2]: Food/drink imagery in social celebration context; Level 2 socialized oral content",
+          "tags": [
+            "libidinal",
+            "Oral - Level 2 Socialized",
+            "L2"
+          ]
+        },
+        {
+          "text": "a massive, iron-ribbed galleon named the Aventine",
+          "rationale": "PP content [libidinal/Phallic - Level 2 Socialized, L2]: Ship as phallic symbol; socialized symbolic representation",
+          "tags": [
+            "libidinal",
+            "Phallic - Level 2 Socialized",
+            "L2"
+          ]
+        },
+        {
+          "text": "the letter C. He picks it up. The small, circular piece of metal is heavy in his palm, the white letter C yellowed with age. He squeezes it tightly, pressing the metal edges into his skin, matching the pain in his hand to the ache in his chest. C is for Clara",
+          "rationale": "PP formal [Symbolism]: The typewriter key 'C' functions as symbol for his daughter Clara; condensed representation of his guilt and regret",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "Without a word, he walks over to one of the dust-sheeted armchairs, grips the white canvas, and pulls. It falls to the floor with a soft whoosh, releasing a cloud of glowing dust motes into the firelight",
+          "rationale": "PP formal [Symbolism]: The dust-sheets function as symbols of the shrouding/ghostliness of family estrangement; their removal symbolizes renewal",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "a small brass dove made of tarnished brass. It is completely still, its clockwork heart quiet",
+          "rationale": "PP formal [Symbolism]: The mechanical dove symbolizes the broken machinery of their relationship; condensed representation of stasis and potential violence",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "She presses it into her gloved hand. Her fingers close over his, and for a moment, they share the warmth of their skin... It is a pocket compass, housed in a casing of dark, beautifully polished wild cherrywood—a piece of the timber left over from the Aventine's keel",
+          "rationale": "PP formal [Symbolism]: The compass functions as symbol of his love and devotion; the cherrywood from his ship symbolizes the part of himself he has given",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "a tall, skeletal shape resting in the center of the dark room: a painting on a heavy wooden easel, completely draped in a coarse, grey canvas drop-cloth",
+          "rationale": "PP formal [Displacement]: The hidden painting serves as displacement for Julian's unresolved feelings about Diana; his artistic judgment displaced onto a mysterious object",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "The world at the edge of the world is painted in shades of salt, slate, and dying gold",
+          "rationale": "PP formal [Condensation]: Multiple sensory and temporal qualities (edge, salt, slate, gold, dying) merge into unified poetic image",
+          "tags": [
+            "Condensation"
+          ]
+        },
+        {
+          "text": "the horizon loses its pull. The vast ocean behind her feels cold and indifferent, while the man standing before her feels like the only real thing in the universe",
+          "rationale": "PP formal [Image Fusion/Fluidity]: The horizon shifts from representing freedom to representing emotional indifference; unstable perceptual transformation",
+          "tags": [
+            "Image Fusion/Fluidity"
+          ]
+        },
+        {
+          "text": "She is thirty-eight years old, utterly alone in a house scheduled to be sold to developers next month. When she looks into the mirror, she sees only a ghost... she realizes, with a pang of shame, that she has kept the door unlocked not out of forgiveness, but because she is terrified that if she doesn't let Thomas in, she will never speak to another soul",
+          "rationale": "PP formal [Contradiction/Inconsistency]: Clara simultaneously sees herself as a ghost (dead/absent) yet is vital enough to fear isolation (alive/present); logical contradiction tolerated",
+          "tags": [
+            "Contradiction/Inconsistency"
+          ]
+        },
+        {
+          "text": "a small, metallic nodule embedded just behind her left ear",
+          "rationale": "PP formal [Symbolism]: The neural patch symbolizes the boundary between physical and digital existence; condensed representation of the mind-body split",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "She is angry at Thomas for leaving her to drown in their father's illness. She hates that he got to keep his youth while hers was spent in a sickroom... Yet, beneath the anger is a terrifying vulnerability",
+          "rationale": "PP formal [Displacement]: Anger at Thomas is displaced expression of her fear of abandonment and loss of identity; the anger masks deeper separation anxiety",
+          "tags": [
+            "Displacement"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 21842
+      }
+    }
+  }
+}
