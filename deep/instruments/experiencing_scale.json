@@ -1,0 +1,112 @@
+{
+  "name": "Experiencing Scale",
+  "authors": "Eugene Gendlin, Mathieu-Coughlan, Klein, Kiesler",
+  "year": 1970,
+  "source": "Klein, M.H. et al. (1970). The Experiencing Scale: A Research and Training Manual. University of Wisconsin.",
+  "levels": [
+    {
+      "level": 1,
+      "name": "External/Impersonal",
+      "content": "External events; refusal to participate",
+      "treatment": "Impersonal, detached",
+      "description": "The content is not about the speaker. The speaker tells a story, describes other people or events in which they are not involved, or presents a generalized or detached account of an idea. Nothing makes the content personal.",
+      "textual_markers": [
+        "Third-person narratives",
+        "Abstract generalizations",
+        "Impersonal topics",
+        "No self-reference",
+        "Detached descriptions of external events"
+      ],
+      "example": "The economy has been really bad lately. Lots of people are losing their jobs. Companies are downsizing everywhere."
+    },
+    {
+      "level": 2,
+      "name": "External/Self-Involved",
+      "content": "External events; behavioral or intellectual self-description",
+      "treatment": "Interested, personal, self-participation",
+      "description": "Either the speaker is the central character in the narrative or their interest is clear. The speaker's involvement does not go beyond the specific situation or content. All comments, associations, reactions, and remarks serve to get the story or idea across but do not refer to or define the speaker's feelings. Thoughts treated as feelings ('I feel people should be considerate') mark this stage.",
+      "textual_markers": [
+        "First-person narratives without feeling words",
+        "Intellectual self-descriptions",
+        "Behavioral accounts",
+        "Thoughts framed as feelings",
+        "Event sequences with self as actor"
+      ],
+      "example": "I went to the meeting and presented my report. Then I drove home and made dinner. After that I watched some TV and went to bed."
+    },
+    {
+      "level": 3,
+      "name": "Reactive/Emotional",
+      "content": "Personal reactions to external events; limited self-descriptions; behavioral descriptions of feelings",
+      "treatment": "Reactive, emotionally involved",
+      "description": "The content is a narrative or description of the speaker in external or behavioral terms with added comments on feelings or private experiences. These remarks are limited to the events or situations described, giving the narrative a personal touch without describing the speaker more generally. Feelings are mentioned parenthetically.",
+      "textual_markers": [
+        "Behavioral narrative plus parenthetical feeling references",
+        "Emotions referenced but limited to the described situation",
+        "Dreams or fantasies with feeling mentions",
+        "Feelings tied to specific events, not explored further"
+      ],
+      "example": "I went to that party and it was really uncomfortable — I didn't know anyone there. I felt kind of nervous the whole time. But then my friend showed up and I relaxed a bit."
+    },
+    {
+      "level": 4,
+      "name": "Self-Descriptive/Associative",
+      "content": "Descriptions of feelings and personal experiences",
+      "treatment": "Self-descriptive; associative",
+      "description": "Feelings or the experience of events, rather than the events themselves, are the subject of the discourse. The speaker tries to attend to and hold onto the direct inner reference of their experiencing and make it the basic datum of their communications. Focus shifts inward completely. Personal perspectives, assumptions, and motives receive explicit attention. No analytical connection-making yet.",
+      "textual_markers": [
+        "Feelings described in detail",
+        "Feelings become the subject rather than events",
+        "Self-image reactions",
+        "Attention to inner states across situations",
+        "Inward focus without analysis"
+      ],
+      "example": "I've been feeling this deep sadness, almost like a weight. It's not about any one thing — it's more like I carry it with me everywhere. I notice it most when I'm alone."
+    },
+    {
+      "level": 5,
+      "name": "Exploratory/Elaborative",
+      "content": "Problems or propositions about feelings and personal experiences",
+      "treatment": "Exploratory, elaborative, hypothetical",
+      "description": "The content is a purposeful exploration of the speaker's feelings and experiencing. The speaker must pose or define a problem or proposition about themselves explicitly in terms of feeling, and explore or work with the problem in a personal way. Two components required: (1) an explicitly defined feeling-based problem, and (2) inward exploration of it.",
+      "textual_markers": [
+        "Wondering, questioning one's own feelings",
+        "Exploring whether one feeling connects to another",
+        "Tentative searching",
+        "Hypotheses about internal processes",
+        "Self-directed questions about emotional states"
+      ],
+      "example": "I keep saying I'm fine with the decision, but there's something underneath that — maybe it's not fine. Maybe what I'm calling acceptance is actually resignation. I wonder if I'm afraid that if I admit I'm angry, I'll have to do something about it."
+    },
+    {
+      "level": 6,
+      "name": "Integrative/Felt Shift",
+      "content": "Synthesis of readily accessible feelings and experiences to resolve personally significant issues",
+      "treatment": "Feelings vividly expressed, integrative, conclusive or affirmative",
+      "description": "The subject matter concerns the speaker's present, emerging experience. The speaker conveys a sense of active, immediate involvement in an experientially anchored issue with evidence of its resolution or acceptance. The feelings themselves change or shift. Vivid, concrete feelings integrate with broader self-understanding.",
+      "textual_markers": [
+        "Present-tense felt shifts",
+        "Feelings vividly expressed",
+        "Integrative conclusions",
+        "New insights with emotional relief",
+        "Changed perception grounded in present experience"
+      ],
+      "example": "Oh — I just realized something. That tightness I've been feeling in my chest whenever I think about calling her — it's not anger at all. It just shifted. It's fear. I'm afraid she'll reject me the way my mother did. And now that I see that, I feel... lighter somehow. Like I don't have to be angry anymore."
+    },
+    {
+      "level": 7,
+      "name": "Expansive/Illuminating",
+      "content": "Full, easy presentation of experiencing; all elements confidently integrated",
+      "treatment": "Expansive, illuminating, confident, buoyant",
+      "description": "Experiencing at Stage 7 is expansive, unfolding. The speaker readily uses a fresh way of knowing themselves to expand their experiencing further. The experiential perspective is now a trusted and reliable source of self-awareness and is steadily carried forward and employed as the primary referent for thought and action. A single resolution applies to multiple situations, or several insights integrate into comprehensive formulations.",
+      "textual_markers": [
+        "Fluid movement between inner references",
+        "Continuously deepening awareness",
+        "Expansive application of insight",
+        "Confident and buoyant manner",
+        "Ongoing self-understanding generating new perspectives"
+      ],
+      "example": "This whole pattern is becoming clear to me now — the way I hold back, the fear of rejection, the anger that covers it — it's all connected to how I learned to protect myself as a child. And I can feel right now that I don't need that protection anymore. I can feel myself opening up, and it feels solid, like I can trust this new way of being with people."
+    }
+  ]
+}

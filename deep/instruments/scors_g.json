@@ -1,0 +1,138 @@
+{
+  "name": "Social Cognition and Object Relations Scale - Global Rating Method",
+  "authors": "Drew Westen (original); Stein, Hilsenroth, Slavin-Mulford, Pinsker (SCORS-G)",
+  "year": 2011,
+  "source": "Stein & Slavin-Mulford (2018). The SCORS-G: A Comprehensive Guide. Routledge.",
+  "dimensions": [
+    {
+      "abbreviation": "COM",
+      "name": "Complexity of Representations of People",
+      "definition": "Evaluates the degree of differentiation of self and other representations, including awareness of internal states and level of relational enmeshment or differentiation.",
+      "default_score": null,
+      "scale": [
+        {"score": 1, "anchor": "Egocentric; sometimes confuses thoughts, feelings, or attributes of the self and others (boundary confusion, merger, lack of differentiation)"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Describes people's personalities and internal states in minimally elaborated, relatively simplistic ways; may split representations into all-good and all-bad"},
+        {"score": 4, "anchor": "Intermediate between 3 and 5"},
+        {"score": 5, "anchor": "Representations of self and others are stereotypical or conventional; able to integrate both positive and negative characteristics; has awareness of impact on others"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Psychologically minded; shows insight into self and others; representations are differentiated and show considerable complexity"}
+      ]
+    },
+    {
+      "abbreviation": "AFF",
+      "name": "Affective Quality of Representations",
+      "definition": "Assesses expectations from relationships and how one experiences significant others — the overall emotional tone of the interpersonal world.",
+      "default_score": 4,
+      "scale": [
+        {"score": 1, "anchor": "Malevolent, abusive, caustic (the world is experienced as dangerous and hostile; people are seen as threatening, cruel, or destructive)"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Largely negative or unpleasant, but not abusive (relationships are disappointing, frustrating, empty, but not actively threatening)"},
+        {"score": 4, "anchor": "Bland, absent, or limited affective quality (neutral/no clear emotional valence)"},
+        {"score": 5, "anchor": "Mixed, neither primarily positive nor primarily negative (must include some positive to warrant this score)"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Generally positive expectations of relationships; a favorable and affirmative view of relationships (but not pollyannaish)"}
+      ]
+    },
+    {
+      "abbreviation": "EIR",
+      "name": "Emotional Investment in Relationships",
+      "definition": "Depth of emotional commitment in relationships; extent to which others are treated as ends rather than means.",
+      "default_score": null,
+      "scale": [
+        {"score": 1, "anchor": "Focuses primarily on own needs in relationships; has tumultuous relationships, or has few if any relationships (others are tools for need gratification)"},
+        {"score": 2, "anchor": "Only one character; no relationship depicted"},
+        {"score": 3, "anchor": "Somewhat shallow relationships, or only alludes to others (superficial connections without depth)"},
+        {"score": 4, "anchor": "Intermediate between 3 and 5"},
+        {"score": 5, "anchor": "Demonstrates conventional sentiments of friendship, caring, love, and empathy"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Deep, committed relationships with mutual sharing, emotional intimacy, interdependence, and respect; positive connectedness and appreciation of others"}
+      ]
+    },
+    {
+      "abbreviation": "EIM",
+      "name": "Emotional Investment in Values and Moral Standards",
+      "definition": "Degree of internalization and application of moral values; the maturity of moral reasoning.",
+      "default_score": 4,
+      "scale": [
+        {"score": 1, "anchor": "Evidences a relative absence of moral values and concerns for others; may behave in selfish, inconsiderate, self-indulgent, or aggressive ways without remorse or guilt"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Shows signs of some internalization of standards (avoids doing 'bad' things because others will think badly); thinks in simple or childlike ways about right and wrong; may be rigid"},
+        {"score": 4, "anchor": "No moral concerns raised in narrative (default when moral content absent)"},
+        {"score": 5, "anchor": "Is invested in moral values and experiences guilt for hurting others or failing to meet moral standards; has conventional moral views; attempts to uphold them"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Thinks about moral questions combining abstract reasoning, willingness to challenge convention, and genuine compassion and thoughtfulness in actions"}
+      ]
+    },
+    {
+      "abbreviation": "SC",
+      "name": "Understanding of Social Causality",
+      "definition": "Coherence of understanding interpersonal events, attributions about why people act as they do, and psychological-mindedness about social interactions.",
+      "default_score": null,
+      "scale": [
+        {"score": 1, "anchor": "Narrative accounts of interpersonal experiences are confused, distorted, extremely sparse, or difficult to follow; limited awareness and coherence"},
+        {"score": 2, "anchor": "Alogical events lacking causal understanding (things happen but no explanation is given or can be inferred)"},
+        {"score": 3, "anchor": "Understands people in relatively simple but sensible ways; describes interpersonal events that largely make sense but may have gaps or incongruities"},
+        {"score": 4, "anchor": "Intermediate between 3 and 5"},
+        {"score": 5, "anchor": "Tends to provide straightforward narrative accounts of interpersonal events in which people's actions result from how they experience or interpret situations"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Tends to provide particularly coherent narrative accounts of interpersonal events; understands people very well (shows sophisticated psychological-mindedness)"}
+      ]
+    },
+    {
+      "abbreviation": "AGG",
+      "name": "Experience and Management of Aggressive Impulses",
+      "definition": "How anger and aggression are experienced, expressed, and controlled.",
+      "default_score": 4,
+      "scale": [
+        {"score": 1, "anchor": "Physically assaultive, destructive, sadistic, or in poor control of aggressive impulses; impulsive"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Tends to be angry, passive-aggressive, denigrating of others, physically abusive to self, or unable to protect self from escapable abuse"},
+        {"score": 4, "anchor": "No anger content in narrative (default when aggressive themes absent)"},
+        {"score": 5, "anchor": "Avoids dealing with anger by denying it, defending against it, or avoiding confrontations"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Can express anger and aggression and assert themselves appropriately (anger is modulated and used constructively)"}
+      ]
+    },
+    {
+      "abbreviation": "SE",
+      "name": "Self-Esteem",
+      "definition": "Overall feelings about oneself; the valence and stability of self-regard.",
+      "default_score": 4,
+      "scale": [
+        {"score": 1, "anchor": "Views self as loathsome, evil, rotten, contaminating, or globally bad"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Has low self-esteem (feels inadequate, inferior, self-critical), or is unrealistically grandiose"},
+        {"score": 4, "anchor": "Self-esteem is bland, absent, or limited (default when self-evaluation not salient)"},
+        {"score": 5, "anchor": "Displays a range of positive and negative feelings toward the self (must include some positive to warrant this score)"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Tends to have realistically positive feelings about themselves"}
+      ]
+    },
+    {
+      "abbreviation": "ICS",
+      "name": "Identity and Coherence of Self",
+      "definition": "Stability and integration of the self-concept; the sense of who one is over time.",
+      "default_score": null,
+      "scale": [
+        {"score": 1, "anchor": "Fragmented sense of self; has multiple personalities (extreme identity diffusion)"},
+        {"score": 2, "anchor": "Intermediate between 1 and 3"},
+        {"score": 3, "anchor": "Views of, or feelings about, the self fluctuate widely and unpredictably; unstable sense of self"},
+        {"score": 4, "anchor": "Upward extension of level 3 (some ambiguity about goals is acceptable)"},
+        {"score": 5, "anchor": "Identity and self-definition are not a major concern or preoccupation (stable but not elaborated)"},
+        {"score": 6, "anchor": "Intermediate between 5 and 7"},
+        {"score": 7, "anchor": "Feels like an integrated person with long-term ambitions and goals"}
+      ]
+    }
+  ],
+  "decision_rules": {
+    "default_scores": "For AFF, EIM, AGG, SE: score 4 when relevant content is absent from the narrative",
+    "even_scores": "Intermediate ratings between odd-numbered anchor points; no half-points",
+    "scoring_unit": "Each narrative is scored independently; scores are averaged across all narratives in a protocol"
+  },
+  "factor_structure": {
+    "cognitive_structural": ["COM", "SC"],
+    "affective_relational": ["AFF", "EIR", "EIM", "AGG"],
+    "self": ["SE", "ICS"]
+  }
+}

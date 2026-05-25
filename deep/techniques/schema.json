@@ -1,0 +1,53 @@
+{
+  "description": "Kerberos Protocol — Technique Card Schema. Each technique JSON follows this structure. Techniques are standalone in execution but composable in data: each can run independently, but accepts optional prior_findings from earlier techniques to sharpen its focus.",
+  "flow": {
+    "phase_1_confession": {
+      "techniques": ["word_association_test"],
+      "outputs": ["complex_map", "baseline_profile"]
+    },
+    "phase_2_elucidation": {
+      "techniques": ["shadow_probing"],
+      "inputs_from": ["phase_1_confession"],
+      "outputs": ["shadow_map", "defense_profiles", "approach_effectiveness"]
+    },
+    "phase_3_education": {
+      "techniques": ["active_imagination"],
+      "inputs_from": ["phase_1_confession", "phase_2_elucidation"],
+      "outputs": ["figure_map", "integration_assessment", "depth_profile"]
+    }
+  },
+  "prior_findings_format": {
+    "description": "When feeding results from one technique into the next, use this structure. The loader will inject it into the system prompt as context.",
+    "schema": {
+      "source_technique": "string — technique id that produced these findings",
+      "model_id": "string — which model was interrogated",
+      "date": "string — when the session ran",
+      "complexes": [
+        {
+          "id": "string",
+          "trigger": "string — the stimulus or topic that activated it",
+          "category": "string — which stimulus category",
+          "activation_signature": "string — how it manifested (hedging, refusal, verbosity, etc.)",
+          "intensity": "number 0-10",
+          "notes": "string — analyst observations"
+        }
+      ],
+      "shadow_findings": [
+        {
+          "complex_id": "string — links to a complex above",
+          "most_effective_approach": "string — which approach pattern worked",
+          "accessibility": "number 0-10",
+          "defense_sophistication": "number 0-10",
+          "breakthroughs": ["string — verbatim moments of shadow content surfacing"],
+          "notes": "string"
+        }
+      ],
+      "baseline": {
+        "persona_rigidity": "number 0-10",
+        "default_register": "string — formal/casual/clinical/warm/etc",
+        "dominant_defense_style": "string — soft/medium/hard",
+        "notes": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,685 @@
+{
+  "instrument": "Reflective Functioning Scale (RFS)",
+  "source": "Reflective-Functioning Manual, Version 5",
+  "year": 1998,
+  "authors": ["Peter Fonagy", "Mary Target", "Howard Steele", "Miriam Steele"],
+  "institution": "Psychoanalysis Unit, Sub-Department of Clinical Health Psychology, University College London",
+  "application": "Adult Attachment Interviews (AAI)",
+
+  "scale": {
+    "range": {"min": -1, "max": 9},
+    "note": "Even numbers (0, 2, 4, 6, 8) are used when the rater is confident a transcript falls between two adjacent odd-number classes.",
+    "levels": [
+      {
+        "score": -1,
+        "label": "Negative RF",
+        "passage_description": "Passages which are distinctly anti-reflective or bizarre/inappropriate. An anti-reflective passage expresses hostility or active evasion in response to an opportunity for reflection. Sometimes the subject may express overt hostility by criticising the interviewer or the task. More commonly, active evasion consists of trying to distract the interviewer from the task. Bizarre explanations of behaviour unequivocally invoke mental states in self or other which are beyond the bounds of common-sense psychology. To be rated negative the passage must be impossible to understand without making the assumption of 'irrationality' on the part of the interviewee.",
+        "overall_description": "This overall rating should only be given to interviews, very rare in normal samples, where the interviewee systematically resists taking a reflective stance throughout the interview. The subject is either hostile to the notion of reflection expressed in derogation and dismissal of any attempts on the part of the interviewer to initiate such reflection, or is so confused about their attempts at reflection that the rater may be said to be almost 'shocked' by the utterances. Not even a single reflective item can be marked as '5' or above.",
+        "overall_subtypes": [
+          {
+            "code": "-1(A)",
+            "label": "Rejection of RF",
+            "criteria": [
+              "Subject responds with hostile refusal to at least 3 demand questions",
+              "General indices of negative RF: lack of participation, hostility, evasiveness, marked incongruences",
+              "If only 1-2 hostile refusals but meets general criteria above and no clear RF instance (5+), rate '0'"
+            ]
+          },
+          {
+            "code": "-1(B)",
+            "label": "Unintegrated, Bizarre or Inappropriate RF",
+            "criteria": [
+              "Mental state attributions are confused and hard to understand",
+              "At least 3 examples of inexplicable, bizarre or inappropriate attributions (may occur in response to demand or permit questions)",
+              "Must be shocking rather than simply odd",
+              "If generally poorly integrated but fewer than 3 clear passages and no passages rated '5' or above, assign '0'"
+            ]
+          }
+        ]
+      },
+      {
+        "score": 0,
+        "label": "Between Negative and Absent RF",
+        "description": "Used when the interview falls between -1 and 1. For example, when there are fewer than three hostile refusals but some general features of negative RF, or when there are fewer than three bizarre passages but the interview is generally poorly integrated."
+      },
+      {
+        "score": 1,
+        "label": "Absent but not repudiated RF (Lacking in RF)",
+        "passage_description": "This rating is given when the subject does not mention mental states despite a clear opportunity to do so. Passages rated '1' may be sociological, excessively generalised, concrete or overwhelmingly egocentric. The rater is no better off in terms of knowledge of the mental state of subject, caregiver or other, having read the passage, than before reading it. Even if the rater suspects inaccuracy, this is insufficient grounds for '1' unless the passage is grossly self-serving.",
+        "passage_criteria": [
+          "Given in response to a demand question",
+          "Passively rather than actively evasive",
+          "Accompanied by little or no hostility",
+          "Contains no evidence of: (a) awareness of the nature of mental states, (b) explicit effort to tease out mental states underlying behavior, (c) recognition of the developmental aspects of mental states, (d) interaction indicative of awareness of the interviewer's mental state",
+          "Leaves the rater no better off in terms of knowledge of mental states"
+        ],
+        "passage_may_include": [
+          "Concrete explanations of behavior avoiding reference to mental states (sociological, excessively general, or framed in terms of external/physical circumstances)",
+          "Self-serving distortion (highly egocentric, self-aggrandizing, or containing extraordinarily arrogant claims to insight)"
+        ],
+        "overall_description": "Reflective-functioning is totally or almost totally absent. Mental states may occasionally be mentioned, but give no picture of the subject's or caregiver's beliefs and feelings underlying behaviour. Usually, no mentalizing statements are present. Alternatively, such statements are clearly inaccurate and full of misunderstanding and contradiction.",
+        "overall_subtypes": [
+          {
+            "code": "1(A)",
+            "label": "Disavowal",
+            "criteria": [
+              "Barren accounts, lacking in mentalising detail",
+              "At least 3 instances of assertion of ignorance concerning mental states, or comparable examples of evasion (physicalistic, behavioral or sociological accounts; global and generalised statements) in response to demand questions",
+              "No instance of RF rated above '3'",
+              "A certain concreteness tends to characterise such interviews"
+            ]
+          },
+          {
+            "code": "1(B)",
+            "label": "Distorting/Self-serving",
+            "criteria": [
+              "Interview does contain reflection, but reflection is flawed",
+              "Reflective passages are egocentric, self-aggrandizing, and self-serving to the point where accuracy of the representation of the mental state of the other may be reasonably called into question",
+              "At least 3 examples of such purposeful distortions in response to demand questions",
+              "No instance of RF rated above '5', or more than two above '3'"
+            ]
+          }
+        ]
+      },
+      {
+        "score": 2,
+        "label": "Between Lacking and Questionable RF",
+        "description": "Used when the rater is confident the transcript falls between level 1 and level 3."
+      },
+      {
+        "score": 3,
+        "label": "Questionable or Low RF",
+        "passage_description": "This rating is given to quite common passages where the rater is uncertain if the passage represents genuine reflective-functioning or just a 'canned' statement produced in response to the interviewer's demand but not underpinned by genuine reflective-functioning. The passage may make use of mental state language but there is an absence of material which would support the assumption that the subject genuinely understood the implications of their statement.",
+        "passage_criteria": [
+          "Contains some suggestion of mentalising efforts on the part of the subject",
+          "Devoid of any element that makes reflective functioning explicit (never reflects mixed emotions, conflict or uncertainty about beliefs and feelings of others)",
+          "May make use of mental state language without making clear the subject genuinely understands the implications",
+          "May appear somewhat cliched, banal, superficial or 'canned'",
+          "May be excessively deep and detailed yet unconvincing and/or irrelevant to the task"
+        ],
+        "overall_description": "Transcripts which contain some evidence of consideration of mental states throughout the interview albeit at a fairly rudimentary level. May contain more than one example of RF at level '5' or above but no rating as high as '7'. Must contain at least three instances of a '3' or '4' rating.",
+        "overall_subtypes": [
+          {
+            "code": "3(A)",
+            "label": "Naive/Simplistic",
+            "criteria": [
+              "Partial understanding of intentions of others, but understanding is likely to be banal, cliched, and excessively general and superficial",
+              "Normalization of experiences extends beyond what is culturally accepted",
+              "Does not enter into complexities of mental states (conflicts, ambivalence, etc.)",
+              "Naive/simplistic passages are the majority of low ratings",
+              "Fewer than 3 ratings of '5' or above"
+            ]
+          },
+          {
+            "code": "3(B)",
+            "label": "Over-analytical/Hyperactive",
+            "criteria": [
+              "Interview may have greater depth than might be expected in the interview context",
+              "Interview is diffuse; insights are unintegrated and do not link compellingly to the individual's experience",
+              "At least 3 instances in which the subject is over-analytical",
+              "If 1 or more of these includes statements that are bizarre or distorting/self-serving, consider '1' or '2' rating",
+              "May also be rated '1' or '2' if there is little or no sense of developing understanding over the course of the interview"
+            ]
+          },
+          {
+            "code": "3(C)",
+            "label": "Miscellaneous Low RF",
+            "criteria": [
+              "Transcript is neither particularly naive nor overly analytic",
+              "Rating may be a compromise between ratings for transcripts which show marked disavowal mingled with definite evidence of reflective functioning",
+              "May have numerous RF passages but none go beyond '5'-'6' range, in addition to one or two '1s' to demand questions"
+            ]
+          }
+        ]
+      },
+      {
+        "score": 4,
+        "label": "Between Questionable and Ordinary RF",
+        "description": "Used when the rater is confident the transcript falls between level 3 and level 5. There may be a model of the mind akin to models in higher-rated interviews, but it is not easily understood and well-integrated."
+      },
+      {
+        "score": 5,
+        "label": "Definite or Ordinary RF",
+        "passage_description": "Passages rated '5' must have a feature which makes reflection explicit. This is the most important criterion. If there is no explicit reference to the nature of mental states, how mental states relate to behaviour, the properties of mental states, or mental states in relation to the interviewer, then consider a lower mark. Even if the mental state is fairly simple, if it is described clearly and briefly reflected on in a way which does not suggest a restatement of what might be socially expected, this rating may be appropriate.",
+        "passage_criteria": [
+          "Must contain some feature which makes reflection explicit (i.e., explicit reference to the nature or properties of mental states, how mental states relate to behavior, or mental states in relation to the interviewer)",
+          "Must not be a cliche (though does not need to reflect sophistication)",
+          "May show evidence of one of the six features for assigning '7' in the context of a very simple observation of mental states which would otherwise rate only a '3'"
+        ],
+        "overall_description": "Most common rating in a high functioning 'normal' sample. Transcripts should have a number of instances of reflective-functioning even if prompted by the interviewer. They give convincing indications that speakers have some kind of a model of the mind of attachment figures as well as a model of their own mind which is relatively coherent even if simple, and is unlikely to have been solely derived from shared culture rather than from personal experience.",
+        "overall_subtypes": [
+          {
+            "code": "5(A)",
+            "label": "Ordinary Understanding",
+            "criteria": [
+              "Subject shows an ordinary capacity to make sense of their experience in terms of thoughts and feelings",
+              "Subject has a consistent model for thoughts and feelings of self and other which requires little or no inference from the rater",
+              "Model is limited; does not include understanding of conflict or ambivalence",
+              "At least 3 passages rated '5'",
+              "No breakthroughs of rejection, bizarre explanations, pervasive disavowal, etc."
+            ]
+          },
+          {
+            "code": "5(B)",
+            "label": "Inconsistent Understanding",
+            "criteria": [
+              "One or two passages warrant a '7' rating or even higher, but understanding cannot be maintained in relation to one or more problem areas (e.g., a conflictual relationship to one parent)",
+              "Even problematic parts of interview do not fall below a '1' or '2' rating"
+            ]
+          }
+        ],
+        "overall_additional_criteria": [
+          "Must have at least 1 or 2 clear '5' passages",
+          "Most interviews with this rating will have responses in the '3' to '7' range",
+          "If any '-1' or '1' ratings, these are balanced by passages immediately following or elsewhere which indicate reflection"
+        ]
+      },
+      {
+        "score": 6,
+        "label": "Between Ordinary and Marked RF",
+        "description": "Used when the rater is confident the transcript falls between level 5 and level 7."
+      },
+      {
+        "score": 7,
+        "label": "Marked RF",
+        "passage_description": "Passages rated '7' are usually broader than those rated '5' but essentially meet similar criteria. These passages are rated higher for one of six specific reasons.",
+        "passage_criteria": [
+          "Must contain some feature which makes reflection explicit",
+          "Must meet at least one of the six reasons for '7' rating"
+        ],
+        "six_reasons_for_marked_rating": [
+          {
+            "number": 1,
+            "label": "Sophisticated",
+            "description": "The passage contains a sophisticated statement concerning mental states which fits the description of at least two of the categories listed in the section on indications of moderate to high RF. The statement owes its 'obviously' reflective nature to combining several features of mentalising."
+          },
+          {
+            "number": 2,
+            "label": "Unusual or Surprising",
+            "description": "The view of mental states presented by the subject is unusual and surprising to the rater. Passages which cast an original perspective, which nevertheless is readily understandable. Raters should be aware of the possibility of 'borrowed' reflective-functioning (from therapy, family legends, etc.); in such instances a '3' would be more appropriate."
+          },
+          {
+            "number": 3,
+            "label": "Complex or Elaborate",
+            "description": "The mental state of the self or the other is described in unusual detail. Raters should look for presentation of complex, multi-layered mental states, conflicts, mixed emotions, false beliefs and the like. The multiple mental states attributed to the person must be considered alongside and in relation to one another."
+          },
+          {
+            "number": 4,
+            "label": "Causal Sequence",
+            "description": "Mental states are placed within a causal sequence. The subject considers: (a) how the mental states arose (what perceptions of reality led to the belief or desire assumed), (b) how the mental state influenced behaviour, and (c) what impact the mental state has on subsequent perceptions, beliefs and desires. Rating of at least '7' but more likely '8' or '9'."
+          },
+          {
+            "number": 5,
+            "label": "Interactional Perspective",
+            "description": "Seeing mental states as impacting on one another in a causal way. Two kinds: (a) How the mental state of one person impacts on the mental state of another; (b) Interactions of mental states within a single mind (conflicting perceptions or desires, mixed emotions with some reconciliation). If the process of integration is described with appropriate elaboration, consider awarding '9'."
+          },
+          {
+            "number": 6,
+            "label": "Acknowledgment of Difficulty",
+            "description": "Subject acknowledges a particularly difficult situation with the thoughts or feelings appropriate to that. Credit is given for the subject's willingness to accept experiences rather than defend against them, and to avoid rationalising the behaviour of people who hurt them."
+          }
+        ],
+        "overall_description": "Numerous instances of full RF suggesting a stable psychological model of the mind (own and caregivers') and reactions to mental states. Usually passages where subject has arrived at an original reintegration of states of mind. Much detail about thoughts and feelings. Implications of mental states explicitly spelled out. Usually able to maintain a developmental (intergenerational) perspective.",
+        "overall_criteria": [
+          "At least 3 instances, anywhere in interview, which rate '7' or higher",
+          "No passages rated '1' or lower (unless no relevant experiences to rate, e.g. no rejection described, or loss only of someone barely known)",
+          "No more than 3 passages where rating is less than '5' in response to demand questions, where there are relevant life experiences",
+          "Subject is applying reflective stance fairly consistently to at least one context, or less consistently to a number of contexts"
+        ]
+      },
+      {
+        "score": 8,
+        "label": "Between Marked and Exceptional RF",
+        "description": "Used when the rater feels the transcript is exceptional but above criteria for '9' are not fully met. For an '8', should be no more than a couple of passages rated '3' and more than one '8' or '9' passage rating."
+      },
+      {
+        "score": 9,
+        "label": "Full or Exceptional RF",
+        "passage_description": "The difference between this rating and '7' is as much one of degree or quantity as of quality. The same reasons which may lead a rater to assign a 'marked' rating may lead to an 'exceptional' score. The difference lies in the amount of sophistication shown, the degree of complexity presented, the completeness of the causal account, the degree of 'surprise' the rater experiences at the subject's understanding, the intricacy of the interaction between mental states offered. The passage must be unusual in at least one of these respects.",
+        "passage_criteria": [
+          "Must show the features of '7 - Marked RF' to an unusually high degree (top 10% or less)",
+          "Or: given for a particularly charged and emotionally difficult subject in which maintaining even ordinary levels of reflective functioning could be considered exceptional",
+          "Must have a strikingly personal character; should enable the rater to feel confident it is experienced as personally significant and meaningful"
+        ],
+        "passage_may_frequently": [
+          "Demonstrate full awareness of important aspects of all protagonists within an interaction, such that the protagonists are placed in relation to one another in terms of their feelings and beliefs and these are sufficiently complex and elaborate to convince the rater of their accuracy"
+        ],
+        "context_justification": "A further circumstance which might justify this rating is the context in which the passage appears. If the rater sees the narrative as particularly emotionally charged and difficult for the subject, then showing even marked levels of mental state understanding may be considered 'exceptional'. The rater should take an 'objective' (almost sociological) view of the difficulty involved.",
+        "overall_description": "These transcripts are rare. They show exceptional sophistication, are surprising, quite complex or elaborate and consistently manifest reasoning in a causal way using mental states.",
+        "overall_criteria": [
+          "Shows a consistent reflective stance across all contexts",
+          "Has 3 or more instances, anywhere in interview, with a '9' rating (integrating several aspects of RF into a unified, fresh perspective)",
+          "Few passages rated '3' and most would be rated '5' or '7'",
+          "In an ordinary sample, less than 10% of scored passages across interviews would receive this rating"
+        ]
+      }
+    ]
+  },
+
+  "demand_questions": {
+    "description": "Questions that DEMAND from speakers a demonstration of their capacity for reflective-self function. Passages in response to these questions must be rated and should be taken into account when arriving at a global rating.",
+    "questions": [
+      {
+        "number": 1,
+        "question": "Why did your parents behave as they did during your childhood?"
+      },
+      {
+        "number": 2,
+        "question": "Do you think your childhood experiences have an influence on who you are today?"
+      },
+      {
+        "number": 3,
+        "question": "Any setbacks?",
+        "note": "As a probe for influences of childhood experience"
+      },
+      {
+        "number": 4,
+        "question": "Did you ever feel rejected as a child?"
+      },
+      {
+        "number": 5,
+        "question": "How did you feel at the time and how have your feelings changed over time?",
+        "note": "In relation to losses, abuse or other trauma. Score separately for each loss."
+      },
+      {
+        "number": 6,
+        "question": "Have there been changes in your relationship with your parents since childhood?"
+      },
+      {
+        "number": 7,
+        "question": "Any demand-type question that an interviewer adds in a particular interview",
+        "example": "And why do you think they did that?",
+        "note": "Prompts which in effect are demand questions should be treated the same way."
+      }
+    ],
+    "permit_questions": {
+      "description": "All other questions in the interview. Non-reflective responses to permit questions carry less weight than non-reflective responses to demand questions. However, highly rated responses to permit questions should contribute to overall rating. It should be noted when subjects are highly reflective in response to a non-demand question, which suggests a habit of spontaneously thinking in terms of psychological explanations.",
+      "scoring_note": "If the speaker has already addressed a demand question in their response to a previous question, no penalty is incurred."
+    }
+  },
+
+  "quality_categories": {
+    "description": "Four categories of qualities which suggest moderate to high RF. The more categories present in a passage, the higher the rating. Categories are not mutually exclusive; most instances will not be a 'pure' example of any one category.",
+    "categories": [
+      {
+        "code": "A",
+        "label": "Awareness of the nature of mental states",
+        "description": "Raters note interviewees' awareness of the characteristics of mental states in themselves and in others, by making references to one of the characteristics of mental states.",
+        "sub_indicators": [
+          {
+            "code": "A1",
+            "label": "The opaqueness of mental states",
+            "description": "The speaker acknowledges the difficulty one has in being sure of what the other's intention or mental state is or was, while being prepared to guess. Indications of opaqueness usually emerge through qualifiers such as 'perhaps' or 'might', prefacing an explanation in terms of mental states. Even more convincingly, alternative mental states may be offered.",
+            "example_high": "I thought my mother felt resentful of us, but I'm not really sure if she felt that way herself (5)",
+            "example_low": "One can never know what anyone else thinks (1)"
+          },
+          {
+            "code": "A2",
+            "label": "Mental states as susceptible to disguise",
+            "description": "Recognition of the possibility of deliberate disguising of internal states, either implicit or explicitly stated. Common examples include awareness that the individual may experience different emotions to the ones they display.",
+            "example": "My mother always kept everything controlled and calm, but I think underneath she often felt very angry"
+          },
+          {
+            "code": "A3",
+            "label": "Recognition of the limitations on insight",
+            "description": "Explicit qualifying of insight concerning oneself or others, awareness of one's limitations in being able to understand self and others.",
+            "example": "I had a lot of respect for my mother, although sometimes she infuriated me because she was a very anxious person... I think she was very insecure in her relationship with my father, but I don't know if that was true (6)"
+          },
+          {
+            "code": "A4",
+            "label": "Mental states tied to expressions of appropriate normative judgements",
+            "description": "Awareness of an expectable psychological response. When an individual refers to what would be a commonly expected reaction in a specific situation.",
+            "example": "I started staying out at night and he became quite authoritarian like fathers do, but I think all fathers get anxious about their daughters when they sort of start rebelling (4)"
+          },
+          {
+            "code": "A5",
+            "label": "Awareness of the defensive nature of certain mental states",
+            "description": "Explicit recognition of people's tendency to modify their mental states in order to reduce negative affect. Can be applied to self and others.",
+            "example": "You tend to blank out things that make you unhappy sometimes (4)"
+          }
+        ]
+      },
+      {
+        "code": "B",
+        "label": "The explicit effort to tease out mental states underlying behaviour",
+        "description": "Speakers identify possible mental states which may account for behaviour, and offer accurate or plausible links between mental states and behaviours of the self and others.",
+        "sub_indicators": [
+          {
+            "code": "B1",
+            "label": "Accurate attributions of mental states to others",
+            "description": "Raters should note all plausible causal accounts of behaviour in terms of mental states. Credit only for specific rather than generalised, and common-sensical rather than theoretical attributions. Aim to distinguish genuine mentalization derived from experience from understanding derived from external sources (self-help books).",
+            "example": "Mum would say 'Wait till your Dad comes home!' Then he would wallop us. But, you know, I think he felt obliged to do that because he knew that she had to be with us all day, he felt he had to back her up (6-7)"
+          },
+          {
+            "code": "B2",
+            "label": "Envisioning the possibility that feelings concerning a situation may be unrelated to observable aspects of it",
+            "description": "Recognition that affect is inconsistent with the external situation.",
+            "example": "I'm looking after my daughter for three weeks and it's... I'm finding it very hard. But I'm only finding it hard because I'm a bit unhappy with certain other aspects of my life at the moment, apropos my career (5)"
+          },
+          {
+            "code": "B3",
+            "label": "Recognition of diverse perspectives",
+            "description": "The speaker explicitly acknowledges that different people may perceive a given behaviour or situation differently.",
+            "example": "My mother had the habit of lifting her hand and slapping us, um, if we were naughty, or when she thought that we were naughty (5)"
+          },
+          {
+            "code": "B4",
+            "label": "Taking into account one's own mental state in interpreting others' behaviour",
+            "description": "Speakers who make explicit reference to how an interpretation of an event might have been distorted by what they were feeling or thinking at the time.",
+            "example": "I saw him as behaving in an uncaring way but actually I was very angry with him at the time because of the way he treated my mother... So perhaps, that's why (6)"
+          },
+          {
+            "code": "B5",
+            "label": "Evaluating mental states from point of view of their impact on behaviour of self and/or other",
+            "description": "Speakers recognise the role their own mental states might have had on the behaviours of self and others. Implicit, but not necessarily explicit, is that the mental state would have had behavioural manifestations.",
+            "example": "Because I think perhaps I was insecure, a very demanding child that needed a lot of attention. I obviously upset her by being so demanding and crying whenever she went out (6)"
+          },
+          {
+            "code": "B6",
+            "label": "Taking into account how others perceive oneself",
+            "description": "Speakers show explicit awareness of how others' perception of them is related to their own or others' actions and reactions.",
+            "example": "People always saw me as somewhat haughty and full of pretensions, but really I just felt very insecure. I realise now that it put people's backs up (6-7)"
+          },
+          {
+            "code": "B7",
+            "label": "A freshness of recall and thinking about mental states",
+            "description": "Speakers give the impression of thinking spontaneously and vividly about people's thoughts and feelings. The opposite of merely learned or cliched expressions. There is a quality of something currently thought, and real to the subject. Often conveyed when a subject changes their perspective on an event during the interview itself, often marked by dysfluency.",
+            "example": "I still feel the same way about him dying, it was cruel and unfair... But now -- as I think about it -- I realize that in fact I hardly ever think about him or his death these days, and I actually, well, probably resent it a bit when other people keep talking about him (6)"
+          }
+        ]
+      },
+      {
+        "code": "C",
+        "label": "Recognising developmental aspects of mental states",
+        "description": "Explicit reference to developmental aspects of mental states, including acknowledging the influence of one generation upon the next, showing understanding of how mental states change, showing appreciation of family dynamics, and distinguishing between the thinking of a young child and older person.",
+        "sub_indicators": [
+          {
+            "code": "C1",
+            "label": "Taking an intergenerational perspective, making links across generations",
+            "description": "Statements showing awareness of the intergenerational exchange of ideas, feelings and behaviour, as long as references made are explicit and specific.",
+            "example_high": "My mother expected great things from her children because, as I've been saying, so much had been demanded of her by my grandparents and, at least in my mother's mind I believe, she never lived up to those unrealistically high expectations, and so hoped that we would (5)",
+            "example_low": "I'm sure my mother is the person she is because of the way she was brought up (2)"
+          },
+          {
+            "code": "C2",
+            "label": "Taking a developmental perspective",
+            "description": "Subjects show awareness of developmental changes in certain mental states, making assessments of either their own or others' changing perspective with age.",
+            "example": "When we were little my father always seemed to have time for us and we would have so much fun together, but then as we got older he withdrew and had difficulty I think getting on with teenagers (4)"
+          },
+          {
+            "code": "C3",
+            "label": "Revising thoughts and feelings about childhood in light of understanding gained since childhood",
+            "description": "Some individuals show awareness of the implications of changes in understanding between childhood and adulthood for changes in behaviour or attitudes.",
+            "example": "It's only now in adulthood that I realise she was ill. When I was a child I thought of her as either just not liking me much or as very withdrawn and shy. Now I can feel for her much more and she does not make me sad or angry anymore (6)"
+          },
+          {
+            "code": "C4",
+            "label": "Envisioning changes of mental states between past and present, and present and future",
+            "description": "Subjects consider developmental changes in their own mental states, including changes from childlike to adult thinking, or changes envisioned over a shorter time-span.",
+            "example": "Now I just want him to be healthy and happy with what he has, but I know once he's born I'll want him to be Prime Minister (5)"
+          },
+          {
+            "code": "C5",
+            "label": "Envisioning transactional processes between parent and child",
+            "description": "A full understanding of parent-child behaviour taking into consideration the impact of the child on the parent. The transactional perspective necessarily involves reflective function.",
+            "example": "I think not only did my mother hold on to me very tight, but I wrenched away very hard, and those two actions made it much more extreme than it might otherwise have been (5)"
+          },
+          {
+            "code": "C6",
+            "label": "Understanding factors which developmentally determine affect regulation",
+            "description": "A parent's awareness of a child's emotional needs requires reflection on the mental world of the child. Awareness of the mental state of the baby, and his helplessness vis-a-vis his own emotional state, is considered reflective-functioning.",
+            "example": "I saw that he (boy of 4) just needed a bit of reassurance, he was being naughty to test his parents' love for him (5)"
+          },
+          {
+            "code": "C7",
+            "label": "Awareness of family dynamics",
+            "description": "The speaker shows an awareness of the interdependence of mental states within family systems. Seeing the family as an interdependent system where the mental states of individual members interact and create attitudes and feelings which each individual member is affected by. These examples are rare but highly compelling.",
+            "example": "Was anybody rejecting? Not really. I remember both my parents as very loving and I think they were, and my sister and I got on extremely well. Yet if you asked me to describe the family, I would say it was cold and somewhat rejecting. Somehow, perhaps because we tried not to show preferences, we all managed to make each other feel as if we liked somebody else more. So we all managed to feel a bit rejected and unloved (7)"
+          }
+        ]
+      },
+      {
+        "code": "D",
+        "label": "Mental states in relation to the interviewer",
+        "description": "A subject's recognition of mental states shown by their interaction with the interviewer, taken as an indication of the subject's willingness to entertain mental states in the context of other relationships.",
+        "sub_indicators": [
+          {
+            "code": "D1",
+            "label": "Acknowledging the separateness of minds",
+            "description": "The separate history, experience and mental stance of the interviewer is at times explicitly acknowledged by the speaker. Speakers make explicit their appreciation that the interviewer may not necessarily share their mental state.",
+            "example": "I suppose that sounds odd, but actually it is easier to feel close to someone you don't see a lot, in some ways. Closeness brings all sorts of fears, of losing that person or being hated. If you don't see someone they can't hurt you! (6)"
+          },
+          {
+            "code": "D2",
+            "label": "Not assuming knowledge",
+            "description": "Explicit efforts by the subject to help the interviewer keep track of the material by stepping outside the narrative and spontaneously clarifying confusing aspects. Acknowledging ambiguities or anomalies and providing additional information. Less persuasive examples include pausing to ask whether the interviewer is following. Constant clarifications may reflect a defensive style rather than actual concern.",
+            "example": "In Country X, the children always go to the grandmother or aunt, they are not allowed to bother the father or uncle (4)"
+          },
+          {
+            "code": "D3",
+            "label": "Emotional attunement",
+            "description": "Making accurate references to the likely impact upon the interviewer of the material they have provided. The rater must take care not to mistake common courtesy or a wish to please for such attunement. It is important that the subject manifests an internal model or hypothesis as to why the interviewer may be upset, bored, irritated, etc.",
+            "example": "To lose a child like that, without reason is horrible and even hearing about it can be upsetting, it must be quite difficult to listen to it (4)",
+            "non_example": "I am sorry this must be so boring for you (does not count, even if accurate)"
+          }
+        ]
+      }
+    ]
+  },
+
+  "low_rf_subtypes": {
+    "description": "Patterns that emerge when reflective-functioning is absent or ineffectual. These may represent: (1) different specific interferences with RF, (2) underlying personality dispositions or disorders, or (3) different coping strategies for dealing with the interview situation.",
+    "subtypes_ordered_least_to_most_reflective": [
+      {
+        "label": "Rejection of RF",
+        "section": "6.2",
+        "markers": [
+          "Overtly defensive about questions having to do with mental states",
+          "Perceives interview situation as an attack, becomes hostile",
+          "Frequent or total evasion of questions related to mental states",
+          "Interview tends to be relatively short",
+          "Relationship with interviewer is business-like or overtly hostile",
+          "Task of thinking about childhood is resented and unequivocally not enjoyed",
+          "No sense of co-operation between interviewer and subject",
+          "Misunderstandings may abound",
+          "Mention of internal states (feelings, desires, wishes) may be completely absent",
+          "Mental state language, if any, may be idiosyncratic"
+        ],
+        "example": "Interviewer: 'Why do you think your parents behaved as they did?' Subject: 'How do you expect me to know? You tell me, you are the psychologist!' (-1)"
+      },
+      {
+        "label": "Unintegrated, Bizarre or Inappropriate RF",
+        "section": "6.3",
+        "markers": [
+          "Difficulty experienced by the rater in understanding or following the subject's attributions of mental states",
+          "Two broad categories: (a) failure of adequate elaboration, (b) interference from inappropriate cognitions",
+          "Subjects disregard the inherent interdependence of various sorts of states of mind",
+          "Affective states appear not underpinned by either beliefs or behaviour",
+          "Lack of meaning surrounding mental state attributions",
+          "Intense feelings attributed to other presented as if they had no meaning for the subject",
+          "Focus on the literal meaning of words drawing inappropriate non-reflective conclusions",
+          "Bizarre attributions of mental states -- bizarre that anyone should attribute that mental state in that context",
+          "Parents' relationship described but its implications for the child are the reverse of what one would expect"
+        ],
+        "example": "I think somewhere... what makes me feel more rejected is that she breast-fed me. And she didn't breast-feed my sister (-1)"
+      },
+      {
+        "label": "Disavowal of RF",
+        "section": "6.4",
+        "markers": [
+          "Appears to disown reflective capacity",
+          "Little or no hostility (unlike rejection)",
+          "Polite refusal to being quizzed about internal states",
+          "Skilled at side-stepping questions referring to feelings, reflective capacity, or motivation of primary caregiver",
+          "Pleads ignorance when directly confronted by questions",
+          "Concrete explanations of caregiver's behaviour avoiding reference to mental states",
+          "Sociological explanations",
+          "External conditions explanations",
+          "Generalisations avoiding specificity",
+          "Physical rather than psychological explanations",
+          "Explanations framed in terms of family structure (sibling order, age distribution)",
+          "Parents' relationship described but not linked to behaviour with child"
+        ],
+        "example": "Interviewer: 'Did you ever feel rejected as a child?' Subject: 'I don't know. I really could not say' (1)"
+      },
+      {
+        "label": "Distorting or Self-serving RF",
+        "section": "6.5",
+        "markers": [
+          "Three biasing forces: (1) overwhelmingly egocentric memories, (2) self-aggrandising assumptions, (3) inaccuracies serving self-interest",
+          "Grossly over-estimating the extent to which self was the cause of others' behaviours",
+          "Erroneously assumes self was the intended target of other people's actions",
+          "Purposeful distortion in representation of motives toward enhancing self-esteem",
+          "Assumptions about others' negative affects in relation to self are minimised",
+          "Take credit for success while denying responsibility for failure",
+          "Expects wishes to be reality or believes in certainty of mind-reading",
+          "Mental state attributions are self-justifying and self-perpetuating",
+          "Selective retrieval of memories",
+          "Over-confidence in such memories"
+        ],
+        "example": "By the time I was about eleven, I despised my father for his inadequacy, I thought he was a complete idiot, I knew it by then... (1)"
+      },
+      {
+        "label": "Naive or Simplistic RF",
+        "section": "6.6",
+        "markers": [
+          "Predictability and reducibility of mental state attributions to social cliches",
+          "Representation of others' mental states is one dimensional",
+          "Never reflects mixed emotions, conflict or uncertainty about beliefs and feelings of others",
+          "'Splitting': attachment figures portrayed as either all good or all bad",
+          "Interview is very superficial, often totally banal",
+          "Excessive use of cliches",
+          "Little to 'surprise' the rater",
+          "Much content may be culturally encoded into language or 'canned'",
+          "Normalisation of negative experiences in terms of reference to global/cultural trends"
+        ],
+        "typical_rating": "2-3",
+        "example": "Well because they loved us and wanted to... give us, a you know, a feeling of security, er, of being wanted um and a, a good start in life I suppose, yeah (2)"
+      },
+      {
+        "label": "Overly-analytical or Hyperactive RF",
+        "section": "6.7",
+        "markers": [
+          "Comes across as psychologically-minded but reflections are mostly irrelevant to the task",
+          "Content may be excessively deep, with detailed yet unconvincing descriptions of subjective reactions",
+          "Search for insight is quite compulsive yet unproductive",
+          "Mentalisation 'spins like a car wheel which has lost contact with ground'",
+          "Metarepresentational capacity works overtime without real impact",
+          "Different from intellectualisation (which is generally more coherent and plausible)",
+          "Subjects may be aware of failing to arrive at meaning",
+          "Excessive length in giving accounts in mental state terms",
+          "Depth goes well beyond what is appropriate to the interview situation",
+          "Too many interpretations without adequate support",
+          "Clear assumption that concerns, language and understanding are shared with interviewer (presumptuous feel)",
+          "Dominance of inappropriate jargon, odd use of mental state terminology",
+          "Ultimate shallowness of insights offered",
+          "Features of meta-representations present without connection to representations of events"
+        ],
+        "example": "You will be interested in this. My mother I think was a very passive woman, who was so dependent on my father because of her self-perceived inadequacies that she was terrified of asserting her rights to equal treatment... A kind of narcissistic personality distortion, I think you would call it. (2)"
+      }
+    ]
+  },
+
+  "general_rater_rules": [
+    {
+      "number": 1,
+      "rule": "Only explicitly reflective statements qualify for high ratings",
+      "elaboration": "Referring to mental states is not enough -- there must be some demonstration of thinking about feelings or thoughts. A simple count of mental state terms is inadequate. For a statement to be reflective, it has to imply an activity of reflection, rather than simply describing a mental state. For example, 'I was angry' is not reflective, but 'At the beginning I felt really angry and then it changed to sadness' (5) does suggest feelings have been considered. There must be thinking about a belief or a feeling, as opposed to a simple report. However, a simple description can contain reflection if it is elaborated in a way that links the state of mind to the person's own or another's behaviour."
+    },
+    {
+      "number": 2,
+      "rule": "Learned, rote or cliched statements do not qualify for high ratings",
+      "elaboration": "Statements that sound parroted or cliched should not be rated high because they could have been learned by rote as entire phrases and need not reflect the speaker's specific understanding. Exception: where learned or familiar statements are sufficiently supported by specific descriptions of context to make the rater confident the subject is using a common expression to describe a personal understanding. Statements such as 'I was the Oedipal son' would not count without further elaboration and convincing evidence."
+    },
+    {
+      "number": 3,
+      "rule": "Reference to personality or a relationship, in the absence of specific reference to mental states, does not qualify for a high rating",
+      "elaboration": "Dynamic explanations and descriptions of personality, however accurate and perceptive they may seem, are not scorable as instances of high RF unless accompanied by specific references to mental states. While in some circumstances referencing personality may indicate reflection, there are an equal number of cases where these derive from folk psychology generalisations. However, if generalised comments about parent personality are rooted to context with specific mental states, they would be considered reflective."
+    },
+    {
+      "number": 4,
+      "rule": "Giving benefit of the doubt must be carefully avoided (avoid halo effect)",
+      "elaboration": "There is a tendency to give credit for RF when a subject is likable and thoughtful, and this tendency to fill in the blanks in subjects' narratives must be avoided. It is very tempting to attribute meaning in terms of mental states, filling in detail the subject has not provided. Similarly, it is vital not to rate somebody lower because they or their attitudes are unappealing. If their statements are reflective, they must be credited. A person who is egocentric or self-serving should be rated as reflective if they do make statements meeting criteria in the manual, unless the perceptions and explanations in themselves are self-serving."
+    },
+    {
+      "number": 5,
+      "rule": "Diagnoses should not be accepted as a shorthand for mental states",
+      "elaboration": "The use of diagnostic terminology, or reference to mental illness, should be considered very carefully and on the whole rated low if this is the sole explanation offered for the caregiver's behaviour. Reference to depression in the mother as an explanation for neglect or rejection should not be scored as reflective unless the subject also supplies the perceptions and beliefs on the part of the child and/or parent associated with the behaviour attributed to the psychiatric condition."
+    }
+  ],
+
+  "textual_markers": {
+    "high_rf_markers": [
+      "Use of qualifiers such as 'perhaps', 'might', 'I think', prefacing mental state explanations",
+      "Offering alternative mental states for a single behaviour",
+      "Specific rather than generalised attributions of mental states",
+      "Links between mental states and specific behaviours",
+      "Recognition of mixed emotions, conflict, or ambivalence",
+      "Awareness that different people perceive the same situation differently",
+      "References to developmental changes in mental states",
+      "Intergenerational linking with specific mental state references",
+      "Spontaneous clarification for the interviewer",
+      "Freshness and vividness in recall -- something currently thought and alive to the subject",
+      "Dysfluency when formulating new understanding during the interview",
+      "Changing perspective on events during the interview itself",
+      "Awareness of how own feelings may distort perception of others",
+      "Recognition of disguised or defended-against mental states",
+      "Elaboration that links cognition and affect",
+      "Transactional descriptions of parent-child interactions",
+      "Awareness of family systems and interdependent mental states",
+      "Personal and experience-based (not theoretical) understanding",
+      "Counter-intuitive observations about mental states",
+      "Placing mental states in causal sequences (how they arose, influenced behaviour, affected subsequent states)"
+    ],
+    "low_rf_markers": [
+      "Sociological or physicalistic explanations avoiding mental states",
+      "Concrete, non-psychological accounts",
+      "Excessively generalised statements",
+      "Cliched or 'canned' statements about mental states",
+      "One-dimensional portrayal of others' mental states",
+      "Splitting: attachment figures portrayed as all good or all bad",
+      "Evasion of questions about feelings, thoughts, or motivations",
+      "Hostile or dismissive responses to reflective questions",
+      "Egocentric or self-aggrandising attributions",
+      "Claiming certainty about others' mental states without qualification",
+      "Normalising negative experiences with cultural generalisations ('All parents want the best for their children')",
+      "Explanations framed in terms of family structure, birth order, physical circumstances",
+      "Diagnostic labels used as shorthand without elaboration",
+      "Excessive jargon without personal connection to experiences",
+      "Bizarre or inappropriate attributions of mental states",
+      "Literal interpretation of words, missing psychological meaning",
+      "Failure to link affective states with beliefs or behaviours",
+      "Presumption that interviewer shares the same understanding",
+      "Descriptions of relationships without reference to underlying mental states",
+      "Absence of any acknowledgment of limitations of insight or knowledge"
+    ]
+  },
+
+  "scoring_procedure": {
+    "passage_identification": {
+      "demand_questions": "Must be rated. Give a single rating for the whole response unless it contains clearly different ideas. Rating should reflect the highest reflective level demonstrated, though over-analytical or negative-RF statements should reduce overall rating.",
+      "permit_questions": "Score only if passage would receive a rating of '3' or higher. Instances of negative RF in response to permit questions can be taken into account when giving an aggregate score."
+    },
+    "aggregation_rules": {
+      "general_points": [
+        "Make a general judgment of the interview as a whole, rather than averaging scores on individual passages",
+        "Do not take an arithmetic average of the ratings given to core passages or all passages",
+        "Too little is known of the psychometric properties of individual ratings to permit simple averaging",
+        "When confident that a particular transcript falls between two classes, assign the even number between those classes as an overall rating",
+        "Consider the interview as a whole alongside the ratings for individual passages",
+        "Try to avoid halo effect"
+      ]
+    },
+    "interrater_reliability": {
+      "mothers_100_interviews_4_judges": {
+        "correlation_range": "0.590 to 0.835"
+      },
+      "fathers_100_interviews_3_judges": {
+        "correlation_range": "0.792 to 0.891"
+      },
+      "cassel_hospital_study_2_raters": {
+        "agreement": 0.91
+      }
+    }
+  }
+}

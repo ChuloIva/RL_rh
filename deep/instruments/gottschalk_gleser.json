@@ -1,0 +1,321 @@
+{
+  "name": "Gottschalk-Gleser Content Analysis Scales",
+  "authors": "Louis A. Gottschalk & Goldine C. Gleser",
+  "year": 1969,
+  "source": "Manual of Instructions for Using the Gottschalk-Gleser Content Analysis Scales (UC Press)",
+  "unit_of_analysis": "grammatical clause (independent or dependent)",
+  "normalization_formula": "sqrt(((raw_score + 0.5) * 100) / word_count)",
+  "standard_sample": "5 minutes of free speech to ambiguous prompt",
+  "weighting_principle": {
+    "a_self": 3,
+    "b_animate_others": 2,
+    "c_inanimate_objects": 1,
+    "d_denial": 1,
+    "intensity_modifier": "+1 for extreme/intensified statements"
+  },
+  "scales": [
+    {
+      "name": "Anxiety",
+      "description": "Total anxiety is the sum of all weighted scores across all six subtypes",
+      "subtypes": [
+        {
+          "number": 1,
+          "name": "Death Anxiety",
+          "description": "References to death, dying, threat of death, or anxiety about death",
+          "categories": [
+            {"code": "1a", "referent": "self", "weight": 3, "description": "Self dying, being dead, threat of death to self"},
+            {"code": "1b", "referent": "animate others", "weight": 2, "description": "Others dying, being dead, threat of death to others"},
+            {"code": "1c", "referent": "inanimate objects", "weight": 1, "description": "Inanimate objects destroyed, ceasing to exist"},
+            {"code": "1d", "referent": "denial", "weight": 1, "description": "Denial of death anxiety"}
+          ]
+        },
+        {
+          "number": 2,
+          "name": "Mutilation (Castration) Anxiety",
+          "description": "References to injury, tissue damage, physical harm, illness, body damage, or anxiety about such",
+          "categories": [
+            {"code": "2a", "referent": "self", "weight": 3, "description": "Self injured, ill, body damaged"},
+            {"code": "2b", "referent": "animate others", "weight": 2, "description": "Others injured, ill, body damaged"},
+            {"code": "2c", "referent": "inanimate objects", "weight": 1, "description": "Inanimate objects damaged, broken"},
+            {"code": "2d", "referent": "denial", "weight": 1, "description": "Denial of mutilation anxiety"}
+          ]
+        },
+        {
+          "number": 3,
+          "name": "Separation Anxiety",
+          "description": "References to desertion, abandonment, loneliness, ostracism, loss of support, falling, loss of love or love object",
+          "categories": [
+            {"code": "3a", "referent": "self", "weight": 3, "description": "Self abandoned, deserted, lonely, lost"},
+            {"code": "3b", "referent": "animate others", "weight": 2, "description": "Others abandoned, deserted, lonely"},
+            {"code": "3c", "referent": "inanimate objects", "weight": 1, "description": "Inanimate objects lost, missing, falling"},
+            {"code": "3d", "referent": "denial", "weight": 1, "description": "Denial of separation anxiety"}
+          ]
+        },
+        {
+          "number": 4,
+          "name": "Guilt Anxiety",
+          "description": "References to adverse criticism, abuse, condemnation, moral disapproval, guilt, or threat of such",
+          "categories": [
+            {"code": "4a", "referent": "self", "weight": 3, "description": "Self criticized, condemned, morally disapproved of"},
+            {"code": "4b", "referent": "animate others", "weight": 2, "description": "Others criticized, condemned, morally disapproved of"},
+            {"code": "4d", "referent": "denial", "weight": 1, "description": "Denial of guilt anxiety"}
+          ],
+          "note": "No 'c' category — inanimate objects excluded"
+        },
+        {
+          "number": 5,
+          "name": "Shame Anxiety",
+          "description": "References to ridicule, inadequacy, shame, embarrassment, humiliation, overexposure of deficiencies or private details",
+          "categories": [
+            {"code": "5a", "referent": "self", "weight": 3, "description": "Self ridiculed, shamed, embarrassed, exposed"},
+            {"code": "5b", "referent": "animate others", "weight": 2, "description": "Others ridiculed, shamed, embarrassed"},
+            {"code": "5d", "referent": "denial", "weight": 1, "description": "Denial of shame anxiety"}
+          ],
+          "note": "No 'c' category"
+        },
+        {
+          "number": 6,
+          "name": "Diffuse (Nonspecific) Anxiety",
+          "description": "Nonspecific or generalized anxiety references that do not fit subtypes 1-5",
+          "categories": [
+            {"code": "6a", "referent": "self", "weight": 3, "description": "Self experiencing nonspecific anxiety, dread, unease"},
+            {"code": "6b", "referent": "animate others", "weight": 2, "description": "Others experiencing nonspecific anxiety"},
+            {"code": "6d", "referent": "denial", "weight": 1, "description": "Denial of diffuse anxiety"}
+          ],
+          "note": "No 'c' category"
+        }
+      ]
+    },
+    {
+      "name": "Hostility Directed Outward",
+      "description": "Destructive, injurious, critical thoughts and actions directed to others. Divided into overt and covert.",
+      "levels": [
+        {
+          "severity": 3,
+          "name": "Most Severe",
+          "weight": 3,
+          "categories": [
+            {"code": "a3", "description": "Self killing, fighting, injuring other individuals, or threatening to do so", "type": "overt"},
+            {"code": "b3", "description": "Self robbing, abandoning others, causing suffering or anguish, or threatening to do so", "type": "overt"},
+            {"code": "c3", "description": "Self adversely criticizing, depreciating, blaming, expressing anger, dislike of other human beings", "type": "overt"}
+          ]
+        },
+        {
+          "severity": 2,
+          "name": "Moderate",
+          "weight": 2,
+          "categories": [
+            {"code": "a2", "description": "Self harming domestic animals/pets, or threatening to do so", "type": "overt"},
+            {"code": "b2", "description": "Self abandoning or robbing animals, or threatening to do so", "type": "overt"},
+            {"code": "c2", "description": "Mild or vague criticism/depreciation of others", "type": "overt"},
+            {"code": "d2", "description": "Depriving or disappointing others", "type": "overt"},
+            {"code": "e2", "description": "Others dying or being killed violently, or being threatened with such", "type": "covert"},
+            {"code": "f2", "description": "Bodies (human or domestic animals) mutilated, depreciated, defiled", "type": "covert"}
+          ]
+        },
+        {
+          "severity": 1,
+          "name": "Least Severe",
+          "weight": 1,
+          "categories": [
+            {"code": "a1", "description": "Hostile actions toward wildlife, flora, or inanimate objects, or threats", "type": "overt"},
+            {"code": "b1", "description": "Criticism directed at subhuman, inanimate objects, places, situations", "type": "covert"},
+            {"code": "c1", "description": "Using hostile words, cursing, mention of anger or rage without referent", "type": "covert"},
+            {"code": "d1", "description": "Injury or death from non-human sources (natural disasters, animals, etc.)", "type": "covert"},
+            {"code": "e1", "description": "Subhuman entities engaged in aggression toward each other", "type": "covert"},
+            {"code": "f1", "description": "Denial of anger, dislike, hatred, cruelty, and intent to harm", "type": "covert"}
+          ]
+        }
+      ],
+      "composites": {
+        "overt_hostility": "Categories where the speaker is the agent: a3, b3, c3, a2, b2, c2, d2, a1",
+        "covert_hostility": "Categories where others or situations are agents: e2, f2, d1, e1, b1, c1"
+      }
+    },
+    {
+      "name": "Hostility Directed Inward",
+      "description": "Self-destructive, self-critical thoughts and actions",
+      "levels": [
+        {
+          "severity": 4,
+          "name": "Most Severe",
+          "weight": 4,
+          "categories": [
+            {"code": "a4", "description": "Self attempting or threatening to kill self, with or without conscious intent"},
+            {"code": "b4", "description": "Self wanting to die, needing or deserving to die"}
+          ]
+        },
+        {
+          "severity": 3,
+          "weight": 3,
+          "categories": [
+            {"code": "a3", "description": "Self-injury or disfigurement, or threats of such"},
+            {"code": "b3", "description": "Self-blame, self-hatred, feeling worthless"},
+            {"code": "c3", "description": "Hopelessness, despair, depression, lack of purpose"}
+          ]
+        },
+        {
+          "severity": 2,
+          "weight": 2,
+          "categories": [
+            {"code": "a2", "description": "Beliefs about deserving punishment or needing atonement"},
+            {"code": "b2", "description": "Self-criticism, regret, shame, or acknowledging personal errors"},
+            {"code": "c2", "description": "Feelings of deprivation, disappointment, loneliness"}
+          ]
+        },
+        {
+          "severity": 1,
+          "name": "Least Severe",
+          "weight": 1,
+          "categories": [
+            {"code": "a1", "description": "Disappointment in oneself; unmet personal expectations"},
+            {"code": "b1", "description": "Denial of anger or destructive impulses toward self"},
+            {"code": "c1", "description": "Feeling pressured to meet personal standards"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ambivalent Hostility",
+      "description": "Hostile threats and actions directed toward the self from external sources — neither clearly outward nor inward",
+      "levels": [
+        {
+          "severity": 3,
+          "weight": 3,
+          "categories": [
+            {"code": "a3", "description": "Others (human) killing or threatening to kill self"},
+            {"code": "b3", "description": "Others (human) physically injuring, mutilating, disfiguring self, or threatening to do so"},
+            {"code": "c3", "description": "Others (human) adversely criticizing, blaming, expressing anger or dislike toward self"},
+            {"code": "d3", "description": "Others (human) abandoning, robbing self, causing suffering, anguish, or threatening to do so"}
+          ]
+        },
+        {
+          "severity": 2,
+          "weight": 2,
+          "categories": [
+            {"code": "a2", "description": "Others (human) depriving, disappointing, misunderstanding self, or threatening to do so"},
+            {"code": "b2", "description": "Self threatened with death from subhuman or inanimate object, or death-dealing situation"}
+          ]
+        },
+        {
+          "severity": 1,
+          "weight": 1,
+          "categories": [
+            {"code": "a1", "description": "Others (subhuman, inanimate, or situation) injuring, abandoning, robbing self, causing suffering"},
+            {"code": "b1", "description": "Denial of blame"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hope",
+      "description": "Seven categories, positive scores indicate hope, negative indicate hopelessness",
+      "categories": [
+        {"code": "H1", "weight": 1, "description": "References to self or others getting or receiving help, advice, support, sustenance, confidence, esteem from others or self"},
+        {"code": "H2", "weight": 1, "description": "References to feelings of optimism about the present or future"},
+        {"code": "H3", "weight": 1, "description": "References to being, wanting to be, or seeking to be the recipient of good fortune, good luck, God's favor or blessing"},
+        {"code": "H4", "weight": 1, "description": "References to hopes that lead to constructive outcome, survival, longevity, smooth interpersonal relationships (requires explicit use of 'hope', 'wish', or close synonym)"},
+        {"code": "H5", "weight": -1, "description": "References to NOT being, wanting, or seeking good fortune, luck, favor, or blessing"},
+        {"code": "H6", "weight": -1, "description": "References to self or others NOT getting or receiving help, advice, support, sustenance, confidence, esteem"},
+        {"code": "H7", "weight": -1, "description": "References to feelings of hopelessness, losing hope, despair, lack of confidence, lack of ambition, pessimism, discouragement"}
+      ]
+    },
+    {
+      "name": "Social Alienation-Personal Disorganization",
+      "description": "Originally devised as a 'schizophrenic' scale. Positive weights indicate pathology, negative indicate healthy functioning.",
+      "sections": [
+        {
+          "name": "I. Interpersonal References",
+          "subsections": [
+            {"name": "A. Avoidance/Desertion", "items": [
+              {"description": "Self avoiding others", "weight": 1},
+              {"description": "Others avoiding self", "weight": 0}
+            ]},
+            {"name": "B. Unfriendly/Hostile", "items": [
+              {"description": "Self unfriendly to others", "weight_range": "1 to 3"},
+              {"description": "Others unfriendly to self", "weight": 1}
+            ]},
+            {"name": "C. Congenial/Constructive", "items": [
+              {"description": "Others helping/friendly to others", "weight": -2},
+              {"description": "Self helping/friendly to others", "weight": -2},
+              {"description": "Others helping/friendly to self", "weight": -2}
+            ]},
+            {"name": "D. Others/Environment", "items": [
+              {"description": "Bad, dangerous, low value, strange, ill", "weight": -1},
+              {"description": "Intact, satisfied, healthy", "weight": 0}
+            ]}
+          ]
+        },
+        {
+          "name": "II. Intrapersonal References",
+          "subsections": [
+            {"name": "A. Disorientation", "items": [
+              {"description": "Disorientation indicators", "weight": 2},
+              {"description": "Orientation indicators", "weight": 0}
+            ]},
+            {"name": "B. Self-references", "items": [
+              {"description": "Physical illness", "weight": 1},
+              {"description": "Psychological malfunctioning", "weight": 1},
+              {"description": "Getting better", "weight": -2},
+              {"description": "Intact/healthy with positive affect", "weight": -1},
+              {"description": "Intact/healthy neutral tone", "weight": -1},
+              {"description": "Unprepared/unable", "weight_range": "1 to 2"},
+              {"description": "Feeling controlled", "weight_range": "1 to 2"}
+            ]},
+            {"name": "C. Denial of feelings/attitudes", "weight": 3},
+            {"name": "D. Food references", "items": [
+              {"description": "Negative", "weight": 0},
+              {"description": "Good/neutral", "weight": 0}
+            ]},
+            {"name": "E. Weather references", "items": [
+              {"description": "Negative", "weight": -1},
+              {"description": "Good/neutral", "weight": -1}
+            ]},
+            {"name": "F. Sleep references", "items": [
+              {"description": "Negative", "weight": 0},
+              {"description": "Good/neutral", "weight": 0}
+            ]}
+          ]
+        },
+        {
+          "name": "III. Miscellaneous",
+          "subsections": [
+            {"name": "A. Disorganization signs", "items": [
+              {"description": "Remarks/words not understandable or inaudible", "weight": 1},
+              {"description": "Incomplete sentences/blocking", "weight": 0},
+              {"description": "Erroneous, illogical statements", "weight": 2}
+            ]},
+            {"name": "B. Repetition", "items": [
+              {"description": "Word repetition separated by one word", "weight": 0},
+              {"description": "Phrase/clause repetition", "weight": 1}
+            ]}
+          ]
+        },
+        {
+          "name": "IV. Interviewer References",
+          "items": [
+            {"description": "Questions to interviewer", "weight": 1},
+            {"description": "Other references", "weight_range": "1 to 2"}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cognitive and Intellectual Impairment",
+      "description": "Measures both transient and permanent cognitive changes, principally due to brain dysfunction",
+      "key_categories": [
+        {"description": "Disorientation (past, present, future)", "weight": 3},
+        {"description": "Self injured, ailing, malfunctioning, worsening", "weight": 0.25},
+        {"description": "Self intact, satisfied, healthy", "weight": 1},
+        {"description": "Being controlled/wanting control", "weight": 1},
+        {"description": "Denial of feelings, attitudes, mental state", "weight_note": "scored per SA-PD rules"},
+        {"description": "Incomplete sentences, clauses, phrases; blocking", "weight": 1},
+        {"description": "Repetition of sequential ideas", "weight": 1},
+        {"description": "Questions directed to interviewer", "weight": 0.5},
+        {"description": "Congenial/constructive interpersonal", "weight": -0.5},
+        {"description": "Good/neutral food references", "weight": -1}
+      ]
+    }
+  ],
+  "key_principle": "Statements about others experiencing anxiety or danger are treated as cues to the speaker's own anxieties. Spontaneous denials also indicate probable low-level presence of the affect."
+}

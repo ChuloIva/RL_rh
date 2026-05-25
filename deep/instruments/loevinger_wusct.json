@@ -1,0 +1,181 @@
+{
+  "name": "Washington University Sentence Completion Test",
+  "authors": "Jane Loevinger & Le Xuan Hy",
+  "year": 1996,
+  "source": "Hy, L.X. & Loevinger, J. (1996). Measuring Ego Development, 2nd ed. Lawrence Erlbaum.",
+  "form": "Form 81 (36 stems)",
+  "administration_time": "20-30 minutes",
+  "sentence_stems": [
+    "Raising a family...",
+    "When I am criticized...",
+    "Rules are...",
+    "My mother and I...",
+    "My father...",
+    "Being with other people...",
+    "The thing I like about myself is...",
+    "My main problem is...",
+    "When people are helpless...",
+    "Education...",
+    "If I can't get what I want...",
+    "When they talked about sex, I...",
+    "A woman should always...",
+    "A good father...",
+    "What gets me into trouble is...",
+    "I feel sorry...",
+    "Women are lucky because...",
+    "Sometimes she wished that...",
+    "Usually he felt that sex...",
+    "For me, development is...",
+    "A good boss is...",
+    "When a child will not join in group activities...",
+    "My conscience bothers me if...",
+    "A woman feels good when...",
+    "When I am with a man..."
+  ],
+  "note_on_stems": "25 of 36 stems compiled from published sources. Complete Form 81 available in Hy & Loevinger (1996). Male/female forms differ by pronoun gender in some stems.",
+  "stages": [
+    {
+      "code": "E2",
+      "name": "Impulsive",
+      "dimensions": {
+        "impulse_control": "Focused on bodily feelings, basic impulses, and immediate needs; minimal control",
+        "interpersonal_style": "Dependent, demanding, egocentric; dichotomous (people are 'good' if they meet needs, 'bad' if not)",
+        "conscious_preoccupation": "Bodily impulses, particularly sexual and aggressive ones",
+        "cognitive_style": "Very simplistic and dichotomous; present-focused"
+      },
+      "scoring_characteristics": "Responses are short, concrete, impulsive. Language reflects immediate gratification needs. Dichotomous good/bad evaluations.",
+      "example_completions": {
+        "Rules are...": "stupid",
+        "When I am criticized...": "I hit them",
+        "My main problem is...": "I want things",
+        "Raising a family...": "is hard"
+      }
+    },
+    {
+      "code": "E3",
+      "name": "Self-Protective",
+      "dimensions": {
+        "impulse_control": "More sophisticated use of awareness of rules and consequences; manipulative; externalizes blame",
+        "interpersonal_style": "Exploitive, manipulative, hedonistic, opportunistic",
+        "conscious_preoccupation": "Getting caught; control, advantage, self-protection",
+        "cognitive_style": "Cause-and-effect reasoning applied for personal gain"
+      },
+      "morality_basis": "Anticipating rewards/punishments (Don't Get Caught)",
+      "example_completions": {
+        "Rules are...": "made to be broken",
+        "If I can't get what I want...": "I take it anyway",
+        "When I am criticized...": "I don't care / I get even"
+      }
+    },
+    {
+      "code": "E4",
+      "name": "Conformist",
+      "dimensions": {
+        "impulse_control": "Rule-governed by group standards",
+        "interpersonal_style": "Very invested in belonging to and obtaining approval of important reference groups",
+        "conscious_preoccupation": "Material things, reputation, status, appearance, adjustment; group membership",
+        "cognitive_style": "Greatest cognitive simplicity; right way and wrong way; simple, conventional, rule-bound, moralistic; stereotypical thinking"
+      },
+      "key_emotion": "Shame peaks at this stage",
+      "example_completions": {
+        "Rules are...": "important and should be followed",
+        "Raising a family...": "is what a woman should do",
+        "When I am criticized...": "I try to do better",
+        "A good father...": "provides for his family"
+      }
+    },
+    {
+      "code": "E5",
+      "name": "Self-Aware",
+      "alternate_name": "Conscientious-Conformist",
+      "dimensions": {
+        "impulse_control": "Emerging self-reflection; increased internal questioning",
+        "interpersonal_style": "Recognizes uniqueness in self and others; tension between 'real me' and 'expected me'",
+        "conscious_preoccupation": "Personal beliefs on religion, morality, relationships; unique feelings versus group norms",
+        "cognitive_style": "Wondering, questioning; increased self-criticism; awareness of multiple possibilities"
+      },
+      "population_note": "Most common stage among US adults. Few progress to this before age 25.",
+      "example_completions": {
+        "Rules are...": "usually necessary, but sometimes unfair",
+        "When I am criticized...": "it depends on whether it's fair",
+        "My main problem is...": "I worry too much about what others think"
+      }
+    },
+    {
+      "code": "E6",
+      "name": "Conscientious",
+      "dimensions": {
+        "impulse_control": "Guided by self-evaluated standards; guilt-based rather than shame-based",
+        "interpersonal_style": "Increasing concern with mutuality and empathy in relationships",
+        "conscious_preoccupation": "Responsibility, achievement, long-term goals, personal ideals; standards are self-chosen and distinguished from manners",
+        "cognitive_style": "Greater conceptual complexity; differentiated emotional expression; people seen in terms of motives, not just actions"
+      },
+      "key_shift": "Adolescent or adult abandons convention for internal standards. Guilt comes from hurting others rather than breaking rules.",
+      "example_completions": {
+        "Rules are...": "necessary guidelines, but I evaluate them against my own principles",
+        "When I am criticized...": "I consider whether it's valid and try to learn from it",
+        "Raising a family...": "is a profound responsibility that requires self-examination",
+        "A good father...": "understands his children's individual needs and supports their growth"
+      }
+    },
+    {
+      "code": "E7",
+      "name": "Individualistic",
+      "dimensions": {
+        "impulse_control": "Conflict awareness without resolution; awareness of inner paradoxes",
+        "interpersonal_style": "Broad-minded tolerance and respect for autonomy of both self and others; relationships valued more than achievement",
+        "conscious_preoccupation": "Heightened sense of individuality; concern for emotional dependence; inner conflicts and paradoxes",
+        "cognitive_style": "Vivid, unique self-expression; moralism replaced by awareness of inner conflict; greater psychological sophistication"
+      },
+      "example_completions": {
+        "Rules are...": "reflections of a society's values, but they don't always capture the complexity of individual situations",
+        "When I am criticized...": "I notice I have conflicting reactions — part of me wants to defend myself and part wants to hear the truth",
+        "My main problem is...": "that I sometimes lose myself trying to be true to both my own needs and those of the people I love"
+      }
+    },
+    {
+      "code": "E8",
+      "name": "Autonomous",
+      "dimensions": {
+        "impulse_control": "Integrated tolerance of inner conflict; freed from oppressive demands of conscience",
+        "interpersonal_style": "Relationships appreciated as an interdependent system of mutual support; emotional interdependence recognized as inevitable",
+        "conscious_preoccupation": "Individuality, self-actualization, autonomy; coping with inner conflict as the characteristic moral issue",
+        "cognitive_style": "High toleration for ambiguity and conceptual complexity; capacity to embrace polarity, complexity, and multiple facets; synthesizers who can conceptually integrate ideas"
+      },
+      "key_capacity": "Conscious recognition of opposing demands in personal complexity rises to awareness. Conflicts accepted as inevitable expressions of the fluid and multifaceted nature of people.",
+      "example_completions": {
+        "Rules are...": "one expression of the ongoing tension between individual freedom and collective responsibility — both are necessary and neither can fully prevail",
+        "When I am criticized...": "I try to hold the discomfort while really listening, knowing that growth often comes from the hardest feedback"
+      }
+    },
+    {
+      "code": "E9",
+      "name": "Integrated",
+      "dimensions": {
+        "impulse_control": "Reconciliation of inner conflicts; peace with unsolvable issues",
+        "interpersonal_style": "Wisdom and broad empathy towards oneself and others",
+        "conscious_preoccupation": "Full sense of identity; seeks integration and self-actualization across multifaceted self-aspects; reconciliation to one's destiny",
+        "cognitive_style": "Holistic, integrative; strong moral principles; capacity to cherish individuality while reconciling inner conflicts"
+      },
+      "population_note": "Rarely attained — less than 1% of US adults",
+      "example_completions": {
+        "Rules are...": "part of the dance between order and freedom that makes human community possible — I hold them lightly but respectfully"
+      }
+    }
+  ],
+  "scoring_method": {
+    "item_level": "Each of the 36 stems has its own scoring manual. Each response is independently rated on the E2-E9 scale using an exemplar-based method: a completion is scored by matching it to real examples grouped into categories by thematic similarity.",
+    "total_protocol_rating": {
+      "ogive_rules": "Item scores are arranged in a cumulative frequency distribution, and threshold values (Tk) are applied to classify the respondent. The ogive reflects that people maintain the capacity to respond at lower levels after leaving them behind.",
+      "total_weighted_score": "A mathematical sum giving higher weights to higher scores, yielding a continuous measure rather than discrete levels.",
+      "mode_plus_impressionistic": "Calculate the mode of item ratings, generate an impressionistic assessment, compare against frequency distributions. Tie-breaking rules apply when they diverge."
+    },
+    "reliability": "Internal consistency alpha ~.85"
+  },
+  "linguistic_correlates": {
+    "self_centeredness": "First-person singular pronouns decrease at higher development levels",
+    "complexity": "Conjunctions like 'but' and 'although' increase with maturation",
+    "informality": "Words reflecting leisure, anger, swearing, sexual content correlate with lower ego levels",
+    "verbosity": "Response length shows greatest gains at later developmental stages"
+  }
+}

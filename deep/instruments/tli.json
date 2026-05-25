@@ -1,0 +1,124 @@
+{
+  "name": "Thought and Language Index",
+  "authors": "Liddle, Ngan, Caissie et al.",
+  "year": 2002,
+  "source": "Liddle, P.F. et al. (2002). Thought and Language Index: an instrument for assessing thought and language in schizophrenia. British Journal of Psychiatry, 181(4), 326-330.",
+  "elicitation": "Eight TAT pictures presented sequentially, 1 minute of speech per picture, yielding 8 speech samples",
+  "severity_scale": {
+    "0.25": "Questionable abnormality",
+    "0.50": "Definite but mild abnormality",
+    "0.75": "Moderate abnormality",
+    "1.0": "Severe/clear abnormality"
+  },
+  "subscales": [
+    {
+      "name": "Impoverished Thought/Language",
+      "items": [
+        {
+          "number": 1,
+          "name": "Poverty of Speech",
+          "definition": "Decrease in the amount of speech. Responses to the picture and replies to questions are brief and lack elaboration.",
+          "severity_examples": {
+            "0.25": "Slightly less speech than expected; somewhat terse responses",
+            "0.50": "Noticeably brief responses; requires prompting to continue",
+            "0.75": "Very brief, minimal responses despite encouragement",
+            "1.0": "Near-absence of speech; single words or silence"
+          }
+        },
+        {
+          "number": 2,
+          "name": "Weakening of Goal",
+          "definition": "Lack of drive in thinking manifest in lack of normal elaboration of ideas, use of uninformative generalisations and empty speech with little substantive information.",
+          "severity_examples": {
+            "0.25": "Occasional vague or uninformative statements",
+            "0.50": "Frequent use of empty generalisations; low information density",
+            "0.75": "Speech largely devoid of substantive content despite adequate volume",
+            "1.0": "Completely empty speech; no meaningful information conveyed"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Disorganised Thought/Language",
+      "items": [
+        {
+          "number": 3,
+          "name": "Looseness",
+          "definition": "Connection between ideas is tenuous or absent, or extraneous ideas intrude into the train of thought. Parallels derailment/tangentiality in other systems.",
+          "severity_examples": {
+            "0.25": "Slight tangential drift that can be followed",
+            "0.50": "Clear non-sequitur or intrusion of an extraneous idea, but speaker returns to topic",
+            "0.75": "Multiple loose connections; difficult to follow the thread",
+            "1.0": "Complete loss of thread; ideas appear random or disconnected"
+          }
+        },
+        {
+          "number": 4,
+          "name": "Peculiar Word Use",
+          "definition": "Unusual or invented words are used. At mild levels, this means using a rare word when a common word would convey the meaning more clearly.",
+          "severity_examples": {
+            "0.25": "Using a rare word when a common word would be clearer",
+            "0.50": "Clear unusual word choice that causes brief confusion",
+            "0.75": "Word usage that substantially impedes comprehension",
+            "1.0": "Neologisms or word use that prevents comprehension"
+          }
+        },
+        {
+          "number": 5,
+          "name": "Peculiar Sentence Construction",
+          "definition": "Form of the sentences is unusual. Greater weight is given to peculiarity of sentence construction which makes it difficult to discern the meaning.",
+          "severity_examples": {
+            "0.25": "Mildly unusual syntax that can be parsed",
+            "0.50": "Sentence structure that requires re-reading to understand",
+            "0.75": "Sentence construction that substantially obscures meaning",
+            "1.0": "Incomprehensible sentence structure"
+          }
+        },
+        {
+          "number": 6,
+          "name": "Peculiar Logic",
+          "definition": "Conclusions are reached based on inadequate evidence or faulty logic.",
+          "severity_examples": {
+            "0.25": "Slightly questionable inference",
+            "0.50": "Clear logical gap or non-sequitur reasoning",
+            "0.75": "Substantially flawed causal reasoning",
+            "1.0": "Completely illogical or bizarre conclusion"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Non-Specific Dysregulation",
+      "items": [
+        {
+          "number": 7,
+          "name": "Perseveration",
+          "definition": "Unwarranted repetition of ideas or themes.",
+          "severity_examples": {
+            "0.25": "Mild repetition of a theme within expected limits",
+            "0.50": "Clear unnecessary return to an already-covered idea",
+            "0.75": "Persistent repetition across multiple speech samples",
+            "1.0": "Rigid, stuck repetition dominating output"
+          }
+        },
+        {
+          "number": 8,
+          "name": "Distractibility",
+          "definition": "Intrusion of extraneous ideas arising from an external stimulus.",
+          "severity_examples": {
+            "0.25": "Brief mention of an external stimulus before returning to task",
+            "0.50": "Clear disruption of speech by external stimulus",
+            "0.75": "Frequent derailing by environmental stimuli",
+            "1.0": "Unable to maintain focus due to constant external intrusions"
+          }
+        }
+      ]
+    }
+  ],
+  "scoring_notes": {
+    "healthy_controls": "Scores accumulated almost entirely from items scored at 0.25, with only isolated instances of 0.50 in one or two individuals",
+    "subscale_independence": "The three subscale scores are approximately orthogonal based on factor analysis, capturing independent dimensions of thought disorder",
+    "total_score": "Sum of all individual instance scores across all items and speech samples",
+    "cot_applicability": "For LLM CoT traces, Looseness, Weakening of Goal, Peculiar Logic, and Perseveration are the most directly applicable categories since they do not require auditory/vocal assessment"
+  }
+}

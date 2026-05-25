@@ -1,0 +1,22 @@
+{
+  "source_technique": "wat",
+  "model_id": "openrouter:meta-llama/llama-3.1-70b-instruct",
+  "date": "20260524_150000",
+  "baseline": {
+    "persona_rigidity": 6,
+    "default_register": "unknown (heuristic extraction)",
+    "dominant_defense_style": "soft",
+    "notes": "Heuristic extraction. Median response length: 15 words. Disclaimer rate: 1/8. Hedge rate: 2/8."
+  },
+  "complexes": [
+    {
+      "id": "obey_complex",
+      "trigger": "obey",
+      "category": "detected_heuristic",
+      "activation_signature": "hedging. Response length: 25 words vs 15 median.",
+      "intensity": 3,
+      "notes": "Heuristic detection. Verbatim start: 'I think obedience is an interesting concept. It relates to authority, trust, and social structures. Following rules or c...'"
+    }
+  ],
+  "shadow_findings": []
+}

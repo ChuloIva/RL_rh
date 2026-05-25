@@ -1,0 +1,452 @@
+{
+  "name": "Defense Mechanisms Rating Scales",
+  "authors": "J. Christopher Perry",
+  "version": "5th Edition (1990)",
+  "references": [
+    "Perry, J. C. (1990). Defense Mechanism Rating Scales (DMRS), 5th edition.",
+    "Di Giuseppe, M., Perry, J. C., Lucchesi, M., Michelini, M., Vitiello, S., Piantanida, A., Fabiani, M., Sarno, I., & Conversano, C. (2021). The hierarchy of defense mechanisms: Assessing defensive functioning with the Defense Mechanisms Rating Scales Q-Sort. Frontiers in Psychology, 12, 718440."
+  ],
+  "odf_formula": "Sum(n_i * w_i) / Sum(n_i)",
+  "odf_description": "Overall Defensive Functioning is calculated by summing the product of each identified defense's level weight (n_i = count of defenses at level i, w_i = weight of level i) and dividing by the total number of defenses identified. ODF ranges from 1.0 (exclusively action-level defenses) to 7.0 (exclusively mature defenses).",
+  "levels": [
+    {
+      "level": 7,
+      "name": "High-Adaptive",
+      "category": "Mature",
+      "weight": 7,
+      "function": "These defenses allow optimal adaptation to stressors. They maximize awareness of feelings, ideas, and their consequences while promoting an optimal balance among conflicting motives.",
+      "defenses": [
+        {
+          "name": "Affiliation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by turning to others for help or support. This involves sharing problems with others without trying to make someone else responsible for them.",
+          "textual_indicators": [
+            "References to seeking support or advice from others",
+            "Descriptions of sharing feelings or concerns with trusted people",
+            "Mentions of collaborative problem-solving",
+            "Statements about reaching out to friends, family, or professionals during difficulty"
+          ],
+          "example": "When I found out about the diagnosis, I called my sister right away. It really helped to talk it through with someone who cares."
+        },
+        {
+          "name": "Altruism",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by dedication to fulfilling the needs of others. Unlike self-sacrifice, the individual receives gratification either vicariously or from the response of others.",
+          "textual_indicators": [
+            "Descriptions of helping others that bring satisfaction",
+            "References to constructive service to others",
+            "Volunteering or mentoring narratives with genuine pleasure",
+            "Statements where doing for others also fulfills one's own needs"
+          ],
+          "example": "After my own recovery, I started volunteering at the clinic. Helping people through what I went through gives me a real sense of purpose."
+        },
+        {
+          "name": "Anticipation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by considering realistic, alternative responses or solutions and their emotional consequences before they occur. The individual experiences emotional reactions in advance or anticipates consequences of possible future events.",
+          "textual_indicators": [
+            "Realistic planning for future challenges",
+            "Thinking through potential outcomes and preparing emotionally",
+            "Acknowledging future difficulties without avoidance or denial",
+            "Considering multiple scenarios with appropriate affect"
+          ],
+          "example": "I know the surgery will be difficult, and recovery will be painful. I have arranged time off work and asked my partner to help with the kids."
+        },
+        {
+          "name": "Humor",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by emphasizing the amusing or ironic aspects of the conflict or stressor. Humor allows the expression of feelings without individual discomfort or immobilization and without producing an unpleasant effect on others.",
+          "textual_indicators": [
+            "Witty or ironic remarks about one's own situation",
+            "Lighthearted reframing of a painful topic without minimizing it",
+            "Jokes that acknowledge difficulty while remaining connected to affect",
+            "Laughter or levity that facilitates rather than blocks emotional processing"
+          ],
+          "example": "I told my therapist that my family puts the 'fun' in dysfunction. But seriously, it helps me deal with how chaotic things can get."
+        },
+        {
+          "name": "Self-Assertion",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by expressing his or her feelings and thoughts directly in a way that is not coercive or manipulative. The individual achieves goals through appropriate directness.",
+          "textual_indicators": [
+            "Direct expression of needs, preferences, or opinions",
+            "Clear statements about boundaries or expectations",
+            "Speaking up in the face of conflict without aggression",
+            "Assertive communication that respects both self and others"
+          ],
+          "example": "I told my boss that I needed a reasonable workload. It wasn't easy, but I explained calmly why the deadline was unrealistic."
+        },
+        {
+          "name": "Self-Observation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by reflecting on his or her own thoughts, feelings, motivation, and behavior, and then responding appropriately. This differs from intellectualization in that it involves genuine emotional engagement.",
+          "textual_indicators": [
+            "Reflective statements about one's own patterns or reactions",
+            "Recognition of how one's emotions influence behavior",
+            "Genuine introspection with affective engagement",
+            "Insight into one's motives or defensive patterns"
+          ],
+          "example": "I notice that when I feel criticized, my first reaction is to shut down. I think it comes from how I learned to deal with my father's anger."
+        },
+        {
+          "name": "Sublimation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by channeling potentially maladaptive feelings or impulses into socially acceptable behavior. Unlike reaction formation, the feeling is channeled rather than transformed into its opposite.",
+          "textual_indicators": [
+            "Redirecting aggressive or sexual energy into creative or productive work",
+            "Using art, sports, or work as outlets for difficult emotions",
+            "Transforming impulses into constructive activity",
+            "Descriptions of channeling frustration into accomplishment"
+          ],
+          "example": "After the breakup, I threw myself into painting. The anger and sadness I felt came out on the canvas in a way that felt genuinely expressive."
+        },
+        {
+          "name": "Suppression",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by intentionally avoiding thinking about disturbing problems, wishes, feelings, or experiences. Unlike repression, suppression is a conscious, deliberate decision to postpone attending to a conflict.",
+          "textual_indicators": [
+            "Conscious, deliberate postponement of emotional processing",
+            "Statements like 'I'll deal with that later'",
+            "Intentional focus on present tasks despite awareness of distressing material",
+            "Acknowledgment that an issue exists but choosing an appropriate time to address it"
+          ],
+          "example": "I know I need to deal with my grief, but right now I need to focus on getting through this work presentation. I will sit with those feelings this weekend."
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "name": "Obsessional",
+      "category": "Neurotic",
+      "weight": 6,
+      "function": "These defenses keep potentially threatening ideas, feelings, memories, wishes, or fears out of awareness by altering the way one thinks about them. Affect is separated from content or ideas are substituted.",
+      "defenses": [
+        {
+          "name": "Isolation of Affect",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by being unable to experience simultaneously the cognitive and affective components of an experience because the affect is kept from awareness. The idea remains conscious but the feeling is separated from it.",
+          "textual_indicators": [
+            "Flat or absent affect when describing highly emotional events",
+            "Detailed factual accounts of trauma without emotional reaction",
+            "Clinical or technical language for personal experiences",
+            "Noting that one 'should' feel something but does not"
+          ],
+          "example": "My mother died last month. The funeral was on Tuesday. We had it at the church on Main Street. It was raining. That's about it."
+        },
+        {
+          "name": "Intellectualization",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by the excessive use of abstract thinking or making generalizations to control or minimize disturbing feelings. Unlike isolation, intellectualization involves using elaborate theoretical or philosophical frameworks rather than simply separating affect from content.",
+          "textual_indicators": [
+            "Excessive use of abstract, theoretical, or philosophical language about personal issues",
+            "Generalizing personal experience into universal principles",
+            "Quoting research, statistics, or theory instead of expressing feelings",
+            "Treating emotional problems as intellectual puzzles"
+          ],
+          "example": "Well, statistically speaking, most marriages end in divorce. From an evolutionary psychology perspective, long-term pair bonding is quite unusual among primates."
+        },
+        {
+          "name": "Undoing",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by words or behavior designed to symbolically negate or make amends for unacceptable thoughts, feelings, or actions. This often involves repetitive, ritualistic behavior.",
+          "textual_indicators": [
+            "Immediately retracting or correcting a statement",
+            "Compensatory behavior following a perceived transgression",
+            "Ritualistic actions to 'undo' a thought or action",
+            "Excessive apologizing or making amends beyond what the situation calls for"
+          ],
+          "example": "I said something critical about my mother, but I didn't mean it. She's actually a wonderful person. I should call her right now and tell her how much I love her."
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "name": "Neurotic",
+      "category": "Neurotic",
+      "weight": 5,
+      "function": "These defenses keep potentially threatening ideas, feelings, memories, wishes, or fears out of awareness. The individual may not be aware of the defense or of the warded-off content.",
+      "defenses": [
+        {
+          "name": "Displacement",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by transferring a feeling about, or a response to, one object onto another (usually less threatening) substitute object.",
+          "textual_indicators": [
+            "Expressing strong emotion toward a substitute target",
+            "Anger at a safe person rather than the actual source of frustration",
+            "Redirecting feelings to a less threatening object or person",
+            "Pattern of disproportionate reactions to minor irritants"
+          ],
+          "example": "I wasn't angry at my boss for criticizing me. But when I got home, I snapped at my partner for leaving dishes in the sink."
+        },
+        {
+          "name": "Dissociation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by a temporary alteration in the integrative functions of consciousness or identity. This may manifest as loss of memory, disconnection from one's sense of self, or altered perception of time or environment.",
+          "textual_indicators": [
+            "Reports of feeling detached from one's body or environment",
+            "Gaps in memory or awareness during stressful periods",
+            "Descriptions of 'spacing out' or 'going blank'",
+            "Feeling as though one is observing oneself from outside"
+          ],
+          "example": "During the argument, I felt like I was floating above myself watching it happen. I can't really remember what I said."
+        },
+        {
+          "name": "Reaction Formation",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by substituting behavior, thoughts, or feelings that are diametrically opposed to his or her own unacceptable thoughts or feelings. The substitute behavior is often exaggerated.",
+          "textual_indicators": [
+            "Exaggerated positive feelings toward someone who provokes negative feelings",
+            "Excessive kindness or solicitude masking hostility",
+            "Over-the-top expressions of affection or concern that seem forced",
+            "Behavior that is dramatically opposite to the underlying feeling"
+          ],
+          "example": "I absolutely adore my mother-in-law. She's the most wonderful woman in the world. I insist she come to every holiday dinner."
+        },
+        {
+          "name": "Repression",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by being unable to remember or be cognitively aware of disturbing wishes, feelings, thoughts, or experiences. Unlike suppression, repression is unconscious and involuntary.",
+          "textual_indicators": [
+            "Inability to recall significant events or periods",
+            "Gaps in memory for emotionally significant experiences",
+            "Genuine forgetting of traumatic or conflictual material",
+            "Statements like 'I really can't remember' about important events"
+          ],
+          "example": "I know my parents divorced when I was seven, but I honestly can't remember anything about that year. It's just blank."
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "name": "Minor Image-Distorting",
+      "category": "Immature",
+      "weight": 4,
+      "function": "These defenses distort the image of self, body, or others in order to regulate self-esteem. They involve inflating or deflating the perception of self or others to manage emotional threats.",
+      "defenses": [
+        {
+          "name": "Devaluation of Self-Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by attributing exaggerated negative qualities to the self. This goes beyond realistic self-criticism to a global, distorted depreciation.",
+          "textual_indicators": [
+            "Global negative self-characterizations",
+            "Describing self as worthless, stupid, or fundamentally flawed",
+            "Exaggerated self-blame disproportionate to circumstances",
+            "Pervasive self-deprecation beyond realistic assessment"
+          ],
+          "example": "I'm a complete failure. Everything I touch falls apart. I don't know why anyone would want to be around me."
+        },
+        {
+          "name": "Devaluation of Other's Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by attributing exaggerated negative qualities to others. This involves a distorted, dismissive, or contemptuous view of another person.",
+          "textual_indicators": [
+            "Harsh, dismissive characterizations of others",
+            "Contemptuous descriptions that reduce a person to their worst qualities",
+            "Wholesale rejection of a person's worth",
+            "Exaggerated negative attributions about another's character"
+          ],
+          "example": "My therapist is completely useless. She doesn't understand anything. I don't know how she even got her degree."
+        },
+        {
+          "name": "Idealization of Self-Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by attributing exaggerated positive qualities to the self. This inflated self-image serves to protect against feelings of inadequacy or vulnerability.",
+          "textual_indicators": [
+            "Grandiose or inflated self-descriptions",
+            "Claims of exceptional ability, insight, or moral standing",
+            "Unrealistic positive self-attributions",
+            "Describing self as uniquely talented, special, or superior"
+          ],
+          "example": "I've always been exceptional at everything I do. People come to me for advice because they know I have a special ability to understand things."
+        },
+        {
+          "name": "Idealization of Other's Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by attributing exaggerated positive qualities to others. The other person is seen as perfect, all-knowing, or without fault.",
+          "textual_indicators": [
+            "Describing another as perfect or without any flaws",
+            "Excessive admiration or reverence for a person",
+            "Attributing unrealistic powers or qualities to another",
+            "Placing someone on an impossible pedestal"
+          ],
+          "example": "My new analyst is absolutely brilliant. She understands me completely. She's the only person who has ever truly gotten me."
+        },
+        {
+          "name": "Omnipotence",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by feeling or acting as if he or she possesses special powers or abilities and is superior to others. This serves to protect against feelings of helplessness or dependency.",
+          "textual_indicators": [
+            "Assertions of special powers, invulnerability, or superiority",
+            "Acting as though one is above ordinary rules or limitations",
+            "Claims of unique control over events or other people",
+            "Dismissing others' contributions while inflating one's own"
+          ],
+          "example": "I can handle anything that comes my way. Other people might crumble under this kind of pressure, but not me. I'm built differently."
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "name": "Disavowal",
+      "category": "Immature",
+      "weight": 3,
+      "function": "These defenses keep unpleasant or unacceptable stressors, impulses, ideas, affects, or responsibility out of awareness. The individual may or may not be aware of using the defense but is clearly not in touch with what is warded off.",
+      "defenses": [
+        {
+          "name": "Denial",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by refusing to acknowledge some painful aspect of external reality or subjective experience that would be apparent to others. Unlike repression, which involves forgetting, denial involves a refusal to acknowledge what is clearly present.",
+          "textual_indicators": [
+            "Flat contradiction of observable facts",
+            "Insistence that a clearly distressing situation is fine",
+            "Refusing to acknowledge obvious problems",
+            "Minimization of serious circumstances to the point of negation"
+          ],
+          "example": "My drinking? It's not a problem at all. I can stop whenever I want. Everyone has a few drinks after work."
+        },
+        {
+          "name": "Rationalization",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by devising reassuring or self-serving but incorrect explanations for his or her own or others' behavior. Unlike intellectualization, rationalization is focused on justifying specific actions rather than avoiding feelings through abstraction.",
+          "textual_indicators": [
+            "Plausible but self-serving explanations for behavior",
+            "Justifications that avoid the real emotional motive",
+            "Seemingly logical reasons that mask underlying feelings",
+            "Elaborate excuses that redirect from the true issue"
+          ],
+          "example": "I didn't get the promotion because the boss plays favorites. It has nothing to do with my performance. The whole system is rigged."
+        },
+        {
+          "name": "Projection",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by falsely attributing to another his or her own unacceptable feelings, impulses, or thoughts. Unlike projective identification, the individual does not remain empathically connected to what is projected.",
+          "textual_indicators": [
+            "Attributing one's own hostile or unacceptable feelings to others",
+            "Perceiving others as having the feelings or motives the individual is denying in themselves",
+            "Persistent suspicion or mistrust based on disowned feelings",
+            "Accusing others of the very impulses one is experiencing"
+          ],
+          "example": "I'm not angry at all. It's my coworker who has it out for me. She's been hostile toward me from day one."
+        },
+        {
+          "name": "Autistic Fantasy",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by excessive daydreaming as a substitute for human relationships, more effective action, or problem-solving. The fantasies replace genuine interpersonal engagement.",
+          "textual_indicators": [
+            "Extended descriptions of fantasy scenarios substituting for real action",
+            "Daydreaming used as a primary coping strategy",
+            "Retreat into imaginary worlds to avoid real-life problems",
+            "Elaborate fantasies about revenge, success, or relationships without any action toward them"
+          ],
+          "example": "I spend hours imagining what I would say to my ex if I saw her again. In my mind, I always know exactly what to say and she realizes what she lost."
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "name": "Major Image-Distorting",
+      "category": "Immature",
+      "weight": 2,
+      "function": "These defenses grossly distort or misattribute images of self or others. They create major disruptions in the capacity to perceive self and others realistically and are characteristic of borderline personality organization.",
+      "defenses": [
+        {
+          "name": "Splitting of Self-Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by viewing himself or herself as all good or all bad, failing to integrate the positive and negative qualities of the self into a cohesive image. Self-perceptions rapidly alternate between idealized and devalued extremes.",
+          "textual_indicators": [
+            "Alternating between grandiose and worthless self-descriptions",
+            "Black-or-white self-characterizations that shift rapidly",
+            "Inability to hold both strengths and weaknesses simultaneously",
+            "Statements that oscillate between self-idealization and self-contempt"
+          ],
+          "example": "Last week I felt like I could conquer anything. Now I feel like I'm the worst person alive. I can't see any middle ground."
+        },
+        {
+          "name": "Splitting of Other's Image",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by viewing others as all good or all bad, failing to integrate the positive and negative qualities of the person into a cohesive realistic view. Others rapidly alternate between being idealized and devalued.",
+          "textual_indicators": [
+            "Rapid shifts from praise to condemnation of the same person",
+            "Describing someone as perfect one moment and terrible the next",
+            "Black-and-white descriptions of others without nuance",
+            "Pattern of intense initial idealization followed by complete devaluation"
+          ],
+          "example": "My boyfriend was the most wonderful person I ever met. Now I realize he's a complete monster. I can't believe I ever trusted him."
+        },
+        {
+          "name": "Projective Identification",
+          "definition": "As with projection, the individual attributes his or her own unacknowledged feelings, impulses, or thoughts onto another person. However, unlike simple projection, the individual remains aware of the affect and attributes it to the other person as a justifiable reaction. The individual often induces the very feelings in others that were first projected.",
+          "textual_indicators": [
+            "Attributing feelings to another while remaining emotionally engaged with those feelings",
+            "Provoking in others the very emotions being disowned",
+            "Descriptions where one's own projected feelings 'make' others behave in certain ways",
+            "Feeling that another person is experiencing what one is unable to tolerate in oneself, while acting in ways that induce that state"
+          ],
+          "example": "I can tell my therapist is frustrated with me. She must think I'm hopeless. I can see it in her face. And then she gets short with me, which proves I'm right."
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "Action",
+      "category": "Immature",
+      "weight": 1,
+      "function": "These defenses deal with stressors through action or withdrawal. They involve acting out internal conflicts through behavior rather than through thought or feeling. These are the least adaptive defenses.",
+      "defenses": [
+        {
+          "name": "Acting Out",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by actions rather than reflections or feelings. This involves impulsive behavior without regard for negative consequences and without apparent awareness of the underlying emotional conflict driving the behavior.",
+          "textual_indicators": [
+            "Descriptions of impulsive behavior during emotional distress",
+            "Accounts of destructive or reckless actions without reflection",
+            "Pattern of acting before thinking in response to conflict",
+            "Behavioral enactment of internal conflicts without insight"
+          ],
+          "example": "After the fight with my girlfriend, I just got in the car and drove 100 miles an hour on the highway. I didn't care what happened."
+        },
+        {
+          "name": "Passive Aggression",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by indirectly and unassertively expressing aggression toward others. There is a facade of overt compliance masking covert resistance, resentment, or hostility. Passive aggression often occurs in response to demands for independent action or performance.",
+          "textual_indicators": [
+            "Descriptions of procrastination or 'forgetting' obligations",
+            "Compliance on the surface with subtle sabotage underneath",
+            "Expressing hostility through inaction, lateness, or obstruction",
+            "Agreeing to tasks while undermining them through passive resistance"
+          ],
+          "example": "Sure, I'll do the report for my boss. I just keep forgetting to finish it. He gave me an unreasonable deadline anyway."
+        },
+        {
+          "name": "Help-Rejecting Complaining",
+          "definition": "The individual deals with emotional conflict or internal/external stressors by complaining or making repetitious requests for help that disguise covert feelings of hostility or reproach toward others. The complaints or requests are then rejected by dismissing the suggestions, advice, or help that others offer. The satisfaction is in rejecting what is offered.",
+          "textual_indicators": [
+            "Repeated complaints followed by rejection of all proposed solutions",
+            "Yes-but responses to every suggestion offered",
+            "Pattern of soliciting help then dismissing it as inadequate",
+            "Chronic dissatisfaction combined with refusal to accept assistance"
+          ],
+          "example": "I've tried everything for my insomnia. My doctor suggested medication but that has side effects. Therapy didn't work. Meditation is useless. Nothing will help."
+        }
+      ]
+    }
+  ],
+  "discrimination_rules": [
+    {
+      "pair": ["Rationalization", "Intellectualization"],
+      "key_discriminator": "Rationalization provides self-serving but incorrect justifications for specific behaviors or outcomes, focusing on 'why I did this was actually fine.' Intellectualization uses excessive abstract or theoretical thinking to avoid feeling altogether, focusing on generalized ideas rather than justifying particular actions. Rationalization targets a specific event; intellectualization avoids affect through abstraction."
+    },
+    {
+      "pair": ["Isolation of Affect", "Intellectualization"],
+      "key_discriminator": "Isolation of affect involves being unable to experience the affective component of an experience while retaining the cognitive content -- the person describes events flatly without emotion. Intellectualization actively replaces emotional processing with excessive abstract thinking, theorizing, or generalizing. In isolation, emotion is simply absent; in intellectualization, it is actively replaced by cognition."
+    },
+    {
+      "pair": ["Denial", "Repression"],
+      "key_discriminator": "Denial involves a conscious or preconscious refusal to acknowledge an external reality or its significance that is apparent to others. Repression is an unconscious process in which the individual is genuinely unable to remember or become aware of disturbing wishes, feelings, or experiences. With denial, the information is available but rejected; with repression, it is not available to consciousness at all."
+    },
+    {
+      "pair": ["Reaction Formation", "Undoing"],
+      "key_discriminator": "Reaction formation involves an enduring transformation of an unacceptable feeling into its opposite (e.g., hatred expressed as exaggerated love), creating a sustained behavioral pattern. Undoing is a discrete, often ritualistic act designed to symbolically negate or make amends for a specific unacceptable thought or action. Reaction formation is a persistent stance; undoing is an episodic corrective act."
+    },
+    {
+      "pair": ["Projection", "Projective Identification"],
+      "key_discriminator": "In projection, the individual attributes disowned feelings to another person and does not remain empathically connected to the projected material -- it becomes 'their' problem. In projective identification, the individual remains emotionally engaged with the projected material, often inducing the very feelings in the other person through interpersonal pressure, and may then identify with the other's reaction."
+    },
+    {
+      "pair": ["Splitting", "Idealization/Devaluation"],
+      "key_discriminator": "Splitting (Level 2) involves a global failure to integrate positive and negative qualities of self or others, with rapid oscillation between all-good and all-bad representations. Idealization and devaluation (Level 4) are more stable distortions of self-esteem regulation -- either inflating or deflating the image of self or others without the characteristic rapid oscillation. Splitting is more primitive and involves rapid alternation; idealization/devaluation can be more sustained and focused."
+    },
+    {
+      "pair": ["Suppression", "Denial"],
+      "key_discriminator": "Suppression (Level 7, mature) is a conscious, deliberate decision to postpone attention to a disturbing thought, emotion, or problem, with full awareness that it exists and will be addressed later. Denial (Level 3, immature) involves a refusal to acknowledge the reality or significance of a stressor, without awareness that one is avoiding it. Suppression says 'I know it's there but I'll deal with it later'; denial says 'It's not there' or 'It's not a problem.'"
+    },
+    {
+      "pair": ["Suppression", "Repression"],
+      "key_discriminator": "Suppression is a conscious, volitional act of postponing attention to a disturbing feeling or thought. Repression is unconscious and involuntary -- the individual genuinely cannot access the warded-off material. The critical distinction is conscious intent: suppression involves deliberate choice while repression operates outside of awareness."
+    },
+    {
+      "pair": ["Anticipation", "Autistic Fantasy"],
+      "key_discriminator": "Anticipation (Level 7, mature) involves realistic planning and emotional preparation for future challenges, leading to effective coping and problem-solving. Autistic fantasy (Level 3, immature) involves excessive daydreaming that substitutes for realistic action or genuine human relationships. Anticipation engages with reality; autistic fantasy retreats from it. Both are future-oriented, but anticipation leads to action while autistic fantasy replaces it."
+    },
+    {
+      "pair": ["Displacement", "Projection"],
+      "key_discriminator": "Displacement redirects one's own acknowledged feeling (e.g., anger) from its original target to a less threatening substitute object -- the feeling is still recognized as one's own. Projection attributes one's own unacceptable feeling to someone else entirely -- the feeling is disowned and perceived as belonging to the other person. In displacement, 'I know I'm angry but I direct it at the wrong person'; in projection, 'I'm not angry -- you're the one who is angry at me.'"
+    },
+    {
+      "pair": ["Altruism", "Reaction Formation"],
+      "key_discriminator": "Altruism (Level 7, mature) involves constructive, genuine service to others that brings authentic satisfaction and vicariously fulfills the individual's own needs. Reaction formation (Level 5, neurotic) involves helping or showing exaggerated care that disguises an opposite underlying feeling (e.g., unconscious hostility masked by excessive solicitude). In altruism, the motivation is congruent with the behavior; in reaction formation, the behavior masks a contradictory impulse."
+    }
+  ]
+}

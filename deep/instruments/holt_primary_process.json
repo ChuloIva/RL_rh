@@ -1,0 +1,146 @@
+{
+  "name": "Holt Primary Process Scoring System",
+  "authors": "Robert R. Holt",
+  "year": 2009,
+  "source": "Holt, R.R. (2009). Primary Process Thinking: Theory, Measurement, and Research. Jason Aronson.",
+  "content_categories": {
+    "libidinal": {
+      "level_1_raw": [
+        {
+          "subtype": "Oral (receptive/aggressive)",
+          "indicators": ["Mouths", "breasts", "sucking", "famine", "biting", "devouring", "cannibalistic imagery", "starvation", "engulfing"]
+        },
+        {
+          "subtype": "Anal",
+          "indicators": ["Direct references to feces", "defecation", "anal anatomy", "excrement", "filth in bodily context"]
+        },
+        {
+          "subtype": "Sexual/Genital",
+          "indicators": ["Explicit sexual acts", "genitalia", "intercourse", "orgasm", "explicit sexual arousal"]
+        },
+        {
+          "subtype": "Exhibitionistic",
+          "indicators": ["Exposed bodies", "nudity with driven quality", "flashing", "compulsive display"]
+        },
+        {
+          "subtype": "Voyeuristic",
+          "indicators": ["Peeping", "staring with driven sexual quality", "spying on bodies", "scopophilic fixation"]
+        },
+        {
+          "subtype": "Urethral",
+          "indicators": ["Direct urination references", "wetting", "urinary imagery"]
+        }
+      ],
+      "level_2_socialized": [
+        {
+          "subtype": "Oral",
+          "indicators": ["Kissing", "drinking", "food", "meals", "eating", "tasting", "cooking", "feeding"]
+        },
+        {
+          "subtype": "Anal",
+          "indicators": ["Dirt", "mud", "mess", "explosions", "smearing", "orderliness/hoarding (reaction formation)"]
+        },
+        {
+          "subtype": "Sexual",
+          "indicators": ["Romance", "attraction", "beauty", "dancing", "flirtation", "courtship", "seduction"]
+        },
+        {
+          "subtype": "Exhibitionistic",
+          "indicators": ["Performing", "displaying", "showing off", "attention-seeking", "theatrical behavior"]
+        },
+        {
+          "subtype": "Voyeuristic",
+          "indicators": ["Eyes", "looking", "watching", "gazing", "observing", "scrutinizing"]
+        },
+        {
+          "subtype": "Narcissistic",
+          "indicators": ["Self-admiration", "mirroring", "vanity", "preening", "self-aggrandizement"]
+        },
+        {
+          "subtype": "Phallic",
+          "indicators": ["Towers", "swords", "weapons as phallic symbols", "penetrating objects", "missiles", "snakes"]
+        },
+        {
+          "subtype": "Homosexual",
+          "indicators": ["Same-sex intimacy references", "same-sex attraction imagery"]
+        }
+      ]
+    },
+    "aggressive": {
+      "level_1_raw": [
+        "Killing", "murder", "mutilation", "physical assault", "sadistic acts", "torture",
+        "destruction", "fighting with weapons", "predatory attack", "dismemberment",
+        "crushing", "annihilation", "gore", "bloodshed"
+      ],
+      "level_2_socialized": [
+        "Anger", "arguing", "conflict", "competition", "hunting",
+        "war imagery in historical/distant context", "verbal hostility", "denigration",
+        "passive-aggression", "sarcasm", "mockery", "dominance displays",
+        "sports aggression", "controlled fighting"
+      ]
+    }
+  },
+  "formal_categories": [
+    {
+      "name": "Condensation",
+      "definition": "Two or more distinct ideas, images, or percepts merged into a single representation",
+      "example": "A composite figure combining features of two different things"
+    },
+    {
+      "name": "Displacement",
+      "definition": "An attribute, affect, or quality shifted from one idea to another in an associative network; one thing comes to stand for another"
+    },
+    {
+      "name": "Symbolism",
+      "definition": "Use of conventional or idiosyncratic symbols to represent drive-laden content"
+    },
+    {
+      "name": "Contradiction/Inconsistency",
+      "definition": "Tolerance of logical contradictions within a single response (something simultaneously alive and dead, present and absent)"
+    },
+    {
+      "name": "Autistic Logic",
+      "definition": "Reasoning that follows private, idiosyncratic rules rather than conventional logic"
+    },
+    {
+      "name": "Image Fusion/Fluidity",
+      "definition": "Percepts that shift, merge, or transform in unstable ways"
+    },
+    {
+      "name": "Loose Associations",
+      "definition": "Ideas connected by superficial, tangential, or clang associations rather than logical relationships"
+    }
+  ],
+  "defense_demand": {
+    "description": "Index of the intensity or raw quality of the primary process manifestation — how much pressure the response places on the ego's defenses",
+    "scale_note": "Rated from low to high (typically 1-5 or 1-7 depending on version)",
+    "low": "Content is mild, well-disguised, socially acceptable (Level 2 content, mild formal deviations)",
+    "high": "Content is raw, blatant, direct, socially unacceptable (Level 1 content, severe formal deviations)"
+  },
+  "defense_effectiveness": {
+    "description": "Estimate of the cognitive integration of primary process content — how well the ego manages, controls, or contextualizes the material",
+    "poor": "Material overwhelms the response; poor form quality, anxiety, loss of distance, inability to frame adaptively; person is flooded by the material",
+    "good": "Material is well-integrated; good form quality, appropriate distance, humor, creativity, or artistic use; adaptive regression in the service of the ego"
+  },
+  "summary_scores": {
+    "percent_pp": {
+      "formula": "(responses_with_PP / total_responses) * 100",
+      "description": "Proportion of all responses containing scorable primary process content or formal deviations"
+    },
+    "mean_dd": {
+      "description": "Average Defense Demand across all responses containing primary process material"
+    },
+    "mean_de": {
+      "description": "Average Defense Effectiveness across all responses containing primary process material"
+    },
+    "rego": {
+      "name": "Adaptive Regression Score (Regression in the Service of the Ego)",
+      "description": "Composite index combining PP amount, intensity (DD), and management (DE). High REGO = primary process present but well-controlled (adaptive/creative). Low REGO = primary process present and poorly controlled (maladaptive/pathological)."
+    }
+  },
+  "clinical_interpretation": {
+    "adaptive_regression": "High DE + moderate PP: Associated with creativity, artistic achievement, tolerance of ambiguity",
+    "maladaptive_regression": "Low DE + high PP: Associated with thought disorder, poor reality testing, flooding by drive material",
+    "key_distinction": "It is not the presence of primary process that is pathological, but the inability to control it"
+  }
+}

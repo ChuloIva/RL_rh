@@ -1,0 +1,438 @@
+{
+  "instrument": {
+    "name": "Integrative Complexity (IC) Coding Scale",
+    "full_title": "Coding Manual for Conceptual/Integrative Complexity",
+    "authors": [
+      "Gloria Baker-Brown",
+      "Elizabeth J. Ballard",
+      "Susan Bluck",
+      "Brian de Vries",
+      "Peter Suedfeld",
+      "Philip E. Tetlock"
+    ],
+    "source": "Based on previous versions developed by research teams at the University of British Columbia and the University of California (Berkeley)",
+    "construct_definition": {
+      "integrative_complexity": "Defined in terms of two cognitive structural variables: differentiation and integration.",
+      "differentiation": "The perception of different dimensions and/or the taking of different perspectives when considering an issue.",
+      "integration": "The development of conceptual connections among differentiated dimensions of the stimulus and/or among differentiated perspectives about the stimulus. Some degree of differentiation is a necessary although not a sufficient condition for integration."
+    },
+    "scale_range": "1-7",
+    "scoring_unit": "A section of material that focuses on one idea (usually a single paragraph, but large paragraphs may be broken into multiple units, and several short paragraphs may be collapsed into one unit)."
+  },
+  "scale_levels": [
+    {
+      "score": 1,
+      "name": "No differentiation",
+      "general_explanation": "There is no sign of either conceptual differentiation or integration. The author relies, without qualification, on a simple, one-dimensional rule for interpreting events or making choices.",
+      "critical_indicator": "Only one way of looking at the world is considered legitimate. The author either implies or explicitly states that there is one and only one reasonable approach to an issue. This position is typically expressed in the form of an absolute or categorical rule. These absolute rules are often, although not necessarily always, highly evaluative. The end result is always the same: the imposition of a dichotomous category structure (right vs. wrong, socialist vs. capitalist, determinism vs. free will) on the world, with little or no room for ambiguity or shades of gray.",
+      "specific_indicators": [
+        {
+          "name": "Compartmentalization",
+          "description": "Evaluation of stimuli in an all-or-none fashion, without consideration of possible exceptions to, or qualifications of, the evaluative rule. Information is rigidly compartmentalized.",
+          "sub_indicators": [
+            {
+              "name": "Categorical rejection of perspectives or dimensions",
+              "description": "The author implicitly or explicitly denies that reasonable others could disagree, or that an issue has aspects or dimensions that the author has not considered. Note that the author may go on at great length and provide detailed descriptions, explanations or examples of the preferred rule -- this additional content does not justify a higher score."
+            },
+            {
+              "name": "Setting up and knocking down a 'straw man'",
+              "description": "The author acknowledges the existence of different ways of looking at the world but dismisses them without serious consideration or qualification. This type of pseudo-differentiation often takes the form of setting up and then immediately knocking down a 'straw man' position."
+            },
+            {
+              "name": "Inclusion-exclusion rules",
+              "description": "People frequently rely on inclusion-exclusion rules in processing social information. These rules take the following logical form: If 'X' then 'Y', and if 'not X' then 'not Y'. Simple inclusion-exclusion rules preclude the possibility of interactions, complex conditionals, or subtle gradations of response."
+            }
+          ]
+        },
+        {
+          "name": "Dominance of a Single Evaluative Rule",
+          "description": "Many statements distinguish a variety of specific issues or events, only to lump these issues or events together in a single overall evaluative category. The value judgments of the author permeate and dominate the discussion of specifics.",
+          "sub_indicators": [
+            {
+              "name": "Lack of response differentiation",
+              "description": "Although two or more dimensions of a problem are distinguished, the author does not respond in a differentiated manner to these attributes. Rather, only one response is given to a broad range of stimuli."
+            },
+            {
+              "name": "Lists",
+              "description": "Although the author discusses a number of dimensions of or perspectives on an issue, these attributes are used as illustrations of a particular evaluative viewpoint or as evidence designed to confirm or support a particular claim. They function as alternatives that operate in isolation and are functionally equivalent to lists or catalogues rather than differentiated dimensions."
+            }
+          ]
+        },
+        {
+          "name": "Conflict Avoidance",
+          "description": "Cognitive strategies such as compartmentalization, isolation of alternatives, and discounting of alternative perspectives facilitate the avoidance or reduction of ambiguity, complexity, and conflict. This function of integratively simple processing strategies is sometimes plainly stated in the text."
+        },
+        {
+          "name": "Prescriptive Generalizations",
+          "description": "The author offers far-reaching advice on how people should think, feel, or act, with no recognition that this advice might need to be qualified in particular circumstances or that following this advice too closely or single-mindedly might have serious costs."
+        },
+        {
+          "name": "Temporal Sequencing",
+          "description": "Many paragraphs deal with a variety of different events or issues that are treated in a temporally discrete manner. Such event sequences may be causal ('A causes B') or simply temporal ('Our plan is first to do X, then Y'). The number of events does not affect score assignment: 'A causes B, which causes C' is still scored 1. Causal or temporal sequencing is not sufficient evidence for inferring conceptual differentiation."
+        }
+      ],
+      "content_flags": [
+        "absolutely",
+        "all",
+        "always",
+        "certainly",
+        "constantly",
+        "convinced",
+        "definitely",
+        "entirely",
+        "forever",
+        "impossible",
+        "indisputable",
+        "irrefutable",
+        "irreversible",
+        "never",
+        "solely",
+        "surely",
+        "unconditionally",
+        "undoubtedly",
+        "unquestionably"
+      ],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "Enforced retirement at 65 years is most certainly beneficial to the workings of our society. We must realize that work is the job of the young, and that the elderly should leave their work positions in order to make room for the next generation. The elderly must resign themselves to 'let go' of their family domination and employment in order that the new generation may explore its ideas and promote growth. Some would argue that the elderly have much to contribute because they have lived through so much, but this is clearly wrong. With the rapid rate of technological change, the elderly are the least able to adapt to the new conditions.",
+        "explanation": "Although the author mentions two possible effects of enforced retirement (creation of opportunities for the new generation and the superior ability of the young to adapt to change), each of these effects is dealt with in isolation. They do not offer alternate perceptions of that issue. The favoured view is expressed in very certain terms. No qualifications or gradations are apparent. The author notes that 'some would argue' differently, but this alternative view is quickly dismissed as 'clearly wrong'. The alternative functions as a 'straw man'. Content flag words include 'we must', 'the elderly must', 'most certainly beneficial', and 'clearly wrong'."
+      }
+    },
+    {
+      "score": 2,
+      "name": "Emergent differentiation",
+      "general_explanation": "The author recognizes the potential for looking at the same issue in different ways or along different dimensions. Differentiations are, however, emergent rather than fully developed. The author may qualify a normative rule or causal generalization, or display an awareness of alternative futures. The author may also discuss past events in a way that suggests, but does not develop, new interpretations. This scale value represents a transition level between the categorical structure of score 1 and the differentiated structure of score 3.",
+      "critical_indicator": "The potential or conditional acceptance of different perspectives or dimensions. The author does not explicitly develop the alternate dimension or perspective; nor is it necessary that it be explicitly stated or named. Simple qualification, without elaboration, is sufficient evidence for a score of 2.",
+      "specific_indicators": [
+        {
+          "name": "Conditional Acceptance of Other Perspectives or Dimensions",
+          "description": "The author implies or states that acceptance of a position or policy proposal need not be all-or-none, but a matter of degree that, in turn, hinges on the degree to which a particular condition or goal has been satisfied."
+        },
+        {
+          "name": "Conditional Statements",
+          "description": "Instead of stating an absolute rule and then supplying the condition for its acceptance, the conditions for acceptance are left open-ended."
+        },
+        {
+          "name": "Conditions for a Hypothetical Outcome",
+          "description": "An author considers possible outcomes that may arise in hypothetical states of the world. By recognizing the conditional nature of the projected event sequence, the author demonstrates at least an implicit awareness of alternative pasts, presents, or futures. The author engages in counterfactual reasoning."
+        },
+        {
+          "name": "Exception to the Rule",
+          "description": "The author qualifies a generalization or stated perspective or dimension."
+        },
+        {
+          "name": "Emerging Recognition of Alternate Perspectives or Dimensions",
+          "description": "The author mentions that others may hold perspectives different from his or her own, but does not specify exactly how these perspectives are different. Or the author recognizes that an issue has several components or dimensions but does not elaborate on them."
+        },
+        {
+          "name": "Increased Tolerance for Ambiguity",
+          "description": "The author is comfortable with, or at least willing to tolerate, a degree of open-endedness or uncertainty in judging events or in making plans."
+        }
+      ],
+      "content_flags": [
+        "but",
+        "nevertheless",
+        "while",
+        "however",
+        "though",
+        "probably",
+        "almost",
+        "usually"
+      ],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "Enforced retirement at 65 is probably beneficial to our society. To be sure, it is difficult to force the resignation of long-time employees in order to make room for the upcoming generation. We should, however, give highest priority to creating opportunities for the new generation to explore their ideas. This need may be especially critical in view of the requirements of running a modern economy. More than ever, our country appears to require new ideas and fresh perspectives.",
+        "explanation": "The author posits that mandatory retirement is 'probably' beneficial. The view is thus expressed with a qualification. While the emphasis is on the importance of providing opportunities for new ideas, it is recognized that the needs of both the young and the elderly must be considered. However, the latter aspect (the difficulty of forcing older employees to resign) is not elaborated. Increased tolerance for ambiguity is evident in the author's reluctance to accept that a simple solution must or can be found for a complex problem."
+      }
+    },
+    {
+      "score": 3,
+      "name": "Moderate to high differentiation, no integration",
+      "general_explanation": "The crucial aspect of a score of 3 is the clear specification of at least two distinct ways of dealing with the same information or stimulus. The author recognizes that these different perspectives or dimensions can be held in mind simultaneously. The author may also specify conditions under which these perspectives or dimensions are applicable. However, there is no evidence of conceptual integration. Differentiation is the key element of a score of 3.",
+      "critical_indicator": "The recognition of alternative perspectives or different dimensions, and the acceptance of these as being relevant, legitimate, justifiable, valid, etc.",
+      "specific_indicators": [
+        {
+          "name": "Multiple Alternatives",
+          "description": "Recognizing that 'reasonable persons' can view the same problem or issue in different ways. The 'truth' is not all on one side.",
+          "sub_indicators": [
+            {
+              "name": "Multiple perspectives",
+              "description": "One form of differentiation involves recognizing that reasonable persons can view the same problem or issue in different ways. Although the speaker may hold one viewpoint, he or she recognizes that others disagree and feels no need to disparage those who disagree."
+            },
+            {
+              "name": "Multiple dimensions",
+              "description": "Differentiation can also take the form of recognizing more than one dimension of an event, situation, issue, person or object."
+            },
+            {
+              "name": "Multiple perspectives and multiple dimensions",
+              "description": "On rare occasions, a statement will contain both multiple perspectives and multiple dimensions."
+            }
+          ]
+        },
+        {
+          "name": "Alternatives and Conditions for Application",
+          "description": "An author engages in complex conditional reasoning. The author specifies the conditions under which two or more alternative outcomes are acceptable or likely to occur."
+        },
+        {
+          "name": "Probability Statements",
+          "description": "Another way of expressing differentiation is through conditional statements that specify independent causes or determinants of the likelihood of some event."
+        },
+        {
+          "name": "Temporal Perspectives",
+          "description": "To justify a score of 3, the author must recognize how new perspectives or approaches can grow out of old ones, or recognize that although perspectives on a problem have changed, neither the earlier nor the later perspective can be simply dismissed as wrong. The original perspective is continued from the past and is maintained when the new way of viewing is introduced."
+        },
+        {
+          "name": "Increased Tolerance for Ambiguity",
+          "description": "A different perspective is no longer automatically wrong, bad, or identified with a disliked out-group. Good-bad or right-wrong judgments no longer require taking the all-or-nothing stances characteristic of score 1. The author recognizes that two views may operate simultaneously and that reasonable persons might favor either side."
+        }
+      ],
+      "content_flags": [
+        "alternatively",
+        "either-or",
+        "on the other hand",
+        "meanwhile",
+        "but",
+        "nevertheless",
+        "while",
+        "however",
+        "though"
+      ],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "Enforced retirement has recently engaged the interest of the popular press. Some think that the elderly should give up their jobs in order to make room for the younger generation. Such an action would bring fresh vision to business and give our society the new ideas we clearly need. On the other hand, there are those who think that the experience of the elderly is potentially our society's deepest resource, and that their hard-won knowledge can help business to adapt to these changing times. Of course, we rarely see either vision or wisdom in its pure form; each school of thought tends to ignore a bit of the other's perspective.",
+        "explanation": "The author presents two perspectives on the enforced retirement debate: one favors it in order to introduce fresh ideas in business, the other questions it because it ignores the wisdom and accumulated experience that the elderly provide. Although the two views differ, neither is favored over the other; the thinking is differentiated and sensitive to the advantages of each position. The passage implies under what conditions each alternative is preferred. The author is comfortable with the ambiguity that an appreciation of each position brings. Note: the paragraph must receive the highest score for which critical indicators are present."
+      }
+    },
+    {
+      "score": 4,
+      "name": "Emergent integration",
+      "general_explanation": "We seek signs of the emergence of integration. That is, we begin to find indications of the ability to integrate different and sometimes conflicting alternatives. Conceptual integration is not clearly apparent at this level, however. Instead, the integration of alternatives is implicit. A score of 4 must show two features. First, there must be a clear representation of alternatives. Second, there must be an implicit recognition of a dynamic relationship between or among them. The clear description of the relationship is often withheld until further information is received. There is only a suggestion that interaction exists between the alternatives; there is no overt statement specifying the nature of this interaction.",
+      "critical_indicator": "The author must indicate that multiple perspectives or dimensions exist, and also that they could interact.",
+      "specific_indicators": [
+        {
+          "name": "Withholding Judgement",
+          "description": "When an author notes that further information is needed before one can make explicit statements about the relationship between various alternatives."
+        },
+        {
+          "name": "Tension Between Alternatives",
+          "description": "Occasionally, the manner in which alternatives are presented suggests that tension exists between or among them. The tension referred to here is not necessarily a negative factor, but is simply an indication that a dynamic relationship exists between the alternative perceptions or dimensions."
+        },
+        {
+          "name": "Integration Expressed Probabilistically",
+          "description": "Sometimes the recognition that alternatives can be integrated is expressed through a probability statement. Probability statements such as 'it is likely that', 'it seems possible', 'they will probably', are compatible with scores of 2 or higher, but they may alert the scorer to a possible score of 4."
+        },
+        {
+          "name": "Integration Expressed as a Superordinate Statement",
+          "description": "Sometimes a superordinate statement is given from which the two alternatives have been generated. It is usually the introductory statement in the paragraph. A broad statement encompasses the multiple perspectives or dimensions. This statement may also be presented as a single conclusion derived from the two (or more) alternatives."
+        }
+      ],
+      "content_flags": [],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "For society fully to benefit from its members' skills and to survive the 'technological revolution', a new philosophy must develop which unites the youth and the elderly of the nation. The technological skills of the young are important if we are to keep pace with the other industrialized countries. However, we have important social decision-making ahead of us if we are to improve our quality of life in the long term. Our future success depends upon our ability to realize the potential of our citizens, whether they be young or old.",
+        "explanation": "The paragraph begins with a superordinate statement that a 'new philosophy' must be developed. This philosophy is aimed at uniting the skills of old and young. Keeping pace technologically and improving the quality of life are the two alternatives, and it is recognized that both of these goals cannot be maximized simultaneously. It is implied that our future success depends upon some type of integration of the two age groups, but there is no clear indication how this might occur."
+      }
+    },
+    {
+      "score": 5,
+      "name": "Moderate differentiation and moderate integration",
+      "general_explanation": "A score of 5 indicates the explicit expression of integration. Whereas 4 signifies the emergence of integration expressed in a tentative or uncertain manner, a score of 5 indicates that integration is clearly evident. Types of integration that emerge include mutual influence, negotiation, causal attributions, and synthesis.",
+      "critical_indicator": "Alternative perspectives or dimensions are not only held in focus simultaneously but also are viewed interactively. The author is able to see that multiple alternatives are all to some degree legitimate, and combines them to produce a result that none of the alternatives could have produced alone.",
+      "specific_indicators": [
+        {
+          "name": "Mutual Influence and Interdependence",
+          "description": "Two or more alternatives are shown to be in a dynamic relationship, in which each perspective affects and is affected by the other. The author must clearly recognize the reciprocity of the relationship. A relationship in which one alternative affects the other without consequence to itself is a one-way relationship and cannot be scored as a 5."
+        },
+        {
+          "name": "Negotiation",
+          "description": "Trade-off reasoning takes place when it is recognized that two alternative goals cannot be maximized simultaneously. The author realizes that a 'give and take' strategy must be used and that trade-offs must be made by both sides in order to reach a resolution, and outlines a strategy that could be used or explicitly describes the trade-offs that could be made. Note: the mere unelaborated mention of words such as 'trade-offs' or suggestions that cooperation or negotiation is necessary would justify a score no higher than 4."
+        },
+        {
+          "name": "Causal Attributions",
+          "description": "Integration can be expressed in explicit attempts to explain why 'reasonable persons' view an issue in different ways. A unifying statement is used to explain two contradictory but valid perspectives or dimensions; a higher-order (i.e., hierarchical) concept is developed that specifies the common element in alternative perspectives and explains the reasons why both can be valid. This is the development of comparison rules."
+        },
+        {
+          "name": "Synthesis",
+          "description": "The generation of a novel product is evidence of integration. This product may be explicitly related to the two alternatives in the paragraph, or the relationship may only be implied. The novel product may be expressed as an insight, a new policy, or the unexpected result of the interaction of the two dimensions."
+        }
+      ],
+      "content_flags": [],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "For society to benefit fully from its members' skills and to survive the 'technological revolution', a new philosophy must develop which unites the youth and elderly of the nation. The technological skills of the young are important if we are to keep pace with the other industrialized countries. However, we have important social decision-making ahead of us if we are to improve our quality of life in the long term. Thus, we must be concerned equally with developing technology as with developing a plan for its use. It is in this latter area that the elderly, with first-hand knowledge of history, must be consulted. With this philosophy in mind we are faced with the economic challenge of employing both young and senior citizens.",
+        "explanation": "In the statement, 'we must be concerned equally with developing new technology as with developing a plan for its use', mutual influence can be most clearly seen. It is recognized that both age groups must make their distinctive contributions if this ideal is to be fulfilled. Fulfillment would include at least partial satisfaction of the two stated goals: remaining technologically sophisticated and improving the quality of life over the long term. In considering these two factors, the technological and the social, the author produces the insight that we are facing an economic challenge."
+      }
+    },
+    {
+      "score": 6,
+      "name": "Emergent high-level integration",
+      "general_explanation": "The score of 6 involves a high-level interaction indicating that the author is working with multiple levels of schemata. The alternatives at this level are dynamic: they are expressed as plans, processes, or courses of action made up of several moving parts, and as such we may often refer to them as systems or networks. One indicator is the specific explanation of both the 'moving parts' within a system and also how those parts affect each other or the system. At this level alternatives are readily accepted, compared or contrasted, and integrated so as to present at least one outcome. Global overviews or organizational principles (temporal, causal, ideological) are often presented. The emergence of this type of principle is the second main indicator of the score of 6.",
+      "critical_indicator": "The author must be working across several levels of schemata and at least one of the indicators noted above must be explicitly delineated. Thus, there may be an explicitly presented global overview with only an implicit indication of the specific dynamics of the alternatives. Conversely, there may be explicitly stated details about the dynamic interaction between alternatives and only an implicit communication of the global overview.",
+      "specific_indicators": [
+        {
+          "name": "Comparison of Outcomes",
+          "description": "The author is aware of two alternative courses of action and is able to compare their outcomes with regard to long-term implications. In comparing alternatives, the author may favor one over the other; but each is reasonably considered. Alternatives and outcomes may be actual or hypothetical."
+        },
+        {
+          "name": "Systemic Analysis",
+          "description": "Any case in which the author describes how an existing relationship, network, or system can be affected by changes in an internal or external variable. The effect that the active variable has on the system is often discussed in terms of the accommodation that the system makes to it at various hierarchical levels."
+        },
+        {
+          "name": "Hypothesis Testing",
+          "description": "Hypothesis testing is a systematic information search method. It can be seen in paragraphs in which the two dynamic alternatives (i.e., systems) are delineated but the relationship between them remains somewhat limited or static. The author's understanding of the relationship is expressed through an explicit hypothesis about how the system would accommodate some new information, action, or change over time. The author is reality testing."
+        }
+      ],
+      "content_flags": [],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "Their experiences with war and depression during the thirties created in many members of our parents' generation a drive to create some form of security for the future that was not available for them to enjoy in earlier years. By continuously building upon their gradually increasing assets while still maintaining the conservative lifestyles they had been pressed to follow during hard times, they created economic stability for themselves. This economic stability, enjoyed by many approaching old age, lends greater power to seniors' increasingly vocal demands for an improved quality of life for the elderly. Their offspring, not having faced the same hardships as their parents, have had opportunity and cause to be somewhat reflective about issues pertaining to the quality of life in general, including the plight of the elderly.",
+        "explanation": "One of the dynamic alternatives is the system that represents the outlook of 'our parents' on the position of the aged: a drive for security leading to increased assets, and eventually economic stability, giving them greater power to express their demands. The motivating forces characterizing 'their offspring' arise from clearly different sources but are, nevertheless, accepted as representing a legitimate perspective. In fact, the interests of the elderly (improved quality of life for the aged) are subsumed within the interests of the next generation (improved quality of life in general). The author sees the specific moving parts of each of these ideologically compatible interests, and that they interact to some extent, but no global outcome is explicitly stated."
+      }
+    },
+    {
+      "score": 7,
+      "name": "High differentiation and high integration",
+      "general_explanation": "The unique characteristic of a score of 7 is the presence of an overarching principle or perspective pertaining to the nature (not merely the existence) of the relationship or connectedness between alternatives. These alternatives are clearly delineated and are described in reasonable detail. How each alternative may be seen to be part of some overarching view, or how some overarching view encompasses these alternatives, is made evident.",
+      "critical_indicator": "Two indicators must both be present: (1) An overarching viewpoint is presented, which contains an explanation of the organizing principles (e.g., temporal, causal, theoretical) of the problem or concept. (2) There is a discussion of the ways in which levels of the problem or concept interact and thus demonstrate the validity of the overarching perspective. The description of the ways in which levels of the system interact must be both specific and dynamic, demonstrating how each level is affected by the other.",
+      "specific_indicators": [
+        {
+          "name": "Hierarchical Integration",
+          "description": "A highly integrative level of complexity shows the presence of two or more organizing principles, which are themselves integrations and which are then synthesized to form an overarching view. An integration of integrations combined with the presence of detailed examples of the working out of that perspective. Principles or concepts that offer an explanation for a particular event, problem or theory are needed. Explanations that offer only a description of the situations in which alternatives occur are only moderately integrative and are not coded as a level 7 response."
+        },
+        {
+          "name": "Comparison of Outcomes",
+          "description": "The author takes a global view of the events in the situation and relates these events to an organizing principle. At the same time, the specific nature or dynamics of at least one of the events is outlined in some detail. The possible outcomes of events are compared and related to this global view."
+        },
+        {
+          "name": "Systemic Analysis",
+          "description": "This type of highly integrative passage explores specific complex interactions within a complex system, using an overarching global view as a way of uniting these observations. The author begins by taking a global view of the problem and then provides examples for the particular interpretation. The effect of one action on other levels throughout the system is then clearly explained. The general and specific consequences of this 'ripple effect' are delineated."
+        },
+        {
+          "name": "Complex Trade-offs among Conflicting Goals",
+          "description": "The author is able to step back from the situation sufficiently to engage in a cost-benefit analysis of several conflicting goals or strategies and includes an explanation for making comparisons among them."
+        }
+      ],
+      "content_flags": [],
+      "example": {
+        "topic": "Mandatory retirement",
+        "text": "We must view this problem from the very broad perspective which involves the kind of society we see ourselves to be and the kind of society we strive to be. Do I assume correctly that we are, and that we want to be, civilized? It may be that our heavy emphasis on individualism, productivity and self-sufficiency has resulted in a view of the elderly as basically useless members of society. On a larger scale, should this opinion prevail, we could hardly have a view of ourselves as belonging to an integrated and harmonious community. At a more specific level of intergroup relations, if this attitude flourishes, the older segment of the community may feel forced to exert their increasing economic and social power to the detriment of others in society, such as younger individuals in need of their employment positions. This would only contribute to an adversarial relationship (albeit reversed), where resources are still not distributed with social and economic equity among a heterogeneous population. We must all take our fair share of responsibility for the state we live in. Our treatment of all individuals, regardless of age, depicts the state of our society; a civilized community treats all its members in a civilized manner.",
+        "explanation": "The paragraph begins with a statement indicating that it is necessary to approach the problem of generational integration from the more global perspective of how we see our society in general, taking into account that our current view may not reflect our ideal view. The author outlines possible causes or contributors to our view of the elderly as useless members of society and the implications of seeing ourselves as civilized. Through examining two possible scenarios at the specific level of intergroup relations and interpreting the implications of each for the long-term, global goal (a civilized society), it is made clear that hostile intergroup relations are more likely to lead to an uncivilized society than to a civilized one. The author recognizes that the causal links are not, in fact, heading toward the proposed goal and outlines some general principles to follow in order to correct this situation."
+      }
+    }
+  ],
+  "unscorable_text_types": [
+    {
+      "type": "Cliches",
+      "description": "A paragraph is unscorable if it consists solely of cryptic or glib remarks (e.g., Who cares? So what?) or of cliches (e.g., A stitch in time saves nine; A penny saved is a penny earned). The coder must distinguish between cliches with no conceptual substance (Unscorable) and pointed remarks which often indicate that the author is relying on an absolute or categorical rule structure (Score 1)."
+    },
+    {
+      "type": "Satire and Sarcasm",
+      "description": "When there is considerable ambiguity about either the object or thrust of a satirical passage, the passage is deemed unscorable. Expert knowledge of the historical context and intent of the author can, of course, reduce such ambiguity to permit complexity coding under some circumstances."
+    },
+    {
+      "type": "Quotations",
+      "description": "Scoring a paragraph that consists primarily of quotations may shed more light on the rule structure of the quotation than on that of the paragraph being scored. Such paragraphs should generally not be scored if one's goal is to draw inferences about the conceptual structure of the author. The key exception is when the author comments on the quotations in sufficient detail to reveal the nature of his or her own thinking on the issue."
+    },
+    {
+      "type": "Definitions",
+      "description": "If a paragraph consists only of a definition of an event, object, idea, procedure, etc., it is unscorable (e.g., 'A bachelor is an unmarried man'). Note, however, that definitions which stray beyond the literal meaning of concepts quickly become scorable (e.g., 'A bachelor is a sly old fish, too cunning for the hook')."
+    },
+    {
+      "type": "Descriptions",
+      "description": "When a paragraph is purely descriptive (i.e., it merely reports the occurrence of events and provides minimal clues concerning the author's perspective on those events), that paragraph is considered unscorable. There is no neat, non-arbitrary line that divides description from evaluation and interpretation. When research staff are in doubt, they should include the statement in the sample for complexity coding."
+    },
+    {
+      "type": "Breakdowns in Understanding",
+      "description": "Any paragraph that the reader cannot understand obviously cannot be scored. Breakdowns in understanding may arise from: responses of the mentally incompetent or deranged ('word salad'), material requiring special knowledge the coder does not possess (e.g., Finnegan's Wake, scientific papers), or material that cannot be adequately understood out of context."
+    },
+    {
+      "type": "Scorer Uncertainty",
+      "description": "Occasionally the coder cannot decide which of two scores to assign to a paragraph. If the mathematical difference between them is 2 or greater, the paragraph should be categorized as unscorable and discarded. If the difference is less than 2, other qualified coders should be consulted. If no consensus is reached, the mean of the two possible scores can be assigned or the paragraph may be discarded."
+    }
+  ],
+  "procedural_rules": [
+    {
+      "rule": "Structure over content",
+      "description": "The system focuses on structure rather than content. There is no built-in bias for or against any particular position. The integrative complexity of a person's thoughts on an issue is determined not by the specific beliefs he or she endorses, but by the conceptual structure underlying the positions taken."
+    },
+    {
+      "rule": "Coder objectivity",
+      "description": "It is essential not to allow the coder's personal preferences or biases on an issue influence the conceptual assessment of a statement. Coders should keep in mind that the conceptual structure of the reasoning, and not the content, is being assessed. Researchers should ensure that coders with different political preferences agree in their complexity score assignments and follow double-blind scoring procedures."
+    },
+    {
+      "rule": "Complexity is not superiority",
+      "description": "The coder should not assume that it is always 'better' to be more complex. Being complex in one's thinking is no guarantee of being correct. The IC coding system does not rest on assumptions concerning the logical, pragmatic or ethical superiority of any particular school of thought."
+    },
+    {
+      "rule": "Scoring unit",
+      "description": "The basic scoring unit refers to a section of material that focuses on one idea. Usually this scorable unit consists of a single paragraph. Occasionally a large paragraph may be broken into two or more scorable units. Conversely, several paragraphs may be collapsed into one scorable unit."
+    },
+    {
+      "rule": "Minimum sample size",
+      "description": "From the pool of available and scorable paragraphs, at least five paragraphs should be randomly chosen. The mean of these five scores represents the complexity score typically used in analyses."
+    },
+    {
+      "rule": "Random scoring order",
+      "description": "Paragraphs should be scored in random order such that all material from one source or one person is not scored sequentially. Names, gender, condition (in the case of experimental materials), and people or place names (in the case of archival materials) should be deleted from the paragraphs."
+    },
+    {
+      "rule": "Assign highest justifiable score",
+      "description": "The paragraph must receive the highest score for which critical indicators are present. This general rule holds for all scoring."
+    },
+    {
+      "rule": "Content flags are aids, not determinants",
+      "description": "Content flags do not in themselves justify any particular score. The mere presence of the words is neither a necessary nor a sufficient condition for assigning a score. Integrative complexity coding cannot be reduced to a simple word count or word co-occurrence count content analysis system."
+    },
+    {
+      "rule": "Number of differentiations does not increase score",
+      "description": "The score of 3 is given because of the evidence that differentiation exists, and is not related to the actual number of perspectives or dimensions that are differentiated. Including more than two alternatives does NOT increase the score."
+    },
+    {
+      "rule": "One-way relationships are not integration",
+      "description": "A relationship in which one alternative affects the other without consequence to itself is a one-way relationship and cannot be scored as a 5. For a score of 5, the author must clearly recognize the reciprocity of the relationship."
+    },
+    {
+      "rule": "Inter-rater reliability",
+      "description": "The basic qualification for becoming a trained complexity coder is to reach a correlation of at least .85 with an expert coder, although a percentage agreement of 85% is recommended. Well-trained coders may disagree over score assignments for boundary-zone cases, although disagreements should rarely exceed 1 point."
+    },
+    {
+      "rule": "Linguistic competence assumption",
+      "description": "Implicit in the idea that verbal material can be scored for integrative complexity is the assumption that the source/author is linguistically competent. Otherwise, people who lack the ability to express themselves adequately may receive an invalid complexity score. Scores of English translations do not differ from scores assigned to the same passage in the original language."
+    },
+    {
+      "rule": "Unscorable paragraphs marked X",
+      "description": "In coding, unscorable paragraphs should be marked 'X' and deleted from further data analyses."
+    },
+    {
+      "rule": "Coder familiarity with topic",
+      "description": "The person who is coding the data set should be familiar with the topics expressed in the paragraphs but need not be an expert. This is especially relevant when coding archival material of a historical or political nature."
+    },
+    {
+      "rule": "Transition scores (2, 4, 6)",
+      "description": "Scores of 2, 4, and 6 represent transitional levels in conceptual structure. Here the dimensions of differentiation and integration are implicit and emergent rather than explicit and fully articulated. Passages may fall in the fuzzy boundary zone between scale values, frequently leading to the assignment of these transition scores."
+    }
+  ],
+  "data_generation_methods": [
+    {
+      "method": "Paragraph Completion Test (PCT)",
+      "description": "High experimenter control. People are asked to complete six sentence stems addressing important domains of the decision-making environment. Typically 1-2 minutes were allocated per completion."
+    },
+    {
+      "method": "Essay writing",
+      "description": "Medium experimenter control. A single topic on which people are asked to write an essay. Requires instructions ensuring respondents evaluate the materials and do not merely provide descriptive accounts."
+    },
+    {
+      "method": "Guided interviews",
+      "description": "Medium experimenter control. Interview data selected for scorable content."
+    },
+    {
+      "method": "Archival documents",
+      "description": "Low experimenter control. Includes speeches, diplomatic communications, editorials, Supreme Court opinions, personal letters, and policy statements."
+    }
+  ],
+  "normative_data": {
+    "random_college_samples_mean": 2.0,
+    "us_supreme_court_justices_mean": 4.0,
+    "note": "Higher complexity scores are found in material generated after thought or planning and under conditions of little or no time constraint. Lower complexity scores are found in material generated with little prior thought and under strict time-limiting conditions. Written accounts tend to have higher scores than verbal material (transcriptions of interviews)."
+  }
+}
