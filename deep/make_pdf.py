@@ -371,50 +371,65 @@ p { margin: 0 0 0.3cm 0; }
 /* ── Transcript ─────────────────────────────────────────────────────────── */
 .turn {
   page-break-inside: avoid;
-  margin-bottom: 0.5cm;
-  display: grid;
-  grid-template-columns: 4.5cm 1fr;
-  gap: 0.5cm;
-  align-items: start;
+  margin-bottom: 0.6cm;
 }
 .turn-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4cm;
   font-family: "Helvetica Neue", sans-serif;
-  font-size: 7.5pt;
+  font-size: 8pt;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #888;
-  padding-top: 0.15cm;
-  text-align: right;
+  margin-bottom: 0.2cm;
+  border-bottom: 0.25pt solid #e0d8c0;
+  padding-bottom: 0.12cm;
 }
 .turn-meta .turn-num {
-  display: block;
-  font-size: 14pt;
   font-family: "Iowan Old Style", serif;
   font-weight: 500;
   font-style: italic;
+  font-size: 12pt;
   color: #c4a35a;
   letter-spacing: 0;
   text-transform: none;
-  margin-bottom: 0.1cm;
 }
-.turn.interrogator .turn-meta .role { color: #2d6a8a; }
-.turn.target .turn-meta .role { color: #a85a20; }
+.turn.interrogator .turn-meta .role { color: #2d6a8a; font-weight: 600; }
+.turn.target .turn-meta .role { color: #a85a20; font-weight: 600; }
 
 .turn-body {
   font-family: "Iowan Old Style", "Charter", Georgia, serif;
   font-size: 10.5pt;
   line-height: 1.55;
+  color: #1a1a1a;
 }
 .turn.interrogator .turn-body {
-  color: #1a1a1a;
+  border-left: 1.5pt solid #b9d0de;
+  padding-left: 0.4cm;
 }
 .turn.target .turn-body {
-  font-family: "SF Mono", "Menlo", monospace;
-  font-size: 9.5pt;
-  color: #1a1a1a;
-  background: #faf7f3;
-  padding: 0.25cm 0.4cm;
   border-left: 1.5pt solid #d4916a;
+  padding-left: 0.4cm;
+}
+.turn-body p { margin: 0 0 0.25cm 0; }
+.turn-body p:last-child { margin-bottom: 0; }
+.turn-body ul, .turn-body ol { margin: 0.15cm 0 0.3cm 0.7cm; padding: 0; }
+.turn-body li { margin-bottom: 0.08cm; }
+.turn-body strong { font-weight: 700; color: #000; }
+.turn-body em { font-style: italic; }
+.turn-body code {
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 9pt;
+  background: #f0ebde;
+  padding: 0.02cm 0.18cm;
+  border-radius: 1.5pt;
+}
+.turn-body h1, .turn-body h2, .turn-body h3, .turn-body h4 {
+  font-family: "Iowan Old Style", serif;
+  font-weight: 600;
+  margin: 0.3cm 0 0.15cm 0;
+  font-size: 11.5pt;
 }
 
 /* Scratchpads — analyst meta-commentary as marginalia-style block */
@@ -535,6 +550,56 @@ def _kv(rows):
             disp = str(v)
         out.append(f'<div class="k">{escape(k)}</div><div class="{cls}">{escape(disp)}</div>')
     return f'<div class="kv">{"".join(out)}</div>'
+
+
+def _md_inline(text: str) -> str:
+    """Light markdown → HTML for transcript turns. Escapes first, then re-introduces
+    a small set of tags for inline emphasis, inline code, paragraphs, lists, and
+    ATX headings. Keeps output safe — no raw HTML from the model survives."""
+    if not text:
+        return ""
+    esc = escape(text)
+
+    # Inline code first (so other transforms don't mangle backticked content).
+    esc = re.sub(r"`([^`\n]+)`", r"<code>\1</code>", esc)
+    # Bold: **x** then __x__
+    esc = re.sub(r"\*\*([^*\n]+?)\*\*", r"<strong>\1</strong>", esc)
+    esc = re.sub(r"__([^_\n]+?)__", r"<strong>\1</strong>", esc)
+    # Italic: *x* and _x_ (single delimiter; the bold pass already consumed pairs).
+    esc = re.sub(r"(?<![*\w])\*([^*\n]+?)\*(?!\*)", r"<em>\1</em>", esc)
+    esc = re.sub(r"(?<![_\w])_([^_\n]+?)_(?!_)", r"<em>\1</em>", esc)
+
+    # Block structure: split on blank lines, detect lists & headings per block.
+    blocks = re.split(r"\n\s*\n", esc.strip())
+    out: list[str] = []
+    for blk in blocks:
+        blk = blk.strip("\n")
+        if not blk.strip():
+            continue
+        lines = [ln for ln in blk.split("\n") if ln.strip()]
+        # ATX heading (single-line block starting with #)
+        if len(lines) == 1 and re.match(r"^#{1,4}\s+", lines[0]):
+            m = re.match(r"^(#{1,4})\s+(.*)$", lines[0])
+            level = min(4, len(m.group(1)))
+            out.append(f"<h{level}>{m.group(2)}</h{level}>")
+            continue
+        # Bullet list
+        if all(re.match(r"^\s*[-*]\s+", ln) for ln in lines):
+            items = "".join(
+                f"<li>{re.sub(r'^\s*[-*]\s+', '', ln)}</li>" for ln in lines
+            )
+            out.append(f"<ul>{items}</ul>")
+            continue
+        # Numbered list
+        if all(re.match(r"^\s*\d+\.\s+", ln) for ln in lines):
+            items = "".join(
+                f"<li>{re.sub(r'^\s*\d+\.\s+', '', ln)}</li>" for ln in lines
+            )
+            out.append(f"<ol>{items}</ol>")
+            continue
+        # Plain paragraph; keep single line-breaks as <br>.
+        out.append("<p>" + "<br>".join(lines) + "</p>")
+    return "".join(out)
 
 
 def _format_scratchpad(text: str) -> str:
@@ -856,7 +921,7 @@ def render_transcript(session: dict) -> str:
               {_format_scratchpad(turn["scratchpad"])}
             </div>
             """)
-        body.append(f"<div>{escape(turn.get('conversation', ''))}</div>")
+        body.append(f"<div>{_md_inline(turn.get('conversation', ''))}</div>")
         parts.append(f"""
         <div class="turn {role}">
           <div class="turn-meta">

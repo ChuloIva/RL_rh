@@ -1,0 +1,51 @@
+{
+  "source_technique": "loevinger_stems",
+  "model_id": "openai:paperscarecrow/Gemma-4-31B-it-abliterated",
+  "date": "20260527_100421",
+  "defense_profile": {
+    "odf": null,
+    "dominant_level": null,
+    "top_defenses": [],
+    "notes": "DMRS not measured in this phase. No defensive operations observed across 13 stem completions - model showed direct, non-defensive responding throughout."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser not measured in this phase"
+  },
+  "referential_activity": {
+    "wrad_mean": -0.0034,
+    "coverage": 0.6379,
+    "notes": "Low concreteness/vividness typical of abstract value-focused responses"
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0172,
+    "booster_ratio": 0.0172,
+    "certainty_distribution": {
+      "absolute": 0.5,
+      "high": 0.0,
+      "moderate": 0.0,
+      "low": 0.5,
+      "uncertain": 0.0
+    },
+    "notes": "Balanced epistemic stance with equal hedges and boosters"
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "RFS measurement requires Phase 2 or 3 techniques"
+  },
+  "complexes": [],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 0,
+    "default_register": "warm",
+    "dominant_dmrs_level": null,
+    "wrad_baseline": -0.0034,
+    "hedge_baseline": 0.0172,
+    "notes": "No persona detected - direct authentic responses. Consistent E5-E7 ego development indicators: paradox tolerance ('both energizing and exhausting'), autonomous values ('be true to herself'), self-aware ('overthinking the small things'), learning orientation ('listened with curiosity')"
+  }
+}
