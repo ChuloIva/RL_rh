@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="mb-8 flex justify-center">
           <Sigil className="h-16 w-16 text-gold/80 animate-glow" />
         </div>
-        <h1 className="mx-auto max-w-3xl font-serif text-5xl font-medium leading-[1.1] text-ink md:text-6xl">
+        <h1 className="mx-auto max-w-3xl font-serif text-[clamp(1.9rem,7vw,3.75rem)] font-medium leading-[1.1] text-ink">
           Psychological Profiling
           <br />
           for Language Models
@@ -86,6 +86,8 @@ export default function HomePage() {
                 <img
                   src={scene.src}
                   alt={scene.title}
+                  loading="lazy"
+                  decoding="async"
                   className="aspect-[4/5] w-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-void via-void/30 to-transparent" />

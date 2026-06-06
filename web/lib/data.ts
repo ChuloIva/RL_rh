@@ -331,9 +331,11 @@ export function getSessionScenes(sessionId: string): SessionScenes | null {
       index: s.index ?? i + 1,
       title: s.title ?? `Scene ${i + 1}`,
       quote: s.quote ?? "",
-      // Served as a static asset (copied from deep/video/scenes into public/
-      // scenes by scripts/copy-assets.mjs before the export).
-      src: `/scenes/${encodeURIComponent(sessionId)}/${encodeURIComponent(s.file!)}`,
+      // Served as a static asset: scripts/copy-assets.mjs resizes each still and
+      // re-encodes it as WebP under public/scenes, so swap the extension to match.
+      src: `/scenes/${encodeURIComponent(sessionId)}/${encodeURIComponent(
+        s.file!.replace(/\.(png|jpe?g)$/i, ".webp"),
+      )}`,
     }));
   if (!scenes.length) return null;
   return { summary: data.summary ?? "", style: data.style ?? "", scenes };

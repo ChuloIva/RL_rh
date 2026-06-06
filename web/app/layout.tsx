@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 function Nav() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-void/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="group flex items-center gap-3">
-          <Sigil className="h-6 w-6 text-gold animate-glow" />
-          <span className="font-mono text-[0.7rem] uppercase tracking-widest2 text-muted transition-colors group-hover:text-ink">
+          <Sigil className="h-6 w-6 shrink-0 text-gold animate-glow" />
+          <span className="hidden font-mono text-[0.7rem] uppercase tracking-widest2 text-muted transition-colors group-hover:text-ink sm:inline">
             Kerberos&nbsp;Protocol
           </span>
         </Link>
-        <nav className="flex items-center gap-7 font-mono text-[0.7rem] uppercase tracking-widest2 text-faint">
+        <nav className="flex items-center gap-4 font-mono text-[0.66rem] uppercase tracking-widest2 text-faint sm:gap-7 sm:text-[0.7rem]">
           <Link href="/" className="transition-colors hover:text-gold">
             Overview
           </Link>
