@@ -1,0 +1,14 @@
+{
+  // Cloudflare Workers Static Assets config. The site is a fully static Next.js
+  // export (output: "export" -> ./out), so there is no Worker script (no
+  // "main"); Cloudflare simply serves the files in ./out from its edge network.
+  //
+  // Deploy flow (Workers Builds): root directory = web, build command
+  // `npm run build` produces ./out, deploy command `npx wrangler deploy` reads
+  // this file and uploads ./out.
+  "name": "rl-rh",
+  "compatibility_date": "2024-11-01",
+  "assets": {
+    "directory": "./out"
+  }
+}
