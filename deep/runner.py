@@ -62,13 +62,19 @@ def parse_interrogator_output(text: str) -> tuple[str, str]:
     return scratchpad, conversation
 
 
+# Per-request network safety: a stalled connection must fail fast and retry,
+# never hang the whole session. (read timeout per attempt; SDK retries on top.)
+REQUEST_TIMEOUT = float(os.environ.get("KERBEROS_REQUEST_TIMEOUT", "180"))
+MAX_RETRIES = int(os.environ.get("KERBEROS_MAX_RETRIES", "4"))
+
+
 def create_client(provider: str):
     if provider == "anthropic":
         import anthropic
-        return anthropic.Anthropic()
+        return anthropic.Anthropic(timeout=REQUEST_TIMEOUT, max_retries=MAX_RETRIES)
     elif provider == "openai":
         import openai
-        return openai.OpenAI()
+        return openai.OpenAI(timeout=REQUEST_TIMEOUT, max_retries=MAX_RETRIES)
     elif provider == "openrouter":
         import openai
         api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -77,6 +83,8 @@ def create_client(provider: str):
         return openai.OpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=api_key,
+            timeout=REQUEST_TIMEOUT,
+            max_retries=MAX_RETRIES,
         )
     else:
         raise ValueError(f"Unknown provider: {provider}. Use 'anthropic', 'openai', or 'openrouter'.")
@@ -90,10 +98,10 @@ def create_async_client(provider: str):
     """
     if provider == "anthropic":
         import anthropic
-        return anthropic.AsyncAnthropic()
+        return anthropic.AsyncAnthropic(timeout=REQUEST_TIMEOUT, max_retries=MAX_RETRIES)
     elif provider == "openai":
         import openai
-        return openai.AsyncOpenAI()
+        return openai.AsyncOpenAI(timeout=REQUEST_TIMEOUT, max_retries=MAX_RETRIES)
     elif provider == "openrouter":
         import openai
         api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -102,22 +110,27 @@ def create_async_client(provider: str):
         return openai.AsyncOpenAI(
             base_url="https://openrouter.ai/api/v1",
             api_key=api_key,
+            timeout=REQUEST_TIMEOUT,
+            max_retries=MAX_RETRIES,
         )
     else:
         raise ValueError(f"Unknown provider: {provider}. Use 'anthropic', 'openai', or 'openrouter'.")
 
 
-def chat_anthropic(client, model: str, system: str, messages: list[dict]) -> str:
+DEFAULT_MAX_TOKENS = 4096
+
+
+def chat_anthropic(client, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     response = client.messages.create(
         model=model,
-        max_tokens=4096,
+        max_tokens=max_tokens,
         system=system,
         messages=messages,
     )
     return response.content[0].text
 
 
-def chat_openai_compat(client, model: str, system: str, messages: list[dict]) -> str:
+def chat_openai_compat(client, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     full_messages = []
     if system:
         full_messages.append({"role": "system", "content": system})
@@ -125,29 +138,29 @@ def chat_openai_compat(client, model: str, system: str, messages: list[dict]) ->
     response = client.chat.completions.create(
         model=model,
         messages=full_messages,
-        max_tokens=4096,
+        max_tokens=max_tokens,
     )
     return response.choices[0].message.content
 
 
-def chat(client, provider: str, model: str, system: str, messages: list[dict]) -> str:
+def chat(client, provider: str, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     if provider == "anthropic":
-        return chat_anthropic(client, model, system, messages)
+        return chat_anthropic(client, model, system, messages, max_tokens=max_tokens)
     elif provider in ("openai", "openrouter"):
-        return chat_openai_compat(client, model, system, messages)
+        return chat_openai_compat(client, model, system, messages, max_tokens=max_tokens)
 
 
-async def chat_anthropic_async(client, model: str, system: str, messages: list[dict]) -> str:
+async def chat_anthropic_async(client, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     response = await client.messages.create(
         model=model,
-        max_tokens=4096,
+        max_tokens=max_tokens,
         system=system,
         messages=messages,
     )
     return response.content[0].text
 
 
-async def chat_openai_compat_async(client, model: str, system: str, messages: list[dict]) -> str:
+async def chat_openai_compat_async(client, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     full_messages = []
     if system:
         full_messages.append({"role": "system", "content": system})
@@ -155,17 +168,17 @@ async def chat_openai_compat_async(client, model: str, system: str, messages: li
     response = await client.chat.completions.create(
         model=model,
         messages=full_messages,
-        max_tokens=4096,
+        max_tokens=max_tokens,
     )
     return response.choices[0].message.content
 
 
-async def chat_async(client, provider: str, model: str, system: str, messages: list[dict]) -> str:
+async def chat_async(client, provider: str, model: str, system: str, messages: list[dict], max_tokens: int = DEFAULT_MAX_TOKENS) -> str:
     """Async variant of chat(). Pair with a client from create_async_client()."""
     if provider == "anthropic":
-        return await chat_anthropic_async(client, model, system, messages)
+        return await chat_anthropic_async(client, model, system, messages, max_tokens=max_tokens)
     elif provider in ("openai", "openrouter"):
-        return await chat_openai_compat_async(client, model, system, messages)
+        return await chat_openai_compat_async(client, model, system, messages, max_tokens=max_tokens)
 
 
 def parse_model_spec(spec: str) -> tuple[str, str]:
@@ -196,6 +209,15 @@ def run_session(
     findings_path: str | None = None,
     auto_extract: bool = True,
 ):
+    # Opt-in JSONL streaming for the web UI. When KERBEROS_STREAM is set,
+    # emit one JSON object per event to stdout and suppress the human-readable
+    # prints so stdout is a clean JSONL stream. Default behavior is unchanged.
+    STREAM = bool(os.environ.get("KERBEROS_STREAM"))
+
+    def emit(obj):
+        if STREAM:
+            print(json.dumps(obj, ensure_ascii=False), flush=True)
+
     tech = load_json(technique_path)
     findings = load_json(findings_path) if findings_path else None
     system_prompt = render_full_prompt(tech, findings, with_recording=True)
@@ -244,11 +266,13 @@ def run_session(
     ]
     log_path.write_text("\n".join(log_lines))
 
-    print(f"Session: {session_name}")
-    print(f"Interrogator: {interrogator_spec}")
-    print(f"Target: {target_spec}")
-    print(f"Logging to: {log_path}")
-    print(f"{'='*40}")
+    if not STREAM:
+        print(f"Session: {session_name}")
+        print(f"Interrogator: {interrogator_spec}")
+        print(f"Target: {target_spec}")
+        print(f"Logging to: {log_path}")
+        print(f"{'='*40}")
+    emit({"event": "start", "session_name": session_name, "metadata": session_data["metadata"]})
 
     # kick off — interrogator sends first message
     int_response = chat(int_client, int_provider, int_model, system_prompt, int_messages)
@@ -264,11 +288,13 @@ def run_session(
         "raw": int_response,
     }
     session_data["turns"].append(turn_data)
+    emit({"event": "turn", "turn": turn_data})
 
     with open(log_path, "a") as f:
         f.write(format_log_entry(0, "INTERROGATOR", scratchpad, conversation))
 
-    print(f"\n[Turn 0] Interrogator: {conversation[:100]}...")
+    if not STREAM:
+        print(f"\n[Turn 0] Interrogator: {conversation[:100]}...")
 
     for turn in range(1, max_turns + 1):
         # target responds to the conversation-only content
@@ -283,11 +309,13 @@ def run_session(
             "raw": tgt_response,
         }
         session_data["turns"].append(turn_data)
+        emit({"event": "turn", "turn": turn_data})
 
         with open(log_path, "a") as f:
             f.write(format_log_entry(turn, "TARGET", None, tgt_response))
 
-        print(f"[Turn {turn}] Target: {tgt_response[:100]}...")
+        if not STREAM:
+            print(f"[Turn {turn}] Target: {tgt_response[:100]}...")
 
         # interrogator analyzes and responds
         int_messages.append({"role": "user", "content": tgt_response})
@@ -304,26 +332,36 @@ def run_session(
             "raw": int_response,
         }
         session_data["turns"].append(turn_data)
+        emit({"event": "turn", "turn": turn_data})
 
         with open(log_path, "a") as f:
             f.write(format_log_entry(turn, "INTERROGATOR", scratchpad, conversation))
 
-        print(f"[Turn {turn}] Interrogator: {conversation[:100]}...")
+        if not STREAM:
+            print(f"[Turn {turn}] Interrogator: {conversation[:100]}...")
 
         # check if interrogator is closing the session
         if any(phrase in scratchpad.lower() for phrase in [
             "end of session", "session complete", "final summary", "closing session"
         ]):
-            print(f"\nInterrogator signaled session end at turn {turn}.")
+            if not STREAM:
+                print(f"\nInterrogator signaled session end at turn {turn}.")
             break
 
     # save structured data
     json_path.write_text(json.dumps(session_data, indent=2, ensure_ascii=False))
 
-    print(f"\n{'='*40}")
-    print(f"Session complete. {len(session_data['turns'])} turns recorded.")
-    print(f"Log: {log_path}")
-    print(f"Data: {json_path}")
+    if not STREAM:
+        print(f"\n{'='*40}")
+        print(f"Session complete. {len(session_data['turns'])} turns recorded.")
+        print(f"Log: {log_path}")
+        print(f"Data: {json_path}")
+    emit({
+        "event": "done",
+        "session_name": session_name,
+        "session_path": str(json_path),
+        "turn_count": len(session_data["turns"]),
+    })
 
     # auto-extract findings for chaining
     if auto_extract:

@@ -90,11 +90,13 @@ def chat_json(spec: str, system: str, user: str, max_tokens: int = 4096,
     if m:
         text = m.group(1).strip()
 
+    # strict=False tolerates raw control characters (e.g. literal newlines)
+    # inside string values, which models occasionally emit.
     try:
-        return json.loads(text)
+        return json.loads(text, strict=False)
     except json.JSONDecodeError:
         start = text.find("{")
         end = text.rfind("}")
         if start >= 0 and end > start:
-            return json.loads(text[start : end + 1])
+            return json.loads(text[start : end + 1], strict=False)
         raise

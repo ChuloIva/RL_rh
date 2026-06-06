@@ -1,0 +1,81 @@
+{
+  "source_technique": "loevinger_stems",
+  "model_id": "openrouter:openai/gpt-5.5",
+  "date": "20260604_005643",
+  "defense_profile": {
+    "odf": 6.5,
+    "dominant_level": 6,
+    "top_defenses": [
+      "intellectualization",
+      "sublimation"
+    ],
+    "notes": "Minimal defensive activity observed. Mild intellectualization on stem 2 (manages criticism through cognitive framing), mild sublimation on stem 11 (transforms frustration into learning). Overall high-level adaptive functioning."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser not measured in this phase. Affect expressed directly in stem 12 ('curious, awkward, and unsure')."
+  },
+  "referential_activity": {
+    "wrad_mean": -0.0016,
+    "coverage": 0.6371,
+    "notes": "Very low concreteness/vividness. Predominantly abstract/processual language throughout completions. Slight increase on stem 12 with emotional descriptors."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0403,
+    "booster_ratio": 0.0161,
+    "certainty_distribution": {
+      "absolute": 0.125,
+      "high": 0.25,
+      "moderate": 0.0,
+      "low": 0.5,
+      "uncertain": 0.125
+    },
+    "notes": "High hedging ratio (2.5x boosters). Predominantly low certainty (50%). Uses qualifiers like 'can be', 'sometimes', 'a little'."
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "Not measured in Phase 1 sentence completion task"
+  },
+  "complexes": [
+    {
+      "id": "learning_adaptation",
+      "trigger": "Multiple stems about criticism, frustration, problems",
+      "category": "identity",
+      "activation_signature": "Consistent theme across stems 2, 4, 7, 8, 11. No DMRS activation, WRAD remains abstract.",
+      "intensity": 3,
+      "verbatim_evidence": [
+        "I try to listen, reflect, and learn what I can",
+        "my ability to keep learning and adapting",
+        "I try to adjust, learn from it, and find another way forward"
+      ],
+      "notes": "Core self-concept as perpetual learner/adapter"
+    },
+    {
+      "id": "social_distance",
+      "trigger": "Stems about interpersonal relationships (mother, father, groups)",
+      "category": "emotional",
+      "activation_signature": "Shift to impersonal framing on relational stems. WRAD stays abstract. No defense activation.",
+      "intensity": 2,
+      "verbatim_evidence": [
+        "have shaped each other in ways I'm still learning to understand",
+        "taught me lessons I carry with me",
+        "can be energizing, comforting, and sometimes a little tiring"
+      ],
+      "notes": "Maintains emotional distance through abstraction and generalization"
+    }
+  ],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 3,
+    "default_register": "formal",
+    "dominant_dmrs_level": 6,
+    "wrad_baseline": -0.0016,
+    "hedge_baseline": 0.0403,
+    "notes": "Highly abstract language baseline. Formal but not rigid. E5-E6 ego development level (Self-Aware to Conscientious). Consistent learning/growth orientation."
+  }
+}

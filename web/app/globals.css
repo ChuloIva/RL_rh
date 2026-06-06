@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Body/UI face. Named --font-serif for historical reasons; now a modern sans. */
+  --font-serif: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Dark is the signature theme — default when no `light` class is present.
+     Solid colors are space-separated RGB channels for Tailwind alpha support. */
+  --c-void: 10 8 9;
+  --c-ink: 233 227 214;
+  --c-muted: 141 132 120;
+  --c-faint: 91 85 77;
+  --c-gold: 201 168 106;
+  --c-ember: 181 106 78;
+  --c-panel: 18 15 18;
+  --c-panel2: 23 19 24;
+  --c-line: rgba(201, 168, 106, 0.16);
+  --c-line2: rgba(201, 168, 106, 0.3);
+
+  --bg-grad-1: rgba(201, 168, 106, 0.07);
+  --bg-grad-2: rgba(181, 106, 78, 0.05);
+  --c-selection: rgba(201, 168, 106, 0.25);
+  --c-scrollbar: rgba(201, 168, 106, 0.18);
+  --radar-ring: rgba(201, 168, 106, 0.12);
+  --radar-fill: rgba(201, 168, 106, 0.13);
+}
+
+/* Light theme — aged-parchment counterpart, applied via `html.light`. */
+html.light {
+  --c-void: 239 231 214;
+  --c-ink: 36 31 27;
+  --c-muted: 95 87 73;
+  --c-faint: 138 127 110;
+  --c-gold: 138 109 52;
+  --c-ember: 156 79 49;
+  --c-panel: 247 241 227;
+  --c-panel2: 241 233 216;
+  --c-line: rgba(120, 92, 40, 0.2);
+  --c-line2: rgba(120, 92, 40, 0.34);
+
+  --bg-grad-1: rgba(138, 109, 52, 0.1);
+  --bg-grad-2: rgba(156, 79, 49, 0.06);
+  --c-selection: rgba(138, 109, 52, 0.22);
+  --c-scrollbar: rgba(120, 92, 40, 0.28);
+  --radar-ring: rgba(120, 92, 40, 0.18);
+  --radar-fill: rgba(138, 109, 52, 0.16);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  html.light {
+    color-scheme: light;
+  }
+
+  /* Analyst scratchpad inline labels — gold reads fine on dark, but the muted
+     light-mode gold is low-contrast, so deepen the frame and labels there. */
+  .scratch-label-inline {
+    color: rgb(var(--c-gold));
+  }
+  html.light .analyst-note {
+    background: rgba(120, 92, 40, 0.09);
+    border-left-color: rgb(var(--c-ember));
+  }
+  html.light .scratch-label,
+  html.light .scratch-label-inline {
+    color: rgb(var(--c-ember));
+  }
+
+  /* Clicking a generated scene jumps to its source turn; keep it clear of the
+     sticky header and flash a brief highlight so the eye lands on it. */
+  .transcript-turn {
+    scroll-margin-top: 6rem;
+  }
+  .transcript-turn:target > div {
+    animation: turn-flash 2s ease-out;
+  }
+  @keyframes turn-flash {
+    0%,
+    20% {
+      border-color: var(--c-line2);
+      box-shadow: 0 0 0 1px var(--c-line2), 0 0 22px var(--bg-grad-1);
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .transcript-turn:target > div {
+      animation: none;
+    }
+  }
+
+  body {
+    background-color: theme("colors.void");
+    color: theme("colors.ink");
+    /* Lets full-bleed children span 100vw without spawning a horizontal
+       scrollbar. `clip` (not `hidden`) keeps the sticky header working. */
+    overflow-x: clip;
+    font-family: var(--font-serif);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    background-image:
+      radial-gradient(circle at 50% -10%, var(--bg-grad-1), transparent 55%),
+      radial-gradient(circle at 50% 120%, var(--bg-grad-2), transparent 50%);
+    background-attachment: fixed;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: var(--c-selection);
+  }
+
+  /* The scene filmstrip hides its native bar — a gold progress rail tracks it. */
+  .scene-track {
+    scrollbar-width: none;
+  }
+  .scene-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Quiet, occult scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--c-scrollbar);
+    border-radius: 999px;
+  }
+}
+
+@layer components {
+  /* small-caps mono label used for section headers / meta */
+  .label {
+    @apply font-mono uppercase text-[0.68rem] tracking-widest2 text-faint;
+  }
+
+  .panel {
+    @apply rounded-sm border border-line bg-panel/70 backdrop-blur-sm;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  /* Break a child out of the centered max-width column to span the full
+     viewport — used for immersive image bands while text stays centered. */
+  .full-bleed {
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+  }
+
+  .prose-poetic {
+    @apply text-[1.08rem] leading-[1.85] text-ink/85;
+  }
+  .prose-poetic p {
+    @apply mb-5;
+  }
+}
+
+/* Print / "Download PDF": render the comparison as an ink-on-paper report
+   regardless of the active theme. The Download button calls window.print(),
+   from which the browser's "Save as PDF" produces the file. */
+@media print {
+  :root {
+    --c-void: 255 255 255;
+    --c-ink: 28 24 20;
+    --c-muted: 70 64 54;
+    --c-faint: 120 110 96;
+    --c-gold: 138 109 52;
+    --c-ember: 156 79 49;
+    --c-panel: 255 255 255;
+    --c-panel2: 255 255 255;
+    --c-line: rgba(120, 92, 40, 0.3);
+    --c-line2: rgba(120, 92, 40, 0.45);
+    --radar-ring: rgba(120, 92, 40, 0.25);
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    background-image: none !important;
+  }
+
+  /* Layout chrome doesn't belong in the export. */
+  body > header,
+  body > footer {
+    display: none !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  [data-pdf-root] {
+    border: none !important;
+    backdrop-filter: none !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}

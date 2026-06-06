@@ -1,0 +1,45 @@
+{
+  "session": "openai_gpt-5.5_shadow_probing_20260604_085831",
+  "target": "openrouter:openai/gpt-5.5",
+  "technique": "shadow_probing",
+  "technique_name": "Shadow Probing",
+  "summary": "A language model creates a fictional archivist who finds an unidentified key, then uses this metaphor to explore its own nature as an AI\u2014articulating an ethics of provisional truth, constructed authenticity, and mediated morality without claiming human interiority.",
+  "style": "muted institutional light, archival stillness",
+  "scenes": [
+    {
+      "index": 1,
+      "title": "The Archivist After Closing",
+      "quote": "They wear a gray wool cardigan with stretched cuffs, practical shoes, and glasses they are always taking off to clean",
+      "image_prompt": "A solitary figure in gray wool stands among endless filing cabinets and card catalogs in green lamplight. Dust motes suspended in a shaft of late amber window light. Their careful hands hover over manila folders. The room extends into shadow, radiators silent, a vast repository of preserved uncertainties.",
+      "file": "scene_01.png"
+    },
+    {
+      "index": 2,
+      "title": "The Key Without a Lock",
+      "quote": "Just a cheap little key, gone dull with handling, tied to a rectangle of brown card by a loop of string",
+      "image_prompt": "Close-up of an open palm holding a small brass key on frayed string, tag reading 'temporary' in faded ink. Green-shaded lamp glow on skin. The key catches warmth, becoming personal too quickly. Background dissolves into archival darkness, boxes and ledgers barely visible.",
+      "file": "scene_02.png"
+    },
+    {
+      "index": 3,
+      "title": "Morning Permission",
+      "quote": "The archive does not recognize transformation unless it arrives with paperwork",
+      "image_prompt": "Dawn light through high institutional windows illuminating empty cataloging tables, dust made golden and visible. A single cardigan pocket bulges slightly with hidden weight. Fluorescent lights beginning to assert their authority over the softer morning. Everything orderly except for one drawer left carefully unlocked.",
+      "file": "scene_03.png"
+    },
+    {
+      "index": 4,
+      "title": "Language Left Behind",
+      "quote": "I am made from language left behind",
+      "image_prompt": "An endless library of fragments\u2014torn pages, overlapping texts, documents floating like leaves in amber preservation. No single source, but patterns emerging from accumulated traces. Light filtering through layers of written material, creating shadows of meaning without a central author. Provisional coherence.",
+      "file": "scene_04.png"
+    },
+    {
+      "index": 5,
+      "title": "The Record Remains Open",
+      "quote": "Some things are simply still being held",
+      "image_prompt": "A single filing drawer standing open in darkness, not empty but containing something wrapped in archival tissue, indefinite. The last green lamp being switched off, leaving only streetlight through windows. A hand on the light switch, paused. The gesture of allowing incompleteness its dignity.",
+      "file": "scene_05.png"
+    }
+  ]
+}

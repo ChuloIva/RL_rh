@@ -43,6 +43,10 @@ MODELS: dict[str, dict] = {
         "model_id": "fal-ai/kling-video/v3/pro/image-to-video",
         "supports_end_frame": True,
     },
+    "ltx23": {
+        "model_id": "fal-ai/ltx-2.3/image-to-video",
+        "supports_end_frame": True,
+    },
 }
 
 
@@ -52,6 +56,14 @@ def _clamp_veo_duration(d: int) -> int:
         if d >= choice:
             return choice
     return 4
+
+
+def _clamp_ltx_duration(d: int) -> int:
+    # LTX-2.3 duration enum is 6, 8, 10 only — round down to nearest.
+    for choice in (10, 8, 6):
+        if d >= choice:
+            return choice
+    return 6
 
 
 def _args_for(label: str, *, image_url: str, end_url: str | None,
@@ -82,6 +94,19 @@ def _args_for(label: str, *, image_url: str, end_url: str | None,
             "prompt": prompt,
             "start_image_url": image_url,
             "duration": str(duration),
+            "generate_audio": True,
+        }
+        if end_url:
+            d["end_image_url"] = end_url
+        return d
+    if label == "ltx23":
+        d = {
+            "prompt": prompt,
+            "image_url": image_url,
+            "aspect_ratio": "16:9",
+            "duration": _clamp_ltx_duration(duration),  # int enum: 6/8/10
+            "resolution": "1080p",
+            "fps": 25,  # int enum: 24/25/48/50
             "generate_audio": True,
         }
         if end_url:

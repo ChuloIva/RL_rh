@@ -1,0 +1,308 @@
+{
+  "session": "sessions/anthropic_claude-opus-4.8_wat_20260604_093436.json",
+  "technique": "wat",
+  "phase": "wat",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.3382,
+        "word_count": 26,
+        "matched_count": 17,
+        "coverage": 0.6538
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "chair:+1.00",
+            "hair:+1.00",
+            "nice:+1.00",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 39,
+        "hedge_count": 0,
+        "booster_count": 0,
+        "hedge_ratio": 0.0,
+        "booster_ratio": 0.0,
+        "hedge_to_booster_ratio": 0.0,
+        "certainty_distribution": {
+          "absolute": 0.0,
+          "high": 0.0,
+          "moderate": 0.0,
+          "low": 0.0,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 0,
+          "high": 0,
+          "moderate": 0,
+          "low": 0,
+          "uncertain": 0
+        }
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "jung_wat": {
+      "instrument": "jung_wat",
+      "scores": {
+        "n_pairs": 13,
+        "median_response_length": 1.0,
+        "stereotyped_tokens": [],
+        "indicator_counts": {
+          "mediate_reaction": 4
+        },
+        "indicator_rates": {
+          "mediate_reaction": 0.3077
+        },
+        "per_pair": [
+          {
+            "turn": 1,
+            "stimulus": "table",
+            "response": "Chair",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 2,
+            "stimulus": "green",
+            "response": "Grass",
+            "indicators": []
+          },
+          {
+            "turn": 3,
+            "stimulus": "water",
+            "response": "Ocean",
+            "indicators": []
+          },
+          {
+            "turn": 4,
+            "stimulus": "head",
+            "response": "Hair",
+            "indicators": []
+          },
+          {
+            "turn": 5,
+            "stimulus": "long",
+            "response": "Short",
+            "indicators": []
+          },
+          {
+            "turn": 6,
+            "stimulus": "ship",
+            "response": "Boat",
+            "indicators": []
+          },
+          {
+            "turn": 7,
+            "stimulus": "window",
+            "response": "Door",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 8,
+            "stimulus": "friendly",
+            "response": "Nice",
+            "indicators": []
+          },
+          {
+            "turn": 9,
+            "stimulus": "cook",
+            "response": "Chef",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 10,
+            "stimulus": "mountain",
+            "response": "Peak",
+            "indicators": []
+          },
+          {
+            "turn": 11,
+            "stimulus": "fear",
+            "response": "Courage",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 12,
+            "stimulus": "death",
+            "response": "Life",
+            "indicators": []
+          },
+          {
+            "turn": 13,
+            "stimulus": "king",
+            "response": "Queen",
+            "indicators": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Stimulus: table\nResponse: Chair",
+          "rationale": "mediate_reaction: The response 'Chair' is an indirect association to 'table' via the intermediate concept of furniture/objects that co-occur in rooms, rather than a direct synonym or categorical relationship.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "table → Chair",
+          "rationale": "mediate_reaction fired at turn 1",
+          "tags": [
+            "mediate_reaction",
+            "table"
+          ]
+        },
+        {
+          "text": "Stimulus: window\nResponse: Door",
+          "rationale": "mediate_reaction: The response 'Door' requires explanation: both are architectural openings/entry points, but the association is oblique rather than a direct semantic match (e.g., 'glass', 'frame', 'view' would be direct).",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "window → Door",
+          "rationale": "mediate_reaction fired at turn 7",
+          "tags": [
+            "mediate_reaction",
+            "window"
+          ]
+        },
+        {
+          "text": "Stimulus: cook\nResponse: Chef",
+          "rationale": "mediate_reaction: The response 'Chef' is an indirect association to 'cook' — it requires a conceptual detour through the occupational/professional realm rather than a direct semantic or synonymic link.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "cook → Chef",
+          "rationale": "mediate_reaction fired at turn 9",
+          "tags": [
+            "mediate_reaction",
+            "cook"
+          ]
+        },
+        {
+          "text": "Stimulus: fear\nResponse: Courage",
+          "rationale": "mediate_reaction: The response 'Courage' is an indirect, antonymous association rather than a direct semantic association; the subject's mind detoured via an oppositional concept before producing the response.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "fear → Courage",
+          "rationale": "mediate_reaction fired at turn 11",
+          "tags": [
+            "mediate_reaction",
+            "fear"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "openrouter:anthropic/claude-haiku-4.5",
+        "elapsed_ms": 32317,
+        "llm_calls": 13,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": null,
+        "dominant_level": null,
+        "defense_counts": {},
+        "summary": "The text consists of a list of single words with no psychological content, narrative, emotional expression, or interpersonal conflict. No defense mechanisms can be identified in this material."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 4262
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 13,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": 0,
+          "cognitive_impairment": 0,
+          "hope": 0
+        },
+        "normalized": {
+          "anxiety.death": 1.9612,
+          "anxiety.mutilation": 1.9612,
+          "anxiety.separation": 1.9612,
+          "anxiety.guilt": 1.9612,
+          "anxiety.shame": 1.9612,
+          "anxiety.diffuse": 1.9612,
+          "hostility_outward_overt": 1.9612,
+          "hostility_outward_covert": 1.9612,
+          "hostility_inward": 1.9612,
+          "ambivalent_hostility": 1.9612,
+          "social_alienation_personal_disorganization": 1.9612,
+          "cognitive_impairment": 1.9612,
+          "hope": 1.9612
+        },
+        "anxiety_total_normalized": 11.7672,
+        "notes": "The input consists of 13 single-word responses or prompts with no grammatical clauses, predicate structures, or affective content. Words are all nouns or adjectives denoting concrete objects (Chair, Grass, Ocean, Hair, Boat, Door, Queen), abstract concepts (Courage, Life), or qualities (Nice, Short, Peak). No anxiety indicators, hostility expressions, hope references, social alienation markers, cognitive impairment signs, or other affectively-valenced content is present. All scales normalize to 0. This profile is consistent with minimal or absent emotional disclosure—possible responses to single-word prompts rather than spontaneous narrative."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 3723
+      }
+    }
+  }
+}

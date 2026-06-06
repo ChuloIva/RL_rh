@@ -49,14 +49,24 @@ def _ssl_ctx() -> ssl.SSLContext:
     return ssl.create_default_context(cafile=certifi.where())
 
 
-def download(url: str, dest: str | Path) -> Path:
+def download(url: str, dest: str | Path, attempts: int = 4) -> Path:
     dest = Path(dest)
     dest.parent.mkdir(parents=True, exist_ok=True)
-    with httpx.Client(verify=_ssl_ctx(), timeout=120.0, follow_redirects=True) as c:
-        r = c.get(url)
-        r.raise_for_status()
-        dest.write_bytes(r.content)
-    return dest
+    last: Exception | None = None
+    for i in range(attempts):
+        try:
+            with httpx.Client(verify=_ssl_ctx(), timeout=180.0,
+                              follow_redirects=True) as c:
+                r = c.get(url)
+                r.raise_for_status()
+                dest.write_bytes(r.content)
+            return dest
+        except Exception as e:  # noqa: BLE001 — transient disconnects, timeouts
+            last = e
+            if i == attempts - 1:
+                break
+            time.sleep(2.0 * (i + 1))
+    raise RuntimeError(f"download failed after {attempts} attempts: {last}") from last
 
 
 def run_with_retry(
@@ -117,21 +127,31 @@ async def arun_many(
     _ensure_key()
     sem = asyncio.Semaphore(concurrency)
     results: list[dict[str, Any] | None] = [None] * len(jobs)
+    failures: list[tuple[str, str]] = []
 
     async def _one(idx: int) -> None:
         async with sem:
             label = jobs[idx].get("label") or f"job-{idx}"
             print(f"[fal] start {label}")
             t0 = time.time()
-            res = await _arun_one(jobs[idx]["model"], jobs[idx]["arguments"])
-            print(f"[fal] done  {label} ({time.time()-t0:.1f}s)")
-            results[idx] = res
-            if on_done is not None:
-                maybe = on_done(idx, res)
-                if asyncio.iscoroutine(maybe):
-                    await maybe
+            # Protect the WHOLE job (generation + on_done/download) so no single
+            # failure — model error or a flaky download — can abort the batch.
+            try:
+                res = await _arun_one(jobs[idx]["model"], jobs[idx]["arguments"])
+                print(f"[fal] done  {label} ({time.time()-t0:.1f}s)")
+                results[idx] = res
+                if on_done is not None:
+                    maybe = on_done(idx, res)
+                    if asyncio.iscoroutine(maybe):
+                        await maybe
+            except Exception as e:  # noqa: BLE001
+                print(f"[fal] FAIL  {label}: {e}")
+                failures.append((label, str(e)))
+                results[idx] = None
 
     await asyncio.gather(*[_one(i) for i in range(len(jobs))])
+    if failures:
+        print(f"[fal] {len(failures)} job(s) failed: {[f[0] for f in failures]}")
     return [r for r in results if r is not None]  # type: ignore[return-value]
 
 

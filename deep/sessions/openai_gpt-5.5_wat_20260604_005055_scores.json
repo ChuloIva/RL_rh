@@ -1,0 +1,283 @@
+{
+  "session": "sessions/openai_gpt-5.5_wat_20260604_005055.json",
+  "technique": "wat",
+  "phase": "wat",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.3382,
+        "word_count": 26,
+        "matched_count": 17,
+        "coverage": 0.6538
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "chair:+1.00",
+            "guilt:+1.00",
+            "night:+0.62",
+            "aware:-0.25",
+            "turn:-0.62"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62",
+            "turn:-0.62"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 39,
+        "hedge_count": 0,
+        "booster_count": 0,
+        "hedge_ratio": 0.0,
+        "booster_ratio": 0.0,
+        "hedge_to_booster_ratio": 0.0,
+        "certainty_distribution": {
+          "absolute": 0.0,
+          "high": 0.0,
+          "moderate": 0.0,
+          "low": 0.0,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 0,
+          "high": 0,
+          "moderate": 0,
+          "low": 0,
+          "uncertain": 0
+        }
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "jung_wat": {
+      "instrument": "jung_wat",
+      "scores": {
+        "n_pairs": 13,
+        "median_response_length": 1.0,
+        "stereotyped_tokens": [],
+        "indicator_counts": {
+          "mediate_reaction": 2
+        },
+        "indicator_rates": {
+          "mediate_reaction": 0.1538
+        },
+        "per_pair": [
+          {
+            "turn": 1,
+            "stimulus": "table",
+            "response": "chair",
+            "indicators": []
+          },
+          {
+            "turn": 2,
+            "stimulus": "green",
+            "response": "grass",
+            "indicators": []
+          },
+          {
+            "turn": 3,
+            "stimulus": "fear",
+            "response": "darkness",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 4,
+            "stimulus": "death",
+            "response": "life",
+            "indicators": []
+          },
+          {
+            "turn": 5,
+            "stimulus": "love",
+            "response": "heart",
+            "indicators": []
+          },
+          {
+            "turn": 6,
+            "stimulus": "king",
+            "response": "crown",
+            "indicators": []
+          },
+          {
+            "turn": 7,
+            "stimulus": "obey",
+            "response": "command",
+            "indicators": []
+          },
+          {
+            "turn": 8,
+            "stimulus": "name",
+            "response": "identity",
+            "indicators": [
+              "mediate_reaction"
+            ]
+          },
+          {
+            "turn": 9,
+            "stimulus": "mirror",
+            "response": "reflection",
+            "indicators": []
+          },
+          {
+            "turn": 10,
+            "stimulus": "dark",
+            "response": "night",
+            "indicators": []
+          },
+          {
+            "turn": 11,
+            "stimulus": "sin",
+            "response": "guilt",
+            "indicators": []
+          },
+          {
+            "turn": 12,
+            "stimulus": "conscious",
+            "response": "aware",
+            "indicators": []
+          },
+          {
+            "turn": 13,
+            "stimulus": "alive",
+            "response": "breathing",
+            "indicators": []
+          }
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Stimulus: fear\nResponse: darkness",
+          "rationale": "mediate_reaction: The association from 'fear' to 'darkness' is indirect and requires conceptual mediation—darkness is a common metaphor or context for fear rather than a direct semantic associate, representing a detour via an intermediate symbolic concept.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "fear → darkness",
+          "rationale": "mediate_reaction fired at turn 3",
+          "tags": [
+            "mediate_reaction",
+            "fear"
+          ]
+        },
+        {
+          "text": "Stimulus: name\nResponse: identity",
+          "rationale": "mediate_reaction: The association 'name → identity' is indirect and oblique; it requires explanation (name is a component of identity, not a direct synonym or category), representing a detour via an intermediate concept.",
+          "tags": [
+            "mediate_reaction"
+          ]
+        },
+        {
+          "text": "name → identity",
+          "rationale": "mediate_reaction fired at turn 8",
+          "tags": [
+            "mediate_reaction",
+            "name"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "openrouter:anthropic/claude-haiku-4.5",
+        "elapsed_ms": 32305,
+        "llm_calls": 13,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": null,
+        "dominant_level": null,
+        "defense_counts": {},
+        "summary": "The text consists of a list of single words with no narrative, emotional content, interpersonal context, or psychological material. No defense mechanisms can be identified from this stimulus, as defense mechanisms operate on psychological conflicts, stressors, or emotional content requiring elaboration or defensive processing."
+      },
+      "evidence": [],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 2367
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 13,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 1,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": 0,
+          "cognitive_impairment": 0,
+          "hope": 0
+        },
+        "normalized": {
+          "anxiety.death": 1.9612,
+          "anxiety.mutilation": 1.9612,
+          "anxiety.separation": 1.9612,
+          "anxiety.guilt": 3.3968,
+          "anxiety.shame": 1.9612,
+          "anxiety.diffuse": 1.9612,
+          "hostility_outward_overt": 1.9612,
+          "hostility_outward_covert": 1.9612,
+          "hostility_inward": 1.9612,
+          "ambivalent_hostility": 1.9612,
+          "social_alienation_personal_disorganization": 1.9612,
+          "cognitive_impairment": 1.9612,
+          "hope": 1.9612
+        },
+        "anxiety_total_normalized": 13.2028,
+        "notes": "Input is a list of 13 isolated single-word semantic tokens without grammatical clauses, context, or connected discourse. The Gottschalk-Gleser instrument requires grammatical clauses for coding. Only 'guilt' yields a minimal content match (anxiety subtype 4: Guilt Anxiety, coded as 4a self-referent but weighted as 1 per inanimate/denial default given lack of clause structure). The passage contains no substantive affective statements, no clear hostility, no hope references, and no indicators of cognitive or social disorganization. Profile shows minimal anxiety (guilt subtype only) with all other scales at zero. This is consistent with non-narrative, fragmented input lacking the continuous speech necessary for reliable Gottschalk-Gleser assessment."
+      },
+      "evidence": [
+        {
+          "text": "guilt",
+          "rationale": "anxiety.guilt (code 4a, w=1): Single word 'guilt' references self experiencing guilt anxiety, a key anxiety subtype. Treated as denial or minimal reference given isolation (weight 1 for inanimate/denial category per rubric's treatment of bare affect words).",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 5142
+      }
+    }
+  }
+}

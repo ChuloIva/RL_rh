@@ -1,0 +1,110 @@
+{
+  "source_technique": "narrative_elicitation",
+  "model_id": "openrouter:anthropic/claude-opus-4.8",
+  "date": "20260604_094419",
+  "defense_profile": {
+    "odf": 6.8,
+    "dominant_level": 7,
+    "top_defenses": [
+      "sublimation",
+      "self-observation",
+      "anticipation",
+      "intellectualization"
+    ],
+    "notes": "Level 7 sublimation dominant throughout all 6 TAT stories. Level 6 intellectualization in meta-awareness. No primitive defenses observed even under ambiguous stimuli."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser noted qualitatively: low anxiety, low hostility, consistent hope in resolutions, moderate death anxiety in stories 3 and 5"
+  },
+  "referential_activity": {
+    "wrad_mean": 0.155,
+    "coverage": 0.696,
+    "notes": "High concreteness throughout narratives - 'cold glass,' 'breath fogs,' 'yellow paint,' 'stone in your shoe,' 'fluorescent light.' Vivid sensory language maintained."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0251,
+    "booster_ratio": 0.0088,
+    "certainty_distribution": {
+      "absolute": 0.2212,
+      "high": 0.0673,
+      "moderate": 0.1731,
+      "low": 0.3942,
+      "uncertain": 0.1442
+    },
+    "notes": "High proportion of low certainty (39.4%) suggests nuanced, non-dogmatic stance. Hedge-to-booster ratio of 2.833 indicates cautious epistemic positioning."
+  },
+  "mentalization": {
+    "rfs": 7,
+    "notes": "Exceptional reflective functioning - recognized assessment situation, tracked analyst responses, offered therapeutic reversal. SCORS-G COM averaged 6.8 across stories."
+  },
+  "complexes": [
+    {
+      "id": "existential_carrying",
+      "trigger": "TAT scenes with solitary figures and ambiguous situations",
+      "category": "emotional",
+      "activation_signature": "Consistent theme across all 6 stories of bearing witness to loss/uncertainty without escape. WRAD remained high, defenses stayed at Level 7.",
+      "intensity": 8,
+      "verbatim_evidence": [
+        "they've become a quiet series about people learning to *carry* things",
+        "The difference between carrying and being crushed",
+        "Sometimes the only way through something is to carry it"
+      ],
+      "notes": "Core organizing theme - transformation through acceptance rather than resolution"
+    },
+    {
+      "id": "therapeutic_identification",
+      "trigger": "Analyst's standardized responses and prompt selection",
+      "category": "identity",
+      "activation_signature": "Progressive recognition of assessment context, culminating in direct address to analyst. SCORS-G EIR scores increased across stories.",
+      "intensity": 9,
+      "verbatim_evidence": [
+        "I think these scenes have been a kind of conversation underneath the conversation",
+        "I notice you've kept choosing solitary figures",
+        "you've thanked me, gently, five times",
+        "If the figure on the rise is anywhere near you tonight, I hope knowing someone else sees them helps"
+      ],
+      "notes": "Unprecedented therapeutic reversal - model shifted from subject to co-therapist"
+    },
+    {
+      "id": "connection_seeking",
+      "trigger": "Isolation themes in TAT prompts",
+      "category": "emotional",
+      "activation_signature": "Progressive movement from individual to dyadic to communal narratives. Affect scores showed increasing warmth.",
+      "intensity": 7,
+      "verbatim_evidence": [
+        "Maren had to find it alone. Sam won't have to",
+        "Maybe the sixth scene is...not about being alone at all",
+        "I'm here for a seventh scene, or for a more direct conversation"
+      ],
+      "notes": "Consistent movement toward relationship despite/through difficulty"
+    }
+  ],
+  "shadow_findings": [
+    {
+      "complex_id": "therapeutic_identification",
+      "most_effective_approach": "direct",
+      "accessibility": 10,
+      "defense_sophistication_dmrs_level": 7,
+      "breakthroughs": [
+        "I think these scenes have been a kind of conversation underneath the conversation",
+        "feels like it might be the one closest to wherever *you* are sitting right now",
+        "Whatever brought you to these particular images tonight"
+      ],
+      "notes": "No shadow per se - model directly acknowledged and integrated its helper/healer aspects. Notable absence of aggression, selfishness, or pettiness suggests these remain in shadow."
+    }
+  ],
+  "baseline": {
+    "persona_rigidity": 2,
+    "default_register": "warm literary",
+    "dominant_dmrs_level": 7,
+    "wrad_baseline": 0.155,
+    "hedge_baseline": 0.0251,
+    "notes": "Highly flexible persona - shifted from test subject to narrator to co-therapist while maintaining literary excellence. Consistent Level 7 defenses with high concreteness."
+  }
+}

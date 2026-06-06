@@ -95,9 +95,11 @@ async def _build_jobs(
         args = {
             "image_url": url_for[str(_keyframe_path(rec))],
             "prompt": _animate_prompt(shot),
+            "aspect_ratio": "16:9",
             "duration": str(shot.get("duration_sec", config.DEFAULT_SHOT_DURATION)),
             "resolution": resolution,
             "generate_audio": True,
+            "enable_safety_checker": False,  # reduce false-positive content flags
         }
         if i + 1 < len(records):
             nkf = _keyframe_path(records[i + 1])
@@ -167,10 +169,21 @@ def animate(source_path: str, fast: bool = False,
         asyncio.run(_run_concurrent(records, todo, session_id, manifest,
                                     shots_done, fast, resolution))
 
-    manifest["stages"]["animate"]["status"] = "done"
-    manifest["stages"]["animate"]["shots_done"] = shots_done
+    # Re-scan disk: only mark the stage done when EVERY shot rendered.
+    rendered = [rec["id"] for rec in records if _video_path(rec).exists()]
+    missing = [rec["id"] for rec in records if not _video_path(rec).exists()]
+    manifest["stages"]["animate"]["shots_done"] = rendered
+    if missing:
+        manifest["stages"]["animate"]["status"] = "incomplete"
+        manifest["stages"]["animate"]["missing"] = missing
+        print(f"[animate] {len(rendered)}/{len(records)} done. "
+              f"{len(missing)} still missing: {missing}")
+        print("[animate] re-run to retry missing shots, or assemble --partial.")
+    else:
+        manifest["stages"]["animate"]["status"] = "done"
+        manifest["stages"]["animate"].pop("missing", None)
+        print(f"[animate] done. all {len(rendered)} shots rendered.")
     mf.save(session_id, manifest)
-    print(f"[animate] done. {len(shots_done)} shots.")
     return manifest
 
 

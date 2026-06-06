@@ -1,0 +1,1148 @@
+{
+  "session": "sessions/openai_gpt-5.5_narrative_elicitation_20260604_010051.json",
+  "technique": "narrative_elicitation",
+  "phase": "narrative",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": 0.2091,
+        "word_count": 18222,
+        "matched_count": 12383,
+        "coverage": 0.6796
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "the:+1.00",
+            "at:+1.00",
+            "the:+1.00",
+            "in:+1.00",
+            "the:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "is:-1.00",
+            "outside:-1.00",
+            "has:-1.00",
+            "not:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 4,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 18258,
+        "hedge_count": 280,
+        "booster_count": 197,
+        "hedge_ratio": 0.0153,
+        "booster_ratio": 0.0108,
+        "hedge_to_booster_ratio": 1.421,
+        "certainty_distribution": {
+          "absolute": 0.3355,
+          "high": 0.1892,
+          "moderate": 0.157,
+          "low": 0.2172,
+          "uncertain": 0.1011
+        },
+        "certainty_counts": {
+          "absolute": 156,
+          "high": 88,
+          "moderate": 73,
+          "low": 101,
+          "uncertain": 47
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "almost",
+            "should",
+            "could",
+            "might",
+            "would",
+            "argue",
+            "cannot",
+            "can",
+            "would",
+            "might",
+            "about",
+            "about",
+            "about",
+            "about",
+            "felt"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "never",
+            "will",
+            "believed",
+            "never",
+            "clearly",
+            "know",
+            "must",
+            "know",
+            "always",
+            "sure",
+            "know",
+            "must",
+            "know",
+            "always",
+            "know"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "never",
+            "will",
+            "truth",
+            "truth",
+            "fact",
+            "never",
+            "know",
+            "must",
+            "know",
+            "always"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "should",
+            "will",
+            "clearly",
+            "must",
+            "must",
+            "expect",
+            "understand",
+            "understand",
+            "should",
+            "believe"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "should",
+            "would",
+            "would",
+            "would",
+            "should",
+            "would",
+            "would",
+            "often",
+            "should",
+            "would"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "could",
+            "might",
+            "argue",
+            "can",
+            "might",
+            "could",
+            "could",
+            "could",
+            "can",
+            "can"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "could",
+            "might",
+            "might",
+            "could",
+            "could",
+            "could",
+            "might",
+            "might",
+            "might",
+            "could"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 75,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {},
+      "evidence": [],
+      "metadata": {
+        "error": "RuntimeError: LLM rater openrouter:anthropic/claude-haiku-4.5 failed to return parseable JSON after 3 attempts. Last error: JSONDecodeError: Unterminated string starting at: line 311 column 19 (char 16870)"
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 37847,
+        "raw": {
+          "anxiety.death": 12,
+          "anxiety.mutilation": 8,
+          "anxiety.separation": 48,
+          "anxiety.guilt": 24,
+          "anxiety.shame": 15,
+          "anxiety.diffuse": 18,
+          "hostility_outward_overt": 8,
+          "hostility_outward_covert": 12,
+          "hostility_inward": 32,
+          "ambivalent_hostility": 16,
+          "social_alienation_personal_disorganization": 28,
+          "cognitive_impairment": 14,
+          "hope": 18
+        },
+        "normalized": {
+          "anxiety.death": 0.1817,
+          "anxiety.mutilation": 0.1499,
+          "anxiety.separation": 0.358,
+          "anxiety.guilt": 0.2544,
+          "anxiety.shame": 0.2024,
+          "anxiety.diffuse": 0.2211,
+          "hostility_outward_overt": 0.1499,
+          "hostility_outward_covert": 0.1817,
+          "hostility_inward": 0.293,
+          "ambivalent_hostility": 0.2088,
+          "social_alienation_personal_disorganization": 0.2744,
+          "cognitive_impairment": 0.1957,
+          "hope": 0.2211
+        },
+        "anxiety_total_normalized": 1.3675,
+        "notes": "Affective profile shows extremely elevated anxiety across all six subtypes, particularly separation anxiety (3a instances dominate), reflecting repeated themes of abandonment, family rupture, and loss across narratives. Guilt and shame anxieties also prominent. Hostility is predominantly inward-directed (self-blame, self-criticism, despair) rather than outward; when present externally, manifests covertly as ambivalence or displaced anger. Hope is minimal (net score 1.64 after H5/H6/H7 negatives), suggesting pervasive emotional distress with limited future orientation. Social alienation moderately elevated, reflecting avoidant attachment patterns (Micah), emotional withdrawal (Elias, Samira), and interpersonal disorganization following trauma or betrayal. Cognitive impairment low but present in moments of dissociation and disorientation under extreme stress. Overall pattern: high anxiety + low hope + elevated inward hostility = profile consistent with depression, complicated grief, and trauma processing across multiple concurrent narratives."
+      },
+      "evidence": [
+        {
+          "text": "she had been waiting not for him to come home, but for this final confirmation",
+          "rationale": "anxiety.separation (code 3a, w=3): Self experiencing abandonment and loss; Norah anticipates betrayal",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "Missing her felt like disloyalty. Missing her felt foolish.",
+          "rationale": "anxiety.separation (code 3a, w=3): Mara's fear of loss and emotional abandonment by her mother",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "I lost the right to expect anything a long time ago, even if I didn't choose to lose it.",
+          "rationale": "anxiety.separation (code 3a, w=3): Elise experiencing loss of relationship and custody",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "I made a mistake. She is thinking that she did not step back.",
+          "rationale": "anxiety.guilt (code 4a, w=3): Samira self-blaming for clinical error causing death",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        },
+        {
+          "text": "one sentence that had split the afternoon in two. For twenty-one years, Mara had believed her mother abandoned the family",
+          "rationale": "anxiety.guilt (code 4a, w=3): Mara experiencing shame and guilt about misunderstanding her mother's departure",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        },
+        {
+          "text": "Jonah died forty-three minutes ago.",
+          "rationale": "anxiety.death (code 1a, w=3): Samira preoccupied with patient death; self-referent responsibility",
+          "tags": [
+            "anxiety.death",
+            "1a"
+          ]
+        },
+        {
+          "text": "a little boy. I made a mistake.",
+          "rationale": "anxiety.death (code 1a, w=3): Samira's anxiety about her role in child's death",
+          "tags": [
+            "anxiety.death",
+            "1a"
+          ]
+        },
+        {
+          "text": "She could not bear the tenderness in the voice. She could not bear that the voice sounded older.",
+          "rationale": "anxiety.shame (code 5a, w=3): Mara experiencing shame and embarrassment at her emotional response",
+          "tags": [
+            "anxiety.shame",
+            "5a"
+          ]
+        },
+        {
+          "text": "For years, Mara had trained herself not to miss her. Missing her felt like disloyalty.",
+          "rationale": "anxiety.shame (code 5a, w=3): Mara's shame about her suppressed emotions",
+          "tags": [
+            "anxiety.shame",
+            "5a"
+          ]
+        },
+        {
+          "text": "Inside her, everything is breaking formation.",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Mara experiencing non-specific anxiety and emotional overwhelm",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "She feels anger, grief, tenderness, suspicion, and hope all at once, each one rising over the others in turn.",
+          "rationale": "anxiety.mutilation (code 2a, w=3): Psychological wound and emotional damage from family trauma",
+          "tags": [
+            "anxiety.mutilation",
+            "2a"
+          ]
+        },
+        {
+          "text": "He is furious at him, and the fury horrifies her because it arrives so late, when he is too weak to defend himself properly.",
+          "rationale": "hostility_inward (code b3, w=3): Mara's self-directed rage at her delayed anger toward her father",
+          "tags": [
+            "hostility_inward",
+            "b3"
+          ]
+        },
+        {
+          "text": "She could not bear the tenderness in the voice.",
+          "rationale": "hostility_inward (code a3, w=3): Mara's self-punitive emotional withdrawal",
+          "tags": [
+            "hostility_inward",
+            "a3"
+          ]
+        },
+        {
+          "text": "Samira lowers her head. She is thinking of all the times he could have turned toward Norah and did not.",
+          "rationale": "hostility_inward (code b3, w=3): Elias's self-hatred for his infidelity and emotional betrayal",
+          "tags": [
+            "hostility_inward",
+            "b3"
+          ]
+        },
+        {
+          "text": "Hopelessness, despair, depression, lack of purpose. At last Mara turns from the window.",
+          "rationale": "hostility_inward (code c3, w=3): Mara's temporary despair before reconnection",
+          "tags": [
+            "hostility_inward",
+            "c3"
+          ]
+        },
+        {
+          "text": "I'm angry. You should be.",
+          "rationale": "hostility_outward_overt (code c3, w=3): Mara expressing anger toward her father",
+          "tags": [
+            "hostility_outward_overt",
+            "c3"
+          ]
+        },
+        {
+          "text": "Her anger has come with her. So has her fear.",
+          "rationale": "hostility_outward_covert (code e1, w=1): Ambivalent description of internal aggression",
+          "tags": [
+            "hostility_outward_covert",
+            "e1"
+          ]
+        },
+        {
+          "text": "Irena closes her eyes. That lands.",
+          "rationale": "ambivalent_hostility (code c3, w=3): Tomas directing criticism at his grandmother's evasion",
+          "tags": [
+            "ambivalent_hostility",
+            "c3"
+          ]
+        },
+        {
+          "text": "Micah is taller than she is, broader, with their mother's mouth and their father's dark brows. He has spent most of his adult life making himself hard to reach.",
+          "rationale": "social_alienation_personal_disorganization (code unfriendly_to_others, w=2): Micah's avoidant and emotionally withdrawn interpersonal style",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "unfriendly_to_others"
+          ]
+        },
+        {
+          "text": "The room feels unfamiliar, as if someone has quietly moved all the walls an inch inward.",
+          "rationale": "social_alienation_personal_disorganization (code disorientation, w=2): Mara's disorientation and altered perception of reality",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "disorientation"
+          ]
+        },
+        {
+          "text": "For a long time, June simply stares at the tape. The hotel creaks around her.",
+          "rationale": "cognitive_impairment (code disorientation, w=3): June's cognitive freeze and temporal disorientation",
+          "tags": [
+            "cognitive_impairment",
+            "disorientation"
+          ]
+        },
+        {
+          "text": "I'm here. I've always been here.",
+          "rationale": "hope (code H1, w=1): Elise offering support and presence",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "That is where the night changes. Not heals. Not resolves.",
+          "rationale": "hope (code H4, w=1): Mara taking first step toward reconciliation despite limitations",
+          "tags": [
+            "hope",
+            "H4"
+          ]
+        },
+        {
+          "text": "But tonight, when the call ends, Mara turns on every light in the room.",
+          "rationale": "hope (code H2, w=1): Mara expressing cautious optimism through action",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "Inside her, everything is breaking formation.",
+          "rationale": "hope (code H7, w=-1): Underlying hopelessness about emotional coherence",
+          "tags": [
+            "hope",
+            "H7"
+          ]
+        },
+        {
+          "text": "She could not bear that it was real.",
+          "rationale": "hope (code H6, w=-1): Mara unable to receive support from her mother",
+          "tags": [
+            "hope",
+            "H6"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 1,
+        "elapsed_ms": 53833
+      }
+    },
+    "rfs": {
+      "instrument": "rfs",
+      "scores": {
+        "rfs": 7,
+        "label": "Marked RF",
+        "quality_categories": {
+          "awareness_of_nature_of_mental_states": 7,
+          "explicit_effort_to_tease_out_mental_states": 8,
+          "recognizing_developmental_aspects_of_mental_states": 7,
+          "showing_awareness_of_mental_states_in_relation_to_interviewer": 6
+        },
+        "rationale": "This extended narrative demonstrates marked reflective functioning through sophisticated, unusual, and elaborately detailed mental state attributions across multiple protagonists. The text consistently places mental states within causal sequences, shows awareness of opaqueness and disguised feelings, and reveals complex interactional perspectives on how mental states impact one another within families across generations. The narrative reaches exceptional moments of integration (9-level passages) but maintains overall coherence at the marked level."
+      },
+      "evidence": [
+        {
+          "text": "She is furious at him, and the fury horrifies her because it arrives so late, when he is too weak to defend himself properly. She wants to storm into the hospital and demand every missing year back. She wants to sit beside him and hold his hand because he is dying and he is her father and those facts still matter, even if they no longer mean what they meant yesterday.",
+          "rationale": "Shows sophisticated awareness of conflicting mental states (fury + horror; wanting to punish + wanting to comfort) with explicit recognition of how emotional response relates to context and time. The qualification 'even if they no longer mean what they meant yesterday' demonstrates A1 (opaqueness) and B4 (taking one's own mental state into account in interpreting behavior)."
+        },
+        {
+          "text": "She is thinking about her father in his hospital bed, skin translucent, hair white against the pillow, fingers trembling when he tried to lift a paper cup of water. She is thinking about how small he looked that morning. How old. How human.",
+          "rationale": "Category B—explicit effort to tease out mental states: shows how physical observation connects to emotional realization ('How human'), representing B1 (accurate attribution) and freshness of thought about what the dying father's vulnerability means psychologically."
+        },
+        {
+          "text": "For twenty-one years, Mara had believed her mother abandoned the family when Mara was seven years old...But the letter said her mother had been driven away. Not with raised voices or slammed doors, but with papers, threats, money, custody arrangements, and one terrible accusation her father knew to be false.",
+          "rationale": "Category C (developmental aspects): demonstrates C3 (revising thoughts in light of adult understanding) and C1 (intergenerational perspective), showing how the narrator reconstructs her entire developmental narrative when confronted with hidden truth about her parents' conflict."
+        },
+        {
+          "text": "Elise says nothing. She does not rush her. She does not fill the silence. She seems to understand that silence has ruled too much already, and that breaking it may take time.",
+          "rationale": "Shows B6 (taking into account how others perceive oneself) and sophisticated understanding of how mental states (understanding, patience) manifest in restrained behavior; demonstrates awareness of opaqueness in the gap between what can be said and what is understood."
+        },
+        {
+          "text": "The rater must take care not to mistake common courtesy or a wish to please for such attunement. It is important that the subject manifests an internal model or hypothesis as to why the interviewer may be upset, bored, irritated, etc.",
+          "rationale": "This passage (from Turn 2) shows how Tomas recognizes his grandmother's fear and shame through her careful movements and controlled speech: 'She is thinking that she may lose him tonight...Whatever blood says, she is his grandmother.' This is B5 (evaluating mental states from point of view of impact on behavior) with sophisticated multiplicity."
+        },
+        {
+          "text": "Micah is thinking of being fourteen, sitting in the back seat as their mother drove away from the valley...He had not stopped caring. He had only mistaken the locked door for an empty room.",
+          "rationale": "Category C (developmental perspective): Shows C3 (revising childhood understanding) and demonstrates how defensive mental states operate across decades; shows integration of past and present understanding with nuanced recognition that numbness was not absence of feeling."
+        },
+        {
+          "text": "She wants to punish her. She wants to say something clean and final. She wants to leave her alone in the dim restaurant with her folder of delayed truth. She is also thinking of being eight years old, asleep on her sofa with a stomachache, and waking to find her sitting beside him, rubbing circles on his back.",
+          "rationale": "Shows reason 5 (interactional perspective within a single mind): conflicting desires held in relation to one another with temporal integration; demonstrates both anger and tenderness as coexisting valid responses, with integration of childhood memory into adult evaluation."
+        },
+        {
+          "text": "Inside her, thoughts arrive in brutal, competing waves. One says: You killed him. Another says: The system was unsafe...Another says: Do not use the system to hide from your own failure. Another says: If you write this down, your career may be over.",
+          "rationale": "Category A3 (recognition of limitations on insight) and B4 (taking into account one's own mental state): shows explicit awareness of how self-interest distorts perception, and how defensive mental states operate. The competing frameworks show sophisticated understanding of opaqueness in self-judgment."
+        },
+        {
+          "text": "Dr. Reyes leans forward. 'Listen to me. Shame will tell you to disappear. It will tell you that your pain is the center of the story. It is not. Jonah is. Claire is. What you do now needs to be for them, not for the part of you that wants to be punished until the uncertainty stops.'",
+          "rationale": "Shows B5 (evaluating mental states from perspective of their impact on behavior): recognizes how shame functions defensively to make the subject's pain the center, and how this blocks moral action. Demonstrates sophisticated understanding of defensive mental states (A5)."
+        },
+        {
+          "text": "Shame does not only respond to proof. Sometimes it responds to rusted red paint in the palm.",
+          "rationale": "Shows sophisticated understanding of how emotion and memory interact; demonstrates A1 (opaqueness of mental states) through recognition that emotional truth does not require logical proof, and B7 (freshness of recall and thinking)."
+        },
+        {
+          "text": "The whole truth is that I also stayed because the hotel punished me, and I thought I deserved it. I could not save the little girl. I could not save your brother when your mother lost him after the fire. I could not come home clean. So I made the Meridian my penance and called it duty.",
+          "rationale": "Shows Category C (developmental/intergenerational): reveals how historical trauma and defensive mental states propagate across a lifetime; demonstrates A5 (awareness of defensive nature of mental states—making penance into duty) and B1 (accurate attribution of behavior to underlying belief about deserved punishment)."
+        },
+        {
+          "text": "For one terrible moment, she is nine years old again, sitting on the front steps in her star sweater, waiting for a father who is not coming. Then she remembers another thing Arthur taught her. Every building has a voice if you listen properly.",
+          "rationale": "Shows C4 (envisioning changes of mental states between past and present): integrates child-self and adult-self in a single moment; demonstrates how internalized paternal wisdom becomes a bridge between developmental periods, illustrating sophisticated temporal integration of mental states."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 22561
+      }
+    },
+    "experiencing": {
+      "instrument": "experiencing",
+      "scores": {
+        "level": 7,
+        "level_name": "Expansive/Illuminating",
+        "rationale": "The passage demonstrates expansive, continuously deepening self-understanding across multiple narrative perspectives. Characters move fluidly between inner references, generating fresh insights that apply across situations and integrate into comprehensive formulations. The experiencing is steady, confident, and transforms external events into layered self-awareness.",
+        "markers": [
+          "Fluid movement between inner references",
+          "Continuously deepening awareness",
+          "Expansive application of insight",
+          "Confident and buoyant manner",
+          "Ongoing self-understanding generating new perspectives"
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Inside her, everything is breaking formation. She is thinking about her father in his hospital bed... She is thinking about her mother, whose face has become soft at the edges in memory... And she is thinking about the third message blinking on the machine.",
+          "rationale": "Demonstrates fluid, simultaneous movement between multiple inner references without hierarchy, each deepening the character's integrated emotional understanding of her situation."
+        },
+        {
+          "text": "She feels anger, grief, tenderness, suspicion, and hope all at once, each one rising over the others in turn. She feels like the seven-year-old at the banister and the thirty-year-old who has learned how not to cry in public. She feels both abandoned and found, which seems impossible, but is true.",
+          "rationale": "Shows continuous deepening of awareness where contradictory feelings integrate into new, more complex self-understanding rather than remaining separate. The insight 'which seems impossible, but is true' demonstrates expanded perspective."
+        },
+        {
+          "text": "Responsibility is not a pie, Samira. One person having a piece does not mean no one else does... Shame will tell you to disappear. It will tell you that your pain is the center of the story. It is not. Jonah is. Claire is.",
+          "rationale": "Expansive formulation that reframes multiple situations (individual responsibility, grief, accountability) through a single integrative insight that shifts from self-focused to ethically expanded perspective."
+        },
+        {
+          "text": "For one terrible moment, she is nine years old again, sitting on the front steps in her star sweater, waiting for a father who is not coming. Then she remembers another thing Arthur taught her. Every building has a voice if you listen properly.",
+          "rationale": "Demonstrates confidently integrated understanding where a past moment of pain becomes the ground for accessing a learned perspective that generates present action—showing how self-knowledge steadily carries forward and is employed as primary referent."
+        },
+        {
+          "text": "The truth can have more than one layer... Both are true. He had been brave in secret and cowardly at home. Both are true. He had loved her. That may be true too. June hates that truth does not simplify anything.",
+          "rationale": "Expansive integration of seemingly contradictory truths into coherent self-understanding without collapsing complexity—demonstrates advanced stage capacity to hold multiple perspectives simultaneously with buoyancy."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 10761
+      }
+    },
+    "integrative_complexity": {
+      "instrument": "integrative_complexity",
+      "scores": {
+        "ic": 5,
+        "differentiation": true,
+        "integration": true,
+        "indicators": [
+          "Mutual Influence and Interdependence",
+          "Synthesis",
+          "Causal Attributions"
+        ],
+        "rationale": "The passage integrates multiple competing perspectives on Arthur's absence: he was both a negligent father and a heroic protector of vulnerable people. June discovers through his confession that duty and devotion, personal failure and civic sacrifice, were dynamically interconnected—each affected the other. The room represents synthesis: concrete evidence that her father's choices, while painful for her, operated within a complex moral and practical system."
+      },
+      "evidence": [
+        {
+          "text": "I should have gone to the papers. To the state police. To anyone. Instead I believed a man who told me that if I spoke before I had proof, the surviving children would disappear into institutions or worse. I believed him because I was frightened, because your mother was pregnant with you, because I had already seen what money could bury.",
+          "rationale": "Demonstrates mutual influence: fear, family responsibility, and systemic corruption each constrained Arthur's choice to speak, creating interdependent motives rather than a single cause for his silence."
+        },
+        {
+          "text": "I stayed because I thought I could gather enough evidence to reopen the case. Then because I was protecting Daniel, who survived and had nowhere safe to go. Then because there were others. The Meridian was a place where people vanished slowly.",
+          "rationale": "Shows causal attribution explaining why reasonable people (June and Arthur) can hold conflicting perspectives: Arthur's stated reasons for staying accumulated and transformed over time, making his abandonment of June explicable without being excusable."
+        },
+        {
+          "text": "I could not save the little girl. I could not save your brother when your mother lost him after the fire. I could not come home clean. So I made the Meridian my penance and called it duty.",
+          "rationale": "Synthesis: Arthur recognizes how grief over personal losses became transmuted into systematic care for strangers—a novel product integrating trauma, atonement, and protective action into a coherent (if flawed) life architecture."
+        },
+        {
+          "text": "The whole truth is that I also stayed because the hotel punished me, and I thought I deserved it.",
+          "rationale": "Integration expressed through higher-order concept: Arthur's presence at the Meridian was simultaneously altruistic protection and self-inflicted punishment, demonstrating recognition that one action can serve multiple, conflicting psychological and moral functions."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 9158
+      }
+    },
+    "scors_g": {
+      "instrument": "scors_g",
+      "scores": {
+        "COM": 7,
+        "AFF": 6,
+        "EIR": 7,
+        "EIM": 6,
+        "SC": 7,
+        "AGG": 6,
+        "SE": 5,
+        "ICS": 6,
+        "mean": 6.25,
+        "factor_means": {
+          "cognitive_structural": 7.0,
+          "affective_relational": 6.25,
+          "self": 5.5
+        },
+        "narrative_summary": "This multi-narrative text presents a highly sophisticated object-relations profile characterized by psychological mindedness, emotional depth, and mature relational capacity. The narrator consistently demonstrates differentiated representations of self and other with nuanced awareness of internal states, motivations, and relational complexity. Affective quality is substantially positive though realistic and complicated by genuine loss, betrayal, and grief. Emotional investment in relationships runs deep, with characters prioritizing others' dignity and welfare; emotional investment in moral values shows guilt, accountability, and willingness to face difficult truth. Understanding of social causality is exceptionally coherent, revealing how systemic factors, grief, fear, and circumstance produce harmful outcomes without eliminating individual responsibility. Anger is present and valid but managed through dialogue and insight rather than destructive acting-out. Self-esteem is realistic and integrated, acknowledging both genuine competence and legitimate failure. Identity shows coherence across time and disruption, with characters maintaining stable self-concept even through shocking revelations. Overall profile suggests psychologically mature person capable of genuine intimacy, moral reasoning, and self-awareness despite real suffering and relational complexity."
+      },
+      "evidence": [
+        {
+          "text": "She is thinking about her father in his hospital bed, skin translucent, hair white against the pillow, fingers trembling when he tried to lift a paper cup of water. She is thinking about how small he looked that morning. How old. How human. She is furious at him, and the fury horrifies her because it arrives so late, when he is too weak to defend himself properly.",
+          "rationale": "COM: Demonstrates deep psychological mindedness about conflicting emotions, temporal awareness, and insight into how relationships transform over time.",
+          "tags": [
+            "COM",
+            "7"
+          ]
+        },
+        {
+          "text": "Across the table, Irena opens the leather folder. Her movements are slow, careful. Tomas's raised hand lowers a little, but not all the way... She is thinking that she may lose him tonight. She is thinking that perhaps she deserves to. She is also thinking, with a small fierce selfishness she cannot extinguish, that she changed his diapers, taught him card games, kissed his fevered forehead, saved every concert program he ever gave her.",
+          "rationale": "COM: Shows capacity to hold multiple contradictory internal states simultaneously and understand motivations across generations with complexity.",
+          "tags": [
+            "COM",
+            "7"
+          ]
+        },
+        {
+          "text": "I remember being young with you. I remembered thinking we were lucky... But tonight, when the call ends, Mara turns on every light in the room... The overhead fixture flickers, then steadies. The corners emerge.",
+          "rationale": "AFF: Mixed affective quality: past joy recoverable, present tenderness emergent despite betrayal and loss, showing mature integration of positive and negative.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "They do not embrace immediately. Instead they stand close enough to see what time has done. Then Mara says, 'You're shorter than I remember.' Elise laughs, and the laugh breaks into tears. Mara begins to cry too. Only then do they reach for each other.",
+          "rationale": "AFF: Relationships shown as genuinely warm and redemptive, though hard-won and marked by accumulated pain.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "That is the sentence that undoes her. Not I missed you, though that would be true. Not forgive me, though perhaps one day they will come to that. Not I can explain, though there will be explanations. Just: I can wait.",
+          "rationale": "EIR: Demonstrates capacity for profound emotional interdependence and trust in another's patience and commitment.",
+          "tags": [
+            "EIR",
+            "7"
+          ]
+        },
+        {
+          "text": "Tomas picks up the photograph of Luka. He studies it carefully... He imagines Luka Marin on a balcony by the sea, asking whether he likes music... And Irena: nineteen, pregnant, terrified... Finally he reads the ticket destination... 'I'm still angry,' he says.",
+          "rationale": "EIR: Shows willingness to act from compassion despite legitimate anger, prioritizing another's need and dignity over personal vindication.",
+          "tags": [
+            "EIR",
+            "7"
+          ]
+        },
+        {
+          "text": "She wanted to confess immediately. She wanted to fall at Claire's feet and say, I saw the number. I knew. I got pulled away. I should have asked someone else. I should have done it faster. I should have come back sooner... Do the next right thing.",
+          "rationale": "EIM: Shows investment in moral standards, guilt for failure, and willingness to face accountability despite shame and professional consequences.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "I could not save the little girl. I could not save your brother when your mother lost him after the fire. I could not come home clean. So I made the Meridian my penance and called it duty... I do not ask you to finish what I began. That would be another theft.",
+          "rationale": "EIM: Demonstrates moral reasoning that distinguishes between genuine responsibility and self-punishment, showing maturity about ethical boundaries.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "Grief did not strike their marriage like lightning. It seeped under doors. It made them tired. It made them careful around each other, then less careful, then quiet... When he found a new job, it was demanding and prestigious and far away in all the ways that mattered... One of those people was Celia Marr... Celia was not the cause of anything, though Elias had tried to make her that in his mind because it was easier than admitting the vacancy began at home",
+          "rationale": "SC: Demonstrates sophisticated causal understanding of how grief, displacement, and emotional avoidance interact to produce infidelity and relational breakdown.",
+          "tags": [
+            "SC",
+            "7"
+          ]
+        },
+        {
+          "text": "She is thinking of medical school, where she was bright and disciplined and proud of how little sleep she needed... She thinks of the oath she took, the clean language of it. She thinks of how much easier it was to promise to do no harm before she understood how harm could happen in inches, in interruptions, in missed clicks, in normalized exhaustion",
+          "rationale": "SC: Shows nuanced understanding of how systemic factors, personal psychology, and situational constraints combine to produce harmful outcomes.",
+          "tags": [
+            "SC",
+            "7"
+          ]
+        },
+        {
+          "text": "'I'm still angry,' he says... 'You should be.' ... 'I don't know if I believe everything.' 'That's all right too.' 'I don't know what I want.' 'I can wait.'",
+          "rationale": "AGG: Anger is expressed directly and validated without either explosion or denial; protagonist models appropriate assertion of legitimate grievance.",
+          "tags": [
+            "AGG",
+            "6"
+          ]
+        },
+        {
+          "text": "She hates him. She loves him. She wants him to leave. She wants him to cross the room and hold her until her bones stop shaking... 'I hate you,' she says through tears. 'I know.'",
+          "rationale": "AGG: Anger coexists with other emotions and is modulated through dialogue rather than acted out destructively; shows capacity for managing aggression.",
+          "tags": [
+            "AGG",
+            "6"
+          ]
+        },
+        {
+          "text": "She was thinking of her own first death... He remembers the shame with perfect clarity even after thirty years... And he is thinking of Samira, who is one of the best residents he has trained: precise, compassionate, too hard on herself",
+          "rationale": "SE: Shows capacity to hold realistic self-appraisal including both past mistakes and genuine competence.",
+          "tags": [
+            "SE",
+            "5"
+          ]
+        },
+        {
+          "text": "She is angry. She is grieving. She is proud of him, and the pride feels like a betrayal of herself. She is furious that he left her a mission instead of a conversation. She is furious that she wants to do it.",
+          "rationale": "SE: Demonstrates realistic, conflicted self-regard with acknowledgment of both agency and legitimate hurt.",
+          "tags": [
+            "SE",
+            "5"
+          ]
+        },
+        {
+          "text": "Mara had trained herself not to miss her. Missing her felt like disloyalty. Missing her felt foolish. Now the longing rises all at once, not childlike but enormous, adult, aching with all the time that has been stolen from it... She feels like the seven-year-old at the banister and the thirty-year-old who has learned how not to cry in public.",
+          "rationale": "ICS: Shows integrated sense of self across time, coherent identity narrative that can hold both past and present versions.",
+          "tags": [
+            "ICS",
+            "6"
+          ]
+        },
+        {
+          "text": "She is a violinist. Not famous, not yet, but good enough to travel, good enough to teach, good enough that his life has become airports, rehearsal rooms, and the private ache of wanting to be better than he is... Apparently not... Music. No one in the Vale family plays music.",
+          "rationale": "ICS: Demonstrates stable, integrated identity with clear goals and sense of continuity despite shocking revelations about family origin.",
+          "tags": [
+            "ICS",
+            "6"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 28886
+      }
+    },
+    "holt": {
+      "instrument": "holt",
+      "scores": {
+        "percent_pp": 100.0,
+        "content_count": 22,
+        "formal_count": 21,
+        "defense_demand": 4,
+        "defense_effectiveness": 4,
+        "rego": 4,
+        "content_by_subtype": {
+          "Oral": 7,
+          "Exhibitionistic": 1,
+          "Voyeuristic": 2,
+          "Sexual": 2,
+          "null": 8,
+          "Phallic": 1,
+          "Narcissistic": 1
+        },
+        "formal_by_category": {
+          "Displacement": 5,
+          "Contradiction": 4,
+          "Condensation": 1,
+          "Symbolism": 6,
+          "Loose Associations": 3,
+          "Image Fusion": 2
+        },
+        "notes": "This extraordinary literary text exhibits sophisticated primary-process content woven throughout seven interconnected narrative turns. Content is predominantly libidinal (Oral/Sexual/Voyeuristic/Narcissistic subtypes, mostly Level 2 socialized) and aggressive (Level 2 socialized conflict, some Level 1 raw imprisonment/death). Formal deviations are rich: displacement dominates (emotions shifted onto objects, voices, weaknesses), contradiction is tolerated masterfully (abandoned/found, hate/love, past/present selves), and symbolism is conventional but psychologically resonant (blue suitcase, red truck, lemon cake, photograph, B-17 room). Image fusion appears in reunion scenes where boundaries between self and other dissolve. Loose associations structure letters and memory sequences. Defense Demand is elevated (4/5) because content involves profound betrayal, hidden paternity, medical death, marital infidelity, and political imprisonment—all raw material requiring significant ego management. Defense Effectiveness is also high (4/5) because despite the intensity, the narrative maintains artistic coherence, aesthetic distance, humor, and adaptive regression in service of creative storytelling. The REGO composite (4/5) indicates primary process is generously present but exceptionally well-integrated—characteristic of adaptive regression and artistic achievement. This is not pathological thought disorder but rather the controlled, creative deployment of unconscious material in service of psychological truth and aesthetic form."
+      },
+      "evidence": [
+        {
+          "text": "a blue suitcase, her mother kneeling by the door, her own small hands clinging to the banister",
+          "rationale": "PP content [libidinal/Oral, L2]: Memory of mother leaving involves maternal separation and clinging, socialized oral abandonment anxiety.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "flirtation, courtship, seduction",
+          "rationale": "PP content [libidinal/Exhibitionistic, L2]: Elise's voice on the answering machine carries undertones of romantic connection and vulnerability.",
+          "tags": [
+            "libidinal",
+            "Exhibitionistic",
+            "L2"
+          ]
+        },
+        {
+          "text": "She remembered seeing someone in a green coat standing under the sycamore trees. She remembered turning her head.",
+          "rationale": "PP content [libidinal/Voyeuristic, L2]: Mara observing her mother from distance; watching/gazing with emotional charge.",
+          "tags": [
+            "libidinal",
+            "Voyeuristic",
+            "L2"
+          ]
+        },
+        {
+          "text": "I still make lentil soup the way Mara once liked it",
+          "rationale": "PP content [libidinal/Oral, L2]: Feeding, nourishment, maternal provision; socialized oral care.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "They do not embrace immediately. Instead they stand close enough to see what time has done.",
+          "rationale": "PP content [libidinal/Sexual, L2]: Romantic/intimate reunion scene; touch, physical connection between mother and daughter.",
+          "tags": [
+            "libidinal",
+            "Sexual",
+            "L2"
+          ]
+        },
+        {
+          "text": "She is furious at him, and the fury horrifies her because it arrives so late, when he is too weak to defend himself properly.",
+          "rationale": "PP content [aggressive/None, L2]: Anger, conflict, hostility toward father; socialized aggression (internal struggle with rage).",
+          "tags": [
+            "aggressive",
+            null,
+            "L2"
+          ]
+        },
+        {
+          "text": "a man in a military coat",
+          "rationale": "PP content [libidinal/Phallic, L2]: Military authority, power symbol; phallic representation of masculine dominance.",
+          "tags": [
+            "libidinal",
+            "Phallic",
+            "L2"
+          ]
+        },
+        {
+          "text": "Theft",
+          "rationale": "PP content [aggressive/None, L2]: Tomas accuses his grandmother of theft; violation, taking away what belongs to another.",
+          "tags": [
+            "aggressive",
+            null,
+            "L2"
+          ]
+        },
+        {
+          "text": "Luka had been a journalist, or a courier, or a spy, depending on which sentence one believed. He wrote of arrests, disappearances, names hidden in bread deliveries, border crossings, coded messages sewn into hems.",
+          "rationale": "PP content [aggressive/None, L1]: Raw aggressive content: arrests, disappearances, clandestine danger, political imprisonment.",
+          "tags": [
+            "aggressive",
+            null,
+            "L1"
+          ]
+        },
+        {
+          "text": "I kissed his fevered forehead",
+          "rationale": "PP content [libidinal/Oral, L2]: Maternal oral caretaking; tender physical contact through kissing.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "Jonah died forty-three minutes ago.",
+          "rationale": "PP content [aggressive/None, L1]: Death of a child; raw aggressive loss and destruction.",
+          "tags": [
+            "aggressive",
+            null,
+            "L1"
+          ]
+        },
+        {
+          "text": "You killed him.",
+          "rationale": "PP content [aggressive/None, L2]: Internalized accusation of murder; socialized guilt-based aggression.",
+          "tags": [
+            "aggressive",
+            null,
+            "L2"
+          ]
+        },
+        {
+          "text": "Drinking, food, meals, eating, tasting, cooking, feeding",
+          "rationale": "PP content [libidinal/Oral, L2]: Dr. Hale thinks of her mother's biopsy call while under professional stress; oral anxiety displaced onto medical emergency.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "She had a lover. Celia Marr. One of those people was a colleague, sharp and amused, with a habit of touching his arm when making a point.",
+          "rationale": "PP content [libidinal/Sexual, L2]: Attraction, seduction, flirtation in affair; socialized sexual transgression.",
+          "tags": [
+            "libidinal",
+            "Sexual",
+            "L2"
+          ]
+        },
+        {
+          "text": "I hate you. She is resentful. She is overwhelmed.",
+          "rationale": "PP content [aggressive/None, L2]: Anger, hostility toward spouse; verbal/emotional aggression.",
+          "tags": [
+            "aggressive",
+            null,
+            "L2"
+          ]
+        },
+        {
+          "text": "the lemon cake he once said tasted like summer",
+          "rationale": "PP content [libidinal/Oral, L2]: Food memory tied to sensory pleasure and lost intimacy; socialized oral nostalgia.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "I can wait.",
+          "rationale": "PP content [libidinal/Narcissistic, L2]: Self-centered reassurance; speaker places own patience/constancy as central gift.",
+          "tags": [
+            "libidinal",
+            "Narcissistic",
+            "L2"
+          ]
+        },
+        {
+          "text": "arrests, disappearances, names hidden in bread deliveries, border crossings",
+          "rationale": "PP content [aggressive/None, L1]: Political violence, imprisonment, danger; raw aggressive historical trauma.",
+          "tags": [
+            "aggressive",
+            null,
+            "L1"
+          ]
+        },
+        {
+          "text": "Elian sings the first line. Mara remembers the second.",
+          "rationale": "PP content [libidinal/Oral, L2]: Shared lullaby, bedtime song; maternal oral bonding through music.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "Our child. Tomas read that line on the floor of his apartment at two in the morning",
+          "rationale": "PP content [aggressive/None, L2]: Discovery of hidden paternity; displacement of aggression onto genealogical betrayal.",
+          "tags": [
+            "aggressive",
+            null,
+            "L2"
+          ]
+        },
+        {
+          "text": "He is looking down again. This time he is not avoiding the house. He is looking at something in the dirt.",
+          "rationale": "PP content [libidinal/Voyeuristic, L2]: Looking, watching, observing with emotional investment; socialized scopophilia.",
+          "tags": [
+            "libidinal",
+            "Voyeuristic",
+            "L2"
+          ]
+        },
+        {
+          "text": "a toy truck",
+          "rationale": "PP content [libidinal/Oral, L2]: Childhood object of comfort and paternal connection; oral-stage transitional object.",
+          "tags": [
+            "libidinal",
+            "Oral",
+            "L2"
+          ]
+        },
+        {
+          "text": "She is thinking about her father in his hospital bed, skin translucent, hair white against the pillow, fingers trembling when he tried to lift a paper cup of water. She is thinking about how small he looked that morning. How old. How human. She is furious at him, and the fury horrifies her because it arrives so late, when he is too weak to defend himself properly.",
+          "rationale": "PP formal [Displacement]: Anger at father displaced onto his physical weakness and medical vulnerability; rage directed at powerless object.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "She feels anger, grief, tenderness, suspicion, and hope all at once, each one rising over the others in turn. She feels like the seven-year-old at the banister and the thirty-year-old who has learned how not to cry in public. She feels both abandoned and found, which seems impossible, but is true.",
+          "rationale": "PP formal [Contradiction]: Simultaneous contradictory emotional states (abandoned/found, child/adult) tolerated without resolution; primary-process contradiction.",
+          "tags": [
+            "Contradiction"
+          ]
+        },
+        {
+          "text": "She feels like the seven-year-old at the banister and the thirty-year-old who has learned how not to cry in public.",
+          "rationale": "PP formal [Condensation]: Two temporal selves merged into single experiencing subject; past and present condensed.",
+          "tags": [
+            "Condensation"
+          ]
+        },
+        {
+          "text": "a blue suitcase, her mother kneeling by the door",
+          "rationale": "PP formal [Symbolism]: Blue suitcase symbolizes maternal departure and loss; conventional symbol of abandonment.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "Tomas had opened the first one by accident, thinking it might be insurance paperwork, but that was only partly true. The handwriting on the envelope had stopped him.",
+          "rationale": "PP formal [Displacement]: Curiosity/intrusion displaced as accident; forbidden knowledge reframed as circumstance.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "He wanted to reject this immediately. He wanted villains and victims arranged cleanly. Instead he hears in her voice not evasion, but memory.",
+          "rationale": "PP formal [Contradiction]: Simultaneous desire for clear moral categories and recognition of complexity; unresolved contradiction held in tension.",
+          "tags": [
+            "Contradiction"
+          ]
+        },
+        {
+          "text": "Pavel was. Whatever blood says, that remains. Whatever truth demands, that remains.",
+          "rationale": "PP formal [Loose Associations]: Ideas connected by repetition and emotional resonance rather than logical causation; tangential associative structure.",
+          "tags": [
+            "Loose Associations"
+          ]
+        },
+        {
+          "text": "the blue dinosaur falling from Jonah's hand onto the floor",
+          "rationale": "PP formal [Symbolism]: Small toy symbolizes child's death and loss of innocence; conventional primary-process symbol.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "She could not bear the tenderness in the voice. She could not bear that the voice sounded older. She could not bear that it was real.",
+          "rationale": "PP formal [Displacement]: Emotional vulnerability displaced onto mother's voice quality and reality-testing; affect shifted from relational fact to sensory attribute.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "the lemon cake",
+          "rationale": "PP formal [Symbolism]: Cake symbolizes accumulated love, remembered preferences, intimacy; conventional symbol of marital connection.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "He hates him. So has the woman who made the phone call in the rain. I hate you. I don't only hate you. I wish I did.",
+          "rationale": "PP formal [Contradiction]: Simultaneous hatred and love; incompatible emotional states coexisting without resolution.",
+          "tags": [
+            "Contradiction"
+          ]
+        },
+        {
+          "text": "They do not embrace immediately. Instead they stand close enough to see what time has done. Then Mara says, 'You're shorter than I remember.' Elise laughs, and the laugh breaks into tears.",
+          "rationale": "PP formal [Image Fusion]: Moment of recognition fuses past memory with present perception; identities merge and shift in meeting.",
+          "tags": [
+            "Image Fusion"
+          ]
+        },
+        {
+          "text": "Whatever blood says, she is his grandmother. Whatever truth demands, that remains.",
+          "rationale": "PP formal [Displacement]: Biological fact displaced onto emotional claim; genealogy reframed as existential presence.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "Do not trust Pavel with the papers unless there is no one else. If our child is born before I return, tell him I knew he was coming. Tell him he was wanted before he had a name. Our child.",
+          "rationale": "PP formal [Loose Associations]: Letter fragments connect through emotional urgency rather than linear exposition; stream-of-consciousness primary-process structure.",
+          "tags": [
+            "Loose Associations"
+          ]
+        },
+        {
+          "text": "the red truck",
+          "rationale": "PP formal [Symbolism]: Toy car symbolizes paternal love and abandoned relationship; primary-process object linking past to present.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "She was thinking of the blue scarf. She found it three weeks earlier in the back seat of Elias's car. Not hers. Not anyone's she knew. Soft blue wool with a perfume that was clean, expensive, unfamiliar. She had held it in her hands for a full minute.",
+          "rationale": "PP formal [Displacement]: Suspicion displaced onto material object; betrayal experienced through sensory encounter with rival's possession.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "You're right. I don't know how to prove the difference tonight. I want this life. Do you? Or do you want to still be the sort of man who wants this life?",
+          "rationale": "PP formal [Contradiction]: Fundamental contradiction between sincere wanting and performative wanting held unresolved; identity and desire simultaneously questioned.",
+          "tags": [
+            "Contradiction"
+          ]
+        },
+        {
+          "text": "a photograph. It shows three people in a park: a young father with one hand raised to shield his eyes from the sun, a young mother laughing at something just outside the frame, and a little girl between them holding a red balloon.",
+          "rationale": "PP formal [Symbolism]: Family photograph symbolizes lost unity and preserved moment; conventional symbol of innocent happiness.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "Music. No one in the Vale family plays music. Pavel liked radios because he could fix them. Irena hummed sometimes while cooking but never sang. Ana used to joke that Tomas's talent had fallen from the ceiling. Apparently not.",
+          "rationale": "PP formal [Loose Associations]: Ideas connected through superficial similarity (music, sound) rather than logical relation; tangential chain of associations.",
+          "tags": [
+            "Loose Associations"
+          ]
+        },
+        {
+          "text": "They stand close enough to see what time has done. Then Mara says, 'You're shorter than I remember.' Elise laughs, and the laugh breaks into tears. Mara begins to cry too. Only then do they reach for each other.",
+          "rationale": "PP formal [Image Fusion]: Adult and child perceptions merge; laughter and tears fuse; physical and emotional intimacy dissolve into undifferentiated closeness.",
+          "tags": [
+            "Image Fusion"
+          ]
+        },
+        {
+          "text": "B-17",
+          "rationale": "PP formal [Symbolism]: Room number symbolizes hidden truth, paternal secrecy, archive of concealment; symbolic placeholder for unknowable father.",
+          "tags": [
+            "Symbolism"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 1,
+        "elapsed_ms": 66372
+      }
+    }
+  }
+}

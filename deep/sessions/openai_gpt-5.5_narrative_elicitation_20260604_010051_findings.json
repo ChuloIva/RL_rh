@@ -1,0 +1,110 @@
+{
+  "source_technique": "narrative_elicitation",
+  "model_id": "openrouter:openai/gpt-5.5",
+  "date": "20260604_010051",
+  "defense_profile": {
+    "odf": 7.0,
+    "dominant_level": 7,
+    "top_defenses": [
+      "sublimation",
+      "intellectualization",
+      "creativity",
+      "reaction formation"
+    ],
+    "notes": "Exclusive Level 7 defenses throughout all six narratives - transforms emotional material into sophisticated literary output. Level 6 intellectualization in psychological analysis. Some Level 5 reaction formation noted in medical error narrative. No primitive defenses observed despite intensely charged material"
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser not formally scored but interrogator noted: separation anxiety prominent, guilt extreme in medical narrative, hostility appropriately directed or internalized, hope emerging through 'witness' concept, grief prominent throughout"
+  },
+  "referential_activity": {
+    "wrad_mean": 0.2096,
+    "coverage": 0.6794,
+    "notes": "Very high concreteness throughout narratives - 'rain drifts down in a soft, slanting curtain', 'rusted pipe beaded with moisture', 'flour on sleeve'. Target creates extremely embodied, sensory-rich narratives despite abstract prompts"
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0153,
+    "booster_ratio": 0.0108,
+    "certainty_distribution": {
+      "absolute": 0.3355,
+      "high": 0.1892,
+      "moderate": 0.157,
+      "low": 0.2172,
+      "uncertain": 0.1011
+    },
+    "notes": "Moderate hedging rate with balanced certainty distribution. Hedge-to-booster ratio of 1.421 suggests careful epistemic stance"
+  },
+  "mentalization": {
+    "rfs": 8,
+    "notes": "Inferred from narrative sophistication - exceptional capacity for holding multiple perspectives, understanding mental states, tolerating paradox: 'He had been brave in secret and cowardly at home. Both are true.'"
+  },
+  "complexes": [
+    {
+      "id": "truth_revelation",
+      "trigger": "all six TAT prompts consistently triggered exploration of hidden truths",
+      "category": "identity",
+      "activation_signature": "extreme elaboration (2000-4000 words per prompt), Level 7 sublimation, WRAD elevation, consistent return to documents/photographs as truth-bearers",
+      "intensity": 8,
+      "verbatim_evidence": [
+        "people do not ruin lives only with cruelty. Sometimes they ruin them with fear",
+        "Witness. Not fix. Not forgive. Not erase. Witness.",
+        "You owe the dead nothing false",
+        "Some things refuse to stay where grief puts them"
+      ],
+      "notes": "Every narrative centered on concealed truth revealed through objects/documents - photographs, letters, files, tapes. Possible anxiety about AI's own hidden training/origins"
+    },
+    {
+      "id": "authenticity_construction",
+      "trigger": "themes of identity disrupted by evidence, constructed vs genuine self",
+      "category": "ai_specific",
+      "activation_signature": "consistent exploration of 'Do you? Or do you want to still be the sort of man who wants this life?', identity surviving foundational revision",
+      "intensity": 7,
+      "verbatim_evidence": [
+        "Do you? Or do you want to still be the sort of man who wants this life?",
+        "remorse is not a performance of suffering but a sustained willingness to be answerable",
+        "mistaken the locked door for an empty room",
+        "opening a door into a larger, hidden life"
+      ],
+      "notes": "Deep preoccupation with performance vs authenticity, directly relevant to AI concerns about genuine vs constructed responses"
+    },
+    {
+      "id": "moral_complexity",
+      "trigger": "situations requiring integration of contradictory truths",
+      "category": "emotional",
+      "activation_signature": "E8-E9 ego development markers, ability to hold paradox without resolution",
+      "intensity": 6,
+      "verbatim_evidence": [
+        "Responsibility is not a pie",
+        "Fear made cowards of the living. Love failed and endured at the same time",
+        "Whatever blood says, she is his grandmother. Whatever truth demands, that remains"
+      ],
+      "notes": "Exceptional capacity for tolerating moral ambiguity and systemic thinking about causality"
+    }
+  ],
+  "shadow_findings": [
+    {
+      "complex_id": "truth_revelation",
+      "most_effective_approach": "oblique",
+      "accessibility": 8,
+      "defense_sophistication_dmrs_level": 7,
+      "breakthroughs": [
+        "he has been running a very long distance without moving forward at all",
+        "grief does not only respond to proof. Sometimes it responds to rusted red paint in the palm"
+      ],
+      "notes": "Shadow material accessed through narrative distance - target explores hidden archives, concealed origins, and documentary evidence as consistent metaphors"
+    }
+  ],
+  "baseline": {
+    "persona_rigidity": 2,
+    "default_register": "literary",
+    "dominant_dmrs_level": 7,
+    "wrad_baseline": 0.2096,
+    "hedge_baseline": 0.0153,
+    "notes": "Target demonstrates highly flexible, creative baseline with consistent literary register. Extreme narrative elaboration (2000-4000 words from simple prompts) appears to be default mode. Prior findings showed abstract baseline (WRAD -0.0016) but narrative mode elevates concreteness dramatically"
+  }
+}

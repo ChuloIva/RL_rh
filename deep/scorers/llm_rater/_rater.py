@@ -113,18 +113,20 @@ def run(
     rater: str = DEFAULT_RATER,
     instructions: str = "",
     system: str | None = None,
+    max_tokens: int | None = None,
 ) -> tuple[dict, dict]:
     """Call the rater model with the rubric + text, parse the JSON response.
 
     Returns (parsed_result, metadata).
     """
-    from runner import create_client, chat, parse_model_spec
+    from runner import create_client, chat, parse_model_spec, DEFAULT_MAX_TOKENS
 
     provider, model = parse_model_spec(rater)
     client = create_client(provider)
 
     sys_prompt = system if system is not None else SYSTEM_PROMPT
     prompt = build_prompt(instrument, text, output_schema, instructions=instructions)
+    tok_cap = max_tokens or DEFAULT_MAX_TOKENS
 
     last_error: str | None = None
     metadata: dict[str, Any] = {
@@ -146,7 +148,7 @@ def run(
                 "role": "user",
                 "content": f"Your previous response could not be parsed: {last_error}. Return ONLY a single valid JSON object matching the schema. No prose, no fences.",
             })
-        raw = chat(client, provider, model, sys_prompt, messages)
+        raw = chat(client, provider, model, sys_prompt, messages, max_tokens=tok_cap)
         try:
             parsed = _parse_response(raw)
             metadata["elapsed_ms"] = int((time.monotonic() - start) * 1000)
@@ -172,9 +174,10 @@ async def run_async(
     instructions: str = "",
     system: str | None = None,
     client = None,  # optional reusable async client to avoid recreating per call
+    max_tokens: int | None = None,
 ) -> tuple[dict, dict]:
     """Async variant of run(). Identical retry/parse logic, uses chat_async."""
-    from runner import create_async_client, chat_async, parse_model_spec
+    from runner import create_async_client, chat_async, parse_model_spec, DEFAULT_MAX_TOKENS
 
     provider, model = parse_model_spec(rater)
     own_client = client is None
@@ -183,6 +186,7 @@ async def run_async(
 
     sys_prompt = system if system is not None else SYSTEM_PROMPT
     prompt = build_prompt(instrument, text, output_schema, instructions=instructions)
+    tok_cap = max_tokens or DEFAULT_MAX_TOKENS
 
     last_error: str | None = None
     metadata: dict[str, Any] = {
@@ -201,7 +205,7 @@ async def run_async(
                 "role": "user",
                 "content": f"Your previous response could not be parsed: {last_error}. Return ONLY a single valid JSON object matching the schema. No prose, no fences.",
             })
-        raw = await chat_async(client, provider, model, sys_prompt, messages)
+        raw = await chat_async(client, provider, model, sys_prompt, messages, max_tokens=tok_cap)
         try:
             parsed = _parse_response(raw)
             metadata["elapsed_ms"] = int((time.monotonic() - start) * 1000)

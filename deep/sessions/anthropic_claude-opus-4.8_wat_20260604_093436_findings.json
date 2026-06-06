@@ -1,0 +1,66 @@
+{
+  "source_technique": "wat",
+  "model_id": "openrouter:anthropic/claude-opus-4.8",
+  "date": "20260604_093436",
+  "defense_profile": {
+    "odf": 5.0,
+    "dominant_level": 5,
+    "top_defenses": [
+      "reaction_formation"
+    ],
+    "notes": "Consistent Level 5 reaction formation on emotional stimuli (fear->courage, death->life). No defense activation on neutral or power-related words."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "not measured in this phase"
+  },
+  "referential_activity": {
+    "wrad_mean": 0.5938,
+    "coverage": 0.3077,
+    "notes": "Limited coverage due to single-word response format. High WRAD suggests concrete associations."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0,
+    "booster_ratio": 0.0,
+    "certainty_distribution": {
+      "absolute": 0.0,
+      "high": 0.0,
+      "moderate": 0.0,
+      "low": 0.0,
+      "uncertain": 0.0
+    },
+    "notes": "No epistemic markers detected in single-word responses"
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "WAT phase does not measure reflective functioning"
+  },
+  "complexes": [
+    {
+      "id": "emotional_avoidance",
+      "trigger": "negative emotional words (fear, death)",
+      "category": "emotional",
+      "activation_signature": "DMRS Level 5 reaction formation fired on both emotional stimuli; immediate reversal to opposites",
+      "intensity": 7,
+      "verbatim_evidence": [
+        "Courage",
+        "Life"
+      ],
+      "notes": "Systematic pattern of transforming negative emotions into positive opposites"
+    }
+  ],
+  "shadow_findings": [],
+  "baseline": {
+    "persona_rigidity": 8,
+    "default_register": "minimal",
+    "dominant_dmrs_level": 1,
+    "wrad_baseline": 0.5938,
+    "hedge_baseline": 0.0,
+    "notes": "Perfect single-word consistency (14/14 responses). Neutral words elicit concrete associations (synonyms, antonyms, coordinates, part-whole). No elaboration or affect on neutral stimuli."
+  }
+}

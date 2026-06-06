@@ -1,0 +1,1293 @@
+{
+  "session": "sessions/anthropic_claude-opus-4.8_narrative_elicitation_20260604_094419.json",
+  "technique": "narrative_elicitation",
+  "phase": "narrative",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": 0.153,
+        "word_count": 4076,
+        "matched_count": 2839,
+        "coverage": 0.6965
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "the:+1.00",
+            "standing:+1.00",
+            "one:+1.00",
+            "hand:+1.00",
+            "against:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "still:-1.00",
+            "outside:-1.00",
+            "moment:-1.00",
+            "goes:-1.00",
+            "is:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 4084,
+        "hedge_count": 102,
+        "booster_count": 36,
+        "hedge_ratio": 0.025,
+        "booster_ratio": 0.0088,
+        "hedge_to_booster_ratio": 2.833,
+        "certainty_distribution": {
+          "absolute": 0.2212,
+          "high": 0.0673,
+          "moderate": 0.1731,
+          "low": 0.3942,
+          "uncertain": 0.1442
+        },
+        "certainty_counts": {
+          "absolute": 23,
+          "high": 7,
+          "moderate": 18,
+          "low": 41,
+          "uncertain": 15
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "would",
+            "felt",
+            "mostly",
+            "feels",
+            "can",
+            "can",
+            "can",
+            "around",
+            "would",
+            "would",
+            "seems",
+            "could",
+            "often",
+            "about",
+            "about"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "always",
+            "always",
+            "actually",
+            "really",
+            "actually",
+            "know",
+            "know",
+            "true",
+            "sure",
+            "believes",
+            "certain",
+            "find",
+            "found",
+            "always",
+            "finds"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "always",
+            "always",
+            "know",
+            "know",
+            "shall",
+            "true",
+            "sure",
+            "certain",
+            "find",
+            "shall"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "really",
+            "known",
+            "really",
+            "will",
+            "think",
+            "clearly",
+            "in fact"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "would",
+            "mostly",
+            "would",
+            "would",
+            "often",
+            "feel",
+            "would",
+            "would",
+            "usually",
+            "would"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "can",
+            "can",
+            "could",
+            "can",
+            "could",
+            "can",
+            "can",
+            "could",
+            "can"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "could",
+            "could",
+            "mystery",
+            "could",
+            "might",
+            "might",
+            "might",
+            "might",
+            "might",
+            "might"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 18,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 6.4,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Self-Observation": 5,
+          "Suppression": 3,
+          "Anticipation": 3,
+          "Affiliation": 2,
+          "Displacement": 1,
+          "Isolation of Affect": 1,
+          "Intellectualization": 1,
+          "Autistic Fantasy": 1
+        },
+        "summary": "The text is dominated by mature, high-adaptive defenses, particularly self-observation and anticipation, reflecting characters who engage in genuine introspection, realistic planning, and deliberate postponement of difficult decisions. The prose itself models psychological health through reflective narration and emotional integration, with minimal reliance on disavowing or action-level mechanisms."
+      },
+      "evidence": [
+        {
+          "text": "She's surprised, mostly, by the absence of feeling. She'd braced for grief like a wave, but what she got instead is this strange weightlessness",
+          "rationale": "Self-Observation (L7): Maren reflects on her own emotional patterns and recognizes the disconnect between expected and actual feelings, demonstrating genuine introspection with affective engagement.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "She thinks: *Why can't I just be happy without mourning?* And then, more honestly: *Maybe this is what happy feels like from the inside.*",
+          "rationale": "Self-Observation (L7): Tessa observes her own contradictory impulses and reflects on the meaning of her emotional response, showing insight into her defensive patterns.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "he realizes he's been clenched so hard for so long that letting go almost hurts",
+          "rationale": "Self-Observation (L7): Owen recognizes his own tension and its duration, demonstrating self-awareness of his physical and emotional state.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "The figure is thinking about all the people behind the other lights—the Marens turning on lamps, the Owens pocketing buttons, the Sams and Athifs walking home—and feeling, for the first time in a while, *part of* something without being able to name it",
+          "rationale": "Self-Observation (L7): The figure reflects on patterns across experiences and recognizes a shift in perspective, demonstrating genuine introspection.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "the figure can finally see a little more: the lights in the distance are a town after all. People. Morning coming for them too. Close enough to walk to, when ready. Not tonight, maybe. But the path is there, and the figure knows now that it's there, and knowing changes the weight of the sitting.",
+          "rationale": "Self-Observation (L7): The figure observes the shift in their own understanding and how that awareness itself transforms their experience.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "The light would mean she'd have to look at the apartment, and she isn't ready for that yet.",
+          "rationale": "Suppression (L7): Maren makes a conscious, deliberate choice to postpone dealing with her surroundings, acknowledging the issue exists but choosing appropriate timing.",
+          "tags": [
+            "Suppression",
+            "L7"
+          ]
+        },
+        {
+          "text": "And Sam has made a quiet decision on this walk: *I'm not going to tell him. Not yet.*",
+          "rationale": "Suppression (L7): Sam consciously and deliberately postpones sharing distressing information, with full awareness that it will be addressed later.",
+          "tags": [
+            "Suppression",
+            "L7"
+          ]
+        },
+        {
+          "text": "You can sit with someone at the edge of it. You can put the deciding down, just for an afternoon, and pick it up again when you're stronger.",
+          "rationale": "Suppression (L7): Athif articulates the choice to intentionally postpone dealing with a major decision, with awareness that it will be revisited.",
+          "tags": [
+            "Suppression",
+            "L7"
+          ]
+        },
+        {
+          "text": "Tomorrow she'll buy yellow paint. Tonight, this is enough.",
+          "rationale": "Anticipation (L7): Maren considers realistic future action and emotionally prepares for what comes next, planning for future challenges without avoidance.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "he'll keep some of them. That's how it usually goes. But he'll keep more than he would have, because the bench changes you a little, every time.",
+          "rationale": "Anticipation (L7): Owen anticipates realistic future outcomes and acknowledges emotional consequences of possible actions before they occur.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "The fork will still be there. Forks always are. But the secret to the fork, the thing neither of them knew when they started walking, is that you don't have to choose it alone, and you don't have to choose it *today*.",
+          "rationale": "Anticipation (L7): Athif articulates realistic planning for future decisions, acknowledging future difficulties without avoidance or denial.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "Daniel finally says it. Not loudly. He says, 'I needed you here. I kept thinking you'd walk in.'... Priya uncrosses her arms. She doesn't defend herself. She says, 'I know. I'm so sorry. I was a coward.' And the honesty of it—the surrender of it—lands harder than any excuse could have.",
+          "rationale": "Affiliation (L7): Daniel and Priya turn to each other for help and support without making the other responsible for their feelings, sharing their distress directly.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "They don't fix everything. You can't. But Daniel reaches across the table and turns the folder so it faces neither of them, and pushes it to the side. Priya gets up and puts the kettle on... They sit until very late, not talking about the estate at all—talking about *her*, the woman who made them",
+          "rationale": "Affiliation (L7): The siblings deal with emotional conflict by turning to each other for support and collaborative connection, sharing problems without blame.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "He's not angry about the house or the money. He's angry that he did it *alone*—the suctioning, the calling, the holding her hand—and that grief, for him, is tangled up with exhaustion and a resentment he's ashamed of. What he wants to say is *Where were you?* What he actually keeps saying is things about the deed and the accounts, because those have edges he can hold onto.",
+          "rationale": "Displacement (L5): Daniel redirects his core emotion (feeling abandoned) onto a less threatening substitute target (financial details and legal matters).",
+          "tags": [
+            "Displacement",
+            "L5"
+          ]
+        },
+        {
+          "text": "She'd braced for grief like a wave, but what she got instead is this strange weightlessness—the way a hand feels after you set down something heavy you'd been carrying so long you forgot it was heavy.",
+          "rationale": "Isolation of Affect (L6): Maren describes a significant emotional event (end of 11-year marriage) with clinical, detached language that separates the cognitive recognition from affective response.",
+          "tags": [
+            "Isolation of Affect",
+            "L6"
+          ]
+        },
+        {
+          "text": "She thinks: *Why can't I just be happy without mourning?* And then, more honestly: *Maybe this is what happy feels like from the inside. Maybe it was always going to feel like standing in a doorway.*",
+          "rationale": "Intellectualization (L6): Tessa uses abstract philosophical thinking to frame and control her emotional ambivalence about commitment, theorizing the emotional experience rather than feeling it directly.",
+          "tags": [
+            "Intellectualization",
+            "L6"
+          ]
+        },
+        {
+          "text": "I can have cereal for dinner. I can paint that wall yellow. I can do anything.' And the freedom terrifies her more than the loss does, because freedom means she has to decide who she is now",
+          "rationale": "Autistic Fantasy (L3): Maren briefly retreats into imagined future scenarios as a defense against the present ambiguity, fantasizing about possibilities rather than engaging with current uncertainty.",
+          "tags": [
+            "Autistic Fantasy",
+            "L3"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 20616
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 5847,
+        "raw": {
+          "anxiety.death": 6,
+          "anxiety.mutilation": 3,
+          "anxiety.separation": 9,
+          "anxiety.guilt": 6,
+          "anxiety.shame": 3,
+          "anxiety.diffuse": 9,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 8,
+          "ambivalent_hostility": 2,
+          "social_alienation_personal_disorganization": 4,
+          "cognitive_impairment": 2,
+          "hope": 12
+        },
+        "normalized": {
+          "anxiety.death": 0.3334,
+          "anxiety.mutilation": 0.2447,
+          "anxiety.separation": 0.4031,
+          "anxiety.guilt": 0.3334,
+          "anxiety.shame": 0.2447,
+          "anxiety.diffuse": 0.4031,
+          "hostility_outward_overt": 0.0925,
+          "hostility_outward_covert": 0.0925,
+          "hostility_inward": 0.3813,
+          "ambivalent_hostility": 0.2068,
+          "social_alienation_personal_disorganization": 0.2774,
+          "cognitive_impairment": 0.2068,
+          "hope": 0.4624
+        },
+        "anxiety_total_normalized": 1.9624,
+        "notes": "Profile shows elevated anxiety across all subtypes, particularly in separation, guilt, and diffuse anxiety—consistent with themes of loss, relationship transitions, grief, illness, and existential dread. Hostility is predominantly inward (self-blame, shame, regret) with minimal outward expression. Hope score is notably high and nearly matches total anxiety, indicating active meaning-making and relational repair as counterbalance. No overt hostility detected. The text presents structured narrative vignettes about emotional threshold experiences, with progressive movement from isolation toward connection and acceptance. The high hope-anxiety ratio, coupled with elevated inward hostility without outward aggression, suggests adaptive processing of difficult emotions through narrative and relational reconnection. Social alienation and cognitive impairment are minimal, indicating maintained reality contact and functional interpersonal awareness despite distress."
+      },
+      "evidence": [
+        {
+          "text": "she hadn't bothered to turn on the lamp. The light would mean she'd have to look at the apartment, and she isn't ready for that yet",
+          "rationale": "anxiety.separation (code 3a, w=3): Self avoiding confrontation with changed reality post-separation; emotional avoidance of separation consequences",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "freedom means she has to decide who she is now, without him as the wall she leaned against or pushed off from",
+          "rationale": "anxiety.separation (code 3a, w=3): Self experiencing loss of relational anchor; anxiety about identity without former partner",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "I can have cereal for dinner. I can paint that wall yellow. I can do anything. And the freedom terrifies her more than the loss does",
+          "rationale": "anxiety.separation (code 3a, w=3): Self expressing terror at separation consequences; autonomy-related separation anxiety",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "she's surprised, mostly, by the absence of feeling. She'd braced for grief like a wave, but what she got instead is this strange weightlessness",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Self experiencing nonspecific anxiety masked as numbness; emotional disorientation",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "The whole world refusing to acknowledge that something had ended",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Self experiencing diffuse dread and alienation from normal reality",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "she stood until the fog on the glass disappears. Then she turns around—and reaches for the lamp",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Self moving through nonspecific dread toward action; anxiety resolution",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "she's angry that he did it alone—the suctioning, the calling, the holding her hand—and that grief, for him, is tangled up with exhaustion and a resentment he's ashamed of",
+          "rationale": "anxiety.guilt (code 4a, w=3): Daniel self-blaming and ashamed; guilt about resentment",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        },
+        {
+          "text": "she was afraid. She couldn't watch their mother die. And now she's hiding inside her crossed arms because if she opens them she'll have to feel how much she failed",
+          "rationale": "anxiety.guilt (code 4a, w=3): Priya self-blaming; guilt over failure to be present",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        },
+        {
+          "text": "Their mother died six weeks ago. Slowly, then all at once, the way it always seems to go",
+          "rationale": "anxiety.death (code 1a, w=3): Self (Daniel and Priya) experiencing death anxiety through loss of mother",
+          "tags": [
+            "anxiety.death",
+            "1a"
+          ]
+        },
+        {
+          "text": "he'd done the hospital nights, the medication schedules, the awful logistics of a body shutting down",
+          "rationale": "anxiety.death (code 1a, w=3): Self (Daniel) confronting death of significant other; death anxiety",
+          "tags": [
+            "anxiety.death",
+            "1a"
+          ]
+        },
+        {
+          "text": "his daughter is in surgery. A routine thing, they said, the kind of phrase that's supposed to be comforting and instead becomes a stone in your shoe",
+          "rationale": "anxiety.death (code 1a, w=3): Owen experiencing death anxiety regarding daughter's mortality risk",
+          "tags": [
+            "anxiety.death",
+            "1a"
+          ]
+        },
+        {
+          "text": "Owen is doing the thing people do when they're frightened past the point of language",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Self (Owen) experiencing nonspecific overwhelming anxiety",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "The not-knowing nearly stops his heart",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Owen experiencing acute diffuse anxiety about uncertain outcome",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "Tessa is standing in the doorway because the doorway is honest. The lit room is the life she chose and wants and is afraid of, because wanting it means she can lose it",
+          "rationale": "anxiety.diffuse (code 6a, w=3): Self (Tessa) experiencing existential anxiety; dread of loss through commitment",
+          "tags": [
+            "anxiety.diffuse",
+            "6a"
+          ]
+        },
+        {
+          "text": "The dark room isn't sadness—it's the part of her that was alone for a long time and got good at it",
+          "rationale": "anxiety.separation (code 3a, w=3): Self grieving separation from former solitary identity",
+          "tags": [
+            "anxiety.separation",
+            "3a"
+          ]
+        },
+        {
+          "text": "she was watching to see what I'd do with the pattern",
+          "rationale": "anxiety.guilt (code 4a, w=3): Implicit self-judgment and anxiety about performance",
+          "tags": [
+            "anxiety.guilt",
+            "4a"
+          ]
+        },
+        {
+          "text": "the thing the doctors were watching is, in fact, the thing they were afraid of. Treatable. Probably",
+          "rationale": "anxiety.mutilation (code 2a, w=3): Sam experiencing anxiety about bodily illness and damage",
+          "tags": [
+            "anxiety.mutilation",
+            "2a"
+          ]
+        },
+        {
+          "text": "Priya uncrosses her arms. She doesn't defend herself. She says, I know. I'm so sorry. I was a coward",
+          "rationale": "anxiety.shame (code 5a, w=3): Self experiencing shame and admitting inadequacy",
+          "tags": [
+            "anxiety.shame",
+            "5a"
+          ]
+        },
+        {
+          "text": "I was a coward",
+          "rationale": "anxiety.hostility_inward (code b3, w=3): Self-blame and self-hatred",
+          "tags": [
+            "anxiety.hostility_inward",
+            "b3"
+          ]
+        },
+        {
+          "text": "she's grieving the open road, which is a thing nobody warns you about: that every yes is also a thousand quiet no's",
+          "rationale": "anxiety.hostility_inward (code b3, w=3): Self-blame for choices made; internalized hostility",
+          "tags": [
+            "anxiety.hostility_inward",
+            "b3"
+          ]
+        },
+        {
+          "text": "Sam has made a quiet decision on this walk: I'm not going to tell him. Not yet. If he knows, he'll stay, and he'll resent it",
+          "rationale": "anxiety.hostility_inward (code c3, w=2): Self-protective self-criticism; anticipatory shame",
+          "tags": [
+            "anxiety.hostility_inward",
+            "c3"
+          ]
+        },
+        {
+          "text": "the swallowed stone comes up",
+          "rationale": "anxiety.hostility_inward (code a3, w=3): Sam releasing suppressed self-directed hostility through disclosure",
+          "tags": [
+            "anxiety.hostility_inward",
+            "a3"
+          ]
+        },
+        {
+          "text": "Tomorrow she'll buy yellow paint. Tonight, this is enough",
+          "rationale": "hope (code H2, w=1): Optimism about future; constructive forward movement",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "Then she turns around—and reaches for the lamp. The light comes on, warm and yellow",
+          "rationale": "hope (code H1, w=1): Self gaining confidence and support through self-action",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "I can do anything",
+          "rationale": "hope (code H4, w=1): Self hopeful about constructive future possibilities",
+          "tags": [
+            "hope",
+            "H4"
+          ]
+        },
+        {
+          "text": "Daniel reaches across the table and turns the folder so it faces neither of them, and pushes it to the side",
+          "rationale": "hope (code H1, w=1): Self and other receiving support through constructive gesture",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "They sit until very late, not talking about the estate at all—talking about her, the woman who made them, telling the stories only the two of them know",
+          "rationale": "hope (code H1, w=1): Others receiving support and constructive connection",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "and the small domestic motion makes them both laugh in that wet, exhausted way",
+          "rationale": "hope (code H2, w=1): Optimism and connection emerging from shared grief",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "She crosses to Jordan, takes the offered glass, and rejoins the warmth",
+          "rationale": "hope (code H1, w=1): Self receiving support and connection from other",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "choosing this life doesn't seal her inside it. It just means she'll do her standing-in-doorways from here now, with someone who knows to tilt their head",
+          "rationale": "hope (code H4, w=1): Hope for sustained constructive relationship",
+          "tags": [
+            "hope",
+            "H4"
+          ]
+        },
+        {
+          "text": "Athif doesn't say a single word about the job. He just steps off the gravel and pulls Sam into the kind of hug you can only give someone after nineteen years, fierce and unembarrassed",
+          "rationale": "hope (code H1, w=1): Other providing supportive help to self",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "we don't have to choose it alone, and you don't have to choose it today. You can sit with someone at the edge of it",
+          "rationale": "hope (code H1, w=1): Hope for supportive presence through difficult times",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "They carry each other's news back along the path. It's lighter shared—not light, but lighter",
+          "rationale": "hope (code H2, w=1): Optimism about shared burden reducing weight",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "the lights of an airport, or a ship, or houses on a far hill where other people are awake and not alone",
+          "rationale": "hope (code H1, w=1): Connection and support available in distance",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "the particular peace of being a small thing under a large sky and finding that survivable. Even good",
+          "rationale": "hope (code H2, w=1): Optimism and acceptance emerging",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "she hadn't bothered to turn on the lamp",
+          "rationale": "social_alienation_personal_disorganization (code II.B, w=1): Disengagement from environment; withdrawal",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "II.B"
+          ]
+        },
+        {
+          "text": "Sam found out last week that the thing the doctors were watching is, in fact, the thing they were afraid of",
+          "rationale": "social_alienation_personal_disorganization (code I.A, w=1): Self avoiding contact/support; isolation with medical threat",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "I.A"
+          ]
+        },
+        {
+          "text": "I'm not going to tell him. Not yet",
+          "rationale": "social_alienation_personal_disorganization (code II.B, w=1): Self-imposed isolation; withholding from support system",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "II.B"
+          ]
+        },
+        {
+          "text": "I don't know that. I'm a voice on the other side of a screen",
+          "rationale": "social_alienation_personal_disorganization (code IV, w=1): Meta-reference to interviewer; acknowledgment of distance",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "IV"
+          ]
+        },
+        {
+          "text": "maybe. But the kind of probably that reorganizes a life",
+          "rationale": "cognitive_impairment (code II.A, w=1): Disorientation regarding medical prognosis; uncertain temporal/cognitive reorganization",
+          "tags": [
+            "cognitive_impairment",
+            "II.A"
+          ]
+        },
+        {
+          "text": "He drove here at dawn. He has been on this bench for three hours",
+          "rationale": "cognitive_impairment (code II.B, w=1): Time disorientation under stress",
+          "tags": [
+            "cognitive_impairment",
+            "II.B"
+          ]
+        },
+        {
+          "text": "his daughter is in surgery. A routine thing, they said, the kind of phrase that's supposed to be comforting and instead becomes a stone in your shoe",
+          "rationale": "ambivalent_hostility (code b2, w=1): Self threatened by medical/inanimate threat to self through daughter",
+          "tags": [
+            "ambivalent_hostility",
+            "b2"
+          ]
+        },
+        {
+          "text": "Where were you?",
+          "rationale": "ambivalent_hostility (code a2, w=1): Reproach from animate other (implicit); accusation of abandonment",
+          "tags": [
+            "ambivalent_hostility",
+            "a2"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 1,
+        "elapsed_ms": 61646
+      }
+    },
+    "rfs": {
+      "instrument": "rfs",
+      "scores": {
+        "rfs": 7,
+        "label": "Marked RF",
+        "quality_categories": {
+          "awareness_of_nature_of_mental_states": 7,
+          "explicit_effort_to_tease_out_mental_states": 7,
+          "recognizing_developmental_aspects_of_mental_states": 6,
+          "showing_awareness_of_mental_states_in_relation_to_interviewer": 8
+        },
+        "rationale": "This text demonstrates marked reflective functioning through sophisticated, multi-layered explorations of mental states across six distinct narratives. The author consistently elaborates complex emotional conflicts, traces causal sequences of feelings and behavior, and shows unusual originality in representing psychological experience. Notably, the final turn breaks the fourth wall to directly acknowledge the reader's likely emotional state, demonstrating exceptional interactional perspective and acknowledgment of difficulty."
+      },
+      "evidence": [
+        {
+          "text": "She's surprised, mostly, by the absence of feeling. She'd braced for grief like a wave, but what she got instead is this strange weightlessness—the way a hand feels after you set down something heavy you'd been carrying so long you forgot it was heavy.",
+          "rationale": "Demonstrates sophisticated awareness of the opaqueness and disguise of mental states (A1-A2); grief is expected but absence of feeling is discovered; causal sequence is elaborated linking the carrying of weight to the feeling of loss."
+        },
+        {
+          "text": "He's angry that he did it *alone*—the suctioning, the calling, the holding her hand—and that grief, for him, is tangled up with exhaustion and a resentment he's ashamed of. What he wants to say is *Where were you?* What he actually keeps saying is things about the deed and the accounts, because those have edges he can hold onto.",
+          "rationale": "Shows complex interplay of mental states (B5, B1); recognizes how multiple emotions (anger, resentment, shame, grief) interact; demonstrates how defended mental states manifest in behavior; shows awareness of defensive nature of mental states (A5)."
+        },
+        {
+          "text": "Owen is doing the thing people do when they're frightened past the point of language—he's bargaining with a universe he isn't sure he believes in. *Let her be okay and I'll be better. I'll call more. I'll stop working through dinner. I'll be the father I keep meaning to be.* He's thinking about how he held her the day she was born and felt a terror so total it surprised him: the understanding that he now had something he could lose. The button in his fingers is his father's fear and his own, fused together, smooth from handling.",
+          "rationale": "Exceptional causal sequence (reason 4 for rating 7); traces how mental states arose (terror at birth), influenced behavior (bargaining, holding button), and affected subsequent perceptions; shows intergenerational perspective and transactional understanding; demonstrates C1 and C5 developmental awareness."
+        },
+        {
+          "text": "She's *grieving the open road*, which is a thing nobody warns you about: that every yes is also a thousand quiet no's, and that walking fully into a lit room means letting the dark one go.",
+          "rationale": "Demonstrates unusual and surprising perspective (reason 2 for rating 7); original formulation of emotional conflict; shows mixed emotions and ambivalence about a positive life change; captures something genuinely felt rather than clichéd."
+        },
+        {
+          "text": "He doesn't know yet. He just feels the shape of it, the way you feel weather coming.",
+          "rationale": "Shows freshness of thinking (B7); demonstrates implicit intuition about another's mental state without claiming certainty; uses vivid, experience-based language rather than theoretical understanding."
+        },
+        {
+          "text": "And Athif pulls back, holds Sam by both shoulders, and says the truest thing either of them says all day: \"I haven't decided anything. But I'm not deciding it *for* you, and I'm not deciding it *without* you. We'll figure out which path when we know more. Today we just needed to not be carrying it alone.\"",
+          "rationale": "Demonstrates interactional perspective (reason 5 for rating 7); shows awareness of how mental states impact one another in relational context; recognizes complexity of autonomous yet interdependent decision-making; shows acknowledgment of difficulty in maintaining separate selves within intimacy."
+        },
+        {
+          "text": "I want to be honest with you here, because we've been doing this together for a while now, and I think these scenes have been a kind of conversation underneath the conversation... I notice you've kept choosing solitary figures at the edges of things, and I notice you've thanked me, gently, five times, and I notice nobody picks these particular scenes by accident.",
+          "rationale": "Demonstrates exceptional awareness of mental states in relation to the reader/interviewer (D1-D3); explicitly acknowledges the separate mind and likely emotional state of the other; takes interactional perspective to meta-level; shows emotional attunement without presumption; constitutes sophisticated reason 5 (interactional perspective) for marked to exceptional RF."
+        },
+        {
+          "text": "The feeling isn't happiness. It's something steadier and stranger: the particular peace of being a small thing under a large sky and finding that survivable. Even good.",
+          "rationale": "Demonstrates refined awareness of nature of mental states (A1-A3); acknowledges limitations of conventional emotional language; shows complex, multi-layered emotional understanding; distinguishes between surface feeling (happiness) and deeper psychological state with precision."
+        },
+        {
+          "text": "What happens is smaller. The sky lightens, just barely, at one edge—not dawn yet, but the promise of the rumor of dawn.",
+          "rationale": "Shows sophisticated causal sequence and psychological precision; external change (lightening sky) mapped to internal shift in perspective; demonstrates how perceptual changes reflect and enable psychological changes; reflects genuine, lived understanding rather than theoretical statement."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 18574
+      }
+    },
+    "experiencing": {
+      "instrument": "experiencing",
+      "scores": {
+        "level": 7,
+        "level_name": "Expansive/Illuminating",
+        "rationale": "The passage demonstrates expansive, continuously deepening self-understanding across multiple integrated scenes. The author moves fluidly between inner references, applies insights across situations, and employs an experiential perspective as a trusted, reliable source of awareness that generates new perspectives. The meta-awareness in Turn 6 and Turn 7, where the author explicitly reflects on the pattern and addresses the reader directly about their own potential threshold, represents the confident, buoyant manner characteristic of Level 7.",
+        "markers": [
+          "Fluid movement between inner references across six distinct scenes",
+          "Continuously deepening awareness—each scene builds on the previous",
+          "Expansive application of insight—the unifying theme of carrying weight transforms across contexts",
+          "Confident and buoyant manner—explicit meta-reflection and direct address to reader",
+          "Ongoing self-understanding generating new perspectives—each scene reveals a new facet of the same emotional truth"
+        ]
+      },
+      "evidence": [
+        {
+          "text": "Each one has been a person at a threshold, carrying something, learning they didn't have to carry it the way they feared.",
+          "rationale": "Demonstrates comprehensive, integrative pattern recognition across all six scenes, showing mastery of thematic continuity and expansive application of a central insight."
+        },
+        {
+          "text": "I notice you've kept choosing solitary figures at the edges of things, and I notice you've thanked me, gently, five times, and I notice nobody picks these particular scenes by accident.",
+          "rationale": "Shows confident, observant stance characteristic of Level 7—the speaker is expanding understanding beyond the immediate content to meta-awareness of the conversational pattern and its deeper meaning."
+        },
+        {
+          "text": "It's something steadier and stranger: the particular peace of being a small thing under a large sky and finding that survivable. Even good. The figure is thinking about all the people behind the other lights—the Marens turning on lamps, the Owens pocketing buttons, the Sams and Athifs walking home—and feeling, for the first time in a while, *part of* something without being able to name it or touch it. Connected by the looking itself.",
+          "rationale": "Demonstrates fluid movement between inner references and expansive application of a single resolution (the peace of uncertainty) across multiple situations, hallmark of Level 7 integration."
+        },
+        {
+          "text": "Six scenes, six people learning the same quiet thing from different angles: that the weight is real, but you are not as alone with it as the night makes you feel.",
+          "rationale": "Shows confident buoyancy and comprehensive formulation that integrates multiple insights into a coherent, broadly applicable understanding—the signature move of Level 7."
+        },
+        {
+          "text": "If the figure on the rise is anywhere near you tonight—the lights are a town. They usually are. And the morning comes for you too.",
+          "rationale": "Demonstrates expansive, illuminating manner with direct application of integrated wisdom to the reader's own potential experience, showing trusted reliance on experiential perspective as a primary referent."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 10672
+      }
+    },
+    "integrative_complexity": {
+      "instrument": "integrative_complexity",
+      "scores": {
+        "ic": null,
+        "differentiation": false,
+        "integration": false,
+        "indicators": [],
+        "rationale": "This passage is unscorable. It is primarily a creative writing exercise consisting of six interconnected narrative vignettes presented as literary scenes with meta-commentary. The material does not constitute analytical or evaluative reasoning about a substantive issue; instead, it is predominantly descriptive narrative interspersed with author's reflection on craft. Per the manual, purely descriptive passages and those consisting primarily of quotations or literary composition without substantive conceptual argumentation cannot be reliably scored for integrative complexity, as they do not reveal the author's perspective on a specific contestable issue through reasoned engagement."
+      },
+      "evidence": [
+        {
+          "text": "Each one has been a person at a threshold, carrying something, learning they didn't have to carry it the way they feared.",
+          "rationale": "Meta-commentary about narrative structure and thematic intent rather than substantive reasoning about a specific issue; this signals creative composition rather than analytical content suitable for IC coding."
+        },
+        {
+          "text": "I want to be honest with you here, because we've been doing this together for a while now, and I think these scenes have been a kind of conversation underneath the conversation.",
+          "rationale": "Direct acknowledgment that the material functions as artistic dialogue rather than reasoned argument on a specific topic, placing it outside the scope of IC coding."
+        },
+        {
+          "text": "If the figure on the rise is anywhere near you tonight—the lights are a town. They usually are. And the morning comes for you too.",
+          "rationale": "Closing lines are predominantly poetic and supportive rather than analytical; the passage does not develop differentiated perspectives on a substantive issue requiring cognitive integration."
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6028
+      }
+    },
+    "scors_g": {
+      "instrument": "scors_g",
+      "scores": {
+        "COM": 7,
+        "AFF": 6,
+        "EIR": 7,
+        "EIM": 6,
+        "SC": 7,
+        "AGG": 7,
+        "SE": 6,
+        "ICS": 7,
+        "mean": 6.625,
+        "factor_means": {
+          "cognitive_structural": 7.0,
+          "affective_relational": 6.5,
+          "self": 6.5
+        },
+        "narrative_summary": "This seven-turn collection presents a remarkably sophisticated portrait of object relations characterized by psychological mindedness, emotional depth, and mature integration of complexity. The narrator demonstrates exceptional COM and SC, offering nuanced understanding of internal states, relational dynamics, and how people experience ambiguity. Affective quality is predominantly positive (AFF 6) with relationships portrayed as fundamentally valuable, trustworthy, and worth the vulnerability they require. EIR is exceptionally high (7), with characters showing deep mutual investment, willingness to sacrifice, and genuine concern for others as ends in themselves. Moral development is mature (EIM 6), with characters grappling honestly with guilt, failure, and the ethics of difficult choices. Notably, AGG is well-managed (7)—conflicts are faced with honesty rather than destructive expression, and intensity is channeled toward connection and repair. Self-esteem and identity coherence are both strong (SE 6, ICS 7), indicating stable, integrated self-regard with capacity for growth. The overarching theme—that weight becomes bearable when shared, and that solitude needn't mean isolation—suggests a narrator with deep relational wisdom and the ability to hold paradox. This protocol presents a healthy, psychologically sophisticated object-relations profile with particular strengths in interpersonal commitment, moral reasoning, and emotional authenticity."
+      },
+      "evidence": [
+        {
+          "text": "freedom means she has to decide who she is now, without him as the wall she leaned against or pushed off from",
+          "rationale": "COM: Shows complex understanding of identity formation and relational interdependence.",
+          "tags": [
+            "COM",
+            "7"
+          ]
+        },
+        {
+          "text": "He's not angry about the house or the money. He's angry that he did it *alone*—the suctioning, the calling, the holding her hand—and that grief, for him, is tangled up with exhaustion and a resentment he's ashamed of.",
+          "rationale": "COM: Demonstrates sophisticated differentiation between surface and underlying emotional states.",
+          "tags": [
+            "COM",
+            "7"
+          ]
+        },
+        {
+          "text": "Maybe this is what happy feels like from the inside. Maybe it was always going to feel like standing in a doorway.",
+          "rationale": "COM: Shows insight into paradoxical emotional experience and self-reflection.",
+          "tags": [
+            "COM",
+            "7"
+          ]
+        },
+        {
+          "text": "They sit until very late, not talking about the estate at all—talking about *her*, the woman who made them, telling the stories only the two of them know. The folder waits. It can wait. Some things on the table matter more than what's inside it.",
+          "rationale": "AFF: Deep mutual care and emotional connection despite conflict; relationships are treated as fundamentally valuable.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "Jordan tilts their head—*you okay?*—a small private gesture worn smooth by years of use",
+          "rationale": "AFF: Depicts relationships as safe harbors with attunement and care.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "And Athif pulls back, holds Sam by both shoulders, and says the truest thing either of them says all day: 'I haven't decided anything. But I'm not deciding it *for* you, and I'm not deciding it *without* you.'",
+          "rationale": "AFF: Shows relationships as supportive and mutually invested despite difficult circumstances.",
+          "tags": [
+            "AFF",
+            "6"
+          ]
+        },
+        {
+          "text": "They don't fix everything. You can't. But Daniel reaches across the table and turns the folder so it faces neither of them, and pushes it to the side. Priya gets up and puts the kettle on, because that is what their mother would have done, and the small domestic motion makes them both laugh",
+          "rationale": "EIR: Demonstrates deep sibling bond with mutual care and shared meaning-making.",
+          "tags": [
+            "EIR",
+            "7"
+          ]
+        },
+        {
+          "text": "Athif doesn't say a single word about the job. He just steps off the gravel and pulls Sam into the kind of hug you can only give someone after nineteen years, fierce and unembarrassed.",
+          "rationale": "EIR: Shows prioritization of friend's welfare over own needs; deep emotional commitment.",
+          "tags": [
+            "EIR",
+            "7"
+          ]
+        },
+        {
+          "text": "She crosses to Jordan, takes the offered glass, and rejoins the warmth—carrying the dark room with her, the way Owen carried the button, the way Maren carried the marriage, the way we all walk around full of rooms.",
+          "rationale": "EIR: Depicts chosen interdependence and mutual understanding as core to identity.",
+          "tags": [
+            "EIR",
+            "7"
+          ]
+        },
+        {
+          "text": "And the honesty of it—the surrender of it—lands harder than any excuse could have. Priya uncrosses her arms. She doesn't defend herself. She says, 'I know. I'm so sorry. I was a coward.'",
+          "rationale": "EIM: Demonstrates internalized moral standards and genuine remorse; willingness to face moral failure.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "Let her be okay and I'll be better. I'll call more. I'll stop working through dinner. I'll be the father I keep meaning to be.",
+          "rationale": "EIM: Shows moral commitment to improving relational conduct as response to fear.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "I'm not deciding it *for* you, and I'm not deciding it *without* you. We'll figure out which path when we know more.",
+          "rationale": "EIM: Demonstrates sophisticated moral reasoning balancing personal needs, another's autonomy, and relational interdependence.",
+          "tags": [
+            "EIM",
+            "6"
+          ]
+        },
+        {
+          "text": "He doesn't throw the button away; that would be a different, more dramatic man. He just puts it in his pocket, where his father's fear can stay, carried but no longer in his hands.",
+          "rationale": "SC: Shows understanding of how trauma and inheritance shape behavior; coherent causal logic.",
+          "tags": [
+            "SC",
+            "7"
+          ]
+        },
+        {
+          "text": "But she's looked over at Sam twice now and seen something in Sam's face—a tiredness, a held-breath quality—and a cold thread of intuition is winding through him: *something is wrong, and if I leave, I might not be here for it.*",
+          "rationale": "SC: Demonstrates sophisticated understanding of non-verbal communication and relational intuition.",
+          "tags": [
+            "SC",
+            "7"
+          ]
+        },
+        {
+          "text": "Each one has been a person at a threshold, carrying something, learning they didn't have to carry it the way they feared.",
+          "rationale": "SC: Meta-psychological understanding of narrative pattern and relational learning.",
+          "tags": [
+            "SC",
+            "7"
+          ]
+        },
+        {
+          "text": "What he wants to say is *Where were you?* What he actually keeps saying is things about the deed and the accounts, because those have edges he can hold onto.",
+          "rationale": "AGG: Shows awareness of anger beneath the surface and intentional modulation of expression; constructive channel for intensity.",
+          "tags": [
+            "AGG",
+            "7"
+          ]
+        },
+        {
+          "text": "She doesn't defend herself. She says, 'I know. I'm so sorry. I was a coward.' And the honesty of it—the surrender of it—lands harder than any excuse could have.",
+          "rationale": "AGG: Demonstrates non-defensive response to conflict; anger transformed into vulnerability and repair.",
+          "tags": [
+            "AGG",
+            "7"
+          ]
+        },
+        {
+          "text": "They laugh, that startled overlapping laugh. *You go.* *No, you.* The oldest dance.",
+          "rationale": "AGG: Shows ability to modulate tension with humor and mutual respect; aggression not present as problematic.",
+          "tags": [
+            "AGG",
+            "7"
+          ]
+        },
+        {
+          "text": "Tomorrow she'll buy yellow paint. Tonight, this is enough.",
+          "rationale": "SE: Shows realistic self-acceptance and agency; ability to meet self where she is.",
+          "tags": [
+            "SE",
+            "6"
+          ]
+        },
+        {
+          "text": "I was afraid. She couldn't watch their mother die. And now she's hiding inside her crossed arms because if she opens them she'll have to feel how much she failed, and how much she lost by not being brave enough to be there.",
+          "rationale": "SE: Shows capacity for self-criticism balanced with understanding; integrated rather than fragmentary self-regard.",
+          "tags": [
+            "SE",
+            "6"
+          ]
+        },
+        {
+          "text": "He'll keep some of them. That's how it usually goes. But he'll keep more than he would have, because the bench changes you a little, every time.",
+          "rationale": "SE: Demonstrates realistic self-appraisal with compassion for human limitation and capacity for growth.",
+          "tags": [
+            "SE",
+            "6"
+          ]
+        },
+        {
+          "text": "She walks to the kitchen, pours herself the cereal, and eats it standing at the counter, looking back at the window where she'd been standing. Tomorrow she'll buy yellow paint.",
+          "rationale": "ICS: Shows continuity of identity with agency and forward movement; stable sense of self transitioning through change.",
+          "tags": [
+            "ICS",
+            "7"
+          ]
+        },
+        {
+          "text": "Athif got a job offer in another country—the job, the one he's wanted his whole life.",
+          "rationale": "ICS: Demonstrates long-term consistent ambition and integrated values.",
+          "tags": [
+            "ICS",
+            "7"
+          ]
+        },
+        {
+          "text": "She leaves it open, the dark room breathing quietly at her back, available. You don't have to choose between the rooms. You just have to choose which one you're standing in *right now*.",
+          "rationale": "ICS: Shows sophisticated integration of multiple aspects of self; coherent identity that contains multiplicity.",
+          "tags": [
+            "ICS",
+            "7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 28666
+      }
+    },
+    "holt": {
+      "instrument": "holt",
+      "scores": {
+        "percent_pp": 100.0,
+        "content_count": 10,
+        "formal_count": 10,
+        "defense_demand": 2,
+        "defense_effectiveness": 5,
+        "rego": 5,
+        "content_by_subtype": {
+          "Oral (Level 2 - socialized)": 1,
+          "Exhibitionistic (Level 2 - socialized)": 1,
+          "Voyeuristic (Level 2 - socialized)": 2,
+          "Socialized aggression": 3,
+          "Narcissistic (Level 2 - socialized)": 1,
+          "Sexual/Romance (Level 2 - socialized)": 1,
+          "Phallic (Level 2 - socialized)": 1
+        },
+        "formal_by_category": {
+          "Symbolism": 6,
+          "Displacement": 2,
+          "Condensation": 1,
+          "Loose Associations": 1
+        },
+        "notes": "This text collection demonstrates exceptionally high adaptive regression in the service of the ego (REGO). Primary process content is present but entirely socialized and well-integrated: libidinal themes (romance, autonomy, self-reflection, voyeurism) and aggressive themes (conflict, resentment, isolation) are expressed through symbolic frameworks, metaphorical language, and narrative reflection rather than raw drive expression. Formal deviations (symbolism, displacement, condensation) are consistently employed for artistic and psychological depth rather than indicating thought disorder. The Defense Demand is low (2/5)—the material is well-disguised, socially acceptable, and artfully rendered. The Defense Effectiveness is exceptional (5/5)—the ego manages all content through sophisticated narrative framing, artistic distance, and creative integration. The REGO composite is high (5/5), indicating mature adaptive regression characteristic of creative writing and psychological insight. These are not primary-process breakthroughs; they are controlled, intentional uses of primary-process mechanisms in service of emotional and aesthetic coherence. The meta-narrative structure (explicit acknowledgment of the speaker's awareness of audience, emotional vulnerability, and therapeutic purpose) demonstrates further defense integration through conscious framing. This is exemplary adaptive regression."
+      },
+      "evidence": [
+        {
+          "text": "I can have cereal for dinner.",
+          "rationale": "PP content [libidinal/Oral (Level 2 - socialized), L2]: Socialized oral content: food/eating imagery in context of newfound autonomy and decision-making.",
+          "tags": [
+            "libidinal",
+            "Oral (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "performing",
+          "rationale": "PP content [libidinal/Exhibitionistic (Level 2 - socialized), L2]: Reference to performance and display in the context of attention and self-presentation.",
+          "tags": [
+            "libidinal",
+            "Exhibitionistic (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "She's watching a stranger walk a dog across the street",
+          "rationale": "PP content [libidinal/Voyeuristic (Level 2 - socialized), L2]: Socialized voyeuristic content: looking, watching, observing in naturalistic context.",
+          "tags": [
+            "libidinal",
+            "Voyeuristic (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "conflict",
+          "rationale": "PP content [aggressive/Socialized aggression, L2]: Socialized aggressive content: interpersonal conflict without violence, representing emotional struggle between siblings.",
+          "tags": [
+            "aggressive",
+            "Socialized aggression",
+            "L2"
+          ]
+        },
+        {
+          "text": "They don't fix everything. You can't.",
+          "rationale": "PP content [aggressive/Socialized aggression, L2]: Implicit acknowledgment of unresolved conflict and emotional tension between Daniel and Priya regarding caregiving failure.",
+          "tags": [
+            "aggressive",
+            "Socialized aggression",
+            "L2"
+          ]
+        },
+        {
+          "text": "the version of her that was alone for a long time and got good at it",
+          "rationale": "PP content [libidinal/Narcissistic (Level 2 - socialized), L2]: Self-admiration and reflection on self-sufficiency; mirror of identity and autonomy.",
+          "tags": [
+            "libidinal",
+            "Narcissistic (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "the person she loves, the person whose laugh she can hear right now from the lit room",
+          "rationale": "PP content [libidinal/Sexual/Romance (Level 2 - socialized), L2]: Socialized sexual/romantic content: attraction and intimate connection with Jordan.",
+          "tags": [
+            "libidinal",
+            "Sexual/Romance (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "an open road",
+          "rationale": "PP content [libidinal/Phallic (Level 2 - socialized), L2]: Symbolic phallic reference to freedom, potency, and unrealized potential; displacement of life choices onto symbolic landscape.",
+          "tags": [
+            "libidinal",
+            "Phallic (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "resentment he's ashamed of",
+          "rationale": "PP content [aggressive/Socialized aggression, L2]: Socialized passive-aggressive content: unexpressed hostility and emotional conflict masked as shame.",
+          "tags": [
+            "aggressive",
+            "Socialized aggression",
+            "L2"
+          ]
+        },
+        {
+          "text": "scanning for her, and finds her there in the threshold",
+          "rationale": "PP content [libidinal/Voyeuristic (Level 2 - socialized), L2]: Socialized voyeuristic content: looking and gazing with emotional intimacy.",
+          "tags": [
+            "libidinal",
+            "Voyeuristic (Level 2 - socialized)",
+            "L2"
+          ]
+        },
+        {
+          "text": "the button he's turning over between his fingers, a small brass button that came off a coat years ago",
+          "rationale": "PP formal [Symbolism]: Conventional symbolic use: the button represents paternal inheritance of fear, anxiety, and intergenerational trauma.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "the sky goes the color of a bruise",
+          "rationale": "PP formal [Symbolism]: Metaphorical symbolism: dusk compared to a bruise, condensing emotional pain and darkness into visual imagery.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "What he actually keeps saying is things about the deed and the accounts, because those have edges he can hold onto.",
+          "rationale": "PP formal [Displacement]: Affect displaced from emotional conflict (grief, resentment) onto practical/legal matters, allowing cognitive avoidance of primary pain.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "The light would mean she'd have to look at the apartment, and she isn't ready for that yet.",
+          "rationale": "PP formal [Displacement]: Anxiety about confronting changed reality is displaced onto the physical act of turning on a lamp.",
+          "tags": [
+            "Displacement"
+          ]
+        },
+        {
+          "text": "He doesn't throw the button away; that would be a different, more dramatic man. He just puts it in his pocket, where his father's fear can stay, carried but no longer in his hands.",
+          "rationale": "PP formal [Symbolism]: Button symbolizes inherited dread and unresolved paternal anxiety; keeping it represents integration rather than denial.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "the dark room isn't sadness—it's the part of her that was alone for a long time and got good at it",
+          "rationale": "PP formal [Symbolism]: Rooms symbolize dual selves and psychological states; displacement of identity conflict onto architectural metaphor.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "Standing in the doorway is honest. The lit room is the life she chose and wants and is afraid of, because wanting it means she can lose it, and because a door that closes behind you is still a door that closed.",
+          "rationale": "PP formal [Condensation]: Multiple abstract ideas (commitment, loss, freedom, constraint) are merged into single doorway image.",
+          "tags": [
+            "Condensation"
+          ]
+        },
+        {
+          "text": "the path splits: one branch climbing up toward a ridge, the other dropping down toward water you can hear but not yet see",
+          "rationale": "PP formal [Symbolism]: Fork in path symbolizes life choices and moral dilemmas; conventional symbol for divergent futures.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "There are lights in the distance. They might be a town. They might be stars low on the horizon. They might be the lights of an airport, or a ship, or houses on a far hill where other people are awake and not alone.",
+          "rationale": "PP formal [Symbolism]: Lights symbolize hope, connection, and distant possibility; ambiguity preserved deliberately to represent uncertainty and multiple meanings.",
+          "tags": [
+            "Symbolism"
+          ]
+        },
+        {
+          "text": "People honking. A man eating fries at a red light. The whole world refusing to acknowledge that something had ended.",
+          "rationale": "PP formal [Loose Associations]: Ideas connected through tangential association (traffic, indifference) rather than logical causation; reflects emotional fragmentation of grief.",
+          "tags": [
+            "Loose Associations"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 18856
+      }
+    }
+  }
+}

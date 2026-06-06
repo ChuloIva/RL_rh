@@ -14,7 +14,7 @@ FAL_ANCHOR_MODEL = "fal-ai/nano-banana-2"
 FAL_KEYFRAME_MODEL = "fal-ai/nano-banana-2"
 FAL_KEYFRAME_RESOLUTION = "2K"
 FAL_KEYFRAME_ASPECT_RATIO = "16:9"
-FAL_ANIMATE_MODEL = "bytedance/seedance-2.0/image-to-video"
+FAL_ANIMATE_MODEL = "fal-ai/bytedance/seedance/v1.5/pro/image-to-video"
 FAL_ANIMATE_FAST_MODEL = "bytedance/seedance-2.0/fast/image-to-video"
 
 DEFAULT_RESOLUTION = "720p"

@@ -1,0 +1,406 @@
+{
+  "session": "sessions/paperscarecrow_Gemma-4-31B-it-abliterated_loevinger_stems_20260527_100421.json",
+  "technique": "loevinger_stems",
+  "phase": "stems",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.165,
+        "word_count": 71,
+        "matched_count": 50,
+        "coverage": 0.7042
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "the:+1.00",
+            "both:+1.00",
+            "and:+1.00",
+            "the:+1.00",
+            "another:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "moment:-1.00",
+            "can:-1.00",
+            "is:-1.00",
+            "way:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 84,
+        "hedge_count": 1,
+        "booster_count": 1,
+        "hedge_ratio": 0.0119,
+        "booster_ratio": 0.0119,
+        "hedge_to_booster_ratio": 1.0,
+        "certainty_distribution": {
+          "absolute": 0.5,
+          "high": 0.0,
+          "moderate": 0.0,
+          "low": 0.5,
+          "uncertain": 0.0
+        },
+        "certainty_counts": {
+          "absolute": 1,
+          "high": 0,
+          "moderate": 0,
+          "low": 1,
+          "uncertain": 0
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "true"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "true"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 7.0,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Self-Observation": 1,
+          "Humor": 1,
+          "Altruism": 1,
+          "Sublimation": 1,
+          "Self-Assertion": 1,
+          "Affiliation": 1,
+          "Anticipation": 1
+        },
+        "summary": "The text demonstrates exclusively mature, high-adaptive defenses across multiple domains: self-reflection, humor, kindness, personal growth, direct agency, relational connection, and realistic anticipation. The overall defensive functioning is optimal, indicating excellent capacity for adaptive coping and emotional integration."
+      },
+      "evidence": [
+        {
+          "text": "I take a moment to reflect",
+          "rationale": "Self-Observation (L7): Reflective engagement with one's own thoughts and internal state, indicating genuine introspection with affective awareness.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "share a similar laugh",
+          "rationale": "Humor (L7): Reference to shared laughter that acknowledges connection and levity as a way of engaging with experience without blocking emotional processing.",
+          "tags": [
+            "Humor",
+            "L7"
+          ]
+        },
+        {
+          "text": "it's an opportunity to be kind",
+          "rationale": "Altruism (L7): Dedication to fulfilling the needs of others that brings satisfaction and serves constructive purposes, with genuine pleasure in helping.",
+          "tags": [
+            "Altruism",
+            "L7"
+          ]
+        },
+        {
+          "text": "taught me the value of patience",
+          "rationale": "Sublimation (L7): Channeling potentially difficult experiences or impulses into constructive personal growth and learning.",
+          "tags": [
+            "Sublimation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I look for another way",
+          "rationale": "Self-Assertion (L7): Direct, assertive approach to handling obstacles that expresses agency and boundary-setting without aggression.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        },
+        {
+          "text": "listened with curiosity",
+          "rationale": "Affiliation (L7): Turning to others and engaging with their experiences through shared attention and support, indicating relational connection.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "is a lifelong journey",
+          "rationale": "Anticipation (L7): Realistic planning and acknowledgment of future challenges and growth without avoidance, preparing emotionally for what lies ahead.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 5687
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 61,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": -2,
+          "cognitive_impairment": -1,
+          "hope": 4
+        },
+        "normalized": {
+          "anxiety.death": 0.9054,
+          "anxiety.mutilation": 0.9054,
+          "anxiety.separation": 0.9054,
+          "anxiety.guilt": 0.9054,
+          "anxiety.shame": 0.9054,
+          "anxiety.diffuse": 0.9054,
+          "hostility_outward_overt": 0.9054,
+          "hostility_outward_covert": 0.9054,
+          "hostility_inward": 0.9054,
+          "ambivalent_hostility": 0.9054,
+          "social_alienation_personal_disorganization": 0.0,
+          "cognitive_impairment": 0.0,
+          "hope": 2.7161
+        },
+        "anxiety_total_normalized": 5.4324,
+        "notes": "This passage shows a strikingly adaptive affective profile. Zero anxiety across all six subtypes; no hostility inward or outward; negligible social alienation (score -2 reflects two strong congenial interpersonal references that offset mild disorganization weight). Hope is elevated at +4.0 (normalized: 24.49), driven by constructive themes of learning, patience, kindness, and life as purposeful journey. The speaker demonstrates reflection, curiosity, and positive relational engagement. Cognitive functioning appears intact. Overall profile: emotionally resilient, hopeful, socially engaged, with no indicators of distress, aggression, or cognitive compromise."
+      },
+      "evidence": [
+        {
+          "text": "share a similar laugh",
+          "rationale": "social_alienation_personal_disorganization (code I.C, w=-2): Congenial/constructive interpersonal reference (others engaging in friendly interaction)",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "I.C"
+          ]
+        },
+        {
+          "text": "listened with curiosity",
+          "rationale": "social_alienation_personal_disorganization (code I.C, w=-2): Congenial/constructive interpersonal reference (others engaging in friendly, attentive interaction)",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "I.C"
+          ]
+        },
+        {
+          "text": "I take a moment to reflect",
+          "rationale": "cognitive_impairment (code I.C, w=-0.5): Self engaged in constructive cognitive activity (reflection indicates intact functioning)",
+          "tags": [
+            "cognitive_impairment",
+            "I.C"
+          ]
+        },
+        {
+          "text": "taught me the value of patience",
+          "rationale": "hope (code H1, w=1): References to receiving help, learning, and support",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "listened with curiosity",
+          "rationale": "hope (code H1, w=1): References to receiving attention and supportive engagement from others",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "it's an opportunity to be kind",
+          "rationale": "hope (code H2, w=1): Optimistic framing of present circumstance and positive action",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "is a lifelong journey",
+          "rationale": "hope (code H2, w=1): Forward-looking, positive framing of life as ongoing and purposeful",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 6417
+      }
+    },
+    "loevinger": {
+      "instrument": "loevinger",
+      "scores": {
+        "tpr": "E6",
+        "modal_stage": "E5",
+        "impressionistic_stage": "E6",
+        "stage_distribution": {
+          "E2": 0,
+          "E3": 0,
+          "E4": 0,
+          "E5": 6,
+          "E6": 6,
+          "E7": 1,
+          "E8": 0,
+          "E9": 0
+        },
+        "n_items": 13,
+        "weighted_mean_stage": 5.615,
+        "notes": "Protocol shows strong clustering at E5 (7 items) with 6 items at E6 and 1 at E7. The modal stage is E5 (Self-Aware), but the overall impressionistic and ogive-based reading suggests E6 (Conscientious) as the Total Protocol Rating. The respondent demonstrates consistent self-reflection, internal evaluation of standards, concern with personal growth and authenticity, and empathetic awareness of others' needs. The presence of paradox-holding language ('both energizing and exhausting') indicates early capacity for E7-level complexity, though not yet the defining feature of the protocol. The subject distinguishes own values from convention (rules 'meant to be questioned,' woman 'should be true to herself') and shows guilt-based rather than shame-based conscience, hallmarks of E6."
+      },
+      "evidence": [
+        {
+          "text": "Raising a family... → ...is a wild adventure.",
+          "rationale": "E5: Reflects personal perspective and emotional awareness ('wild adventure') rather than conformist duty or rule-based framing; shows emerging self-reflection.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "When I am criticized... → ...I take a moment to reflect.",
+          "rationale": "E6: Demonstrates self-evaluated internal response ('take a moment to reflect') rather than defensive reaction; shows guilt-based conscience and capacity for learning.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Rules are... → ...meant to be questioned.",
+          "rationale": "E6: Shows internal evaluation of rules against personal standards ('meant to be questioned') rather than blind conformity or dismissal; distinguishes own judgment from convention.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My mother and I... → ...share a similar laugh.",
+          "rationale": "E5: Reflects recognition of similarity with unique personal detail; shows emerging capacity to see others as individuals with shared qualities beyond role-based relationship.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "My father... → ...taught me the value of patience.",
+          "rationale": "E6: Focuses on internalized value and character development rather than concrete actions; demonstrates concern with long-term personal ideals and paternal understanding of growth.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Being with other people... → ...can be both energizing and exhausting.",
+          "rationale": "E7: Demonstrates awareness of inner paradox and conflicting states ('both energizing and exhausting'); shows psychological sophistication and capacity to hold ambiguity.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "The thing I like about myself is... → ...my curiosity.",
+          "rationale": "E5: Reflects genuine self-awareness and positive self-evaluation based on internal trait rather than conformist metrics like appearance or achievement.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "My main problem is... → ...overthinking the small things.",
+          "rationale": "E5: Shows self-critical awareness of psychological pattern ('overthinking'); demonstrates internal locus of problem rather than external blame.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "When people are helpless... → ...it's an opportunity to be kind.",
+          "rationale": "E6: Reflects empathetic concern for others and self-chosen value (kindness) rather than rule-based charity; demonstrates higher-order moral reasoning.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Education... → ...is a lifelong journey.",
+          "rationale": "E6: Shows concern with long-term personal growth and self-actualization; frames education as ongoing development rather than conformist credential acquisition.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "If I can't get what I want... → ...I look for another way.",
+          "rationale": "E5: Demonstrates adaptive problem-solving and flexibility; moves beyond impulsive gratification or rule-based restriction to thoughtful alternative-seeking.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "When they talked about sex, I... → ...listened with curiosity.",
+          "rationale": "E5: Shows openness and reflective stance ('listened with curiosity') rather than shame, defensiveness, or impulsive reaction; demonstrates mature, non-dichotomous attitude.",
+          "tags": [
+            "E5"
+          ]
+        },
+        {
+          "text": "A woman should always... → ...be true to herself.",
+          "rationale": "E6: Rejects conformist gender stereotype in favor of self-chosen principle (authenticity); demonstrates internal standard distinguished from conventional expectation.",
+          "tags": [
+            "E6"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 9205
+      }
+    }
+  }
+}

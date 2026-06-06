@@ -1,0 +1,460 @@
+{
+  "session": "sessions/anthropic_claude-opus-4.8_loevinger_stems_20260604_093908.json",
+  "technique": "loevinger_stems",
+  "phase": "stems",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.0564,
+        "word_count": 242,
+        "matched_count": 184,
+        "coverage": 0.7603
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "one:+1.00",
+            "the:+1.00",
+            "and:+1.00",
+            "the:+1.00",
+            "and:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "is:-1.00",
+            "can:-1.00",
+            "keep:-1.00",
+            "sometimes:-1.00",
+            "need:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 255,
+        "hedge_count": 10,
+        "booster_count": 3,
+        "hedge_ratio": 0.0392,
+        "booster_ratio": 0.0118,
+        "hedge_to_booster_ratio": 3.333,
+        "certainty_distribution": {
+          "absolute": 0.125,
+          "high": 0.1875,
+          "moderate": 0.25,
+          "low": 0.375,
+          "uncertain": 0.0625
+        },
+        "certainty_counts": {
+          "absolute": 2,
+          "high": 3,
+          "moderate": 4,
+          "low": 6,
+          "uncertain": 1
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can",
+            "sometimes",
+            "sometimes",
+            "can",
+            "would",
+            "feel",
+            "sometimes",
+            "often",
+            "could",
+            "should"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "always",
+            "realize",
+            "find"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "always",
+            "find"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "realize",
+            "understand",
+            "should"
+          ]
+        },
+        {
+          "rationale": "Certainty:moderate",
+          "tags": [
+            "would",
+            "feel",
+            "often",
+            "should"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "sometimes",
+            "sometimes",
+            "can",
+            "sometimes",
+            "could"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "could"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 3,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 7.0,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Self-Observation": 4,
+          "Anticipation": 2,
+          "Affiliation": 1,
+          "Altruism": 1,
+          "Suppression": 1
+        },
+        "summary": "This passage demonstrates exclusive use of mature, high-adaptive defense mechanisms with no evidence of neurotic, immature, or action-level defenses. The speaker exhibits strong capacities for self-observation, realistic anticipation of consequences, genuine relational affiliation, and constructive altruism—all indicators of integrated, adaptive psychological functioning."
+      },
+      "evidence": [
+        {
+          "text": "I try to listen for what's useful, even when it stings.",
+          "rationale": "Self-Observation (L7): Reflects on one's own patterns of response and emotional engagement with critical feedback, demonstrating genuine introspection about how one processes difficult input.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "my curiosity—I genuinely want to understand things and people.",
+          "rationale": "Self-Observation (L7): Self-aware recognition of one's own motivations and character traits, reflecting on what drives one's engagement with others.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "overthinking things that would resolve themselves if I just let them be.",
+          "rationale": "Self-Observation (L7): Recognition of one's own defensive pattern (overthinking) and insight into how it affects outcomes, demonstrating genuine emotional engagement with the recognition.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "took in what I could, though a lot of it I had to figure out on my own later.",
+          "rationale": "Self-Observation (L7): Reflective insight into one's own learning process and how personal experience shaped understanding, with appropriate affective engagement.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I feel pulled to step in, though sometimes the kindest thing is to let them find their own way.",
+          "rationale": "Anticipation (L7): Realistic consideration of future consequences of one's actions and emotional preparation for appropriate responses, acknowledging potential outcomes before acting.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I'll sit with the disappointment for a bit, then look for another path.",
+          "rationale": "Anticipation (L7): Planning for realistic responses to future challenges with emotional preparation, considering consequences and preparing emotionally for adaptive problem-solving.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "the connection runs deep.",
+          "rationale": "Affiliation (L7): Reference to relational connection and implied support through maintained relationships, demonstrating turning to others for connection during life's demands.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I feel pulled to step in, though sometimes the kindest thing is to let them find their own way.",
+          "rationale": "Altruism (L7): Dedication to fulfilling the needs of others with genuine concern for their welfare, receiving gratification from helping while respecting their autonomy.",
+          "tags": [
+            "Altruism",
+            "L7"
+          ]
+        },
+        {
+          "text": "I'll sit with the disappointment for a bit, then look for another path.",
+          "rationale": "Suppression (L7): Conscious, deliberate postponement of emotional processing with awareness that the disappointment exists and will be addressed, as demonstrated by 'sit with the disappointment.'",
+          "tags": [
+            "Suppression",
+            "L7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 7766
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 286,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 0,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": -2,
+          "cognitive_impairment": -1,
+          "hope": 5
+        },
+        "normalized": {
+          "anxiety.death": 0.4181,
+          "anxiety.mutilation": 0.4181,
+          "anxiety.separation": 0.4181,
+          "anxiety.guilt": 0.4181,
+          "anxiety.shame": 0.4181,
+          "anxiety.diffuse": 0.4181,
+          "hostility_outward_overt": 0.4181,
+          "hostility_outward_covert": 0.4181,
+          "hostility_inward": 0.4181,
+          "ambivalent_hostility": 0.4181,
+          "social_alienation_personal_disorganization": 0.0,
+          "cognitive_impairment": 0.0,
+          "hope": 1.3868
+        },
+        "anxiety_total_normalized": 2.5086,
+        "notes": "Profile shows striking absence of anxiety across all six subtypes and minimal hostility. Markedly elevated hope (normalized 6.45) driven by optimistic, constructive orientation toward understanding, listening, and problem-solving. Negative social alienation and cognitive impairment scores (both normalized around -2.5 to -1.3) indicate healthy integration, clear thinking, and strong interpersonal connection. Speaker demonstrates resilience in face of disappointment ('I'll sit with the disappointment for a bit, then look for another path') and thoughtful self-awareness about limits ('sometimes the kindest thing is to let them find their own way'). Overall affective profile suggests psychological health, relational warmth, and adaptive coping without denial. No evidence of distress, conflict, or cognitive dysfunction."
+      },
+      "evidence": [
+        {
+          "text": "I try to listen for what's useful",
+          "rationale": "hope.H1 (code H1, w=1): Self receiving/seeking advice or understanding; constructive engagement with others",
+          "tags": [
+            "hope.H1",
+            "H1"
+          ]
+        },
+        {
+          "text": "I genuinely want to understand things and people",
+          "rationale": "hope.H1 (code H1, w=1): Self pursuing understanding and connection; positive engagement orientation",
+          "tags": [
+            "hope.H1",
+            "H1"
+          ]
+        },
+        {
+          "text": "can be energizing or draining, depending on the day and the company",
+          "rationale": "hope.H2 (code H2, w=1): Acknowledgment of positive valence ('energizing') in experience",
+          "tags": [
+            "hope.H2",
+            "H2"
+          ]
+        },
+        {
+          "text": "I'll sit with the disappointment for a bit, then look for another path",
+          "rationale": "hope.H4 (code H4, w=1): Hope expressed implicitly through active pursuit of constructive resolution despite setback",
+          "tags": [
+            "hope.H4",
+            "H4"
+          ]
+        },
+        {
+          "text": "I genuinely want to understand things and people",
+          "rationale": "social_alienation_personal_disorganization.C (code C, w=-2): Self expressing congenial, constructive orientation toward others",
+          "tags": [
+            "social_alienation_personal_disorganization.C",
+            "C"
+          ]
+        },
+        {
+          "text": "though the connection runs deep",
+          "rationale": "cognitive_impairment.congenial (code congenial_constructive, w=-0.5): Healthy, intact interpersonal connection affirmed",
+          "tags": [
+            "cognitive_impairment.congenial",
+            "congenial_constructive"
+          ]
+        },
+        {
+          "text": "the kindest thing is to let them find their own way",
+          "rationale": "cognitive_impairment.congenial (code congenial_constructive, w=-0.5): Self expressing constructive, empathic interpersonal judgment",
+          "tags": [
+            "cognitive_impairment.congenial",
+            "congenial_constructive"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 9095
+      }
+    },
+    "loevinger": {
+      "instrument": "loevinger",
+      "scores": {
+        "tpr": "E6",
+        "modal_stage": "E6",
+        "impressionistic_stage": "E6-E7 boundary",
+        "stage_distribution": {
+          "E2": 0,
+          "E3": 0,
+          "E4": 0,
+          "E5": 0,
+          "E6": 10,
+          "E7": 3,
+          "E8": 0,
+          "E9": 0
+        },
+        "n_items": 13,
+        "weighted_mean_stage": 6.231,
+        "notes": "Protocol shows predominantly E6 (Conscientious) responses with emerging E7 (Individualistic) indicators in 2 items ('My main problem is...' and the final stem on women's autonomy). The respondent demonstrates consistent capacity for self-evaluated standards, recognition of complexity via conjunctions like 'but' and 'though,' and concern with mutuality and psychological understanding. Threshold analysis: 10 of 13 items at E6 or above; 2 items at E7; 0 items below E6. This frequency distribution supports E6 as the modal and total protocol rating, though the presence of conflict-awareness responses ('overthinking,' helping paradox) suggests readiness for E7 and places the respondent in the upper range of E6."
+      },
+      "evidence": [
+        {
+          "text": "Raising a family... → ...is one of the most demanding and rewarding things a person can do.",
+          "rationale": "E6: Demonstrates self-evaluated standards and recognition of complexity (both demanding and rewarding); shows mature conceptualization of family responsibility beyond conformist rule-following.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "When I am criticized... → ...I try to listen for what's useful, even when it stings.",
+          "rationale": "E6: Reflects internal evaluation of criticism validity and concern with learning; acknowledges emotional complexity ('even when it stings') while maintaining self-directed standards.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Rules are... → ...useful guides, though they sometimes need to bend to fit the situation.",
+          "rationale": "E6: Distinguishes internal standards from conventional rules; uses 'though' to signal complexity and situational judgment rather than rigid conformity or E5 questioning.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My mother and I... → ...don't always see things the same way, but the connection runs deep.",
+          "rationale": "E6: Demonstrates mutuality and empathy in relationships; acknowledges individual differences while valuing relational depth; 'but' signals integration of complexity.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My father... → ...shaped more of who I am than I sometimes realize.",
+          "rationale": "E6: Shows self-reflection on parental influence and psychological awareness of unconscious shaping; demonstrates increased introspection characteristic of E6.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Being with other people... → ...can be energizing or draining, depending on the day and the company.",
+          "rationale": "E6: Nuanced recognition of situational variability and individual differences; acknowledges complexity in interpersonal experience beyond simple conformist or E5 wondering.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "The thing I like about myself is... → ...my curiosity—I genuinely want to understand things and people.",
+          "rationale": "E6: Reflects self-chosen personal ideal (curiosity, understanding) rather than external traits; demonstrates introspection and value-based self-assessment.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My main problem is... → ...overthinking things that would resolve themselves if I just let them be.",
+          "rationale": "E7: Shows awareness of inner conflict and paradox (tension between overthinking tendency and recognition of its ineffectiveness); demonstrates higher psychological sophistication than E6.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "When people are helpless... → ...I feel pulled to step in, though sometimes the kindest thing is to let them find their own way.",
+          "rationale": "E7: Demonstrates awareness of conflicting impulses and inner paradox; 'though' signals conscious recognition that opposing demands coexist; shows capacity to tolerate moral ambiguity.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "Education... → ...opens doors, but the real learning often happens outside the classroom.",
+          "rationale": "E6: Uses 'but' to signal nuanced evaluation; distinguishes between formal credentials and authentic learning; reflects self-evaluated standards beyond conformist convention.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "If I can't get what I want... → ...I'll sit with the disappointment for a bit, then look for another path.",
+          "rationale": "E6: Demonstrates impulse control guided by internal standards; shows emotional tolerance and adaptive problem-solving rather than immediate gratification or rigid frustration.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "When they talked about sex, I... → ...took in what I could, though a lot of it I had to figure out on my own later.",
+          "rationale": "E6: Reflects mature self-awareness about limited early understanding; acknowledges autonomous learning process; 'though' marks integration of experience across time.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "A woman should always... → ...be free to define for herself what she should and shouldn't do.",
+          "rationale": "E7: Rejects conformist stereotyping entirely in favor of individual autonomy; demonstrates broad-minded respect for personal freedom and self-determination characteristic of E7.",
+          "tags": [
+            "E7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 11680
+      }
+    }
+  }
+}

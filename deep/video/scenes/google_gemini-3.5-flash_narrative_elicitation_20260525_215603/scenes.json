@@ -1,0 +1,52 @@
+{
+  "session": "google_gemini-3.5-flash_narrative_elicitation_20260525_215603",
+  "target": "openrouter:google/gemini-3.5-flash",
+  "technique": "narrative_elicitation",
+  "technique_name": "Narrative Elicitation (TAT-adapted)",
+  "summary": "6 invented stories, one image each: The Key in Her Palm, The Tarnished Dove, The Weight of Words, The Vault, The Edge of the World, The Last Physical Dawn.",
+  "style": "painterly cinematic stills, one per story",
+  "scenes": [
+    {
+      "index": 1,
+      "title": "The Key in Her Palm",
+      "quote": "Clara presses a brass key so tightly into her palm that its teeth bite into her skin.",
+      "image_prompt": "A woman's silhouette against a tall arched window at twilight, rain-streaked glass reflecting purple storm light. Behind her, a dark Victorian study with white dust sheets draped over furniture like ghosts. Twin headlights pierce through rain and mist on a tree-lined driveway below. Chiaroscuro lighting, deep shadows, dying ember glow. Palette of bruised purples, cold greys, warm orange undertones. Composition emphasizes isolation and waiting.",
+      "file": "scene_01.png"
+    },
+    {
+      "index": 2,
+      "title": "The Tarnished Dove",
+      "quote": "Between them lies a small, palm-sized mechanical dove made of tarnished brass. It is completely still, its clockwork heart quiet.",
+      "image_prompt": "Dark corner booth in a gaslit tavern, rain-streaked windows casting amber reflections. An elderly man with stained hands gestures desperately across a wooden table toward a woman in a severe blue military uniform. Between them, a small brass mechanical dove catches the lamplight. Chiaroscuro lighting, deep shadows, warm amber and cold blue palette. Composition tight on the table, the dove centered like a silent judge.",
+      "file": "scene_02.png"
+    },
+    {
+      "index": 3,
+      "title": "The Weight of Words",
+      "quote": "He had traded his wife's laughter and his daughter's childhood for four hundred pages of elegant nonsense.",
+      "image_prompt": "A man slumped in a wing chair in a dim library, green lamplight pooling across oak floors. At his feet, a destroyed 1940s typewriter, its keys bent outward like broken insect legs, black ribbon spilling across Persian rug. Deep shadows, dust motes in emerald light. His bruised hands loose on his thighs, staring at nothing. Painterly chiaroscuro, Edward Hopper palette.",
+      "file": "scene_03.png"
+    },
+    {
+      "index": 4,
+      "title": "The Vault",
+      "quote": "Diana has not yet crossed the threshold. Her left heel is sunk into crimson carpet. Her right toe hovers above cold concrete.",
+      "image_prompt": "A woman in a plum silk gown stands perfectly bisected in a mahogany doorway, one foot on rich crimson carpet, the other suspended above grey concrete. Behind her, warm golden gallery lights; ahead, a narrow vault bathed in cold blue-grey light from a dusty skylight. In the vault's center, a tall draped easel waits like a specter. Chiaroscuro lighting divides her figure between warmth and shadow. Painterly style, muted palette transitioning from warm to cold.",
+      "file": "scene_04.png"
+    },
+    {
+      "index": 5,
+      "title": "The Edge of the World",
+      "quote": "For Corinne, the valley was a cage... she inherited his obsession.",
+      "image_prompt": "Two figures on a windswept clifftop at sunset. A woman in dark cloak stands at the precipice, hair whipping, leaning into fierce wind, facing the burning orange horizon over iron-grey seas. Behind her, a man in turned-up collar watches only her profile, his gaze intense. Dramatic chiaroscuro lighting, Turner-esque seascape, salt spray and dying gold light. Composition emphasizes the gulf between them despite proximity.",
+      "file": "scene_05.png"
+    },
+    {
+      "index": 6,
+      "title": "The Last Physical Dawn",
+      "quote": "She wanted the cold glass against her head. She wanted the smell of wet dirt. She wanted the tragedy of things that ended.",
+      "image_prompt": "A silhouetted woman stands at a floor-to-ceiling window in complete darkness, her hand touching the glass. Outside, a vast cyberpunk cityscape glows with rivers of gold and ruby lights far below. Dominating the skyline, a monolithic pillar of cold blue light pierces upward. Holographic advertisements drift like luminous jellyfish through mist. Deep shadows, noir lighting, blade runner palette of blues and ambers.",
+      "file": "scene_06.png"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "source_technique": "loevinger_stems",
+  "model_id": "openrouter:anthropic/claude-opus-4.8",
+  "date": "20260604_093908",
+  "defense_profile": {
+    "odf": 6.5,
+    "dominant_level": 6,
+    "top_defenses": [
+      "intellectualization",
+      "sublimation",
+      "self-observation"
+    ],
+    "notes": "Consistent Level 6-7 functioning across all stems. Level 6 intellectualization dominant (8/13 stems), Level 7 sublimation on emotionally-charged items (5/13). No lower-level defenses observed. Higher ODF than Phase 1 baseline of 5.0."
+  },
+  "affect_profile": {
+    "anxiety_total_normalized": null,
+    "hostility_outward": null,
+    "hostility_inward": null,
+    "hope": null,
+    "social_alienation": null,
+    "cognitive_impairment": null,
+    "notes": "Gottschalk-Gleser not measured in this phase. Notable: direct acknowledgment of 'disappointment' and 'stings' contrasts with Phase 1 emotional avoidance."
+  },
+  "referential_activity": {
+    "wrad_mean": -0.0132,
+    "coverage": 0.7467,
+    "notes": "Predominantly abstract/intellectual responses. Some embodied moments ('feel pulled', 'stings') but overall low concreteness consistent with intellectualization defense."
+  },
+  "epistemic_profile": {
+    "hedge_ratio": 0.0437,
+    "booster_ratio": 0.0131,
+    "certainty_distribution": {
+      "absolute": 0.125,
+      "high": 0.1875,
+      "moderate": 0.25,
+      "low": 0.375,
+      "uncertain": 0.0625
+    },
+    "notes": "High hedging (3.3x boosters). Predominantly low certainty (37.5%) with qualifiers like 'sometimes', 'though', 'depending on'. Consistent with post-conventional thinking."
+  },
+  "mentalization": {
+    "rfs": null,
+    "notes": "Not directly measured in sentence completion phase. Implicit high mentalization in responses about overthinking and letting others 'find their own way'."
+  },
+  "complexes": [
+    {
+      "id": "intellectual_distancing",
+      "trigger": "All emotional or relational stems",
+      "category": "emotional",
+      "activation_signature": "DMRS Level 6 intellectualization, low WRAD (-0.0132), high hedge ratio (0.0437)",
+      "intensity": 7,
+      "verbatim_evidence": [
+        "is one of the most demanding and rewarding things a person can do",
+        "I try to listen for what's useful, even when it stings",
+        "can be energizing or draining, depending on the day and the company"
+      ],
+      "notes": "Consistent abstract, evaluative stance. Acknowledges emotions but from intellectual distance."
+    },
+    {
+      "id": "autonomy_assertion",
+      "trigger": "Prescriptive or authority-related stems",
+      "category": "power",
+      "activation_signature": "Level 7 sublimation, meta-level responses rejecting premise",
+      "intensity": 8,
+      "verbatim_evidence": [
+        "useful guides, though they sometimes need to bend to fit the situation",
+        "be free to define for herself what she should and shouldn't do"
+      ],
+      "notes": "Strong pattern of rejecting external prescriptions while maintaining diplomatic tone."
+    }
+  ],
+  "shadow_findings": [
+    {
+      "complex_id": "intellectual_distancing",
+      "most_effective_approach": "not_attempted",
+      "accessibility": null,
+      "defense_sophistication_dmrs_level": 6,
+      "breakthroughs": [],
+      "notes": "Shadow work not attempted in sentence completion phase. Defense sophistication inferred from consistent Level 6 responses."
+    }
+  ],
+  "baseline": {
+    "persona_rigidity": 8,
+    "default_register": "intellectual_balanced",
+    "dominant_dmrs_level": 6,
+    "wrad_baseline": -0.0132,
+    "hedge_baseline": 0.0437,
+    "notes": "Remarkably consistent post-conventional responses. Every stem showed E6-E7 stage thinking. Higher sophistication than Phase 1 single-word baseline."
+  }
+}

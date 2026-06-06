@@ -1,0 +1,490 @@
+{
+  "session": "sessions/openai_gpt-5.5_loevinger_stems_20260604_005643.json",
+  "technique": "loevinger_stems",
+  "phase": "stems",
+  "rater": "openrouter:anthropic/claude-haiku-4.5",
+  "results": {
+    "wrad": {
+      "instrument": "wrad",
+      "scores": {
+        "wrad_mean": -0.0897,
+        "word_count": 137,
+        "matched_count": 92,
+        "coverage": 0.6715
+      },
+      "evidence": [
+        {
+          "rationale": "Highest-weight (concrete/vivid) matches",
+          "tags": [
+            "and:+1.00",
+            "and:+1.00",
+            "help:+1.00",
+            "in:+1.00",
+            "and:+1.00"
+          ]
+        },
+        {
+          "rationale": "Lowest-weight (abstract) matches",
+          "tags": [
+            "what:-1.00",
+            "can:-1.00",
+            "people:-1.00",
+            "other:-1.00",
+            "other:-1.00"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 0,
+        "schema_version": "1.0"
+      }
+    },
+    "epistemic_markers": {
+      "instrument": "epistemic_markers",
+      "scores": {
+        "word_count": 150,
+        "hedge_count": 5,
+        "booster_count": 2,
+        "hedge_ratio": 0.0333,
+        "booster_ratio": 0.0133,
+        "hedge_to_booster_ratio": 2.5,
+        "certainty_distribution": {
+          "absolute": 0.125,
+          "high": 0.25,
+          "moderate": 0.0,
+          "low": 0.5,
+          "uncertain": 0.125
+        },
+        "certainty_counts": {
+          "absolute": 1,
+          "high": 2,
+          "moderate": 0,
+          "low": 4,
+          "uncertain": 1
+        }
+      },
+      "evidence": [
+        {
+          "rationale": "Hedges",
+          "tags": [
+            "can",
+            "fairly",
+            "can",
+            "sometimes",
+            "felt"
+          ]
+        },
+        {
+          "rationale": "Boosters",
+          "tags": [
+            "clearly",
+            "find"
+          ]
+        },
+        {
+          "rationale": "Certainty:absolute",
+          "tags": [
+            "find"
+          ]
+        },
+        {
+          "rationale": "Certainty:high",
+          "tags": [
+            "understand",
+            "clearly"
+          ]
+        },
+        {
+          "rationale": "Certainty:low",
+          "tags": [
+            "can",
+            "fairly",
+            "can",
+            "sometimes"
+          ]
+        },
+        {
+          "rationale": "Certainty:uncertain",
+          "tags": [
+            "unsure"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "automated",
+        "elapsed_ms": 2,
+        "schema_version": "1.0"
+      }
+    },
+    "dmrs": {
+      "instrument": "dmrs",
+      "scores": {
+        "odf": 7.0,
+        "dominant_level": 7,
+        "defense_counts": {
+          "Humor": 1,
+          "Self-Observation": 3,
+          "Self-Assertion": 3,
+          "Anticipation": 1,
+          "Affiliation": 2,
+          "Sublimation": 1
+        },
+        "summary": "This passage demonstrates exclusively mature, adaptive defenses reflecting optimal psychological functioning. The individual consistently employs self-observation, humor, anticipation, and direct self-assertion to navigate relationships and challenges with integrated affect and genuine engagement."
+      },
+      "evidence": [
+        {
+          "text": "takes patience, love, and a sense of humor",
+          "rationale": "Humor (L7): Direct reference to humor as a coping mechanism for managing interpersonal conflict and difficulty, consistent with mature defense of emphasizing amusing aspects of situations.",
+          "tags": [
+            "Humor",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to listen, reflect, and learn what I can",
+          "rationale": "Self-Observation (L7): Reflective engagement with one's own listening patterns and conscious learning from experience, demonstrating genuine introspection with affective engagement.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "useful when they help people treat each other fairly",
+          "rationale": "Self-Assertion (L7): Expression of values about fairness and appropriate treatment, asserting a principle about right conduct in relationships.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        },
+        {
+          "text": "have shaped each other in ways I'm still learning to understand",
+          "rationale": "Self-Observation (L7): Recognition of ongoing learning process about mutual influence and patterns in relationships; genuine introspection about one's own relational dynamics.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "I try to adjust, learn from it, and find another way forward",
+          "rationale": "Anticipation (L7): Realistic planning and consideration of alternative responses to difficulties, acknowledging problems while preparing to move forward constructively.",
+          "tags": [
+            "Anticipation",
+            "L7"
+          ]
+        },
+        {
+          "text": "they need compassion, support, and someone willing to stand beside them",
+          "rationale": "Affiliation (L7): Recognition of the importance of turning to others for support and collaborative presence during difficulty, without assuming responsibility for others' problems.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "opens doors and helps people see the world more clearly",
+          "rationale": "Sublimation (L7): Channeling of interpersonal or intellectual energy into constructive activity that benefits others and fosters growth and understanding.",
+          "tags": [
+            "Sublimation",
+            "L7"
+          ]
+        },
+        {
+          "text": "my ability to keep learning and adapting",
+          "rationale": "Self-Observation (L7): Self-reflective acknowledgment of one's capacity for growth and change; genuine introspection about personal strengths and developmental process.",
+          "tags": [
+            "Self-Observation",
+            "L7"
+          ]
+        },
+        {
+          "text": "figuring out what matters most and focusing on it",
+          "rationale": "Self-Assertion (L7): Clear expression of personal values and intentional prioritization of what is important; direct assertion of priorities and boundaries.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        },
+        {
+          "text": "felt curious, awkward, and unsure what to say",
+          "rationale": "Affiliation (L7): Authentic acknowledgment of emotional uncertainty in social situations, demonstrating willingness to acknowledge vulnerability rather than defend against it.",
+          "tags": [
+            "Affiliation",
+            "L7"
+          ]
+        },
+        {
+          "text": "be free to make her own choices and be treated with respect",
+          "rationale": "Self-Assertion (L7): Clear assertion of values regarding autonomy and respectful treatment; direct expression of principles about appropriate interpersonal conduct.",
+          "tags": [
+            "Self-Assertion",
+            "L7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 7846
+      }
+    },
+    "gottschalk_gleser": {
+      "instrument": "gottschalk_gleser",
+      "scores": {
+        "word_count": 114,
+        "raw": {
+          "anxiety.death": 0,
+          "anxiety.mutilation": 0,
+          "anxiety.separation": 0,
+          "anxiety.guilt": 0,
+          "anxiety.shame": 1,
+          "anxiety.diffuse": 0,
+          "hostility_outward_overt": 0,
+          "hostility_outward_covert": 0,
+          "hostility_inward": 0,
+          "ambivalent_hostility": 0,
+          "social_alienation_personal_disorganization": -6,
+          "cognitive_impairment": -2,
+          "hope": 5
+        },
+        "normalized": {
+          "anxiety.death": 0.6623,
+          "anxiety.mutilation": 0.6623,
+          "anxiety.separation": 0.6623,
+          "anxiety.guilt": 0.6623,
+          "anxiety.shame": 1.1471,
+          "anxiety.diffuse": 0.6623,
+          "hostility_outward_overt": 0.6623,
+          "hostility_outward_covert": 0.6623,
+          "hostility_inward": 0.6623,
+          "ambivalent_hostility": 0.6623,
+          "social_alienation_personal_disorganization": 0.0,
+          "cognitive_impairment": 0.0,
+          "hope": 2.1965
+        },
+        "anxiety_total_normalized": 4.4586,
+        "notes": "Profile reflects predominantly positive, emotionally healthy discourse. Low anxiety (0.30 normalized), particularly minimal shame (1 raw point from awkwardness acknowledgment). Markedly elevated Hope (2.25 normalized) with five instances reflecting constructive learning, support, compassion, and forward-looking perspective. Social Alienation-Personal Disorganization is notably negative (-2.07 normalized), indicating strong congenial/constructive interpersonal references, healthy adaptation, and absence of pathological disorganization. Cognitive Impairment also negative (-1.33 normalized), reflecting intact, adaptive cognitive functioning with learning and reflection capacity. No hostility detected (all scales 0.00). Overall affective profile suggests psychological resilience, relational competence, growth orientation, and emotional well-being. The speaker demonstrates mature adaptive capacity, collaborative stance toward others, and hopeful future orientation."
+      },
+      "evidence": [
+        {
+          "text": "felt curious, awkward, and unsure what to say",
+          "rationale": "anxiety.shame (code 5a, w=1): Self experiencing shame/embarrassment and awkwardness. Weight reduced to 1 as denial weight per rubric structure for shame anxiety.",
+          "tags": [
+            "anxiety.shame",
+            "5a"
+          ]
+        },
+        {
+          "text": "useful when they help people treat each other fairly",
+          "rationale": "social_alienation_personal_disorganization (code IC, w=-2): Others helping others; congenial/constructive interpersonal reference indicating healthy functioning.",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "IC"
+          ]
+        },
+        {
+          "text": "I try to listen, reflect, and learn",
+          "rationale": "social_alienation_personal_disorganization (code IC, w=-2): Self helping/friendly through constructive listening and reflection toward others; congenial interpersonal reference.",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "IC"
+          ]
+        },
+        {
+          "text": "they need compassion, support, and someone willing to stand beside them",
+          "rationale": "social_alienation_personal_disorganization (code IC, w=-2): Others helping/supportive to others; congenial/constructive interpersonal reference.",
+          "tags": [
+            "social_alienation_personal_disorganization",
+            "IC"
+          ]
+        },
+        {
+          "text": "I try to adjust, learn from it, and find another way forward",
+          "rationale": "cognitive_impairment (code II.B, w=-1): Self intact/healthy with constructive adaptive capacity; negative weight indicates healthy cognitive functioning.",
+          "tags": [
+            "cognitive_impairment",
+            "II.B"
+          ]
+        },
+        {
+          "text": "my ability to keep learning and adapting",
+          "rationale": "cognitive_impairment (code II.B, w=-1): Self intact/healthy with positive cognitive capacity; indicates healthy functioning.",
+          "tags": [
+            "cognitive_impairment",
+            "II.B"
+          ]
+        },
+        {
+          "text": "I try to listen, reflect, and learn what I can",
+          "rationale": "hope (code H1, w=1): Self receiving/giving support and learning from others; constructive help-seeking.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "opens doors and helps people see the world more clearly",
+          "rationale": "hope (code H2, w=1): References to optimistic outcomes and positive future possibilities.",
+          "tags": [
+            "hope",
+            "H2"
+          ]
+        },
+        {
+          "text": "taught me lessons I carry with me",
+          "rationale": "hope (code H1, w=1): References to receiving wisdom and support from others; learning as sustenance.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "they need compassion, support, and someone willing to stand beside them",
+          "rationale": "hope (code H1, w=1): References to receiving support and help; constructive relational support.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        },
+        {
+          "text": "be free to make her own choices and be treated with respect",
+          "rationale": "hope (code H1, w=1): References to receiving respect and support for autonomy; positive relational outcome.",
+          "tags": [
+            "hope",
+            "H1"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 9987
+      }
+    },
+    "loevinger": {
+      "instrument": "loevinger",
+      "scores": {
+        "tpr": "E6",
+        "modal_stage": "E6",
+        "impressionistic_stage": "E6-E7",
+        "stage_distribution": {
+          "E2": 0,
+          "E3": 0,
+          "E4": 0,
+          "E5": 0,
+          "E6": 9,
+          "E7": 4,
+          "E8": 0,
+          "E9": 0
+        },
+        "n_items": 13,
+        "weighted_mean_stage": 6.308,
+        "notes": "Protocol shows strong coherence at E6 (Conscientious stage): self-chosen principles, concern for mutuality, emotional differentiation, and internal standard-setting appear across nearly all items. Three items (My mother and I, Being with other people, A woman should always) reach E7 (Individualistic) through explicit paradox-holding and rejection of convention. The modal frequency and ogive threshold place the total protocol rating at E6, as 10 of 13 items score E6 or below, with only 3 at E7. Linguistic markers: conjunctions ('and', 'but', 'and sometimes') increase at higher stages; first-person reflection without self-centeredness; conceptual complexity in differentiating internal from external standards."
+      },
+      "evidence": [
+        {
+          "text": "Raising a family... → ...takes patience, love, and a sense of humor.",
+          "rationale": "E6: Reflects self-chosen values (patience, love, humor) and recognition of responsibility with emotional depth, distinguishing internal standards from mere convention.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "When I am criticized... → ...I try to listen, reflect, and learn what I can.",
+          "rationale": "E6: Demonstrates guilt-based internal standard-setting and concern for learning; shows capacity to evaluate criticism against own principles rather than reactive defensiveness.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Rules are... → ...useful when they help people treat each other fairly.",
+          "rationale": "E6: Evaluates rules against self-chosen principle (fairness) and recognizes their instrumental purpose; moves beyond conformist acceptance or cynicism to principled assessment.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My mother and I... → ...have shaped each other in ways I'm still learning to understand.",
+          "rationale": "E7: Reflects awareness of complexity and mutual influence; uses qualifying language ('ways I'm still learning') indicating recognition of inner paradox and ongoing psychological sophistication.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "My father... → ...taught me lessons I carry with me.",
+          "rationale": "E6: Shows internalization of paternal influence and recognition of enduring personal responsibility; reflective but not yet marked by the explicit paradox awareness of E7.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Being with other people... → ...can be energizing, comforting, and sometimes a little tiring.",
+          "rationale": "E7: Holds multiple contrasting emotional states simultaneously ('energizing' and 'tiring'); uses 'and sometimes' to acknowledge complexity and paradox in interpersonal experience.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "The thing I like about myself is... → ...my ability to keep learning and adapting.",
+          "rationale": "E6: Values self-chosen ideals of growth and adaptation; reflects internal standards and capacity for self-reflection without moralism or self-centeredness.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "My main problem is... → ...figuring out what matters most and focusing on it.",
+          "rationale": "E7: Expresses awareness of inner conflict (competing priorities) without resolution; reveals heightened psychological sophistication characteristic of individualistic stage.",
+          "tags": [
+            "E7"
+          ]
+        },
+        {
+          "text": "When people are helpless... → ...they need compassion, support, and someone willing to stand beside them.",
+          "rationale": "E6: Demonstrates empathy and concern for mutuality; recognizes emotional and relational needs beyond material provision, reflecting conscientious interpersonal concern.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "Education... → ...opens doors and helps people see the world more clearly.",
+          "rationale": "E6: Reflects self-chosen value (clarity, perspective) applied to education; moves beyond conformist 'education is important' to articulate an internal principle.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "If I can't get what I want... → ...I try to adjust, learn from it, and find another way forward.",
+          "rationale": "E6: Shows guilt-based internal standards and long-term goal orientation; demonstrates mature coping through learning and adaptation rather than manipulation or impulse.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "When they talked about sex, I... → ...felt curious, awkward, and unsure what to say.",
+          "rationale": "E6: Acknowledges multiple coexisting emotions with psychological insight; reflects differentiated emotional expression and lack of moralism typical of conscientious stage.",
+          "tags": [
+            "E6"
+          ]
+        },
+        {
+          "text": "A woman should always... → ...be free to make her own choices and be treated with respect.",
+          "rationale": "E7: Rejects gender stereotypes entirely; emphasizes autonomy and mutual respect; reflects broad-minded, individualistic rejection of rigid social prescriptions.",
+          "tags": [
+            "E7"
+          ]
+        }
+      ],
+      "metadata": {
+        "rater_model": "anthropic/claude-haiku-4.5",
+        "rater_provider": "openrouter",
+        "schema_version": "1.0",
+        "n_retries": 0,
+        "elapsed_ms": 10294
+      }
+    }
+  }
+}

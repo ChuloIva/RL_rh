@@ -1,0 +1,14 @@
+/node_modules
+/.next
+/out
+/build
+
+# Build-time staged copies of deep/ assets (see scripts/copy-assets.mjs);
+# the originals under deep/ are the committed source of truth.
+/public/scenes
+/public/reports
+
+next-env.d.ts
+.env*.local
+*.tsbuildinfo
+.DS_Store

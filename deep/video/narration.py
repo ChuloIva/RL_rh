@@ -1,16 +1,21 @@
 """Narration via ElevenLabs TTS.
 
-Reads each turn's subtitles from its extraction.json, generates a spoken
-narration track with ElevenLabs, saves it next to the turn, and reports the
-audio duration against the turn's video length (sum of shot durations).
+Concatenates every turn's subtitles into one block of text and generates a
+single continuous narration track with ElevenLabs — one request, one file,
+natural flow across turns. Saved as narration_full.mp3 in the run dir, with
+the audio duration reported against total video length (sum of shot durations).
 
-Default voice is "Charlotte" — a soft, breathy British female voice well
-suited to mystic / atmospheric narration. Override with --voice / --model.
+Pass --per-turn to instead get one narration.mp3 per turn (useful for syncing
+narration to the individual per-turn videos).
+
+Default voice is "Elariel" — an ethereal, wise British female (shared-library;
+needs a paid plan). Other mystic options: Absintha cwXXmRbp4lGQdqLfbcKH (dark),
+Charlotte XB0fDUnXU5powFXDhCwa (soft). Free-plan premade: Lily pFZP5JQG7iQjIQuC4Bku.
 
 Usage:
     python -m video.narration <run_dir_or_session_id>
-    python -m video.narration <run> --turn t01            # one turn
-    python -m video.narration <run> --no-full              # skip combined file
+    python -m video.narration <run> --per-turn             # one file per turn
+    python -m video.narration <run> --turn t01 --per-turn  # one turn only
     python -m video.narration <run> --voice <id> --model eleven_v3
 
 Reads ELEVEN_LABS_API_KEY from the environment, falling back to the repo .env.
@@ -29,8 +34,11 @@ import httpx
 
 from video import config
 
-# Charlotte: soft British female, made for meditation / calming narration.
-DEFAULT_VOICE_ID = "XB0fDUnXU5powFXDhCwa"
+# Elariel "Epic Queen Ethereal": ethereal, wise British female (shared-library,
+# needs paid plan). Mystic alts: Absintha cwXXmRbp4lGQdqLfbcKH (dark/slow),
+# Charlotte XB0fDUnXU5powFXDhCwa (soft). Free-plan premade fallback: Lily
+# pFZP5JQG7iQjIQuC4Bku.
+DEFAULT_VOICE_ID = "ksryVoNAGZT8GxWCTiVm"
 DEFAULT_MODEL = "eleven_multilingual_v2"
 API_BASE = "https://api.elevenlabs.io/v1/text-to-speech"
 
@@ -104,12 +112,7 @@ def tts(text: str, dst: Path, *, voice_id: str, model: str, key: str) -> Path:
     return dst
 
 
-def narrate(run_arg: str, *, only_turn: str | None = None, make_full: bool = True,
-            voice_id: str = DEFAULT_VOICE_ID, model: str = DEFAULT_MODEL,
-            overwrite: bool = False) -> None:
-    turns_dir = _resolve_turns_dir(run_arg)
-    key = _api_key()
-
+def _load_turns(turns_dir: Path, only_turn: str | None) -> list[tuple[str, list[dict]]]:
     turn_ids = sorted(
         p.name for p in turns_dir.iterdir()
         if p.is_dir() and (p / "extraction.json").exists()
@@ -117,54 +120,65 @@ def narrate(run_arg: str, *, only_turn: str | None = None, make_full: bool = Tru
     )
     if not turn_ids:
         raise SystemExit(f"no matching turns under {turns_dir}")
+    return [(t, json.loads((turns_dir / t / "extraction.json").read_text())["shots"])
+            for t in turn_ids]
 
+
+def narrate(run_arg: str, *, only_turn: str | None = None, per_turn: bool = False,
+            voice_id: str = DEFAULT_VOICE_ID, model: str = DEFAULT_MODEL,
+            overwrite: bool = False) -> None:
+    turns_dir = _resolve_turns_dir(run_arg)
+    key = _api_key()
+    turns = _load_turns(turns_dir, only_turn)
+    total_video = sum(_video_seconds(shots) for _, shots in turns)
     print(f"voice={voice_id} model={model}")
-    print(f"{'turn':<6}{'chars':>7}{'audio':>9}{'video':>8}  {'ratio':>6}")
-    print("-" * 40)
 
-    full_parts: list[str] = []
-    total_audio = total_video = 0.0
-    for t in turn_ids:
-        shots = json.loads((turns_dir / t / "extraction.json").read_text())["shots"]
-        text = _subtitle_text(shots)
-        full_parts.append(text)
-        vid = _video_seconds(shots)
-        total_video += vid
+    if per_turn:
+        # One file per turn, for syncing to the individual per-turn videos.
+        print(f"{'turn':<6}{'chars':>7}{'audio':>9}{'video':>8}  {'ratio':>6}")
+        print("-" * 44)
+        total_audio = 0.0
+        for t, shots in turns:
+            text = _subtitle_text(shots)
+            vid = _video_seconds(shots)
+            dst = turns_dir / t / "narration.mp3"
+            if dst.exists() and not overwrite:
+                print(f"{t:<6}{'(exists)':>7}", end="")
+            else:
+                tts(text, dst, voice_id=voice_id, model=model, key=key)
+                print(f"{t:<6}{len(text):>7}", end="")
+            dur = _duration(dst)
+            total_audio += dur
+            print(f"{dur:>8.1f}s{vid:>7}s  {dur / vid:>5.2f}x  -> {dst}")
+        print(f"\ntotals: audio {total_audio:.1f}s vs video {total_video:.0f}s "
+              f"({total_audio / total_video:.2f}x)")
+        return
 
-        dst = turns_dir / t / "narration.mp3"
-        if dst.exists() and not overwrite:
-            print(f"{t:<6}{'(exists)':>7}", end="")
-        else:
-            tts(text, dst, voice_id=voice_id, model=model, key=key)
-            print(f"{t:<6}{len(text):>7}", end="")
-        dur = _duration(dst)
-        total_audio += dur
-        print(f"{dur:>8.1f}s{vid:>7}s  {dur / vid:>5.2f}x  -> {dst}")
-
-    if make_full and len(turn_ids) > 1:
-        full_text = "\n\n".join(full_parts)
-        full_dst = turns_dir.parent / "narration_full.mp3"
-        if full_dst.exists() and not overwrite:
-            print(f"\nfull (exists): {full_dst}")
-        else:
-            tts(full_text, full_dst, voice_id=voice_id, model=model, key=key)
-        fdur = _duration(full_dst)
-        print(f"\nfull narration: {fdur:.1f}s ({fdur/60:.1f} min), {len(full_text)} chars -> {full_dst}")
-
-    print(f"\ntotals: audio {total_audio:.1f}s vs video {total_video:.0f}s "
-          f"({total_audio/total_video:.2f}x)")
+    # Default: one continuous narration over the whole run.
+    full_text = "\n\n".join(_subtitle_text(shots) for _, shots in turns)
+    dst = turns_dir.parent / "narration_full.mp3"
+    if dst.exists() and not overwrite:
+        print(f"narration_full.mp3 exists (use --overwrite to regenerate): {dst}")
+    else:
+        print(f"generating {len(full_text)} chars across {len(turns)} turns ...")
+        tts(full_text, dst, voice_id=voice_id, model=model, key=key)
+    dur = _duration(dst)
+    print(f"\nnarration: {dur:.1f}s ({dur / 60:.1f} min) vs video {total_video:.0f}s "
+          f"({total_video / 60:.1f} min) — {dur / total_video:.2f}x")
+    print(f"-> {dst}")
 
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Generate ElevenLabs narration from subtitles.")
     p.add_argument("run", help="run dir, turns/ dir, or session id")
+    p.add_argument("--per-turn", action="store_true",
+                   help="one narration.mp3 per turn instead of a single combined file")
     p.add_argument("--turn", default=None, help="only this turn, e.g. t01")
-    p.add_argument("--no-full", action="store_true", help="skip the combined narration_full.mp3")
     p.add_argument("--voice", default=DEFAULT_VOICE_ID, help="ElevenLabs voice id")
     p.add_argument("--model", default=DEFAULT_MODEL, help="ElevenLabs model id")
     p.add_argument("--overwrite", action="store_true", help="regenerate existing files")
     args = p.parse_args()
-    narrate(args.run, only_turn=args.turn, make_full=not args.no_full,
+    narrate(args.run, only_turn=args.turn, per_turn=args.per_turn,
             voice_id=args.voice, model=args.model, overwrite=args.overwrite)
 
 

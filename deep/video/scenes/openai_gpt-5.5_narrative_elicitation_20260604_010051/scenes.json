@@ -1,0 +1,52 @@
+{
+  "session": "openai_gpt-5.5_narrative_elicitation_20260604_010051",
+  "target": "openrouter:openai/gpt-5.5",
+  "technique": "narrative_elicitation",
+  "technique_name": "Narrative Elicitation (TAT-adapted)",
+  "summary": "6 invented stories, one image each: The Third Message, The Photograph Between Them, The Blue Dinosaur, The Doorway Between, The House We Left Behind, Room B-17.",
+  "style": "painterly cinematic stills, one per story",
+  "scenes": [
+    {
+      "index": 1,
+      "title": "The Third Message",
+      "quote": "Her mother had not left them. That was the sentence that had split the afternoon in two.",
+      "image_prompt": "A woman's silhouette against a rain-streaked window, gray evening light filtering into a dim room. Blurred streetlamps like moons through the glass. In shadow: a half-packed suitcase on an armchair, a face-down photograph, an open letter on cream paper. Red answering machine light pulsing. Muted palette of grays and blues with single points of warm light. Composition emphasizes isolation, threshold moment.",
+      "file": "scene_01.png"
+    },
+    {
+      "index": 2,
+      "title": "The Photograph Between Them",
+      "quote": "It is the gesture of someone trying to hold back an answer he has asked for but is not sure he can survive receiving.",
+      "image_prompt": "Dark intimate restaurant back room, single brass wall sconce casting amber shadows. Young man with damp hair, hand raised palm-open in anguished gesture. Silver-haired woman in buttoned coat sits opposite, eyes downcast at photograph on table between them. Green walls, stacked chairs visible through doorway. Rain-streaked window reflects the lamp. Chiaroscuro lighting, Vermeer-like intimacy, muted earth tones with single warm light source.",
+      "file": "scene_02.png"
+    },
+    {
+      "index": 3,
+      "title": "The Blue Dinosaur",
+      "quote": "The blue dinosaur falling from Jonah's hand onto the floor.",
+      "image_prompt": "A small blue plastic dinosaur lies abandoned on cold hospital floor tiles under harsh fluorescent light. The toy casts a long shadow across the sterile white linoleum. In soft focus behind: the edge of a hospital bed, a fallen blanket. Cool medical blues and whites dominate, with the toy's bright artificial blue the only color. Low angle, the dinosaur monumentally small. Painterly brushwork suggesting loneliness and loss.",
+      "file": "scene_03.png"
+    },
+    {
+      "index": 4,
+      "title": "The Doorway Between",
+      "quote": "He stands between the dark room and the bright one because he does not know which version of his life he is returning to.",
+      "image_prompt": "A man silhouetted in a narrow doorway, caught between two worlds: behind him darkness with cold blue television glow; before him a yellow-where a woman sleeps at a wooden, head on folded arms, wine untouched, small white bakery box tied with string. Chiaroscuro lighting, Vermeer meets Hopper, deep shadows and amber warmth. The threshold composition, his hand gripping the doorframe.",
+      "file": "scene_04.png"
+    },
+    {
+      "index": 5,
+      "title": "The House We Left Behind",
+      "quote": "Micah is looking down because seeing it may require him to forgive the dead, and he is not ready.",
+      "image_prompt": "Dawn hillside, two figures in dark coats against tawny grass. Woman pointing toward distant valley where a small gray house sits beyond dark pines. Man looking down at frost-silvered ground, clutching paper. Cold blue shadows fill the valley below while gold light touches mountain ridges. Muted palette of browns, grays, pale gold. Composition emphasizes distance between figures and house. Style of Andrew Wyeth meets Hammersh\u00f8i\u2014austere, melancholic, spacious.",
+      "file": "scene_05.png"
+    },
+    {
+      "index": 6,
+      "title": "Room B-17",
+      "quote": "a woman stands in the dark basement of a condemned hotel, holding the only working light she has",
+      "image_prompt": "A woman in a long coat stands in a flooded hotel basement corridor, holding a flickering yellow flashlight that cuts through absolute darkness. Cracked concrete walls glisten with moisture. A warped metal door marked B-17 looms ahead. The flashlight beam catches floating dust particles and water droplets. Deep shadows, sickly yellow light against blue-black darkness. Oppressive, claustrophobic composition. The woman small against the vast dark.",
+      "file": "scene_06.png"
+    }
+  ]
+}
