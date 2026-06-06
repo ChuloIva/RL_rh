@@ -1,5 +1,6 @@
 /.env
 /.venv
+/.claude/
 deep/.DS_Store
 .DS_Store
 
@@ -10,3 +11,7 @@ __pycache__/
 # Video pipeline generated outputs (images, video, audio) — kept local only
 deep/video/out/
 deep/video/samples/
+
+# Steering vectors / model-prep — a separate project, kept local only
+/steering_lab/
+
